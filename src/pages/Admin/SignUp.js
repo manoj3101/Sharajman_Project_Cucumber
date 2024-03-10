@@ -1,5 +1,6 @@
 const RandomFunction = require("../../helper/utils/RandomFunction");
 const { test, expect } = require('@playwright/test');
+const data = require("../../helper/utils/data.json");
 const pageFixture = require("../../hooks/pageFixture");
 
 class SignUp {
@@ -9,6 +10,20 @@ class SignUp {
     //     this.page =page;
     // }
 
+    f_name = this.generateRandomFirstName();
+    l_name = this.generateRandomLastName();
+    Name = this.f_name + this.l_name;
+    email_id = this.Name + "@yopmail.com"
+
+    // f_name = () => {
+    //     return function generateRandomFirstName() {
+    //         const firstNames = [
+    //             'John', 'Emma', 'Michael', 'Sophia', 'William', 'Olivia', 'James', 'Ava', 'Alexander', 'Riya',
+    //             'Ethan', 'Emily', 'Daniel', 'Isabella', 'Benjamin', 'Amelia', 'Logan', 'Mia', 'Matthew', 'Charlotte'
+    //         ];
+    //         return firstNames[Math.floor(Math.random() * firstNames.length)];
+    //     }
+    // };
 
     //locators or xpaths
     signup = "//a[@href='signup']";
@@ -58,7 +73,7 @@ class SignUp {
     //again loginstep 
     //again otp step
 
-    
+
 
     //-------------------------------------------------------------------------------------------------------------------
     //Methods
@@ -101,16 +116,32 @@ class SignUp {
         return number.toString().padStart(10, '9');
     }
 
-
+    //-------------------------------------------------------------------------------------------------------------------
 
 
 
     async signup() {
         //Navigate to the url
-        await pageFixture.page.goto()
+        await pageFixture.page.goto(data.URL, { waitUntil: 'load' });
+        await pageFixture.page.locator(this.signup).click({ timeout: 40000 }); //Click signUp Link
+        await pageFixture.page.locator(this.fname).fill(this.f_name());
+        await pageFixture.page.locator(this.lname).fill(l_name);
+        await pageFixture.page.locator(this.mobileno).fill(mobile_no);
+        await pageFixture.page.locator(this.email).fill(email_id);
+        await pageFixture.page.check(this.DISCOM);
+        await pageFixture.page.locator(this.Password).fill("Testing@321");
+        await pageFixture.page.locator(this.confirm_password).fill("Testing@321");
 
-        
+
+
+        await pageFixture.page.getByPlaceholder('Email Address').fill(email);
+        await pageFixture.page.getByPlaceholder('Password').fill(password);
+        await pageFixture.page.getByRole('button', { name: 'Login' }).click({ timeout: 50000 });
+        await pageFixture.page.waitForTimeout(3000);
+
+
     }
 
 
 }
+module.exports = SignUp;

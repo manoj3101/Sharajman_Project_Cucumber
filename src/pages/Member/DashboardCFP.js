@@ -55,7 +55,7 @@ class DashboardCFP {
     mm = "//input[@aria-label='Minutes']";
 
     //Other Details
-    settlement = "(//select[contains(@aria-label,'Floating label select example')])[2]";
+    settlement = "(//select[contains(@aria-label,'Floating label select example')])[3]";
 
     //Ceiling Return for Import
     ceiling_baseYes = "//label[contains(@for,'PercentageYes')]";
@@ -102,9 +102,9 @@ class DashboardCFP {
             case "Custom CFP":
                 await pageFixture.page.locator("//span[contains(text(),'" + chooseCFP + "')]").nth(0).click();
                 console.log(`Clicked ${chooseCFP}`);
-                await pageFixture.page.waitForTimeout(2000);
+                await pageFixture.page.waitForTimeout(3000);
                 await pageFixture.page.getByRole('textbox').setInputFiles('src/helper/utils/CFP.pdf');
-                await pageFixture.page.waitForTimeout(4000);
+                await pageFixture.page.waitForTimeout(6000);
                 break;
         }
         // await pageFixture.page.locator("//span[contains(text(),'Quick CFP')]").click();
@@ -371,7 +371,8 @@ class DashboardCFP {
             //console.log(textContent);
             if (textContent.includes(CFP)) {
                 console.log("-------------------My CFP---------------: " + CFP);
-                await pageFixture.page.locator("(//button[contains(text(),'Respond')])[" + (i + 1) + "]").click();
+                //(//span[contains(@class,'digital-time')]/following-sibling::div/button)[1]
+                await pageFixture.page.locator("(//span[contains(@class,'digital-time')]/following-sibling::div/button)[" + (i + 1) + "]").click();
                 console.log("                  ✔ Clicked Respond ✔                 ");
                 break;
             }
@@ -488,7 +489,8 @@ class DashboardCFP {
             //console.log(textContent);
             if (textContent.includes(CFP)) {
                 console.log("-------------------CFP---------------: " + CFP);
-                await pageFixture.page.locator("(//button[contains(text(),'View Response')])[" + (i + 1) + "]").click();
+                // await pageFixture.page.locator("(//button[contains(text(),'View Response')])[" + (i + 1) + "]").click();
+                await pageFixture.page.locator("(//span[contains(@class,'digital-time')]/following-sibling::div/button)[" + (i + 1) + "]").click();
                 console.log("               ✔ Clicked view Response ✔            ");
                 break;
             }

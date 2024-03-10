@@ -7,13 +7,13 @@
             "src/tests/features/*/*.feature"    
         ],
        
-        "dryRun": true,
+        "dryRun": false,
         "require": [
             "src/tests/steps/*/*.js",
             "src/hooks/hooks.js"
         ],
         "format": [
-            "html:test-results/TC_EX_00.html", 
+            "html:test-results/Report.html", 
             "json:test-results/cucumber-report.json"         
         ]
        

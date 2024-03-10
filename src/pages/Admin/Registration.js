@@ -1,7 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const pageFixture = require("../../hooks/pageFixture");
+const data = require("../../helper/utils/data.json");
+const SignUp = require('../Admin/SignUp');
 
-
+const signUp = new SignUp()
 class Registration {
     // Constructor
     // constructor(page){
@@ -9,6 +11,7 @@ class Registration {
     // }
 
     //locators or xpaths
+    
 
     //preregistration 
     //NORA details
@@ -40,48 +43,51 @@ class Registration {
 
 
     //Connection Details
-    discom_type="//select[@id='discom_type']"; //value="PRI" | value="GOV"| value="DEEMEDDISTRIBUTION" | value="SEZ" | value="RAILWAY"
-    maxinjcapacity= "//input[@id='maxinjcapacity'];";
-    maxdrawncap= "//input[@id='maxdrawncap']";
-    POCZone= "//select[@id='poc_state_id']";  //value="null-32" ==Tamil nadu
+    discom_type = "//select[@id='discom_type']"; //value="PRI" | value="GOV"| value="DEEMEDDISTRIBUTION" | value="SEZ" | value="RAILWAY"
+    maxinjcapacity = "//input[@id='maxinjcapacity'];";
+    maxdrawncap = "//input[@id='maxdrawncap']";
+    POCZone = "//select[@id='poc_state_id']";  //value="null-32" ==Tamil nadu
     //next button 
 
 
     //Bank Details
-    bankName="//select[@id='bankid']";  //value="1" to value="131"
-    branchName= "//input[@id='branch']";
-    accountHolderName="//input[@id='accountname']";
-    accountNumber="//input[@id='accountnumber']";  //11 digit 
-    IFSC_Code="//input[@id='ifsccode']"; //11 digit 
-    MICR_Code="//input[@id='micrcode']"; //9 digit 
+    bankName = "//select[@id='bankid']";  //value="1" to value="131"
+    branchName = "//input[@id='branch']";
+    accountHolderName = "//input[@id='accountname']";
+    accountNumber = "//input[@id='accountnumber']";  //11 digit 
+    IFSC_Code = "//input[@id='ifsccode']"; //11 digit 
+    MICR_Code = "//input[@id='micrcode']"; //9 digit 
     //netx button 
 
 
     //Upload Documents
-    address_upload="//input[@id='formFile0']";
-    CIN_upload="//input[@id='formFile1']";
-    GST_upload="//input[@id='formFile2']";
-    bank_account_upload="//input[@id='formFile3']";
-    pan_upload="//input[@id='formFile4']";
-    GST_Exemption_upload="//input[@id='formFile5']";
-    submitRegistrationData="(//button[@uisref='personal'])[2]";
+    address_upload = "//input[@id='formFile0']";
+    CIN_upload = "//input[@id='formFile1']";
+    GST_upload = "//input[@id='formFile2']";
+    bank_account_upload = "//input[@id='formFile3']";
+    pan_upload = "//input[@id='formFile4']";
+    GST_Exemption_upload = "//input[@id='formFile5']";
+    submitRegistrationData = "(//button[@uisref='personal'])[2]";
 
     //assert the alert message
-    alertMessage="//ngb-alert[@role='alert']"; //.textcontent()
+    alertMessage = "//ngb-alert[@role='alert']"; //.textcontent()
 
 
-
+    async registration(){
+        await pageFixture.page.locator().fill(signUp.f_name)
+    }
 
 
 
 
 
 }
+module.exports = Registration;
 
 //Telephone Number 
 const teleNo = Math.floor(Math.random() * 1000000000); // Random 9-digit number
 const TelephoneNo = teleNo.toString().padStart(10, '0');
 console.log(TelephoneNo);
 
-Name="(//span[@class='name'])[2]";
+Name = "(//span[@class='name'])[2]";
 companyName = "//span[@class='comp-name']";

@@ -61,3 +61,4 @@ class Payment_Approval {
     }
 
 }
+module.exports=Payment_Approval;

@@ -350,10 +350,10 @@ class LOAManagement {
 
         this.application_no = randomNumber.toString();
 
-        console.log(`Application Number : ${application_no}`);
+        console.log(`Application Number : ${this.application_no}`);
 
         //Application Number
-        await pageFixture.page.getByPlaceholder('Search Organization').fill(application_no);
+        await pageFixture.page.getByPlaceholder('Search Organization').fill(this.application_no);
 
         //Transaction under GTAM (Yes/No)
         //Value = YES | NO 
