@@ -24,7 +24,6 @@ class DashboardCFP {
     //     this.browser = browser;        
     // }
 
-    //manoj
 
     CFP_Num = null;
 
