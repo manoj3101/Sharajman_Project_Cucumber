@@ -740,6 +740,7 @@ class DashboardCFP {
             await award.click();
             await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+            await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
             //asserting the Awarded Successfully.
             const awarded = await pageFixture.page.locator("//*[contains(text(),'Responder Awarded successfully')]").textContent();
             await expect(awarded).toContain("Responder Awarded successfully");
