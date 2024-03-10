@@ -163,7 +163,7 @@ Then('Awarding and Generate LOA should be successfull as Expected as per import 
 
     await dashboardCFP.energycalculation_responder(data.TC_09.exp_start_date, data.TC_09.exp_end_date, data.TC_09.exp_start_time, data.TC_09.exp_end_time, data.TC_09.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber);
+    await dashboardCFP.generateLOA(cfpNumber, data.TC_09.imp_start_date, data.TC_09.imp_end_date, data.TC_09.imp_start_time, data.TC_09.imp_end_time, data.TC_09.Quantum_value, data.TC_09.exp_start_date, data.TC_09.exp_end_date, data.TC_09.exp_start_time, data.TC_09.exp_end_time, data.TC_09.ReturnValue1, data.TC_09.Settlement_Price);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
     console.log("Initiator Uploaded the LOA documents successfully. \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");

@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "cucumber-html-reporter": "^6.0.0",
+    "fs": "^0.0.1-security",
+    "pdf-parse": "^1.1.1",
     "playwright": "^1.41.2"
   }
 }

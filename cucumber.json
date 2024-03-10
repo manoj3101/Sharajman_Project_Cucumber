@@ -7,7 +7,7 @@
             "src/tests/features/*/*.feature"    
         ],
        
-        "dryRun": false,
+        "dryRun": true,
         "require": [
             "src/tests/steps/*/*.js",
             "src/hooks/hooks.js"

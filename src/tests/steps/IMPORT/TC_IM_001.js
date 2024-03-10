@@ -165,7 +165,7 @@ Then('Awarding and Generate LOA should be successfull as per import case one', a
 
     await dashboardCFP.energycalculation_responder(data.TC_01.exp_start_date, data.TC_01.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber);
+    await dashboardCFP.generateLOA(cfpNumber, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value, data.TC_01.exp_start_date, data.TC_01.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1, data.TC_01.Settlement_Price);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -185,13 +185,12 @@ Given('User started Uploading the documents from Responder Side as per import ca
 });
 
 
-
 Then('Responder Uploading the documents should be successfull as per import case one', async function () {
 
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber);
+    await loaManagement.uploadDocument(cfpNumber, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value, data.TC_01.exp_start_date, data.TC_01.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1, data.TC_01.Settlement_Price);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
@@ -202,7 +201,7 @@ Then('Responder Uploading the documents should be successfull as per import case
 //@                                                     Scenario 5
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User started generating Format D from initiator side as per import case one', async function () {
+Then('Format D should be successfully Generated from initiator side as per import case one', async function () {
 
     //cfp carried from initial Step definition
     const cfpNumber = global.cfpNumber;
@@ -212,12 +211,29 @@ Given('User started generating Format D from initiator side as per import case o
 
     await loaManagement.action(cfpNumber);
 
+    await loaManagement.formatD(data.TC_01.GTAM, data.TC_01.source_of_generation, data.TC_01.RPO, data.TC_01.TGNA, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value);
+
+
+
 });
 
 
-Then('Format D  should be successfully Generated as per import case one', async function () {
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 6
+//-------------------------------------------------------------------------------------------------------------------------
 
-    await loaManagement.formatD(data.TC_01.GTAM, data.TC_01.source_of_generation, data.TC_01.RPO, data.TC_01.TGNA);
+Then('Format D should be successfully Generated from Responder side as per import case one', async function () {
+
+    //cfp carried from initial Step definition
+    const cfpNumber = global.cfpNumber;
+    console.log("Global CFP: " + cfpNumber);
+
+    await loaManagement.loaGeneration();
+
+    await loaManagement.action_FormatD(cfpNumber);
+
+    await loaManagement.formatD(data.TC_01.GTAM, data.TC_01.source_of_generation, data.TC_01.RPO, data.TC_01.TGNA, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value);
+
 
 });
 
