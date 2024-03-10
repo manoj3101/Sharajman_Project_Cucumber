@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cucumber-js test"
+    "test": "npx cucumber-js test",
+    "allure:generate": "npx allure generate ./allure-results --clean",
+    "allure:open": "allure open allure-report",
+    "all": "npm test && npm run allure:generate && npm run allure:open"
   },
   "keywords": [],
   "author": "",
