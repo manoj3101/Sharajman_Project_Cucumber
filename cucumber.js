@@ -1,7 +1,8 @@
 let options = [
     '--require ./--require ./src/tests/steps/*/*.js', // Load steps
     '--format html:test-results/Report.html', //HTML Report
-    '--format json:test-results/cucumber-report.json' //Json Report
+    '--format json:test-results/cucumber-report.json', //Json Report
+    '--dry-run'
 ].join(' ')
 
 
@@ -18,12 +19,14 @@ let run_features = [
 ].join(' ');
 
 let sanity_run = [
-    './src/tests/features/EXPORT/TC_EX_001.feature', // Specify our feature files location
-    // './src/tests/features/EXPORT/TC_EX_002.feature',
-    // './src/tests/features/IMPORT/TC_IM_001.feature',
+       './src/tests/features/ADMIN/TC_AD_001.feature',
+    // './src/tests/features/EXPORT/TC_EX_001.feature', // Specify our feature files location
+    // './src/tests/features/EXPORT/TC_EX_002.feature', // Export => src/tests/steps/EXPORT/*.feature
+    // './src/tests/features/IMPORT/TC_IM_001.feature', // Import => src/tests/steps/IMPORT/*.feature
     // './src/tests/features/IMPORT/TC_IM_002.feature',
     '--format html:test-results/Report.html', //HTML Report
-    '--format json:test-results/cucumber-report.json' //Json Report
+    '--format json:test-results/cucumber-report.json', //Json Report
+    
 ].join(' ');
 
 // Ensure proper escaping of quotes for JSON options and join the array elements with a space
@@ -34,5 +37,4 @@ const options2 = `${opt} ${sanity_run}`;
 module.exports = {
     test_runner: options2,
     parallel: 1,
-    dryRun: false, // Enable dry run mode
 };

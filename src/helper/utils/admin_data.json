@@ -1,4 +1,23 @@
 {
-    "admin":"manoj@yopmail.com",
-    "admin_password":"K#(j{83&ym"
+    "admin": "manoj@yopmail.com",
+    "admin_password": "K#(j{83&ym",
+    "AD_01": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "Home": "Check",
+        "Initiate": "Check",
+        "Award": "Check",
+        "Respond": "Check",
+        "LOA_Generation": "Check",
+        "FormatD": "Check",
+        "Registration": "Check",
+        "Manage_User": "Check"
+    }
 }

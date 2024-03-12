@@ -1,5 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const pageFixture = require("../../hooks/pageFixture");
+const data = require("../../helper/utils/data.json");
+const admin_data = require('../../helper/utils/admin_data.json');
+const SignUp = require('../Admin/SignUp');
 
 
 // Get the current date
