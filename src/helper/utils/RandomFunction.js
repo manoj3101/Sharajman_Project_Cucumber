@@ -4,8 +4,10 @@ class RandomFunction {
     // Generate a random first name
     generateRandomFirstName() {
         const firstNames = [
-            'John', 'Emma', 'Michael', 'Sophia', 'William', 'Olivia', 'James', 'Ava', 'Alexander', 'Riya',
-            'Ethan', 'Emily', 'Daniel', 'Isabella', 'Benjamin', 'Amelia', 'Logan', 'Mia', 'Matthew', 'Charlotte'
+            'Jackson', 'Madison', 'Landon', 'Chloe', 'Grayson', 'Zoe', 'Wyatt', 'Grace', 'Caleb', 'Lily',
+            'Luke', 'Hannah', 'Gabriel', 'Natalie', 'Isaac', 'Avery', 'Ryan', 'Addison', 'Nathan', 'Ella',
+            'David', 'Scarlett', 'Owen', 'Victoria', 'Evan', 'Aria', 'Jack', 'Bella', 'Levi', 'Samantha',
+            'Nicholas', 'Layla', 'Tyler', 'Penelope', 'Christian', 'Aubrey', 'Jonathan', 'Nora', 'Samuel', 'Camila'
         ];
         return firstNames[Math.floor(Math.random() * firstNames.length)];
     }
@@ -13,23 +15,29 @@ class RandomFunction {
     // Generate a random last name
     generateRandomLastName() {
         const lastNames = [
-            'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Garcia', 'Rodriguez', 'Wilson',
-            'Martinez', 'Anderson', 'Taylor', 'Thomas', 'Hernandez', 'Moore', 'Martin', 'Jackson', 'Thompson', 'White'
+            'Clark', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Harris', 'Scott', 'Green',
+            'Adams', 'Baker', 'Gonzalez', 'Nelson', 'Carter', 'Mitchell', 'Perez', 'Roberts', 'Turner', 'Phillips',
+            'Campbell', 'Parker', 'Evans', 'Edwards', 'Collins', 'Stewart', 'Sanchez', 'Morris', 'Rogers', 'Reed',
+            'Cook', 'Morgan', 'Bell', 'Murphy', 'Bailey', 'Rivera', 'Cooper', 'Jack', 'Cox', 'Howard'
         ];
         return lastNames[Math.floor(Math.random() * lastNames.length)];
     }
 
     // Generate a random organization name
     generateRandomOrganizationName() {
-        // const organizationNames = [
-        //     'Tech Solutions', 'Innovative Designs', 'Global Enterprises', 'Creative Minds', 'Digital Solutions', 
-        //     'NextGen Technologies', 'Smart Systems', 'CodeCraft', 'Agile Innovations', 'FutureTech', 
-        //     'TechGenius', 'Data Dynamics', 'Digital Edge', 'TechCraft', 'Software Wizards', 
-        //     'TechStar', 'Visionary Technologies', 'Data Systems', 'Innovative Minds', 'Strategic IT'
-        // ];
         const organizationNames = [
-            'Creative Minds', 'FutureTech', 'TechGenius', 'TechCraft', 'TechStar'
+            'Bright Horizons', 'Tech Titans', 'Innovation Hub', 'Pixel Perfect', 'Quantum Solutions',
+            'Elite Creations', 'Code Masters', 'Digital Dreamers', 'Global Vision', 'Agile Solutions',
+            'NexTech Innovations', 'Data Dexterity', 'Smart Solutions', 'Fusion Technologies', 'Web Wizards',
+            'Future Horizons', 'Silver Lining', 'Cyber Dynamics', 'Tech Savvy', 'Virtual Ventures',
+            'Digital Architects', 'Innovate Labs', 'Cloud Chasers', 'Tech Trek', 'Alpha Omega',
+            'Synergy Solutions', 'Epic Innovations', 'Summit Strategies', 'Tech Fusion', 'Phoenix Solutions',
+            'Elevate Labs', 'Infinite Solutions', 'Byte Builders', 'Strategic Synergy', 'InnovaTech',
+            'Pioneer Partners', 'Blue Sky Technologies', 'Quantum Leap', 'Dynamic Designs', 'Apex Solutions',
+            'Nova Nexus', 'Hyperion Innovations', 'Tech Trails', 'Innovate Zone', 'Future Forge',
+            'Digital Dynamics', 'Vertex Ventures', 'Strategic Solutions', 'Creative Catalysts', 'Prime Partners'
         ];
+    
         return organizationNames[Math.floor(Math.random() * organizationNames.length)];
     }
 

@@ -23,8 +23,8 @@ class Registration {
     noar_id = (Math.floor(Math.random() * 900000) + 100000).toString(); // Random 6-digit number
 
     //Basic Details
-    org_short_name = signUp.org_name.substring(0, 3).toUpperCase(); //Organization Short name (should be 3 to 10 char)
-    correspondence_Address = "19, B2, Emporio, 33, 10th Ave, Ashok Nagar, Chennai, Tamil Nadu 600083";
+    Org_Short_Name = signUp.org_name.substring(0, 3).toUpperCase(); //Organization Short name (should be 3 to 10 char)
+    Correspondence_Address = "19, B2, Emporio, 33, 10th Ave, Ashok Nagar, Chennai, Tamil Nadu 600083";
     City = "Chennai";
     Pin_Code = "600083";
     Country = "India";
@@ -37,7 +37,7 @@ class Registration {
     companyDate = "2010-02-10"; //Comapany started date
     BranchName = "Ashok Nagar"; //Branch Name
     AccountHolderName = signUp.Name; //Account Holder Name
-    AccountNumber = (Math.floor(Math.random() * 9000000000) + 1000000000).toString(); //Account Number 
+    AccountNumber = (Math.floor(Math.random() * 90000000000) + 10000000000).toString(); //Account Number 
     IFSC = randomFunction.generateRandomIFSC(); //11 Digit 
     MICR = (Math.floor(Math.random() * 900000000) + 100000000).toString();
 
@@ -79,7 +79,7 @@ class Registration {
 
     //Connection Details
     discom_type = "//select[@id='discom_type']"; //value="PRI" | value="GOV"| value="DEEMEDDISTRIBUTION" | value="SEZ" | value="RAILWAY"
-    maxinjcapacity = "//input[@id='maxinjcapacity'];";
+    maxinjcapacity = "//input[@id='maxinjcapacity']";
     maxdrawncap = "//input[@id='maxdrawncap']";
     RLDC = "//input[@formcontrolname='rldc_code']";
     POCZone = "//select[@id='poc_state_id']";  //value="null-32" == Tamil Nadu(TN) 
@@ -114,31 +114,33 @@ class Registration {
     alertMessage = "//ngb-alert[@role='alert']"; //.textcontent()
 
 
-    async registration() {
-        await pageFixture.page.locator().fill(signUp.f_name)
-    }
-
     //NOAR Details
     async NOAR_Details(noar) {
         if (noar) {
+            await pageFixture.page.waitForTimeout(2000);
             await pageFixture.page.check(this.nora_yes); //NOAR yes
             await pageFixture.page.locator(this.noar_ID).fill(this.noar_id); // Fill the NOAR ID
             await pageFixture.page.click(this.noar_agree); //Click the agree button
             await pageFixture.page.click(this.proceed_register); //Proceed Register
+            console.log(`               ---NOAR DETAILS COMPELETED---               `);
         }
         else {
             await pageFixture.page.check(this.nora_No); //NOAR No
             await pageFixture.page.click(this.proceed_register); //Proceed Register
+            console.log(`               ---NOAR DETAILS COMPELETED---               `);
         }
     }
 
     //Basic Details
     async basic_Details(natureofapplicant, gsttype) {
-        await pageFixture.page.locator(this.org_short_name).fill() //org_short Name
-        await pageFixture.page.locator(this.address).fill(this.correspond_address); //Fillthe address
-        await pageFixture.page.locator(this.city).fill(); //Fill the city name
-        await pageFixture.page.locator(this.pincode).fill(); //Fill the pincode
+        await pageFixture.page.waitForTimeout(3000);
+        await pageFixture.page.locator(this.org_short_name).fill(this.Org_Short_Name) //org_short Name
+        await pageFixture.page.locator(this.address).fill(this.Correspondence_Address); //Fillthe address
+        await pageFixture.page.locator(this.city).fill(this.City); //Fill the city name
+        await pageFixture.page.locator(this.pincode).fill(this.Pin_Code); //Fill the pincode
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.locator(this.country).selectOption({ value: "1" }); //Select the country 
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.locator(this.state).selectOption({ value: "32" }); //Select the state 
         await pageFixture.page.click(this.correspond_address, { timeout: 40000 }); //Click the check box for proceed with same address
         await pageFixture.page.locator(this.cin).fill(this.CIN); //Fill the CIN
@@ -149,34 +151,44 @@ class Registration {
         await pageFixture.page.locator(this.natureOfApplicant).selectOption({ value: natureofapplicant }); //Nature of application 
         await pageFixture.page.locator(this.dateOfCompanyIncorporation).fill(this.companyDate); //Fill the company date 
         await pageFixture.page.locator(this.gst_type).selectOption({ value: gsttype }); //Select the GST TYPE 
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.click(this.next); //Click next to proceed the registration 
+        console.log(`              ---BASIC DETAILS COMPELETED---              `);
     }
 
 
     // Connection Details
     async connection_Details(discomType, Max_Inj_Cap, Max_Draw_Cap) {
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.locator(this.discom_type).selectOption({ value: discomType }); //Discom Type
         await pageFixture.page.locator(this.maxinjcapacity).fill(Max_Inj_Cap); //Max Injection Capacity
         await pageFixture.page.locator(this.maxdrawncap).fill(Max_Draw_Cap); //Max Drawal Capacity
         await pageFixture.page.locator(this.RLDC).fill("4567856"); //RLDC 
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.locator(this.POCZone).selectOption({ value: "null-32" }); //value:"null-32"  Tamil Nadu(TN) 
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.click(this.next, { timeout: 40000 }); //Click next to proceed the registration 
+        console.log(`            ---CONNECTION DETAILS COMPELETED---            `);
     }
 
     //Bank Details
     async bank_Details() {
+        await pageFixture.page.waitForTimeout(2000);
         await pageFixture.page.locator(this.bankName).selectOption({ value: "19" }); //Bnamk Name | Bank Of India 
-        await pageFixture.page.locator(this.branchName).fill(); //Branch Name
+        await pageFixture.page.locator(this.branchName).fill(this.BranchName); //Branch Name
         await pageFixture.page.locator(this.accountHolderName).fill(this.AccountHolderName); //Fill the Account Holder Name
         await pageFixture.page.locator(this.accountNumber).fill(this.AccountNumber); //Fill the Account Numnber
         await pageFixture.page.locator(this.IFSC_Code).fill(this.IFSC); //Fill the IFSC code
         await pageFixture.page.locator(this.MICR_Code).fill(this.MICR); //Fill the MIRC code
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.click(this.next, { timeout: 40000 }); //Click next to proceed the registration 
+        console.log(`              ---BANK DETAILS COMPELETED---             `);
     }
 
     //Upload Documents
     async upload_Documents() {
         let filePath = "src/helper/utils/CFP.pdf";
+        await pageFixture.page.waitForTimeout(2000);
         //Address Proof (Declaration On Letter Head)* ==> 8 Certificate
         await pageFixture.page.waitForSelector(this.address_upload);
         await pageFixture.page.locator(this.address_upload).setInputFiles(filePath);
@@ -209,11 +221,18 @@ class Registration {
         await pageFixture.page.waitForSelector(this.TAN_Certificate_upload);
         await pageFixture.page.locator(this.TAN_Certificate_upload).setInputFiles(filePath);
         await pageFixture.page.waitForTimeout(4000);
+        console.log(`              ---UPLOAD DOCUMENT COMPELETED---              `);
         //Submit Registration
         await pageFixture.page.click(this.submitRegistrationData);
 
-        //Assert the OTP Message 
-        const alertmsg_assert = await pageFixture.page.locator(this.alertMessage).textContent();
+
+        //Assert the alertmsg Message 
+        const submittedapproval_assert = await pageFixture.page.locator("//*[contains(text(),'Request Submitted for approval')]").textContent();
+        expect(submittedapproval_assert).toContain("✔ Request Submitted for approval ✔");
+        console.log(`✔ ${submittedapproval_assert}`);
+
+        //Assert the alertmsg Message 
+        const alertmsg_assert = await pageFixture.page.locator("//*[contains(text(),'Registration pending for approval')]").textContent();
         expect(alertmsg_assert).toContain("Registration pending for approval");
         console.log(`✔ ${alertmsg_assert}`);
 

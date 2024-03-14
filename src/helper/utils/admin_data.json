@@ -11,13 +11,15 @@
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "Home": "Check",
-        "Initiate": "Check",
-        "Award": "Check",
-        "Respond": "Check",
-        "LOA_Generation": "Check",
-        "FormatD": "Check",
-        "Registration": "Check",
-        "Manage_User": "Check"
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true
     }
 }

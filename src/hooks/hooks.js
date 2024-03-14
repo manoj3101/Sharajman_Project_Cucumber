@@ -12,7 +12,6 @@ let context = BrowserContext;
 BeforeAll(async function () {
     //Lauching the berowser
     browser = await invokeBrowser();
-
 });
 
 Before(async function () {
@@ -30,7 +29,7 @@ After(async function ({ pickle, result }) {
     //     const img = await pageFixture.page.screenshot({ path: `./test-results/screenshots/${pickle.name}.png`, type: "png" })
     //     await this.attach(img,"image/png");
     // }
-    const img = await pageFixture.page.screenshot({ path: `./test-results/screenshots/${pickle.name}.png`, type: "png" })
+    const img = await pageFixture.page.screenshot({ path: `./test-results/screenshots/${pickle.name}.png`, type: "png" });
     await this.attach(img, "image/png");
 
     // Close page and browser

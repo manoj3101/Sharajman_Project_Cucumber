@@ -1,5 +1,4 @@
 node_modules/
 /blob-report/
 /playwright/.cache/
-/blob-report/
-/playwright/.cache/
+

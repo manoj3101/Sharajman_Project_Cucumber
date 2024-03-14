@@ -2,7 +2,6 @@ const RandomFunction = require("../../helper/utils/RandomFunction");
 const { test, expect } = require('@playwright/test');
 const data = require("../../helper/utils/data.json");
 const pageFixture = require("../../hooks/pageFixture");
-const RandomFunction = require('../../helper/utils/RandomFunction');
 
 //Object Instance
 const randomFunction = new RandomFunction();
@@ -17,12 +16,9 @@ class SignUp {
     //Variable
     f_name = randomFunction.generateRandomFirstName(); //First Name 
     l_name = randomFunction.generateRandomLastName(); //Last Name 
-    // f_name = this.generateRandomFirstName(); //First Name 
-    // l_name = this.generateRandomLastName(); //Last Name 
     Name = this.f_name + " " + this.l_name; // Combined Name 
     phone_no = randomFunction.generateRandomMobileNumber(); //Mobile number 
     email_id = this.f_name + this.l_name + "@yopmail.com";  //Email ID 
-    // org_name = this.generateRandomOrganizationName();  //Organization Name
     org_name = randomFunction.generateRandomOrganizationName();  //Organization Name
 
     pass_word = "Testing@321"; //Old Password 
@@ -65,59 +61,10 @@ class SignUp {
     confirm = "//input[@placeholder='Confirm Password']";
 
     Change_password = "//button[contains(text(),'Change Password')]";
-
     TFA_OTP = "//input[@value='OTP']/.."
-    //yes button need to come here after clicking otp
-    //same otp xpath for this also
-
-    //again loginstep 
-    //again otp step 
-
 
     //-------------------------------------------------------------------------------------------------------------------
     //Methods
-
-    // Generate a random first name
-    generateRandomFirstName() {
-        const firstNames = [
-            'John', 'Emma', 'Michael', 'Sophia', 'William', 'Olivia', 'James', 'Ava', 'Alexander', 'Riya',
-            'Ethan', 'Emily', 'Daniel', 'Isabella', 'Benjamin', 'Amelia', 'Logan', 'Mia', 'Matthew', 'Charlotte'
-        ];
-        return firstNames[Math.floor(Math.random() * firstNames.length)];
-    }
-
-    // Generate a random last name
-    generateRandomLastName() {
-        const lastNames = [
-            'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Garcia', 'Rodriguez', 'Wilson',
-            'Martinez', 'Anderson', 'Taylor', 'Thomas', 'Hernandez', 'Moore', 'Martin', 'Jackson', 'Thompson', 'White'
-        ];
-        return lastNames[Math.floor(Math.random() * lastNames.length)];
-    }
-
-    // Generate a random organization name
-    generateRandomOrganizationName() {
-        // const organizationNames = [
-        //     'Tech Solutions', 'Innovative Designs', 'Global Enterprises', 'Creative Minds', 'Digital Solutions', 
-        //     'NextGen Technologies', 'Smart Systems', 'CodeCraft', 'Agile Innovations', 'FutureTech', 
-        //     'TechGenius', 'Data Dynamics', 'Digital Edge', 'TechCraft', 'Software Wizards', 
-        //     'TechStar', 'Visionary Technologies', 'Data Systems', 'Innovative Minds', 'Strategic IT'
-        // ];
-        const organizationNames = [
-            'Creative Minds', 'FutureTech', 'TechGenius', 'TechCraft', 'TechStar'
-        ];
-        return organizationNames[Math.floor(Math.random() * organizationNames.length)];
-    }
-
-    // Generate a random Phone number
-    generateRandomMobileNumber() {
-        const number = Math.floor(Math.random() * 1000000000); // Random 9-digit number
-        return number.toString().padStart(10, '9');
-    }
-
-    //-------------------------------------------------------------------------------------------------------------------
-
-
     //signUp
     async signup() {
         //Navigate to the url
@@ -139,15 +86,17 @@ class SignUp {
 
 
         console.log(`Name : ${this.Name}`);
-        console.log(`Organization : ${this.org_name}`);
+        console.log(`Organization name : ${this.org_name}`);
         console.log(`Email_ID : ${this.email_id}`);
 
         //Assert the OTP Message 
         const otp_assert = await pageFixture.page.locator("//*[contains(text(),'SMS Verified Successfully')]").textContent();
         expect(otp_assert).toContain("SMS Verified Successfully");
-        console.log(`✔ ${otp_assert}`);
+        console.log(`✔ ${otp_assert}\n`);
 
-        await pageFixture.page.waitForTimeout(4000);
+        console.log(`✔ SignUp have been Successfully Completed `);
+
+        await pageFixture.page.waitForTimeout(3000);
     }
 
     //OTP fill
@@ -165,6 +114,7 @@ class SignUp {
         await pageFixture.page.locator(this.otp11).fill("2");
         await pageFixture.page.locator(this.otp12).fill("1");
         await pageFixture.page.click(this.validate_otp, { timeout: 40000 }); //Click Validate OTP
+        console.log(`✔ OTP Validated Successfully`);
         await pageFixture.page.waitForTimeout(3000);
     }
 
@@ -175,7 +125,7 @@ class SignUp {
                 await pageFixture.page.getByPlaceholder('Password').fill(this.pass_word); //Fill Password 
                 break;
             case "newpassword":
-                console.log(this.new_pass);
+                console.log(`New Password :${this.new_pass}`);
                 await pageFixture.page.getByPlaceholder('Password').fill(this.new_pass); //Fill Password 
                 break;
         }
@@ -189,9 +139,20 @@ class SignUp {
         await pageFixture.page.locator(this.new_password).fill(this.new_pass); //Fill New Password
         await pageFixture.page.locator(this.confirm).fill(this.new_pass); //Fill Confirm New Password
         await pageFixture.page.click(this.Change_password, { timeout: 40000 }); //Click Change Button
+
+        //Assert the changepass Message 
+        const changepass_assert = await pageFixture.page.locator("//*[contains(text(),'Password changed successfully')]").textContent();
+        expect(changepass_assert).toContain("Password changed successfully");
+        console.log(`✔ ${changepass_assert}\n`);
+
         await pageFixture.page.click(this.TFA_OTP); //Next Step is to click OTP Two Factor Autentication
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+
+        // const TFA_assert = await pageFixture.page.locator("//*[contains(text(),'Please check your OTP vie email and sms')]").textContent();
+        // expect(TFA_assert).toContain("Please check your OTP vie email and sms");
+
         await this.OTP();
+        console.log(`✔ OTP Two Factor Autentication Completed`);
     }
 
 

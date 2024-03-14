@@ -6,8 +6,8 @@ Feature: TC_AD_001
     And Login Again after Change Password
     And PreRegistration
 
-  Scenario: New Member PreRegistration
-    Given User navigate to the application and signUp
-    And Login Again
+  Scenario: Admin
+    Given User navigate to the application and login as a admin 
+    And Approve the new discom user
     And Login Again after Change Password
     And PreRegistration

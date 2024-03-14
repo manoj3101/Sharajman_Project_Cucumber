@@ -20,6 +20,8 @@ const formattedDate = `${year}-${month}-${day}`;
 
 
 
+
+
 class Member_Assistance {
     // Constructor
     // constructor(page){
@@ -27,6 +29,8 @@ class Member_Assistance {
     // }
 
 
+
+    trans_id =(Math.floor(Math.random() * 900000000) + 100000000).toString(); 
 
 
     //Methods
@@ -44,8 +48,14 @@ class Member_Assistance {
         //Search the Organization name   ==>Xpath = (//tbody/tr/td[1])[1]
         await pageFixture.page.getByPlaceholder('Search Organization').fill(org_name);
 
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+
         //Row Lenght 
         const rowLenght = await pageFixture.page.$$("//tbody//tr");
+        console.log(rowLenght);
 
         //Subscription Plan ==>//tbody/tr/td[8]  Xpath  List of xpath 
 
@@ -54,12 +64,14 @@ class Member_Assistance {
 
         //Click the Subscription tab
         await pageFixture.page.locator("//a[contains(text(),'Subscription')]").click();
+        await pageFixture.page.waitForTimeout(2000);
+
 
         //Choose a Right Subscription Plan for Your Business
         //Priority Test
-        await pageFixture.page.locator("(//var[contains(text(),'Choose')])[1]").click();
+        // await pageFixture.page.locator("(//var[contains(text(),'Choose')])[1]").click();
         //privilege
-        await pageFixture.page.locator("(//var[contains(text(),'Choose')])[1]").click();
+        await pageFixture.page.locator("(//var[contains(text(),'Choose')])[2]").click();
 
 
         //Click the Make Payment button 
@@ -67,26 +79,28 @@ class Member_Assistance {
 
         //Payment Process
 
-        // Function to Generate a random 12 digit number
-        function generateRandomNumber(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+        // // Function to Generate a random 12 digit number
+        // function generateRandomNumber(min, max) {
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
 
-        // Generate a random 12 digit number
-        let randomNumber = generateRandomNumber(10 ** 11, (10 ** 12) - 1);
+        // // Generate a random 12 digit number
+        // let randomNumber = generateRandomNumber(10 ** 11, (10 ** 12) - 1);
 
-        let trans_id = randomNumber.toString();
+        // let trans_id = randomNumber.toString();
 
-        console.log(`Application Number : ${trans_id}`);
+        // console.log(`Application Number : ${trans_id}`);
 
         //Transaction ID
-        await pageFixture.page.locator("//input[contains(@formcontrolname,'ref_no')]").fill(trans_id);
+        await pageFixture.page.locator("//input[contains(@formcontrolname,'ref_no')]").fill(this.trans_id);
 
-        //Payment Mode
+
+        //-----need change parameter 
+        //Payment Mode   
         await pageFixture.page.locator("//select[@formcontrolname='payment_mode']").selectOption({ value: "NEFT" }); //value="NEFT" | value="IMPS" | value="RTGS"
 
         //Bank From 
-        await pageFixture.page.locator("//select[@formcontrolname='from_bank_id']").selectOption({ index: 0 }); //always 1   value="723"
+        await pageFixture.page.locator("//select[@formcontrolname='from_bank_id']").selectOption({ index: 1 }); //always 1   value="723"
 
         //Date Of Transaction 
         await pageFixture.page.locator("//input[@formcontrolname='transation_date']").fill(formattedDate);  //max="2024-02-27" //Current date
@@ -101,7 +115,7 @@ class Member_Assistance {
         //Subscription plan has been assigned successfully and is pending for approval, kindly check and approve the plan.
         const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan has been assigned successfully").textContent();
         console.log(`${message}`);
-        await expect(message).toContain("Subscription plan has been assigned successfully");
+        expect(message).toContain("Subscription plan has been assigned successfully");
 
     }
 
