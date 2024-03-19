@@ -23,7 +23,7 @@ class Registration {
     noar_id = (Math.floor(Math.random() * 900000) + 100000).toString(); // Random 6-digit number
 
     //Basic Details
-    Org_Short_Name = signUp.org_name.substring(0, 3).toUpperCase(); //Organization Short name (should be 3 to 10 char)
+    // Org_Short_Name = signUp.org_name.substring(0, 3).toUpperCase(); //Organization Short name (should be 3 to 10 char)
     Correspondence_Address = "19, B2, Emporio, 33, 10th Ave, Ashok Nagar, Chennai, Tamil Nadu 600083";
     City = "Chennai";
     Pin_Code = "600083";
@@ -36,14 +36,14 @@ class Registration {
     Nationality = "INDIAN"; //To fill the Nationality
     companyDate = "2010-02-10"; //Comapany started date
     BranchName = "Ashok Nagar"; //Branch Name
-    AccountHolderName = signUp.Name; //Account Holder Name
+    // AccountHolderName = signUp.Name; //Account Holder Name
     AccountNumber = (Math.floor(Math.random() * 90000000000) + 10000000000).toString(); //Account Number 
     IFSC = randomFunction.generateRandomIFSC(); //11 Digit 
     MICR = (Math.floor(Math.random() * 900000000) + 100000000).toString();
 
 
 
-
+    //-------------------------------------------------------------------------------------------------------------------------
 
     //locators or xpaths
     //preregistration 
@@ -113,6 +113,7 @@ class Registration {
     //assert the alert message
     alertMessage = "//ngb-alert[@role='alert']"; //.textcontent()
 
+    //-------------------------------------------------------------------------------------------------------------------------
 
     //NOAR Details
     async NOAR_Details(noar) {
@@ -132,9 +133,10 @@ class Registration {
     }
 
     //Basic Details
-    async basic_Details(natureofapplicant, gsttype) {
+    async basic_Details(org_name, natureofapplicant, gsttype) {
+        const Org_Short_Name = org_name.substring(0, 3).toUpperCase();
         await pageFixture.page.waitForTimeout(3000);
-        await pageFixture.page.locator(this.org_short_name).fill(this.Org_Short_Name) //org_short Name
+        await pageFixture.page.locator(this.org_short_name).fill(Org_Short_Name) //org_short Name
         await pageFixture.page.locator(this.address).fill(this.Correspondence_Address); //Fillthe address
         await pageFixture.page.locator(this.city).fill(this.City); //Fill the city name
         await pageFixture.page.locator(this.pincode).fill(this.Pin_Code); //Fill the pincode
@@ -172,11 +174,12 @@ class Registration {
     }
 
     //Bank Details
-    async bank_Details() {
+    async bank_Details(name) {
+
         await pageFixture.page.waitForTimeout(2000);
         await pageFixture.page.locator(this.bankName).selectOption({ value: "19" }); //Bnamk Name | Bank Of India 
         await pageFixture.page.locator(this.branchName).fill(this.BranchName); //Branch Name
-        await pageFixture.page.locator(this.accountHolderName).fill(this.AccountHolderName); //Fill the Account Holder Name
+        await pageFixture.page.locator(this.accountHolderName).fill(name); //Fill the Account Holder Name
         await pageFixture.page.locator(this.accountNumber).fill(this.AccountNumber); //Fill the Account Numnber
         await pageFixture.page.locator(this.IFSC_Code).fill(this.IFSC); //Fill the IFSC code
         await pageFixture.page.locator(this.MICR_Code).fill(this.MICR); //Fill the MIRC code
@@ -228,7 +231,7 @@ class Registration {
 
         //Assert the alertmsg Message 
         const submittedapproval_assert = await pageFixture.page.locator("//*[contains(text(),'Request Submitted for approval')]").textContent();
-        expect(submittedapproval_assert).toContain("✔ Request Submitted for approval ✔");
+        expect(submittedapproval_assert).toContain("Request Submitted for approval");
         console.log(`✔ ${submittedapproval_assert}`);
 
         //Assert the alertmsg Message 

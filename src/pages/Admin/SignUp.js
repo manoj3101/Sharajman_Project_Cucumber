@@ -5,6 +5,10 @@ const pageFixture = require("../../hooks/pageFixture");
 
 //Object Instance
 const randomFunction = new RandomFunction();
+//Get Current Date
+const now = new Date();
+const dateString = `${now.getDate().toString().padStart(2, '0')}`;
+const timeString = `${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
 
 class SignUp {
 
@@ -18,7 +22,7 @@ class SignUp {
     l_name = randomFunction.generateRandomLastName(); //Last Name 
     Name = this.f_name + " " + this.l_name; // Combined Name 
     phone_no = randomFunction.generateRandomMobileNumber(); //Mobile number 
-    email_id = this.f_name + this.l_name + "@yopmail.com";  //Email ID 
+    email_id =`${this.f_name}${this.l_name}_${dateString}${timeString}@yopmail.com`; 
     org_name = randomFunction.generateRandomOrganizationName();  //Organization Name
 
     pass_word = "Testing@321"; //Old Password 
@@ -55,7 +59,7 @@ class SignUp {
     otp12 = "//input[@name='otp12']";
     OTP1 = "(//div[contains(@class,'row gx-2 gx-md-3')])[1]";
     OTP2 = "(//div[contains(@class,'row gx-2 gx-md-3')])[2]";
-    validate_otp = "//button[contains(text(),'Validate')]";
+    validate_otp = "//button[contains(text(),'Validate') or contains(text(),'Resend')]";
     old_password = "//input[@placeholder='Old Password']";
     new_password = "//input[@placeholder='new password']";
     confirm = "//input[@placeholder='Confirm Password']";
@@ -86,13 +90,13 @@ class SignUp {
 
 
         console.log(`Name : ${this.Name}`);
-        console.log(`Organization name : ${this.org_name}`);
         console.log(`Email_ID : ${this.email_id}`);
+        console.log(`Organization name : ${this.org_name}\n`);
 
         //Assert the OTP Message 
         const otp_assert = await pageFixture.page.locator("//*[contains(text(),'SMS Verified Successfully')]").textContent();
         expect(otp_assert).toContain("SMS Verified Successfully");
-        console.log(`✔ ${otp_assert}\n`);
+        console.log(`✔ ${otp_assert}`);
 
         console.log(`✔ SignUp have been Successfully Completed `);
 
@@ -152,7 +156,7 @@ class SignUp {
         // expect(TFA_assert).toContain("Please check your OTP vie email and sms");
 
         await this.OTP();
-        console.log(`✔ OTP Two Factor Autentication Completed`);
+        console.log(`✔ OTP Two Factor Autentication Completed\n`);
     }
 
 

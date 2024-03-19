@@ -15,6 +15,7 @@ const year = currentDate.getFullYear();
 
 
 
+
 class DashboardCFP {
 
     //Constructor
@@ -24,7 +25,10 @@ class DashboardCFP {
     //     this.browser = browser;        
     // }
 
+
+
     CFP_Num = null;
+
 
     //-------------------------------------------------------------------------------------------------------------
 
@@ -284,10 +288,11 @@ class DashboardCFP {
     }
 
     //select responder
-    async selectResponder(multiple_responder) {
+    async selectResponder(multiple_responder, responder) {
         await pageFixture.page.click(this.select_Responder);
         // await pageFixture.page.locator(this.search_responder).fill('TickingMinds');
-        await pageFixture.page.locator(this.search_responder).fill('Tickingminds_');
+        // await pageFixture.page.locator(this.search_responder).fill('Tickingminds_');
+        await pageFixture.page.locator(this.search_responder).fill(responder);
         await pageFixture.page.waitForTimeout(2500);
         const elements = await pageFixture.page.$$(this.add_responders);
         // Iterate through each element and perform a click action
@@ -335,6 +340,7 @@ class DashboardCFP {
 
         this.CFP_Num = CFP_N;
         console.log("CFP ID Status -----------:" + this.CFP_Num);
+
 
     }
 

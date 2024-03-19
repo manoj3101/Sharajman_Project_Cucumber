@@ -44,28 +44,42 @@ class Payment_Approval {
         await pageFixture.page.locator("//button[contains(text(),'Search')]").click();
 
         //Transaction ID => //tbody/tr/td[2]
-        
-        //Approve the payment 
-        await pageFixture.page.locator("//tbody/tr/td[11]//a[contains(text(),'Approve')]").click();
 
-        //To reject the Payment ==> //tbody/tr/td[11]//a[contains(text(),'Reject')]
+        await pageFixture.page.waitForTimeout(4000);
 
-        //click yes in the pop up 
-        await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+        // List of row
+        const elements = await pageFixture.page.$$("//tbody/tr");
 
-        //Payment Date 
-        await pageFixture.page.locator("//input[@placeholder='Enter Date']").fill(formattedDate);
 
-        //Click the submit Button 
-        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+        // Output the number of row elements found
+        console.log(`Number of Row elements found: ${elements.length}`);
 
-        //Assert the Payment Message
-        //Subscription plan for member JW Company has been approved successfully.
-        const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan for member").textContent();
-        console.log(`${message}`);
-        expect(message).toContain("Subscription plan for member");
+        //If it has multiple row
+        for (let i = elements.length; i > 0; i--) {
+            //Approve the payment 
+            await pageFixture.page.locator("(//a[contains(text(),'Approve')])[" + i + "]").click();
+
+            //To reject the Payment ==> //tbody/tr/td[11]//a[contains(text(),'Reject')]
+
+            //click yes in the pop up 
+            await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+
+            //Payment Date 
+            await pageFixture.page.locator("//input[@placeholder='Enter Date']").fill(formattedDate);
+
+            //Click the submit Button 
+            await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+            //Assert the Payment Message
+            //Subscription plan for member JW Company has been approved successfully.
+            const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan for member')]").textContent();
+            console.log(`${message}`);
+            expect(message).toContain("Subscription plan for member");
+            break;
+
+        }
 
     }
 
 }
-module.exports=Payment_Approval;
+module.exports = Payment_Approval;

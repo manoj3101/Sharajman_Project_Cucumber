@@ -37,8 +37,18 @@ class RandomFunction {
             'Nova Nexus', 'Hyperion Innovations', 'Tech Trails', 'Innovate Zone', 'Future Forge',
             'Digital Dynamics', 'Vertex Ventures', 'Strategic Solutions', 'Creative Catalysts', 'Prime Partners'
         ];
-    
-        return organizationNames[Math.floor(Math.random() * organizationNames.length)];
+
+        const randomOrganizationName = organizationNames[Math.floor(Math.random() * organizationNames.length)];
+
+        const now = new Date();
+        const dateString = `${now.getDate().toString().padStart(2, '0')}`;
+        const timeString = `${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+
+        return `${randomOrganizationName}_${dateString}${timeString}`;
+        // return organizationNames[Math.floor(Math.random() * organizationNames.length)];
+        // const dateString = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+        // const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+
     }
 
     // Generate a random Phone number

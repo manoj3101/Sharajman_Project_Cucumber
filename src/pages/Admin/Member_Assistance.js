@@ -35,16 +35,15 @@ class Member_Assistance {
 
     //Methods
     async clickMemberAssitance() {
-
-        const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[2]"); //Hover to the Member Assitance
-
+        
+        const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[6]"); //Hover to the Member Assitance
         await home.hover();
-
         await pageFixture.page.locator("//span[contains(text(),'Member Assistance')]").click(); //Click the Member Assitance
-
     }
 
     async subscription_Plan_Selection(org_name) {
+
+        await pageFixture.page.waitForTimeout(3000);
         //Search the Organization name   ==>Xpath = (//tbody/tr/td[1])[1]
         await pageFixture.page.getByPlaceholder('Search Organization').fill(org_name);
 
@@ -113,12 +112,11 @@ class Member_Assistance {
 
         //Assert Part 
         //Subscription plan has been assigned successfully and is pending for approval, kindly check and approve the plan.
-        const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan has been assigned successfully").textContent();
+        const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan has been assigned successfully')]").textContent();
         console.log(`${message}`);
         expect(message).toContain("Subscription plan has been assigned successfully");
 
     }
-
 
 
 

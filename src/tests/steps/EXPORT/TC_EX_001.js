@@ -19,11 +19,12 @@ const home = new Home(pageFixture.page);
 const dashboardCFP = new DashboardCFP(pageFixture.page);
 const loaManagement = new LOAManagement(pageFixture.page);
 
-
+let cfpNumber;
 
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
+
 Given('User navigate to the Application and logged in as a discom user as initiator as per export case one', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_001                                                 ");
@@ -65,7 +66,7 @@ Given('User started creating Call for Proposal CFP as an initiator as per export
 
     await dashboardCFP.ceilingBaseReturn(data.EX_01.Ceiling_Base_Return, data.EX_01.Ceiling_Base_Return_value);
 
-    await dashboardCFP.selectResponder(data.EX_01.multiple_responder);
+    await dashboardCFP.selectResponder(data.EX_01.multiple_responder, data.responder);
 
     await dashboardCFP.custom_Guests(data.EX_01.custom_Guests);
 
@@ -79,10 +80,13 @@ Then('Call for Proposal CFP should be Published successfully as per export case 
 
     console.log("--------------------CFP has been created and Published Successfully-----------------");
 
-    //CFP = dashboardCFP.CFP_Num;
-    global.cfpNumber = dashboardCFP.CFP_Num;
+    cfpNumber = dashboardCFP.CFP_Num;
 
-    console.log("Global CFP :" + global.cfpNumber);
+    // global.cfpNumber = dashboardCFP.CFP_Num;
+    // console.log("Global CFP :" + global.cfpNumber);
+
+    console.log("Global CFP :" + cfpNumber);
+
 
 });
 
@@ -110,7 +114,7 @@ Given('User started placing Response to the CFP as per export case one', { timeo
 
 Then('Response CFP should be Placed successfully as per export case one', async function () {
 
-    const cfpNumber = global.cfpNumber;
+    // const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await dashboardCFP.place_Respond(cfpNumber, data.EX_01.minQuantumValue1, data.EX_01.ReturnValue1);
@@ -142,7 +146,7 @@ Given('User started generating the award and generating the LOA from initiator s
     console.log("Wait time is over Awarding CFP has started......");
 
     //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
+    // const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await dashboardCFP.initiatedFeed(cfpNumber);
@@ -155,7 +159,7 @@ Given('User started generating the award and generating the LOA from initiator s
 Then('Awarding and Generate LOA should be successfull as per export case one', async function () {
 
     //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
+    // const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await dashboardCFP.initiatedFeed(cfpNumber);
@@ -187,7 +191,7 @@ Given('User started Uploading the documents from Responder Side as per export ca
 
 Then('Responder Uploading the documents should be successfull as per export case one', async function () {
 
-    const cfpNumber = global.cfpNumber;
+    // const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await loaManagement.uploadDocument(cfpNumber, data.EX_01.imp_start_date, data.EX_01.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.Quantum_value, data.EX_01.exp_start_date, data.EX_01.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1, data.EX_01.Settlement_Price);
@@ -204,7 +208,7 @@ Then('Responder Uploading the documents should be successfull as per export case
 Then('Format D should be successfully Generated from initiator side as per export case one', async function () {
 
     //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
+    // const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await loaManagement.loaGeneration();
@@ -222,7 +226,7 @@ Then('Format D should be successfully Generated from initiator side as per expor
 Then('Format D should be successfully Generated from Responder side as per export case one', async function () {
 
     //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
+    // const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await loaManagement.loaGeneration();

@@ -66,7 +66,7 @@ Given('User started creating Call for Proposal CFP as an initiator as per export
 
     await dashboardCFP.ceilingBaseReturn(data.EX_05.Ceiling_Base_Return, data.EX_05.Ceiling_Base_Return_value);
 
-    await dashboardCFP.selectResponder(data.EX_05.multiple_responder);
+    await dashboardCFP.selectResponder(data.EX_05.multiple_responder, data.responder);
 
     await dashboardCFP.custom_Guests(data.EX_05.custom_Guests);
 
