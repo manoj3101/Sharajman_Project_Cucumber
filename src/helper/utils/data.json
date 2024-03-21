@@ -5,17 +5,20 @@
     "admin":"manoj@yopmail.com",
     "admin_password":"K#(j{83&ym",
 
-    "user1":"sanjaykumar.s@tickingminds.com",
-    "user1_password":"16121999@Dob",
+    "user1":"manojkumar.s@tickingminds.com",
+    "user1_password":"Testing@123",
 
+    "user11":"CamilaPhillips@yopmail.com",
+    "user11_password":"Phillips@123456",
+    
     "user2":"Xavier@yopmail.com",
     "user2_password":"Testing@123",
 
-    "user3":"abd@yopmail.com",
-    "user3_password":"Testing@1234",
-
-    "user4":"david@yopmail.com",
+    "user4":"abd@yopmail.com",
     "user4_password":"Testing@1234",
+
+    "user3":"david@yopmail.com",
+    "user3_password":"Testing@1234",
 
     "user5":"sugumaran.n@tickingminds.com",
     "user5_password":"Otc@123456",
@@ -38,7 +41,8 @@
        
     
         "Minimum_Quantum":true,
-        "Minimum_QuantumValue":"0.01",
+        "Minimum_QuantumValue1":"0.01",
+        "Minimum_QuantumValue":"1",
     
         "imp_start_date" :"2024-04-05",
         "imp_end_date" :"2024-04-05",
@@ -72,12 +76,13 @@
         "Settlement_Price":"0.01",
         "query_Box" :true,
         "Ceiling_Base_Return":true,
-        "Ceiling_Base_Return_value":"0.01",
+        "Ceiling_Base_Return_value":"1",
         "custom_Guests":"monicaa@yopmail.com",
         "remarks":"Good",
     
-        "minQuantumValue1":"0.01",
-        "ReturnValue1":"0.01",
+        "minQuantumValue11":"0.01",
+        "minQuantumValue1":"1",
+        "ReturnValue1":"1",
     
         "application_no":"7865457",
         "route":"YES",

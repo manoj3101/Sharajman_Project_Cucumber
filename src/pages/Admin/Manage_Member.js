@@ -192,7 +192,7 @@ class Manage_Member {
         //Assert Part 
         //Required previliges have been assigned to the user
         const message = await pageFixture.page.locator("//*[contains(text(),'Required previliges have been assigned to the user')]").textContent();
-        console.log(`${message}`);
+        console.log(`✔ ${message}`);
         expect(message).toContain("Required previliges have been assigned to the user");
         await pageFixture.page.waitForTimeout(5000);
     }

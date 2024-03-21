@@ -118,7 +118,7 @@ class Registration {
     //NOAR Details
     async NOAR_Details(noar) {
         if (noar) {
-            await pageFixture.page.waitForTimeout(2000);
+            await pageFixture.page.waitForTimeout(3000);
             await pageFixture.page.check(this.nora_yes); //NOAR yes
             await pageFixture.page.locator(this.noar_ID).fill(this.noar_id); // Fill the NOAR ID
             await pageFixture.page.click(this.noar_agree); //Click the agree button
@@ -126,7 +126,8 @@ class Registration {
             console.log(`               ---NOAR DETAILS COMPELETED---               `);
         }
         else {
-            await pageFixture.page.check(this.nora_No); //NOAR No
+            await pageFixture.page.waitForTimeout(3000);
+            // await pageFixture.page.check(this.nora_No); //NOAR No
             await pageFixture.page.click(this.proceed_register); //Proceed Register
             console.log(`               ---NOAR DETAILS COMPELETED---               `);
         }
@@ -176,7 +177,7 @@ class Registration {
     //Bank Details
     async bank_Details(name) {
 
-        await pageFixture.page.waitForTimeout(2000);
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.locator(this.bankName).selectOption({ value: "19" }); //Bnamk Name | Bank Of India 
         await pageFixture.page.locator(this.branchName).fill(this.BranchName); //Branch Name
         await pageFixture.page.locator(this.accountHolderName).fill(name); //Fill the Account Holder Name
@@ -191,7 +192,7 @@ class Registration {
     //Upload Documents
     async upload_Documents() {
         let filePath = "src/helper/utils/CFP.pdf";
-        await pageFixture.page.waitForTimeout(2000);
+        await pageFixture.page.waitForTimeout(3000);
         //Address Proof (Declaration On Letter Head)* ==> 8 Certificate
         await pageFixture.page.waitForSelector(this.address_upload);
         await pageFixture.page.locator(this.address_upload).setInputFiles(filePath);
@@ -239,6 +240,8 @@ class Registration {
         expect(alertmsg_assert).toContain("Registration pending for approval");
         console.log(`✔ ${alertmsg_assert}`);
 
+        await pageFixture.page.waitForTimeout(3000);
+
     }
 
 
@@ -246,9 +249,3 @@ class Registration {
 
 }
 module.exports = Registration;
-
-
-
-
-Name = "(//span[@class='name'])[2]";
-companyName = "//span[@class='comp-name']";

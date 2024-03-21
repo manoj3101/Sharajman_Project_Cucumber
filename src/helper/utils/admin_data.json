@@ -68,7 +68,7 @@
       
        
         "index":7,
-        "Settlement_Price":"0",
+        "Settlement_Price":"0.01",
         "query_Box" :false,
         "Ceiling_Base_Return":false,
         "Ceiling_Base_Return_value":"",

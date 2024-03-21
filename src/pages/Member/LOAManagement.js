@@ -3,8 +3,9 @@ const pageFixture = require("../../hooks/pageFixture");
 const data = require("../../helper/utils/data.json");
 const pdf = require('pdf-parse');
 const fs = require('fs').promises;
+const DashboardCFP = require("../../pages/Member/DashboardCFP");
 
-
+const dashboardCFP = new DashboardCFP();
 const currentDate = new Date();
 
 // Get day, month, and year
@@ -23,6 +24,13 @@ class LOAManagement {
     // }
 
     //xpath
+
+    //variable
+    static SLDC = null;
+    static SLDC1 = null;
+    static LDC = null;
+    static LDC1 = null;
+    static Route = null;
 
     //Methods
     //LOA Generation Page
@@ -46,6 +54,10 @@ class LOAManagement {
         //Document Verification
         await this.LOA_documentverification(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price)
 
+        await pageFixture.page.waitForTimeout(10000);//Wait until document verification 
+
+        //Time 
+        console.log(`Timeline : ${await pageFixture.page.locator("//small//small").textContent()}`);
         await pageFixture.page.click("//div[contains(@class,'gredient-blue-icon-box')]");
         await pageFixture.page.waitForSelector("(//input[@type='file'])[2]");
         await pageFixture.page.locator("(//input[@type='file'])[2]").setInputFiles('src/helper/utils/PDF/LOA.pdf');
@@ -91,30 +103,33 @@ class LOAManagement {
         // Write the parsed text content to a text file for reference
         await fs.writeFile('src/helper/utils/TextDocuments/data.txt', text); // Specify the correct file path
 
+        const Utility_2 = (await pageFixture.page.locator("//span[@class='comp-name']").textContent()).trim();
+
         const line_1 = `LOA	No.`;
-        const line_2 = `LOA/00494`;
+        const line_2 = `${DashboardCFP.LOA_no}`;
         const line_3 = `Date`;
-        const line_4 = `Ticking	Minds`;
-        const line_5 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar	Chennai	600083`;
-        const line_6 = `Letter	of	Acceptance`;
+        const line_4 = `${DashboardCFP.Utility_1}`;
+        // const line_5 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar	Chennai	600083`;
+        const line_5 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar,	Chennai,	Tamil	Nadu	600083	Chennai	600083`;
+        // const line_6 = `Letter	of	Acceptance`;
         const line_7 = `${day}-${month}-${year}`;
 
         const line_8 = `To,`;
-        const line_9 = `Tickingminds_1`;
-        const line_10 = `no.144,	ashok	nagar	Chennai	600083`;
+        const line_9 = `${DashboardCFP.Utility_2}`;
+        const line_10 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar,	Chennai,	Tamil	Nadu	600083	Chennai	600083`;
         const line_11 = `${data.user2}`;
-        const line_12 = `Subject	:	Power	swap	arrangement	by	Ticking	Minds	via	CFP	Ref.	No.	${CFP}.`;
+        const line_12 = `Subject	:	Power	swap	arrangement	by	${DashboardCFP.Utility_1}	via	CFP	Ref.	No.	${CFP}.`;
         const line_13 = `Ref:1.	e-Listing	${CFP}	dated`;
         const line_14 = `2.	Your	offer	dated	${day}-${month}-${year}	on	NAME	portal`;
 
         const line_15 = `Dear	Sir,`;
-        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	Tickingminds_1,	as	per`;
+        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	from	${data.Utility_2}	to	${data.Utility_1}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
-        const line_20 = `${data.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
+        const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	by	${data.Utility_1}	to	${data.Utility_2}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -124,7 +139,7 @@ class LOAManagement {
         const line_28 = `percentage)`;
         const line_29 = `Return	Ratio`;
         const line_30 = `in	%`;
-        const line_31 = `${data.Utility_2}${exp_start_date.split('-').reverse().join('-')}	to	${exp_end_date.split('-').reverse().join('-')}${exp_start_time}	-	${exp_end_time}${Quantum_2}${returnpercent}`;
+        const line_31 = `${DashboardCFP.Utility_2}${exp_start_date.split('-').reverse().join('-')}	to	${exp_end_date.split('-').reverse().join('-')}${exp_start_time}	-	${exp_end_time}${DashboardCFP.Quantum_2}${returnpercent}`;
 
         const line_32 = `Delivery	Point`;
         const line_33 = `The	delivery	point,	in	either	case,	shall	be	the	Regional	Periphery	of	Exporting`;
@@ -137,13 +152,14 @@ class LOAManagement {
         const line_39 = `You	are	requested	to	acknowledge	the	receipt	of	this	LOA	&	give	your	acceptance	on	it.`;
         const line_40 = `Regards,`;
         const line_41 = `Yours	Faithfully,`;
-        const line_42 = `For	Ticking	Minds`;
+        const line_42 = `For	${DashboardCFP.Utility_1}`;
 
         const line_43 = `Authorised	Signatory`;
         const line_44 = `(Other	Information	if	any)`;
 
+
         // Define the strings you want to check in the PDF content
-        const stringsToCheck = [line_1.trim(), line_2.trim(), line_3.trim(), line_4.trim(), line_5.trim(), line_6.trim(), line_7.trim(), line_8.trim(), line_9.trim(), line_10.trim(),
+        const stringsToCheck = [line_1.trim(), line_2.trim(), line_3.trim(), line_4.trim(), line_5.trim(), line_7.trim(), line_8.trim(), line_9.trim(), line_10.trim(),
         line_11.trim(), line_12.trim(), line_13.trim(), line_14.trim(), line_15.trim(), line_16.trim(), line_17.trim(), line_18.trim(), line_19.trim(), line_20.trim(),
         line_21.trim(), line_22.trim(), line_23.trim(), line_24.trim(), line_25.trim(), line_26.trim(), line_27.trim(), line_28.trim(), line_29.trim(), line_30.trim(),
         line_31.trim(), line_32.trim(), line_33.trim(), line_34.trim(), line_35.trim(), line_36.trim(), line_37.trim(), line_38.trim(), line_39.trim(), line_40.trim(),
@@ -156,7 +172,7 @@ class LOAManagement {
                 //expect.soft(text).toContain(str);
                 console.log(`✔ Actual Result is equal to Expected Result : ${str}\n`);
             } else {
-                console.log(`X Expected Result is not equal to Actual Result : ${str}`);
+                console.log(`X Expected Result is not equal to Actual Result : ${str}\n`);
             }
         }
         console.log("-------------------Document Verification for responder side  have Done------------------");
@@ -186,7 +202,7 @@ class LOAManagement {
         //Document verification 
         const [download] = await Promise.all([
             pageFixture.page.waitForEvent('download', { timeout: 60000 }), // 60 seconds timeout
-            pageFixture.page.click("//td[contains(@class, 'align-middle')]//span[contains(text(), 'Format-D GENERATED')]")
+            pageFixture.page.click("(//td[contains(@class, 'align-middle')]//span[contains(text(), 'Format-D GENERATED')])[1]")
         ]);
 
         // Use the suggested filename from the download event to save the file
@@ -207,11 +223,12 @@ class LOAManagement {
         await fs.writeFile('src/helper/utils/TextDocuments/data.txt', text); // Specify the correct file path
 
 
+
         //Expected Result text 
         const line_1 = `Format-D`;
         const line_2 = `T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA`;
         const line_3 = `1Application	No.${this.application_no}Date	:	${day}-${month}-${year}`;
-        const line_4 = `2Applicant	NameTickingMindsRegistration	Code`;
+        const line_4 = `2Applicant	Name${DashboardCFP.Utility_2}Registration	Code`;
         const line_5 = `T-GNA	Request`;
         const line_6 = `DateHours`;
         const line_7 = `FromToFromTo`;
@@ -221,13 +238,13 @@ class LOAManagement {
         const line_10 = `Injecting	entity	(mandatory	for	Exigency	T-`;
         const line_11 = `GNAS	application)`;
         const line_12 = `Drawee	Entity`;
-        const line_13 = `${data.Utility_2}${data.Utility_1}`;
+        const line_13 = `${DashboardCFP.Utility_2}${DashboardCFP.Utility_1}`;
         const line_14 = `5Injecting	RegionNRLDC`;
 
-        const line_15 = `6RouteNR-SR`;
+        const line_15 = `6Route${LOAManagement.Route}`;
         const line_16 = `Entity	in	which	it	is`;
         const line_17 = `embedded`;
-        const line_18 = `DL-SLDCTN-SLDC`;
+        const line_18 = `${LOAManagement.SLDC}${LOAManagement.SLDC1}`;
         const line_19 = `8Whether	the	transaction	under	GTAM	(Yes/No)${gtam}`;
         const line_20 = `Source	of	generation	is	solar/non	solar/hydro	(applicable	in	case	of	Exigency	T-`;
 
@@ -267,7 +284,7 @@ class LOAManagement {
                 //expect.soft(text).toContain(str);
                 console.log(`✔ Actual Result is equal to Expected Result : ${str}\n`);
             } else {
-                console.log(`X Expected Result is not equal to Actual Result : ${str}`);
+                console.log(`X Expected Result is not equal to Actual Result : ${str}\n`);
             }
         }
         console.log("-------------------Format-D Document Verification Done Successfully------------------");
@@ -371,6 +388,15 @@ class LOAManagement {
         //Value = YES | NO 
         await pageFixture.page.locator("//Select[@formcontrolname='granting_exigency']").selectOption({ value: tGna });
 
+
+        //Getting the text Content from the format D
+        LOAManagement.Route = (await pageFixture.page.locator("(//tbody//td)[5]").textContent()).trim();
+        LOAManagement.SLDC = (await pageFixture.page.locator("(//tbody//td)[18]").textContent()).trim();
+        LOAManagement.SLDC1 = (await pageFixture.page.locator("(//tbody//td)[19]").textContent()).trim();
+        LOAManagement.LDC = (await pageFixture.page.locator("(//tbody//td)[21]").textContent()).trim();
+        LOAManagement.LDC1 = (await pageFixture.page.locator("(//tbody//td)[22]").textContent()).trim();
+
+
         //Click  Generate Format-D 
         await pageFixture.page.getByRole('button', { name: /Generate Format-D/i }).click();
         //Confirm Yes
@@ -385,8 +411,6 @@ class LOAManagement {
         //Format-D document verification
         await pageFixture.page.waitForTimeout(5000);
         await this.formatD_DocumentVerification(imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, gtam, source, rpo, tGna);
-
-
 
     }
 

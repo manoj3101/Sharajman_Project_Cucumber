@@ -22,7 +22,7 @@ class SignUp {
     l_name = randomFunction.generateRandomLastName(); //Last Name 
     Name = this.f_name + " " + this.l_name; // Combined Name 
     phone_no = randomFunction.generateRandomMobileNumber(); //Mobile number 
-    email_id =`${this.f_name}${this.l_name}_${dateString}${timeString}@yopmail.com`; 
+    email_id = `${this.f_name}${this.l_name}_${dateString}${timeString}@yopmail.com`;
     org_name = randomFunction.generateRandomOrganizationName();  //Organization Name
 
     pass_word = "Testing@321"; //Old Password 
@@ -73,9 +73,10 @@ class SignUp {
     async signup() {
         //Navigate to the url
         await pageFixture.page.goto(data.URL, { waitUntil: 'load' });
-        await pageFixture.page.locator(this.sign_up).click({ timeout: 40000 }); //Click signUp Link
-        console.log("Page Title :" + await pageFixture.page.title());
         await pageFixture.page.waitForTimeout(3000);
+        await pageFixture.page.locator(this.sign_up).click({ timeout: 40000, waitUntil: 'load' }); //Click signUp Link
+        await pageFixture.page.waitForTimeout(2000);
+        console.log("Page Title :" + await pageFixture.page.title());
         await pageFixture.page.locator(this.fname).fill(this.f_name); //Fill First name
         await pageFixture.page.locator(this.lname).fill(this.l_name); //Fill Last name
         await pageFixture.page.locator(this.mobileno).fill(this.phone_no); //Mobile number
@@ -98,7 +99,7 @@ class SignUp {
         expect(otp_assert).toContain("SMS Verified Successfully");
         console.log(`✔ ${otp_assert}`);
 
-        console.log(`✔ SignUp have been Successfully Completed `);
+        console.log(`✔ SignUp have been Successfully Completed`);
 
         await pageFixture.page.waitForTimeout(3000);
     }
@@ -118,6 +119,7 @@ class SignUp {
         await pageFixture.page.locator(this.otp11).fill("2");
         await pageFixture.page.locator(this.otp12).fill("1");
         await pageFixture.page.click(this.validate_otp, { timeout: 40000 }); //Click Validate OTP
+
         console.log(`✔ OTP Validated Successfully`);
         await pageFixture.page.waitForTimeout(3000);
     }
@@ -138,6 +140,7 @@ class SignUp {
         await pageFixture.page.waitForTimeout(3000);
     }
 
+    
     async changePasswordAndTFA() {
         await pageFixture.page.locator(this.old_password).fill(this.pass_word); //Fill Old Password
         await pageFixture.page.locator(this.new_password).fill(this.new_pass); //Fill New Password
@@ -157,6 +160,20 @@ class SignUp {
 
         await this.OTP();
         console.log(`✔ OTP Two Factor Autentication Completed\n`);
+    }
+
+    async inactiveTFA(){
+        await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
+        await pageFixture.page.locator("//a[contains(text(),'My Profile')]").click();
+        await pageFixture.page.locator("//a[contains(text(),'Two Factor Authentication')]").click();
+        await pageFixture.page.locator("//label[contains(text(),'INACTIVE')]").click();
+        await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+        await this.OTP();
+         //Assert the changepass Message 
+         const assert = await pageFixture.page.locator("//*[contains(text(),'Two Factor Auth Type-NA Enabled Successfully')]").textContent();
+         expect(assert).toContain("Two Factor Auth Type-NA Enabled Successfully");
+         console.log(`✔ ${assert}\n`);
+
     }
 
 

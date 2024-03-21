@@ -43,7 +43,7 @@ class Member_Assistance {
 
     async subscription_Plan_Selection(org_name) {
 
-        await pageFixture.page.waitForTimeout(3000);
+        await pageFixture.page.waitForTimeout(4000);
         //Search the Organization name   ==>Xpath = (//tbody/tr/td[1])[1]
         await pageFixture.page.getByPlaceholder('Search Organization').fill(org_name);
 
@@ -54,12 +54,12 @@ class Member_Assistance {
 
         //Row Lenght 
         const rowLenght = await pageFixture.page.$$("//tbody//tr");
-        console.log(rowLenght);
+        console.log(`Number of Row found in Member Assistance: ${rowLenght.length}`);
 
         //Subscription Plan ==>//tbody/tr/td[8]  Xpath  List of xpath 
 
         //Click the Org_name
-        await pageFixture.page.locator("//a[contains(text(),'" + org_name + "')]").nth(0).click();
+        await pageFixture.page.locator("//a[contains(text(),'" + org_name + "')]").click();
 
         //Click the Subscription tab
         await pageFixture.page.locator("//a[contains(text(),'Subscription')]").click();
@@ -113,7 +113,7 @@ class Member_Assistance {
         //Assert Part 
         //Subscription plan has been assigned successfully and is pending for approval, kindly check and approve the plan.
         const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan has been assigned successfully')]").textContent();
-        console.log(`${message}`);
+        console.log(`✔ ${message}`);
         expect(message).toContain("Subscription plan has been assigned successfully");
 
     }

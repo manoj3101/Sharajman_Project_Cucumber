@@ -52,7 +52,7 @@ class Payment_Approval {
 
 
         // Output the number of row elements found
-        console.log(`Number of Row elements found: ${elements.length}`);
+        console.log(`Number of Row found in Payment Approval: ${elements.length}`);
 
         //If it has multiple row
         for (let i = elements.length; i > 0; i--) {
@@ -73,7 +73,7 @@ class Payment_Approval {
             //Assert the Payment Message
             //Subscription plan for member JW Company has been approved successfully.
             const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan for member')]").textContent();
-            console.log(`${message}`);
+            console.log(`✔ ${message}`);
             expect(message).toContain("Subscription plan for member");
             break;
 

@@ -9,6 +9,7 @@ let options = [
 let opt = [
     '--require ./src/tests/steps/*/*.js', // Specify our steps files location
     '--require ./src/hooks/hooks.js', // Specify our hooks files location
+    // '--dry-run'
 
 ].join(' ')
 

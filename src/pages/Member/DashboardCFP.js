@@ -26,6 +26,11 @@ class DashboardCFP {
     // }
 
 
+    //variable
+    static Utility_1 = null;
+    static Utility_2 = null;
+    static Quantum_2 = null;
+    static LOA_no = null;
 
     CFP_Num = null;
 
@@ -312,6 +317,7 @@ class DashboardCFP {
         }
         await pageFixture.page.getByRole('button', { name: /Next/i }).click();
     }
+
 
     //Custom guest
     async custom_Guests(custom_Guests) {
@@ -761,6 +767,9 @@ class DashboardCFP {
         }
     }
 
+    static async set() {
+        let Utility = this.Utility_1;
+    }
 
     //Generate LOA
     async generateLOA(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price) {
@@ -787,14 +796,15 @@ class DashboardCFP {
         // const LOA_no = (await pageFixture.page.locator("//input[@formcontrolname='loi_no']").textContent()).trim();
         const subject = (await pageFixture.page.locator("//input[@formcontrolname='subject']").textContent()).trim();
 
-        const Utility_1 = (await pageFixture.page.locator("(//tbody//tr//td)[1]").textContent()).trim();
+
+        DashboardCFP.Utility_1 = (await pageFixture.page.locator("(//tbody//tr//td)[1]").textContent()).trim();
         const Period_1 = (await pageFixture.page.locator("(//tbody//tr//td)[2]").textContent()).trim();
         const Duration_1 = (await pageFixture.page.locator("(//tbody//tr//td)[3]").textContent()).trim();
         const Quantum_1 = (await pageFixture.page.locator("(//tbody//tr//td)[4]").textContent()).trim();
-        const Utility_2 = (await pageFixture.page.locator("(//tbody//tr//td)[5]").textContent()).trim();
+        DashboardCFP.Utility_2 = (await pageFixture.page.locator("(//tbody//tr//td)[5]").textContent()).trim();
         const Period_2 = (await pageFixture.page.locator("(//tbody//tr//td)[6]").textContent()).trim();
         const Duration_2 = (await pageFixture.page.locator("(//tbody//tr//td)[7]").textContent()).trim();
-        const Quantum_2 = (await pageFixture.page.locator("(//tbody//tr//td)[8]").textContent()).trim();
+        DashboardCFP.Quantum_2 = (await pageFixture.page.locator("(//tbody//tr//td)[8]").textContent()).trim();
         const Return = (await pageFixture.page.locator("(//tbody//tr//td)[9]").textContent()).trim();
 
         const delivery_Point = await pageFixture.page.locator("//label[contains(text(),'Delivery Point')]/..").textContent();
@@ -817,7 +827,7 @@ class DashboardCFP {
         await this.clearFolder(folderPath);
         await pageFixture.page.waitForTimeout(5000);
 
-        const LOA_no = await pageFixture.page.locator("//tbody//td[3]").textContent(); //Get the LOA Number 
+        DashboardCFP.LOA_no = await pageFixture.page.locator("//tbody//td[3]").textContent(); //Get the LOA Number 
 
         //Click the Download Link and wait for the download
         const [download] = await Promise.all([
@@ -845,29 +855,30 @@ class DashboardCFP {
 
 
         const line_1 = `LOA	No.`;
-        const line_2 = `${LOA_no}`;
+        const line_2 = `${DashboardCFP.LOA_no}`;
         const line_3 = `Date`;
-        const line_4 = `Ticking	Minds`;
-        const line_5 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar	Chennai	600083`;
-        const line_6 = `Letter	of	Acceptance`;
+        const line_4 = `${DashboardCFP.Utility_2}`;
+        // const line_5 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar	Chennai	600083`;
+        const line_5 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar,	Chennai,	Tamil	Nadu	600083	Chennai	600083`;
+        // const line_6 = `Letter	of	Acceptance`;
         const line_7 = `${day}-${month}-${year}`;
 
         const line_8 = `To,`;
-        const line_9 = `Tickingminds_1`;
-        const line_10 = `no.144,	ashok	nagar	Chennai	600083`;
+        const line_9 = `${DashboardCFP.Utility_2}`;
+        const line_10 = `19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar,	Chennai,	Tamil	Nadu	600083	Chennai	600083`;
         const line_11 = `${data.user2}`;
-        const line_12 = `Subject	:	Power	swap	arrangement	by	Ticking	Minds	via	CFP	Ref.	No.	${CFP}.`;
+        const line_12 = `Subject	:	Power	swap	arrangement	by	${DashboardCFP.Utility_1}	via	CFP	Ref.	No.	${CFP}.`;
         const line_13 = `Ref:1.	e-Listing	${CFP}	dated`;
         const line_14 = `2.	Your	offer	dated	${day}-${month}-${year}	on	NAME	portal`;
 
         const line_15 = `Dear	Sir,`;
-        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	Tickingminds_1,	as	per`;
+        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	from	${data.Utility_2}	to	${data.Utility_1}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
-        const line_20 = `${data.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
+        const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	by	${data.Utility_1}	to	${data.Utility_2}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -877,7 +888,7 @@ class DashboardCFP {
         const line_28 = `percentage)`;
         const line_29 = `Return	Ratio`;
         const line_30 = `in	%`;
-        const line_31 = `${data.Utility_2}${exp_start_date.split('-').reverse().join('-')}	to	${exp_end_date.split('-').reverse().join('-')}${exp_start_time}	-	${exp_end_time}${Quantum_2}${returnpercent}`;
+        const line_31 = `${DashboardCFP.Utility_2}${exp_start_date.split('-').reverse().join('-')}	to	${exp_end_date.split('-').reverse().join('-')}${exp_start_time}	-	${exp_end_time}${DashboardCFP.Quantum_2}${returnpercent}`;
 
         const line_32 = `Delivery	Point`;
         const line_33 = `The	delivery	point,	in	either	case,	shall	be	the	Regional	Periphery	of	Exporting`;
@@ -890,13 +901,13 @@ class DashboardCFP {
         const line_39 = `You	are	requested	to	acknowledge	the	receipt	of	this	LOA	&	give	your	acceptance	on	it.`;
         const line_40 = `Regards,`;
         const line_41 = `Yours	Faithfully,`;
-        const line_42 = `For	Ticking	Minds`;
+        const line_42 = `For	${DashboardCFP.Utility_1}`;
 
         const line_43 = `Authorised	Signatory`;
         const line_44 = `(Other	Information	if	any)`;
 
         // Define the strings you want to check in the PDF content
-        const stringsToCheck = [line_1.trim(), line_2.trim(), line_3.trim(), line_4.trim(), line_5.trim(), line_6.trim(), line_7.trim(), line_8.trim(), line_9.trim(), line_10.trim(),
+        const stringsToCheck = [line_1.trim(), line_2.trim(), line_3.trim(), line_4.trim(), line_5.trim(), line_7.trim(), line_8.trim(), line_9.trim(), line_10.trim(),
         line_11.trim(), line_12.trim(), line_13.trim(), line_14.trim(), line_15.trim(), line_16.trim(), line_17.trim(), line_18.trim(), line_19.trim(), line_20.trim(),
         line_21.trim(), line_22.trim(), line_23.trim(), line_24.trim(), line_25.trim(), line_26.trim(), line_27.trim(), line_28.trim(), line_29.trim(), line_30.trim(),
         line_31.trim(), line_32.trim(), line_33.trim(), line_34.trim(), line_35.trim(), line_36.trim(), line_37.trim(), line_38.trim(), line_39.trim(), line_40.trim(),
@@ -909,7 +920,7 @@ class DashboardCFP {
                 //expect.soft(text).toContain(str);
                 console.log(`✔ Actual Result  : ${str}\n`);
             } else {
-                console.log(`X Expected Result is not equal to Actual Result : ${str}`);
+                console.log(`X Expected Result is not equal to Actual Result : ${str}\n`);
             }
         }
 
