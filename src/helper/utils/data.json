@@ -1,5 +1,6 @@
 {
     "browser":"chrome",
+    "testtype":"Retest",
     "URL":"https://platform.test.newage.market/login",
   
     "admin":"manoj@yopmail.com",
@@ -41,8 +42,7 @@
        
     
         "Minimum_Quantum":true,
-        "Minimum_QuantumValue1":"0.01",
-        "Minimum_QuantumValue":"1",
+        "Minimum_QuantumValue":"0.01",
     
         "imp_start_date" :"2024-04-05",
         "imp_end_date" :"2024-04-05",
@@ -57,34 +57,32 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"25",
+        "response_mins":"05",
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"25",
+        "award_mins":"03",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
-        "loa_issuance_mins":"25",
+        "loa_issuance_mins":"01",
     
         "loa_acceptance_days":"00",
         "loa_acceptance_hours":"00",
-        "loa_acceptance_mins":"25",
+        "loa_acceptance_mins":"01",
       
        
         "index":0,
         "Settlement_Price":"0.01",
         "query_Box" :true,
         "Ceiling_Base_Return":true,
-        "Ceiling_Base_Return_value":"1",
+        "Ceiling_Base_Return_value":"0.01",
         "custom_Guests":"monicaa@yopmail.com",
         "remarks":"Good",
     
-        "minQuantumValue11":"0.01",
-        "minQuantumValue1":"1",
-        "ReturnValue1":"1",
+        "minQuantumValue1":"0.01",
+        "ReturnValue1":"0.01",
     
-        "application_no":"7865457",
         "route":"YES",
         "GTAM":"YES",
         "source_of_generation":"SOLAR",
@@ -117,20 +115,20 @@
             "exp_end_time" :"12:00",
         
             "response_days":"00",
-            "response_hours":"06",
-            "response_mins":"30",
+            "response_hours":"00",
+            "response_mins":"05",
         
             "award_days":"00",
-            "award_hours":"06",
-            "award_mins":"30",
+            "award_hours":"00",
+            "award_mins":"03",
         
             "loa_issuance_days":"00",
-            "loa_issuance_hours":"04",
-            "loa_issuance_mins":"30",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
-            "loa_acceptance_hours":"04",
-            "loa_acceptance_mins":"30",
+            "loa_acceptance_hours":"00",
+            "loa_acceptance_mins":"01",
           
            
             "index":1,
@@ -181,21 +179,21 @@
             "exp_start_time" :"00:00",
             "exp_end_time" :"04:00",
         
-            "response_days":"03",
-            "response_hours":"03",
-            "response_mins":"30",
+            "response_days":"00",
+            "response_hours":"00",
+            "response_mins":"05",
         
-            "award_days":"04",
-            "award_hours":"04",
-            "award_mins":"40",
+            "award_days":"00",
+            "award_hours":"00",
+            "award_mins":"03",
         
-            "loa_issuance_days":"02",
-            "loa_issuance_hours":"02",
-            "loa_issuance_mins":"20",
+            "loa_issuance_days":"00",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
         
-            "loa_acceptance_days":"06",
-            "loa_acceptance_hours":"06",
-            "loa_acceptance_mins":"59",
+            "loa_acceptance_days":"00",
+            "loa_acceptance_hours":"00",
+            "loa_acceptance_mins":"01",
           
            
             "index":2,
@@ -248,20 +246,20 @@
             "exp_end_time" :"06:00",
         
             "response_days":"00",
-            "response_hours":"01",
-            "response_mins":"25",
+            "response_hours":"00",
+            "response_mins":"05",
         
             "award_days":"00",
-            "award_hours":"01",
-            "award_mins":"25",
+            "award_hours":"00",
+            "award_mins":"03",
         
             "loa_issuance_days":"00",
-            "loa_issuance_hours":"01",
-            "loa_issuance_mins":"25",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
-            "loa_acceptance_hours":"01",
-            "loa_acceptance_mins":"25",
+            "loa_acceptance_hours":"00",
+            "loa_acceptance_mins":"01",
           
            
             "index":3,
@@ -308,19 +306,19 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"30",
+            "response_mins":"05",
         
             "award_days":"00",
-            "award_hours":"06",
-            "award_mins":"45",
+            "award_hours":"00",
+            "award_mins":"03",
         
-            "loa_issuance_days":"03",
-            "loa_issuance_hours":"23",
-            "loa_issuance_mins":"09",
+            "loa_issuance_days":"00",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
             "loa_acceptance_hours":"00",
-            "loa_acceptance_mins":"05",
+            "loa_acceptance_mins":"01",
           
            
             "index":6,
@@ -371,21 +369,21 @@
             "exp_start_time" :"03:00",
             "exp_end_time" :"06:00",
         
-            "response_days":"01",
+            "response_days":"00",
             "response_hours":"00",
-            "response_mins":"25",
+            "response_mins":"05",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"25",
+            "award_mins":"03",
         
-            "loa_issuance_days":"01",
+            "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
-            "loa_issuance_mins":"25",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
-            "loa_acceptance_hours":"01",
-            "loa_acceptance_mins":"25",
+            "loa_acceptance_hours":"00",
+            "loa_acceptance_mins":"01",
           
         
             "index":4,
@@ -432,20 +430,20 @@
             "exp_end_time" :"06:00",
         
             "response_days":"00",
-            "response_hours":"04",
-            "response_mins":"25",
+            "response_hours":"00",
+            "response_mins":"05",
         
             "award_days":"00",
-            "award_hours":"04",
-            "award_mins":"25",
+            "award_hours":"00",
+            "award_mins":"03",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
-            "loa_issuance_mins":"05",
+            "loa_issuance_mins":"01",
         
-            "loa_acceptance_days":"01",
+            "loa_acceptance_days":"00",
             "loa_acceptance_hours":"00",
-            "loa_acceptance_mins":"25",
+            "loa_acceptance_mins":"01",
           
            
             "index":5,
@@ -498,19 +496,19 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"25",
+            "response_mins":"05",
         
-            "award_days":"15",
+            "award_days":"00",
             "award_hours":"00",
-            "award_mins":"25",
+            "award_mins":"03",
         
             "loa_issuance_days":"00",
-            "loa_issuance_hours":"04",
-            "loa_issuance_mins":"25",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
             "loa_acceptance_hours":"00",
-            "loa_acceptance_mins":"25",
+            "loa_acceptance_mins":"01",
           
             "index":0,
             "Settlement_Price":"0",
@@ -555,19 +553,19 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"02",
+            "response_mins":"05",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"05",
+            "award_mins":"03",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
-            "loa_issuance_mins":"05",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
             "loa_acceptance_hours":"00",
-            "loa_acceptance_mins":"25",
+            "loa_acceptance_mins":"01",
           
             "Quantum":"99999",
             "index":7,
@@ -607,19 +605,19 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"10",
+            "response_mins":"05",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"05",
+            "award_mins":"03",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
-            "loa_issuance_mins":"02",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
             "loa_acceptance_hours":"00",
-            "loa_acceptance_mins":"25",
+            "loa_acceptance_mins":"01",
           
             "index":7,
             "Settlement_Price":"0",
@@ -658,19 +656,20 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"10",
+            "response_mins":"05",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"05",
+            "award_mins":"03",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
-            "loa_issuance_mins":"05",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
             "loa_acceptance_hours":"00",
-            "loa_acceptance_mins":"02",
+            "loa_acceptance_mins":"01",
+
           
             "index":7,
             "Settlement_Price":"0",
@@ -717,11 +716,11 @@
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
-            "loa_issuance_mins":"05",
+            "loa_issuance_mins":"01",
         
             "loa_acceptance_days":"00",
             "loa_acceptance_hours":"00",
-            "loa_acceptance_mins":"05",
+            "loa_acceptance_mins":"01",
           
             "Quantum":"99999",
             "index":7,
@@ -743,7 +742,6 @@
 
 
 
-        
 
 
 
@@ -771,19 +769,19 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"25",
+        "response_mins":"05",
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"25",
+        "award_mins":"03",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
-        "loa_issuance_mins":"25",
+        "loa_issuance_mins":"01",
     
         "loa_acceptance_days":"00",
         "loa_acceptance_hours":"00",
-        "loa_acceptance_mins":"25",
+        "loa_acceptance_mins":"01",
       
        
         "index":0,
@@ -797,7 +795,6 @@
         "minQuantumValue1":"0.01",
         "ReturnValue1":"0.01",
     
-        "application_no":"909999",
         "route":"YES",
         "GTAM":"YES",
         "source_of_generation":"SOLAR",
@@ -830,20 +827,20 @@
         "exp_end_time" :"12:00",
     
         "response_days":"00",
-        "response_hours":"06",
-        "response_mins":"30",
+        "response_hours":"00",
+        "response_mins":"05",
     
         "award_days":"00",
-        "award_hours":"06",
-        "award_mins":"30",
+        "award_hours":"00",
+        "award_mins":"03",
     
         "loa_issuance_days":"00",
-        "loa_issuance_hours":"04",
-        "loa_issuance_mins":"30",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
     
         "loa_acceptance_days":"00",
-        "loa_acceptance_hours":"04",
-        "loa_acceptance_mins":"30",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
       
        
         "index":1,
@@ -895,21 +892,21 @@
         "exp_start_time" :"00:00",
         "exp_end_time" :"04:00",
     
-        "response_days":"03",
-        "response_hours":"03",
-        "response_mins":"30",
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
     
-        "award_days":"04",
-        "award_hours":"04",
-        "award_mins":"40",
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"03",
     
-        "loa_issuance_days":"02",
-        "loa_issuance_hours":"02",
-        "loa_issuance_mins":"20",
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
     
-        "loa_acceptance_days":"06",
-        "loa_acceptance_hours":"06",
-        "loa_acceptance_mins":"59",
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
       
        
         "index":2,
@@ -961,20 +958,20 @@
         "exp_end_time" :"06:00",
     
         "response_days":"00",
-        "response_hours":"01",
-        "response_mins":"25",
+        "response_hours":"00",
+        "response_mins":"05",
     
         "award_days":"00",
-        "award_hours":"01",
-        "award_mins":"25",
+        "award_hours":"00",
+        "award_mins":"03",
     
         "loa_issuance_days":"00",
-        "loa_issuance_hours":"01",
-        "loa_issuance_mins":"25",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
     
         "loa_acceptance_days":"00",
-        "loa_acceptance_hours":"01",
-        "loa_acceptance_mins":"25",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
       
        
         "index":3,
@@ -1021,19 +1018,19 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"30",
+        "response_mins":"05",
     
         "award_days":"00",
-        "award_hours":"06",
-        "award_mins":"45",
+        "award_hours":"00",
+        "award_mins":"03",
     
-        "loa_issuance_days":"03",
-        "loa_issuance_hours":"23",
-        "loa_issuance_mins":"09",
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
     
         "loa_acceptance_days":"00",
         "loa_acceptance_hours":"00",
-        "loa_acceptance_mins":"05",
+        "loa_acceptance_mins":"01",
       
        
         "index":6,
@@ -1084,21 +1081,21 @@
     "exp_start_time" :"03:00",
     "exp_end_time" :"06:00",
 
-    "response_days":"01",
+    "response_days":"00",
     "response_hours":"00",
-    "response_mins":"25",
+    "response_mins":"05",
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"25",
+    "award_mins":"03",
 
-    "loa_issuance_days":"01",
+    "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
-    "loa_issuance_mins":"25",
+    "loa_issuance_mins":"01",
 
     "loa_acceptance_days":"00",
-    "loa_acceptance_hours":"01",
-    "loa_acceptance_mins":"25",
+    "loa_acceptance_hours":"00",
+    "loa_acceptance_mins":"01",
   
 
     "index":0,
@@ -1144,20 +1141,20 @@
     "exp_end_time" :"06:00",
 
     "response_days":"00",
-    "response_hours":"04",
-    "response_mins":"25",
+    "response_hours":"00",
+    "response_mins":"05",
 
     "award_days":"00",
-    "award_hours":"04",
-    "award_mins":"25",
+    "award_hours":"00",
+    "award_mins":"03",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
-    "loa_issuance_mins":"05",
+    "loa_issuance_mins":"01",
 
-    "loa_acceptance_days":"01",
+    "loa_acceptance_days":"00",
     "loa_acceptance_hours":"00",
-    "loa_acceptance_mins":"25",
+    "loa_acceptance_mins":"01",
   
    
     "index":2,
@@ -1209,20 +1206,21 @@
 
     "response_days":"00",
     "response_hours":"00",
-    "response_mins":"25",
+    "response_mins":"05",
 
-    "award_days":"15",
+    "award_days":"00",
     "award_hours":"00",
-    "award_mins":"25",
+    "award_mins":"03",
 
     "loa_issuance_days":"00",
-    "loa_issuance_hours":"04",
-    "loa_issuance_mins":"25",
+    "loa_issuance_hours":"00",
+    "loa_issuance_mins":"01",
 
     "loa_acceptance_days":"00",
     "loa_acceptance_hours":"00",
-    "loa_acceptance_mins":"25",
-  
+    "loa_acceptance_mins":"01",
+
+    
     "Quantum":"99999",
     "index":0,
     "Settlement_Price":"0",
@@ -1267,19 +1265,19 @@
 
     "response_days":"00",
     "response_hours":"00",
-    "response_mins":"02",
+    "response_mins":"05",
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"05",
+    "award_mins":"03",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
-    "loa_issuance_mins":"05",
+    "loa_issuance_mins":"01",
 
     "loa_acceptance_days":"00",
     "loa_acceptance_hours":"00",
-    "loa_acceptance_mins":"25",
+    "loa_acceptance_mins":"01",
   
     "Quantum":"99999",
     "index":7,
@@ -1319,19 +1317,19 @@
 
     "response_days":"00",
     "response_hours":"00",
-    "response_mins":"10",
+    "response_mins":"05",
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"05",
+    "award_mins":"03",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
-    "loa_issuance_mins":"02",
+    "loa_issuance_mins":"01",
 
     "loa_acceptance_days":"00",
     "loa_acceptance_hours":"00",
-    "loa_acceptance_mins":"25",
+    "loa_acceptance_mins":"01",
   
     "Quantum":"99999",
     "index":7,
@@ -1371,19 +1369,19 @@
 
     "response_days":"00",
     "response_hours":"00",
-    "response_mins":"10",
+    "response_mins":"05",
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"05",
+    "award_mins":"03",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
-    "loa_issuance_mins":"05",
+    "loa_issuance_mins":"01",
 
     "loa_acceptance_days":"00",
     "loa_acceptance_hours":"00",
-    "loa_acceptance_mins":"02",
+    "loa_acceptance_mins":"01",
   
     "index":7,
     "Settlement_Price":"0",
@@ -1430,11 +1428,11 @@
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
-    "loa_issuance_mins":"05",
+    "loa_issuance_mins":"01",
 
     "loa_acceptance_days":"00",
     "loa_acceptance_hours":"00",
-    "loa_acceptance_mins":"05",
+    "loa_acceptance_mins":"01",
   
     "Quantum":"99999",
     "index":7,

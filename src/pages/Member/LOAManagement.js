@@ -4,7 +4,11 @@ const data = require("../../helper/utils/data.json");
 const pdf = require('pdf-parse');
 const fs = require('fs').promises;
 const DashboardCFP = require("../../pages/Member/DashboardCFP");
+const RandomFunction = require('../../helper/utils/RandomFunction');
 
+
+//Object Instance
+const randomFunction = new RandomFunction();
 const dashboardCFP = new DashboardCFP();
 const currentDate = new Date();
 
@@ -45,7 +49,7 @@ class LOAManagement {
     }
 
     //Upload the Document ===> Responder Side 
-    async uploadDocument(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price) {
+    async uploadDocument(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price, loa_acceptance_mins) {
 
         await pageFixture.page.locator(" //label[contains(text(),'Responder')]").click();
         await pageFixture.page.getByPlaceholder('Search').fill(CFP);
@@ -56,8 +60,29 @@ class LOAManagement {
 
         await pageFixture.page.waitForTimeout(10000);//Wait until document verification 
 
-        //Time 
-        console.log(`Timeline : ${await pageFixture.page.locator("//small//small").textContent()}`);
+        // //LOA Acceptance Deadline
+        // const time = await pageFixture.page.locator("//small//small").textContent();
+        // console.log(`LOA Acceptance timeline : ${time}`);
+
+        //TimeLine Functionality
+        //LOA Acceptance Timeline
+        const time = await pageFixture.page.locator("(//div//small)[1]").textContent();
+        console.log(`LOA Acceptance Timeline  : ${time}`);
+
+        const loaAcceptanceMins = randomFunction.addMinutesToCurrentTime(time);
+        console.log("LOA Acceptance Added minutes:", loaAcceptanceMins);
+
+        const addedLOAAcceptanceTime = parseInt(loa_acceptance_mins) + DashboardCFP.loaIssuanceMins;
+        // if (addedLOAAcceptanceTime >= 60) {
+        //     addedLOAAcceptanceTime %= 60;
+        // }
+        if (loaAcceptanceMins === addedLOAAcceptanceTime || loaAcceptanceMins === addedLOAAcceptanceTime - 1) {
+            console.log(`Contarct Awarding time is added to Loa Issuance Time ${loaAcceptanceMins} equals ${addedLOAAcceptanceTime}`);
+        }
+        else {
+            console.log(`Contarct Awarding time is ${loaAcceptanceMins} not  equal ${addedLOAAcceptanceTime} to Loa Issuance Time`);
+        }
+
         await pageFixture.page.click("//div[contains(@class,'gredient-blue-icon-box')]");
         await pageFixture.page.waitForSelector("(//input[@type='file'])[2]");
         await pageFixture.page.locator("(//input[@type='file'])[2]").setInputFiles('src/helper/utils/PDF/LOA.pdf');
@@ -326,8 +351,9 @@ class LOAManagement {
     //Action 
     async action(CFP) {
         await pageFixture.page.getByPlaceholder('Search').fill(CFP);
-        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
-        await pageFixture.page.getByRole('button', { name: /Action/i }).click();
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click({ timeout: 40000 });
+        await pageFixture.page.waitForTimeout(2000);
+        await pageFixture.page.getByRole('button', { name: /Action/i }).click({ timeout: 40000 });
         await pageFixture.page.getByPlaceholder('remarks').fill("LOA Approved");
         await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
         console.log("----------------Action Done Successfully ----------------");
@@ -339,11 +365,6 @@ class LOAManagement {
         await pageFixture.page.locator("//label[contains(text(),'Responder')]").click();
         await pageFixture.page.getByPlaceholder('Search').fill(CFP);
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
-    }
-
-    //Function to Generate a random 5 or 6 digit number
-    async generateRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
 
@@ -358,15 +379,9 @@ class LOAManagement {
         //Generate New Format-D
         await pageFixture.page.getByRole('button', { name: /Generate New Format-D/i }).click();
 
-        //Function to Generate a random 5 or 6 digit number
-        function generateRandomNumber(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        // Generate a random 5 or 6 digit number
-        let randomNumber = generateRandomNumber(10000, 999999);
-
-        this.application_no = randomNumber.toString();
-
+        // Generate a random 6 or 7 digit number
+        let randomNumber = (Math.floor(Math.random() * 9000000) + 1000000).toString();
+        this.application_no = randomNumber;
         console.log(`Application Number : ${this.application_no}`);
 
         //Application Number

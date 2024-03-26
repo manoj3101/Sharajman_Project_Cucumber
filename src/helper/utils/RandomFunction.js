@@ -186,6 +186,46 @@ class RandomFunction {
     }
 
 
+    addMinutesToCurrentTime(timeString) {
+        // Split the string at the colon
+        var parts = timeString.split(':');
+
+        // Extract the minutes part after the first colon
+        var minutes = parseInt(parts[1]); // Extracting minutes part and converting to integer
+
+        // // Create a new Date object
+        // var currentDate = new Date();
+
+        // // Get the current time
+        // var currentMinutes = currentDate.getMinutes();
+
+        // // Calculate the new minutes
+        // var newMinutes = minutes + currentMinutes;
+
+        // Ensure newMinutes doesn't exceed 60
+        // if (newMinutes >= 60) {
+        //     newMinutes %= 60;
+        // }
+
+        // Return the new minutes
+        // return newMinutes;
+        return minutes;
+    }
+
+
+    deadlineMinutes(minutes, contractTime, loaIssuance, loaAcceptance) {
+
+        // Calculate the new minutes
+        var newMinutes = parseInt(minutes) + parseInt(contractTime) + parseInt(loaIssuance) + parseInt(loaAcceptance);
+        return newMinutes;
+    }
+
+    //     // Test the function
+    //     var time = "Expires in 10:35:40";
+    // console.log("New minutes:", addMinutesToCurrentTime(time));
+
+
+
 }
 
 module.exports = RandomFunction;

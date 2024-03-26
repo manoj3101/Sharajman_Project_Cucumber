@@ -1,6 +1,8 @@
 const { BeforeAll, AfterAll, Before, After, BeforeStep, Status } = require("@cucumber/cucumber");
 const { chromium, Page, Browser, Context, BrowserContext, firefox, msedge } = require('@playwright/test');
+const { generateHTMLReport, onTestEnd, onTestStart } = require('../../Plugins/GenerateReport');
 const { invokeBrowser } = require("../helper/browsers/browserManager");
+const data = require('../helper/utils/data.json');
 const pageFixture = require("./pageFixture");
 const launchBrowsers = require("../helper/browsers/browserManager");
 
@@ -10,6 +12,7 @@ let browser = Browser;
 let context = BrowserContext;
 
 BeforeAll(async function () {
+    onTestStart(data.testtype, data.browser, data.URL);
     //Lauching the berowser
     browser = await invokeBrowser();
 });
@@ -35,9 +38,12 @@ After(async function ({ pickle, result }) {
     // Close page and browser
     await pageFixture.page.close();
     await context.close();
+   
 });
 
 AfterAll(async function () {
     // Close browser
     await browser.close();
+    onTestEnd();
+    generateHTMLReport();
 });

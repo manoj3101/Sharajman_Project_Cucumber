@@ -1,0 +1,213 @@
+[Check the Import & Export date before running the script]
+
+EXPORT
+
+TC_EX_001 ==>
+
+Export start period - After Response validity period 
+Export end time - 4 hours after export start time 
+Import start time - 4 hours after export period end date 
+Import end time - 4 hours after import start time 
+
+TC_EX_002 ==> 
+
+Export start period - 730 days after CFP publishing timeline end time, 
+Export end time - 730 days after CFP publishing timeline end time, 
+Import start time - 730 days after the CFP publishing end date, 
+Import end time - 730 days after the CFP publishing end date, 
+
+TC_EX_003 ==> 
+
+Export start period - 730 days after CFP publishing timeline end time, 
+Export end time - 4 hours after Export start time, 
+Imp ort start time - 730 days after the CFP publishing end date, 
+Import end time - 4 hours after Import start time, 
+
+TC_EX_004 ==> 
+
+Export start period - After Response validity period, 
+Export end time - 730 days after CFP publishing timeline end time, 
+Import start time - 4 hours after Export period end date, 
+Import end time - 730 days after the CFP publishing end date, 
+
+TC_EX_005 ==> 
+
+Export start period - 730 days after CFP publishing timeline end time
+Export end time - 730 days after CFP publishing timeline end time
+Import start time - 4 hours after Export period end date
+Import end time - 4 hours after Import start time
+
+TC_EX_006 ==> 
+
+Export start period - After Response validity period, 
+Export end time - 730 days after CFP publishing timeline end time, 
+Import start time - 730 days after the CFP publishing end date, 
+Import end time - 730 days after the CFP publishing end date, 
+
+TC_EX_007 ==> 
+
+Export start period - After Response validity period, 
+Export end time - 4 hours after Export start time, 
+Import start time - 730 days after the CFP publishing end date, 
+Import end time - 730 days after the CFP publishing end date, 
+
+TC_EX_008 ==> 
+
+Export start period - 730 days after CFP publishing timeline end time
+Export end time - 4 hours after Export start time
+Import start time - 4 hours after Export period end date
+Import end time - 4 hours after import start time
+
+TC_EX_009 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+TC_EX_010 ==> 
+
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+TC_EX_011 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+TC_EX_012 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+IMPORT
+
+TC_IM_001 ==>
+
+Import start period - After Response validity period 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+TC_IM_002 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 730 days after CFP publishing timeline end time 
+export start time - 730 days after the CFP publishing end date 
+Export end time - 730 days after the CFP publishing end date
+
+TC_IM_003 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time
+Import end time - 4 hours after import start time 
+export start time - 730 days after the CFP publishing end date 
+Export end time - 4 hours after export start time 
+
+
+TC_IM_004 ==> 
+
+Import start period - After Response validity period 
+Import end time - 730 days after CFP publishing timeline end time 
+export start time - 4 hours after import period end date 
+Export end time - 730 days after the CFP publishing end date 
+
+TC_IM_005 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 730 days after CFP publishing timeline end time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+
+TC_IM_006 ==> 
+
+Import start period - After Response validity period 
+Import end time - 730 days after CFP publishing timeline end time 
+export start time - 730 days after the CFP publishing end date 
+Export end time - 730 days after the CFP publishing end date 
+
+TC_IM_007 ==> 
+
+Import start period - After Response validity period 
+Import end time - 4 hours after import start time 
+export start time - 730 days after the CFP publishing end date 
+Export end time - 730 days after the CFP publishing end date 
+
+TC_IM_008 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+TC_IM_009 ==>
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+TC_IM_010 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+TC_IM_011 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+
+TC_IM_012 ==> 
+
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
+export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
+
+
+
+
+
+
+
+EXPORT
+
+TC_EX_001 ==> Minimum Quantum - Yes Single
+TC_EX_002 ==> Minimum Quantum - Yes	Multiple
+TC_EX_003 ==> Minimum Quantum - No	Multiple
+TC_EX_004 ==> Minimum Quantum - No	Single
+TC_EX_005 ==> Minimum Quantum - Yes Multiple
+TC_EX_006 ==> Minimum Quantum - Yes	Single
+TC_EX_007 ==> Minimum Quantum - Yes	Multiple
+TC_EX_008 ==> Minimum Quantum - Yes	Single
+TC_EX_009 ==> Minimum Quantum - Yes	Single
+TC_EX_010 ==> Minimum Quantum - Yes	Single
+TC_EX_011 ==> Minimum Quantum - Yes	Single
+TC_EX_012 ==> Minimum Quantum - Yes	Single
+
+IMPORT 
+
+TC_IM_001 ==> Minimum Quantum - Yes Single
+TC_IM_002 ==> Minimum Quantum - Yes	Multiple
+TC_IM_003 ==> Minimum Quantum - No	Multiple
+TC_IM_004 ==> Minimum Quantum - No	Single
+TC_IM_005 ==> Minimum Quantum - Yes Multiple
+TC_IM_006 ==> Minimum Quantum - Yes	Single    
+TC_IM_007 ==> Minimum Quantum - Yes	Multiple   
+TC_IM_008 ==> Minimum Quantum - Yes	Single
+TC_IM_009 ==> Minimum Quantum - Yes	Single
+TC_IM_010 ==> Minimum Quantum - Yes	Single
+TC_IM_011 ==> Minimum Quantum - Yes	Single
+TC_IM_012 ==> Minimum Quantum - Yes	Single

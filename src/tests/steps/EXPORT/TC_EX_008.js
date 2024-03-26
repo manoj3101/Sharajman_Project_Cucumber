@@ -165,7 +165,7 @@ Then('Awarding and Generate LOA should be successfull as Expected as per export 
 
     await dashboardCFP.energycalculation_responder(data.EX_08.exp_start_date, data.EX_08.exp_end_date, data.EX_08.exp_start_time, data.EX_08.exp_end_time, data.EX_08.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.EX_08.imp_start_date, data.EX_08.imp_end_date, data.EX_08.imp_start_time, data.EX_08.imp_end_time, data.EX_08.Quantum_value, data.EX_08.exp_start_date, data.EX_08.exp_end_date, data.EX_08.exp_start_time, data.EX_08.exp_end_time, data.EX_08.ReturnValue1, data.EX_08.Settlement_Price);
+    await dashboardCFP.generateLOA(cfpNumber, data.EX_08.imp_start_date, data.EX_08.imp_end_date, data.EX_08.imp_start_time, data.EX_08.imp_end_time, data.EX_08.Quantum_value, data.EX_08.exp_start_date, data.EX_08.exp_end_date, data.EX_08.exp_start_time, data.EX_08.exp_end_time, data.EX_08.ReturnValue1, data.EX_08.Settlement_Price, data.EX_08.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
     console.log("Initiator Uploaded the LOA documents successfully. \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
@@ -190,7 +190,7 @@ Then('Responder Uploading the documents should be successfull as Expected as per
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, data.EX_08.imp_start_date, data.EX_08.imp_end_date, data.EX_08.imp_start_time, data.EX_08.imp_end_time, data.EX_08.Quantum_value, data.EX_08.exp_start_date, data.EX_08.exp_end_date, data.EX_08.exp_start_time, data.EX_08.exp_end_time, data.EX_08.ReturnValue1, data.EX_08.Settlement_Price);
+    await loaManagement.uploadDocument(cfpNumber, data.EX_08.imp_start_date, data.EX_08.imp_end_date, data.EX_08.imp_start_time, data.EX_08.imp_end_time, data.EX_08.Quantum_value, data.EX_08.exp_start_date, data.EX_08.exp_end_date, data.EX_08.exp_start_time, data.EX_08.exp_end_time, data.EX_08.ReturnValue1, data.EX_08.Settlement_Price, data.EX_08.loa_acceptance_mins);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 

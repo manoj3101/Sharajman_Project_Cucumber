@@ -165,7 +165,7 @@ Then('Awarding and Generate LOA should be successfull as per export case four', 
 
     await dashboardCFP.energycalculation_responder(data.EX_04.exp_start_date, data.EX_04.exp_end_date, data.EX_04.exp_start_time, data.EX_04.exp_end_time, data.EX_04.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.EX_04.imp_start_date, data.EX_04.imp_end_date, data.EX_04.imp_start_time, data.EX_04.imp_end_time, data.EX_04.Quantum_value, data.EX_04.exp_start_date, data.EX_04.exp_end_date, data.EX_04.exp_start_time, data.EX_04.exp_end_time, data.EX_04.ReturnValue1, data.EX_04.Settlement_Price);
+    await dashboardCFP.generateLOA(cfpNumber, data.EX_04.imp_start_date, data.EX_04.imp_end_date, data.EX_04.imp_start_time, data.EX_04.imp_end_time, data.EX_04.Quantum_value, data.EX_04.exp_start_date, data.EX_04.exp_end_date, data.EX_04.exp_start_time, data.EX_04.exp_end_time, data.EX_04.ReturnValue1, data.EX_04.Settlement_Price, data.EX_04.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -191,7 +191,7 @@ Then('Responder Uploading the documents should be successfull as per export case
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, data.EX_04.imp_start_date, data.EX_04.imp_end_date, data.EX_04.imp_start_time, data.EX_04.imp_end_time, data.EX_04.Quantum_value, data.EX_04.exp_start_date, data.EX_04.exp_end_date, data.EX_04.exp_start_time, data.EX_04.exp_end_time, data.EX_04.ReturnValue1, data.EX_04.Settlement_Price);
+    await loaManagement.uploadDocument(cfpNumber, data.EX_04.imp_start_date, data.EX_04.imp_end_date, data.EX_04.imp_start_time, data.EX_04.imp_end_time, data.EX_04.Quantum_value, data.EX_04.exp_start_date, data.EX_04.exp_end_date, data.EX_04.exp_start_time, data.EX_04.exp_end_time, data.EX_04.ReturnValue1, data.EX_04.Settlement_Price, data.EX_04.loa_acceptance_mins);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 

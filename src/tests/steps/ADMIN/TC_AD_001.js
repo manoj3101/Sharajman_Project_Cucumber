@@ -253,7 +253,7 @@ Then('Awarding and Generate LOA should be successfull as per admin case one', as
 
     await dashboardCFP.energycalculation_responder(ad_data.AD_01.exp_start_date, ad_data.AD_01.exp_end_date, ad_data.AD_01.exp_start_time, ad_data.AD_01.exp_end_time, ad_data.AD_01.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, ad_data.AD_01.imp_start_date, ad_data.AD_01.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.minQuantumValue1, ad_data.AD_01.exp_start_date, ad_data.AD_01.exp_end_date, ad_data.AD_01.exp_start_time, ad_data.AD_01.exp_end_time, ad_data.AD_01.ReturnValue1, ad_data.AD_01.Settlement_Price);
+    await dashboardCFP.generateLOA(cfpNumber, ad_data.AD_01.imp_start_date, ad_data.AD_01.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.minQuantumValue1, ad_data.AD_01.exp_start_date, ad_data.AD_01.exp_end_date, ad_data.AD_01.exp_start_time, ad_data.AD_01.exp_end_time, ad_data.AD_01.ReturnValue1, ad_data.AD_01.Settlement_Price, ad_data.AD_01.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -278,9 +278,9 @@ Then('Responder Uploading the documents should be successfull as per admin case 
 
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, ad_data.AD_01.imp_start_date, ad_data.AD_01.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.Quantum_value, ad_data.AD_01.exp_start_date, ad_data.AD_01.exp_end_date, ad_data.AD_01.exp_start_time, ad_data.AD_01.exp_end_time, ad_data.AD_01.ReturnValue1, ad_data.AD_01.Settlement_Price);
+    await loaManagement.uploadDocument(cfpNumber, ad_data.AD_01.imp_start_date, ad_data.AD_01.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.Quantum_value, ad_data.AD_01.exp_start_date, ad_data.AD_01.exp_end_date, ad_data.AD_01.exp_start_time, ad_data.AD_01.exp_end_time, ad_data.AD_01.ReturnValue1, ad_data.AD_01.Settlement_Price, ad_data.AD_01.loa_acceptance_mins);
 
-    console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
+console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
 });
 
@@ -325,7 +325,7 @@ Then('Format D should be successfully Generated from Responder side as per admin
 
 Given('User navigate to the Application and logged in as a discom user as initiator as per admin case one', async function () {
 
-     //Old User as a Inititator
+    //Old User as a Inititator
     await login.login(data.user2, data.user2_password);
 
 });
@@ -378,8 +378,8 @@ Given('User started creating Call for Proposal CFP as an initiator as per admin 
 
 Given('New User navigate to the Application and logged in as a discom user as Responder as per admin case one', async function () {
 
-      //New user as a Responder
-      await login.login(email_id, password);
+    //New user as a Responder
+    await login.login(email_id, password);
 
 
 });

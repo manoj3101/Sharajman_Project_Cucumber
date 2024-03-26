@@ -131,7 +131,6 @@ class SignUp {
                 await pageFixture.page.getByPlaceholder('Password').fill(this.pass_word); //Fill Password 
                 break;
             case "newpassword":
-                console.log(`New Password :${this.new_pass}`);
                 await pageFixture.page.getByPlaceholder('Password').fill(this.new_pass); //Fill Password 
                 break;
         }

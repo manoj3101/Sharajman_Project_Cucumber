@@ -38,7 +38,7 @@ class Login {
             console.log("                                    ✔ Dialog Box Appeared ✔                                      ");
         }
         console.log("************************************** ✔ Successfully Logged In ✔ **************************************");
-        console.log("-----------Page Title -------- :" + await pageFixture.page.title());
+        // console.log("-----------Page Title -------- :" + await pageFixture.page.title());
 
     }
 

@@ -52,19 +52,19 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"25",
+        "response_mins":"05",
     
-        "award_days":"15",
+        "award_days":"00",
         "award_hours":"00",
-        "award_mins":"25",
+        "award_mins":"03",
     
         "loa_issuance_days":"00",
-        "loa_issuance_hours":"04",
-        "loa_issuance_mins":"25",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
     
         "loa_acceptance_days":"00",
         "loa_acceptance_hours":"00",
-        "loa_acceptance_mins":"25",
+        "loa_acceptance_mins":"01",
       
        
         "index":7,

@@ -1,11 +1,3 @@
-let options = [
-    '--require ./--require ./src/tests/steps/*/*.js', // Load steps
-    '--format html:test-results/Report.html', //HTML Report
-    '--format json:test-results/cucumber-report.json', //Json Report
-    '--dry-run'
-].join(' ')
-
-
 let opt = [
     '--require ./src/tests/steps/*/*.js', // Specify our steps files location
     '--require ./src/hooks/hooks.js', // Specify our hooks files location
@@ -19,9 +11,17 @@ let run_features = [
     '--format json:test-results/cucumber-report.json'
 ].join(' ');
 
+let sanity_run1 = [
+    './src/tests/features/EXPORT/TC_EX_006.feature', // Specify our feature files location
+    // './src/tests/features/EXPORT/TC_IM_006.feature', // Export => src/tests/steps/EXPORT/*.feature
+    '--format html:test-results/Report.html', //HTML Report
+    '--format json:test-results/cucumber-report.json', //Json Report
+    
+].join(' ');
+
 let sanity_run = [
     //    './src/tests/features/ADMIN/TC_AD_001.feature',
-    './src/tests/features/EXPORT/TC_EX_001.feature', // Specify our feature files location
+    './src/tests/features/EXPORT/TC_EX_002.feature', // Specify our feature files location
     // './src/tests/features/EXPORT/TC_EX_002.feature', // Export => src/tests/steps/EXPORT/*.feature
     // './src/tests/features/IMPORT/TC_IM_001.feature', // Import => src/tests/steps/IMPORT/*.feature
     // './src/tests/features/IMPORT/TC_IM_002.feature',
@@ -32,7 +32,7 @@ let sanity_run = [
 
 // Ensure proper escaping of quotes for JSON options and join the array elements with a space
 const options1 = `${opt} ${run_features}`;
-const options2 = `${opt} ${sanity_run}`;
+const options2 = `${opt} ${sanity_run1}`;
 
 // Export the configuration for the test runner
 module.exports = {

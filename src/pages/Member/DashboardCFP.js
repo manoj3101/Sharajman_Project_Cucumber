@@ -4,6 +4,10 @@ const tabSwitcher = require('../../hooks/tabSwitcher');
 const data = require("../../helper/utils/data.json");
 const pdf = require('pdf-parse');
 const fs = require('fs').promises;
+const RandomFunction = require('../../helper/utils/RandomFunction');
+
+//Object Instance
+const randomFunction = new RandomFunction();
 
 
 const currentDate = new Date();
@@ -31,6 +35,7 @@ class DashboardCFP {
     static Utility_2 = null;
     static Quantum_2 = null;
     static LOA_no = null;
+    static loaIssuanceMins = null;
 
     CFP_Num = null;
 
@@ -106,17 +111,16 @@ class DashboardCFP {
         switch (chooseCFP) {
             case "Quick CFP":
                 await pageFixture.page.locator("//span[contains(text(),'" + chooseCFP + "')]").nth(0).click();
-                console.log(`Clicked ${chooseCFP}`);
+                console.log(`User Choose ${chooseCFP}`);
                 break;
             case "Custom CFP":
                 await pageFixture.page.locator("//span[contains(text(),'" + chooseCFP + "')]").nth(0).click();
-                console.log(`Clicked ${chooseCFP}`);
+                console.log(`User Choose ${chooseCFP}`);
                 await pageFixture.page.waitForTimeout(3000);
                 await pageFixture.page.getByRole('textbox').setInputFiles('src/helper/utils/CFP.pdf');
                 await pageFixture.page.waitForTimeout(6000);
                 break;
         }
-        // await pageFixture.page.locator("//span[contains(text(),'Quick CFP')]").click();
         await pageFixture.page.getByRole('button', { name: /I Agree/i }).click();
     }
 
@@ -148,16 +152,12 @@ class DashboardCFP {
 
     //Import period
     async importPeriod(quantumValue, imp_start_date, imp_end_date, imp_start_time, imp_end_time) {
-        //await pageFixture.page.locator(this.Add).nth(0).click();
+
         await pageFixture.page.locator(this.fromDate_imp).fill(imp_start_date);
         await pageFixture.page.locator(this.toDate_imp).fill(imp_end_date);
         await pageFixture.page.locator(this.startTime_imp).selectOption({ label: imp_start_time });
         await pageFixture.page.locator(this.endTime_imp).selectOption({ label: imp_end_time });
         await pageFixture.page.fill(this.quantum, quantumValue);
-
-        // await pageFixture.page.waitForTimeout(2000);
-        // const energy = await pageFixture.page.getByPlaceholder("Energy").nth(0).textContent();
-        // console.log(energy);
     }
 
     //Minimum Quantum
@@ -174,7 +174,6 @@ class DashboardCFP {
     //Export period
     async exportPeriod(exp_start_date, exp_end_date, exp_start_time, exp_end_time) {
 
-        //await pageFixture.page.locator(this.Add).nth(0).click();
         await pageFixture.page.locator(this.fromDate_exp).fill(exp_start_date);
         await pageFixture.page.locator(this.toDate_exp).fill(exp_end_date);
         await pageFixture.page.locator(this.startTime_exp).selectOption({ label: exp_start_time });
@@ -209,11 +208,9 @@ class DashboardCFP {
         let hour2 = newHours1.toString().padStart(2, '0');
         let minute2 = newMinutes1.toString().padStart(2, '0');
 
-        console.log("-----------------------------------------");
-
-        console.log(`Current Time ${hour_now}:${minute_now}`);
-        console.log(`Live Start at ${hour1}:${minute1}`);
-        console.log(`Live Ending at ${hour2}:${minute2}`);
+        console.log(`Current Time ${hour_now}:${minute_now}`); //Current Time
+        console.log(`Live Start at ${hour1}:${minute1}`); //Live Start time
+        console.log(`Live Ending at ${hour2}:${minute2}`); //Live Ending time
 
         //Hours
         await pageFixture.page.locator(this.hh).nth(0).fill('');
@@ -530,6 +527,7 @@ class DashboardCFP {
             //console.log("-----------------------"+textContent);
             if (textContent.includes(CFP)) {
                 console.log("^^^^^^^^^^^^CFP^^^^^^^^^^^^^: " + CFP);
+                ////p[contains(text(),'Time Left to award')]
                 //await pageFixture.page.waitForSelector("//span[contains(@class,'digital-time ng-star-inserted')]", { timeout: 900000, negative: true });
                 await pageFixture.page.locator("(//button//div[contains(@class,'icon-bg position-relative')])[" + (i + 1) + "]").click();
                 await pageFixture.page.waitForTimeout(2000);
@@ -772,7 +770,7 @@ class DashboardCFP {
     }
 
     //Generate LOA
-    async generateLOA(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price) {
+    async generateLOA(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price, loa_issuance_mins) {
         //click the Generate LOA icon & proceed with LOA
         const LOA = await pageFixture.page.locator("//a[contains(text(),'Generate LOA')]");
         if (await LOA.isVisible()) {
@@ -918,7 +916,7 @@ class DashboardCFP {
             //expect(text).toContain(str);
             if ((text.replace(/\s+/g, '')).includes(str.replace(/\s+/g, ''))) {
                 //expect.soft(text).toContain(str);
-                console.log(`✔ Actual Result  : ${str}\n`);
+                console.log(`✔ Actual Result is equal to Expected Result : ${str}\n`);
             } else {
                 console.log(`X Expected Result is not equal to Actual Result : ${str}\n`);
             }
@@ -926,6 +924,30 @@ class DashboardCFP {
 
 
         console.log("-------------------LOA Document Verification have Done------------------");
+
+        //TimeLine Functionality
+        //LOA Issuance timeline
+        var loaIssuanceTime = await pageFixture.page.locator("//div//small").textContent();
+        console.log(`LOA Issuance timeline : ${loaIssuanceTime}`);
+
+        //Contact Awardin time 
+        DashboardCFP.loaIssuanceMins = randomFunction.addMinutesToCurrentTime(loaIssuanceTime);
+        const contarctAwardTime = DashboardCFP.loaIssuanceMins - parseInt(loa_issuance_mins);
+        console.log(`Contract Awarding Time: Expires in 00:${contarctAwardTime}:00`);
+
+        console.log("LOA Issuance Added minutes:", DashboardCFP.loaIssuanceMins);
+
+
+        //Check contract time is added in the loa issuance time
+        const addedLOAIssuanceTime = parseInt(loa_issuance_mins) + contarctAwardTime;
+
+        if (DashboardCFP.loaIssuanceMins === addedLOAIssuanceTime) {
+            console.log(`Contarct Awarding time is added to Loa Issuance Time ${DashboardCFP.loaIssuanceMins} equals ${addedLOAIssuanceTime}`);
+        }
+        else {
+            console.log(`Contarct Awarding time is not added or equal to Loa Issuance Time`)
+        }
+
 
         //Need to verify the time.....
         await pageFixture.page.click("//span[text()='Upload']");
