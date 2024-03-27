@@ -371,7 +371,7 @@ class DashboardCFP {
         const LiveCFP = await pageFixture.page.$$("//div[@class='d-flex low-time-strip']");
         console.log("--------------No of Live CFP Feed--------------: " + LiveCFP.length);
         const lists = await pageFixture.page.$$("//b[text()='CFP ID ']/..");
-        console.log("-------------------No of CFP ID-------------: " + lists.length);
+        // console.log("-------------------No of CFP ID-------------: " + lists.length);
         //check the same cfp number 
 
 
@@ -479,7 +479,7 @@ class DashboardCFP {
     async ceiling_error() {
         const error = await pageFixture.page.locator("//*[contains(text(),'Please enter response amount smaller than or equal to ceiling percentage')]");
         console.log(`An error Message is : ${error}`);
-        await expect(error).toContain("Please enter response amount smaller than or equal to ceiling percentage");
+        expect(error).toContain("Please enter response amount smaller than or equal to ceiling percentage");
         await pageFixture.page.locator("(//img[contains(@class,'cursor-pointer')])[14]").click();
         console.log("-------------------- X Response CFP couldn't placed Successfully X -----------------");
     }
@@ -497,7 +497,7 @@ class DashboardCFP {
             const textContent = await lists[i].textContent();
             //console.log(textContent);
             if (textContent.includes(CFP)) {
-                console.log("-------------------CFP---------------: " + CFP);
+                console.log("My CFP :" + CFP);
                 // await pageFixture.page.locator("(//button[contains(text(),'View Response')])[" + (i + 1) + "]").click();
                 await pageFixture.page.locator("(//span[contains(@class,'digital-time')]/following-sibling::div/button)[" + (i + 1) + "]").click();
                 console.log("               ✔ Clicked view Response ✔            ");
@@ -519,16 +519,14 @@ class DashboardCFP {
         // console.log("--------------Initiated CFP Feed--------------: "+initiatedCFP.length);
 
         const lists = await pageFixture.page.$$("//b[contains(text(),'CFP ID')]/..");
-        console.log("-------------------CFP ID-------------: " + lists.length);
+        // console.log("-------------------CFP ID-------------: " + lists.length);
 
         //check the same cfp number            
         for (let i = 0; i < lists.length; i++) {
             const textContent = await lists[i].textContent();
             //console.log("-----------------------"+textContent);
             if (textContent.includes(CFP)) {
-                console.log("^^^^^^^^^^^^CFP^^^^^^^^^^^^^: " + CFP);
-                ////p[contains(text(),'Time Left to award')]
-                //await pageFixture.page.waitForSelector("//span[contains(@class,'digital-time ng-star-inserted')]", { timeout: 900000, negative: true });
+                console.log("My CFP : " + CFP);
                 await pageFixture.page.locator("(//button//div[contains(@class,'icon-bg position-relative')])[" + (i + 1) + "]").click();
                 await pageFixture.page.waitForTimeout(2000);
                 console.log("--------------View Clicked--------------");
@@ -545,8 +543,8 @@ class DashboardCFP {
     async CFP_Expire() {
 
         const expired = await pageFixture.page.locator("//a[contains(@class,'text-Danger')]").textContent();
-        await expect(expired).toContain("EXPIRED");
-        console.log("                CFP TimeLine Expired Can't able to Award the CFP            ");
+        expect(expired).toContain("EXPIRED");
+        console.log("                X CFP TimeLine Expired Can't able to Award the CFP X           ");
 
     }
 
@@ -1000,7 +998,8 @@ class DashboardCFP {
         await pageFixture.page.locator("//input[contains(@placeholder,'Search')]").fill(CFP);
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
         //Need to verify the time.....
-        await pageFixture.page.waitForTimeout(60 * 1000);
+        console.log("Waiting for Initiator LOA Expire .................");
+        await pageFixture.page.waitForTimeout(150 * 1000);
         await pageFixture.page.click("//span[text()='Upload']");
         await pageFixture.page.waitForSelector("(//input[@type='file'])[2]");
         await pageFixture.page.locator("(//input[@type='file'])[2]").setInputFiles('src/helper/utils/LOA.pdf');
@@ -1010,8 +1009,8 @@ class DashboardCFP {
 
         //Assert
         const Expired = await pageFixture.page.locator("//div[@role='alert' and contains(@class, 'toast-message') and contains(text(), 'Your LOA issuance timeline has been expired')]").textContent();
-        await expect(Expired).toContain(" Your LOA issuance timeline has been expired");
-        console.log("-------------Initiator can't Generate LOA-------------------- \n !!!!!!!!!!!!!!!!!!!Your LOA issuance timeline has been expired.!!!!!!!!!!!!!!!!!!!!!!!");
+        expect(Expired).toContain(" Your LOA issuance timeline has been expired");
+        console.log("-------------Initiator can't Generate LOA-------------------- \n X  Your LOA issuance timeline has been Expired  x");
 
     }
 

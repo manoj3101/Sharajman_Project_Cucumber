@@ -6,31 +6,41 @@
     "admin":"manoj@yopmail.com",
     "admin_password":"K#(j{83&ym",
 
-    "user1":"manojkumar.s@tickingminds.com",
-    "user1_password":"Testing@123",
+    "user11":"manojkumar.s@tickingminds.com",
+    "user11_password":"Testing@123",
 
-    "user11":"CamilaPhillips@yopmail.com",
-    "user11_password":"Phillips@123456",
+    "user21":"CamilaPhillips@yopmail.com",
+    "user21_password":"Phillips@123456",
     
-    "user2":"Xavier@yopmail.com",
+    "user2":"Junk@yopmail.com",
     "user2_password":"Testing@123",
 
-    "user4":"abd@yopmail.com",
-    "user4_password":"Testing@1234",
+    "user3":"Donglegongle@yopmail.com",
+    "user3_password":"Testing@000",
 
-    "user3":"david@yopmail.com",
-    "user3_password":"Testing@1234",
+    "user4":"Bravoo@yopmail.com",
+    "user4_password":"Bravoo@54321",
+
+    "user22":"Xavier@yopmail.com",
+    "user22_password":"Testing@123",
+    
+    "user33":"david@yopmail.com",
+    "user33_password":"Testing@1234",
+
+    "user44":"abd@yopmail.com",
+    "user44_password":"Testing@1234",
 
     "user5":"sugumaran.n@tickingminds.com",
     "user5_password":"Otc@123456",
 
-    "user6":"smanoj3101work@gmail.com",
-    "user6_password":"Testing@123",
+    "user1":"smanoj3101work@gmail.com",
+    "user1_password":"Testing@123",
 
     "Utility_1":"Ticking Minds",
     "Utility_2":"Tickingminds_1",
 
-    "responder":"Tickingminds_",
+    "responder1":"Tickingminds_",
+    "responder":"Tata_",
 
    
     "EX_01":{
@@ -132,7 +142,7 @@
           
            
             "index":1,
-            "Settlement_Price":"No",
+            "Settlement_Price":"",
             "query_Box" :false,
             "Ceiling_Base_Return":true,
             "Ceiling_Base_Return_value":"999.99",
@@ -418,8 +428,8 @@
             "Minimum_Quantum":true,
             "Minimum_QuantumValue":"0.01",
         
-            "imp_start_date" :"2024-03-06",
-            "imp_end_date" :"2024-03-06",
+            "imp_start_date" :"2024-04-06",
+            "imp_end_date" :"2024-04-06",
             "imp_start_time":"18:00",
             "imp_end_time":"23:30",
             "Quantum_value":"10",
@@ -511,7 +521,7 @@
             "loa_acceptance_mins":"01",
           
             "index":0,
-            "Settlement_Price":"0",
+            "Settlement_Price":"1",
             "query_Box" :true,
             "Ceiling_Base_Return":false,
             "Ceiling_Base_Return_value":"",
@@ -553,11 +563,11 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"05",
+            "response_mins":"02",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"02",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -569,7 +579,7 @@
           
             "Quantum":"99999",
             "index":7,
-            "Settlement_Price":"0",
+            "Settlement_Price":"1",
             "query_Box" :false,
             "Ceiling_Base_Return":false,
             "Ceiling_Base_Return_value":"",
@@ -609,7 +619,7 @@
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"02",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -620,7 +630,7 @@
             "loa_acceptance_mins":"01",
           
             "index":7,
-            "Settlement_Price":"0",
+            "Settlement_Price":"1",
             "query_Box" :true,
             "Ceiling_Base_Return":false,
             "Ceiling_Base_Return_value":"",
@@ -672,7 +682,7 @@
 
           
             "index":7,
-            "Settlement_Price":"0",
+            "Settlement_Price":"1",
             "query_Box" :true,
             "Ceiling_Base_Return":false,
             "Ceiling_Base_Return_value":"",
@@ -712,7 +722,7 @@
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"02",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -724,7 +734,7 @@
           
             "Quantum":"99999",
             "index":7,
-            "Settlement_Price":"0",
+            "Settlement_Price":"1",
             "query_Box" :true,
             "Ceiling_Base_Return":false,
             "Ceiling_Base_Return_value":"",
@@ -1223,7 +1233,7 @@
     
     "Quantum":"99999",
     "index":0,
-    "Settlement_Price":"0",
+    "Settlement_Price":"1",
     "query_Box" :true,
     "Ceiling_Base_Return":false,
     "Ceiling_Base_Return_value":"",
@@ -1281,7 +1291,7 @@
   
     "Quantum":"99999",
     "index":7,
-    "Settlement_Price":"0",
+    "Settlement_Price":"1",
     "query_Box" :false,
     "Ceiling_Base_Return":false,
     "Ceiling_Base_Return_value":"",
@@ -1333,7 +1343,7 @@
   
     "Quantum":"99999",
     "index":7,
-    "Settlement_Price":"0",
+    "Settlement_Price":"1",
     "query_Box" :true,
     "Ceiling_Base_Return":false,
     "Ceiling_Base_Return_value":"",
@@ -1384,7 +1394,7 @@
     "loa_acceptance_mins":"01",
   
     "index":7,
-    "Settlement_Price":"0",
+    "Settlement_Price":"1",
     "query_Box" :true,
     "Ceiling_Base_Return":false,
     "Ceiling_Base_Return_value":"",
@@ -1436,7 +1446,7 @@
   
     "Quantum":"99999",
     "index":7,
-    "Settlement_Price":"0",
+    "Settlement_Price":"1",
     "query_Box" :true,
     "Ceiling_Base_Return":false,
     "Ceiling_Base_Return_value":"",

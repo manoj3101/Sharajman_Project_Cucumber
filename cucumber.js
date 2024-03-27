@@ -12,7 +12,7 @@ let run_features = [
 ].join(' ');
 
 let sanity_run1 = [
-    './src/tests/features/EXPORT/TC_EX_006.feature', // Specify our feature files location
+    './src/tests/features/EXPORT/TC_EX_010.feature', // Specify our feature files location
     // './src/tests/features/EXPORT/TC_IM_006.feature', // Export => src/tests/steps/EXPORT/*.feature
     '--format html:test-results/Report.html', //HTML Report
     '--format json:test-results/cucumber-report.json', //Json Report
@@ -21,7 +21,7 @@ let sanity_run1 = [
 
 let sanity_run = [
     //    './src/tests/features/ADMIN/TC_AD_001.feature',
-    './src/tests/features/EXPORT/TC_EX_002.feature', // Specify our feature files location
+    './src/tests/features/EXPORT/TC_EX_012.feature', // Specify our feature files location
     // './src/tests/features/EXPORT/TC_EX_002.feature', // Export => src/tests/steps/EXPORT/*.feature
     // './src/tests/features/IMPORT/TC_IM_001.feature', // Import => src/tests/steps/IMPORT/*.feature
     // './src/tests/features/IMPORT/TC_IM_002.feature',

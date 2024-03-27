@@ -163,7 +163,7 @@ Then('Awarding and Generate LOA should be successfull as Expected from initiator
 
     await dashboardCFP.energycalculation_responder(data.EX_11.exp_start_date, data.EX_11.exp_end_date, data.EX_11.exp_start_time, data.EX_11.exp_end_time, data.EX_11.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.EX_11.imp_start_date, data.EX_11.imp_end_date, data.EX_11.imp_start_time, data.EX_11.imp_end_time, data.EX_11.Quantum_value, data.EX_11.exp_start_date, data.EX_11.exp_end_date, data.EX_11.exp_start_time, data.EX_11.exp_end_time, data.EX_11.ReturnValue1, data.EX_11.Settlement_Price, data.EX_11.loa_issuance_mins);
+    await dashboardCFP.generateLOA(cfpNumber, data.EX_11.imp_start_date, data.EX_11.imp_end_date, data.EX_11.imp_start_time, data.EX_11.imp_end_time, data.EX_11.minQuantumValue1, data.EX_11.exp_start_date, data.EX_11.exp_end_date, data.EX_11.exp_start_time, data.EX_11.exp_end_time, data.EX_11.ReturnValue1, data.EX_11.Settlement_Price, data.EX_11.loa_issuance_mins);
 
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
@@ -183,18 +183,16 @@ Given('User started Uploading the documents from Responder Side as per export ca
 
 
 
-Then('LOA acceptance timeline by the Responder as per export case eleven', { timeout: 120 * 1000 }, async function () {
+Then('LOA acceptance timeline by the Responder as per export case eleven', { timeout: 300 * 1000 }, async function () {
 
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await pageFixture.page.waitForTimeout(90 * 1000); //Wait for the Responder timeline ends.
+    console.log(`Waiting for Responder LOA Expires......`);
+
+    await pageFixture.page.waitForTimeout(240 * 1000); //Wait for the Responder timeline ends.
 
     await loaManagement.responder_LOA_Expires(cfpNumber);
-
-    console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<< Your LOA acceptance timeline has been expired >>>>>>>>>>>>>>");
-
-
 
 });
 

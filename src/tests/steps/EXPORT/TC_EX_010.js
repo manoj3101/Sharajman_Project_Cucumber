@@ -154,7 +154,7 @@ Given('User started generating the award and generating the LOA from initiator s
 
 });
 
-Then('Awarding should be successfull and generate LOA Timeline should be Expired as per export case ten', { timeout: 160 * 1000 }, async function () {
+Then('Awarding should be successfull and generate LOA Timeline should be Expired as per export case ten', { timeout: 240 * 1000 }, async function () {
 
     //cfp carried from initial Step definition
     const cfpNumber = global.cfpNumber;
@@ -167,10 +167,7 @@ Then('Awarding should be successfull and generate LOA Timeline should be Expired
     await dashboardCFP.energycalculation_responder(data.EX_10.exp_start_date, data.EX_10.exp_end_date, data.EX_10.exp_start_time, data.EX_10.exp_end_time, data.EX_10.ReturnValue1);
 
     await dashboardCFP.expired_initiator_LOA(cfpNumber);
-
-    console.log("--------------------Awarding should be successfull anf generate LOA Timeline should be Expired-----------------");
-    console.log("Initiator can't Uploaded the LOA documents. \n <<<<<<<<<<<Your LOA issuance timeline has been expired..>>>>>>>>>>>>>>");
-
+   
 });
 
 

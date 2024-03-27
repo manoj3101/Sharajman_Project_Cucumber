@@ -14,7 +14,7 @@ class YopMail {
     // }
 
     //variable
-    get_password =null;
+    get_password = null;
 
     //locator
 
@@ -29,7 +29,16 @@ class YopMail {
 
     //Methods
 
-    async email_Verify_Password(user) {
+
+    async email_Verify_Password(email, password) {
+        await pageFixture.page.getByPlaceholder('Email Address').fill(email);
+        await pageFixture.page.getByPlaceholder('Password').fill(password);
+        await pageFixture.page.getByRole('button', { name: 'Login' }).click({ timeout: 50000 });
+
+
+    }
+
+    async email_Verify_Password1(user) {
         await pageFixture.page.goto(admin_data.yopmail_url, { waitUntil: 'load' }); //Go to YOP Mail
         await pageFixture.page.waitForTimeout(15000);
         // await pageFixture.page.locator(this.inbox_field).fill(user); //fill the user email ID
@@ -83,6 +92,8 @@ class YopMail {
         }
 
     }
+
+
 
 }
 module.exports = YopMail;

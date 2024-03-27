@@ -452,21 +452,21 @@ Given('New user adds a staff user and assigns rights to the new user as per Admi
     await manage_User.add_user_rights(ADDUSER_NAME, ad_data.AD_01.selectall, ad_data.AD_01.Home, ad_data.AD_01.Manage_User, ad_data.AD_01.FormatD, ad_data.AD_01.LOA_Generation, ad_data.AD_01.Award, ad_data.AD_01.Respond, ad_data.AD_01.LOA_Management)
 
     await login.logout(); //Logout
+
+    console.log(`Add User Email : ${ADDUSER_EMAILID}`);
+    await manage_User.email_Verify_Password(ADDUSER_EMAILID,"654321");//Verify the password
+    await signUp.changePasswordAndTFA(); //Change Password & Two Factor Autentication
+    // ADDUSER_PASSWORD = yopmail.get_password;
+    console.log(`Add User Email : ${ADDUSER_EMAILID}`);
+    console.log(`Add User Password : ${ADDUSER_PASSWORD}`);
 });
 
 
 Given('Assigned new user verifies the password and logs in with their new credentials as per Admin Case One', { timeout: 160 * 1000 }, async function () {
 
-    console.log(`Add User Email : ${ADDUSER_EMAILID}`);
-    await yopmail.email_Verify_Password(ADDUSER_EMAILID);//Verify the password
-    ADDUSER_PASSWORD = yopmail.get_password;
-    console.log(`Add User Email : ${ADDUSER_EMAILID}`);
-    console.log(`Add User Password : ${ADDUSER_PASSWORD}`);
     await login.login(ADDUSER_EMAILID, ADDUSER_PASSWORD);
     await login.changePasswordAndTFA(ADDUSER_PASSWORD, ADDUSER_NAME);
     await signUp.OTP(); //Fill OTP
-
-
 
 });
 

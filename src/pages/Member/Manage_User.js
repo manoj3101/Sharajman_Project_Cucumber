@@ -152,5 +152,14 @@ class Manage_User {
 
     }
 
+
+    async email_Verify_Password(email, password) {
+        await pageFixture.page.getByPlaceholder('Email Address').fill(email);
+        await pageFixture.page.getByPlaceholder('Password').fill(password);
+        await pageFixture.page.getByRole('button', { name: 'Login' }).click({ timeout: 50000 });
+
+
+    }
+
 }
 module.exports = Manage_User;

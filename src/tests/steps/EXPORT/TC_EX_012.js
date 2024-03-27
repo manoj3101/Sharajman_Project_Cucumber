@@ -146,10 +146,11 @@ Then('CFP for Awarding time should be expired successfully as Expected from init
     //cfp carried from initial Step definition
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
+    
+    console.log("Waiting for CFP Expire .................");
 
-    await pageFixture.page.waitForTimeout(160 * 1000); //waiting for the cfp timeline expires
+    await pageFixture.page.waitForTimeout(130 * 1000); //waiting for the cfp timeline expires
 
-    console.log("Three Minutes Wait time is over...................");
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 

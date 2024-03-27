@@ -325,7 +325,7 @@ class LOAManagement {
 
         //Assert 
         const Expired = await pageFixture.page.locator("//div[@role='alert' and contains(@class, 'toast-message') and contains(text(), 'Your LOA acceptance timeline has been expired')]").textContent();
-        await expect(Expired).toContain(" Your LOA acceptance timeline has been expired");
+        expect(Expired).toContain(" Your LOA acceptance timeline has been expired");
         console.log("-------------Responder can't upload the LOA-------------------- \n !!!!!!!!!!!!!!!!!!!Your LOA acceptance timeline has been expired.!!!!!!!!!!!!!!!!!!!!!!!");
 
     }

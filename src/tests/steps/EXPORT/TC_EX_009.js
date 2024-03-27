@@ -182,14 +182,14 @@ Given('User started Uploading the documents from Responder Side as per export ca
 
 
 
-Then('Responder should be able to reject the LOA successfully as per export case nine', { timeout: 120 * 1000 }, async function () {
+Then('Responder should be able to reject the LOA successfully as per export case nine', { timeout: 240 * 1000 }, async function () {
 
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     console.log("Waiting 2 minutes for the timeline expires.........");
 
-    await pageFixture.page.waitForTimeout(90 * 1000);//Wait for the Timeline Exipires
+    await pageFixture.page.waitForTimeout(100 * 1000);//Wait for the Timeline Exipires
 
     await loaManagement.responder_Rejects_loa(cfpNumber);
 
