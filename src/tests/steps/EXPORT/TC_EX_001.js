@@ -20,6 +20,10 @@ const dashboardCFP = new DashboardCFP(pageFixture.page);
 const loaManagement = new LOAManagement(pageFixture.page);
 
 let cfpNumber;
+let imp_start_date = DashboardCFP.imp_start_date;
+let imp_end_date = DashboardCFP.imp_end_date;
+let exp_start_date = DashboardCFP.exp_start_date;
+let exp_end_date = DashboardCFP.exp_end_date;
 
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
@@ -29,6 +33,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_001                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
+    console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
 });
@@ -87,6 +92,11 @@ Then('Call for Proposal CFP should be Published successfully as per export case 
 
     console.log("Global CFP :" + cfpNumber);
 
+    console.log("Import start date:", DashboardCFP.imp_start_date);
+    console.log("Import end date:", DashboardCFP.imp_end_date);
+    console.log("Export start date:",DashboardCFP.exp_start_date);
+    console.log("Export end date:", DashboardCFP.exp_end_date);
+    
 
 });
 
@@ -96,6 +106,7 @@ Then('Call for Proposal CFP should be Published successfully as per export case 
 Given('User navigate to the Application and logged in as a discom user as Responder as per export case one', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(data.user2, data.user2_password);
 
 });
@@ -121,12 +132,10 @@ Then('Response CFP should be Placed successfully as per export case one', async 
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_01.imp_start_date, data.EX_01.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.Minimum_QuantumValue);
 
-    await dashboardCFP.energycalculation_responder(data.EX_01.exp_start_date, data.EX_01.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1);
 
-
-    console.log("--------------------Response CFP placed Successfully -----------------");
 
 });
 
@@ -164,11 +173,11 @@ Then('Awarding and Generate LOA should be successfull as per export case one', a
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_01.imp_start_date, data.EX_01.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.Minimum_QuantumValue);
 
-    await dashboardCFP.energycalculation_responder(data.EX_01.exp_start_date, data.EX_01.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.EX_01.imp_start_date, data.EX_01.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1, data.EX_01.exp_start_date, data.EX_01.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1, data.EX_01.Settlement_Price, data.EX_01.loa_issuance_mins);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1, data.EX_01.Settlement_Price, data.EX_01.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -194,7 +203,7 @@ Then('Responder Uploading the documents should be successfull as per export case
     // const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, data.EX_01.imp_start_date, data.EX_01.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1, data.EX_01.exp_start_date, data.EX_01.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1, data.EX_01.Settlement_Price, data.EX_01.loa_acceptance_mins);
+    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_01.exp_start_time, data.EX_01.exp_end_time, data.EX_01.ReturnValue1, data.EX_01.Settlement_Price, data.EX_01.loa_acceptance_mins);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
@@ -215,7 +224,7 @@ Then('Format D should be successfully Generated from initiator side as per expor
 
     await loaManagement.action(cfpNumber);
 
-    await loaManagement.formatD(data.EX_01.GTAM, data.EX_01.source_of_generation, data.EX_01.RPO, data.EX_01.TGNA, data.EX_01.imp_start_date, data.EX_01.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1);
+    await loaManagement.formatD(data.EX_01.GTAM, data.EX_01.source_of_generation, data.EX_01.RPO, data.EX_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1);
 
 });
 
@@ -233,7 +242,7 @@ Then('Format D should be successfully Generated from Responder side as per expor
 
     await loaManagement.action_FormatD(cfpNumber);
 
-    await loaManagement.formatD(data.EX_01.GTAM, data.EX_01.source_of_generation, data.EX_01.RPO, data.EX_01.TGNA, data.EX_01.imp_start_date, data.EX_01.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1);
+    await loaManagement.formatD(data.EX_01.GTAM, data.EX_01.source_of_generation, data.EX_01.RPO, data.EX_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_01.imp_start_time, data.EX_01.imp_end_time, data.EX_01.minQuantumValue1);
 
 });
 

@@ -60,32 +60,32 @@ Import end time - 4 hours after import start time
 
 TC_EX_009 ==> 
 
-Import start period - 730 days after CFP publishing timeline end time 
-Import end time - 4 hours after import start time 
 export start time - 4 hours after import period end date 
 Export end time - 4 hours after export start time 
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
 
 TC_EX_010 ==> 
 
 
-Import start period - 730 days after CFP publishing timeline end time 
-Import end time - 4 hours after import start time 
 export start time - 4 hours after import period end date 
 Export end time - 4 hours after export start time 
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
 
 TC_EX_011 ==> 
 
-Import start period - 730 days after CFP publishing timeline end time 
-Import end time - 4 hours after import start time 
 export start time - 4 hours after import period end date 
 Export end time - 4 hours after export start time 
+Import start period - 730 days after CFP publishing timeline end time 
+Import end time - 4 hours after import start time 
 
 TC_EX_012 ==> 
 
+Export start time - 4 hours after import period end date 
+Export end time - 4 hours after export start time 
 Import start period - 730 days after CFP publishing timeline end time 
 Import end time - 4 hours after import start time 
-export start time - 4 hours after import period end date 
-Export end time - 4 hours after export start time 
 
 IMPORT
 

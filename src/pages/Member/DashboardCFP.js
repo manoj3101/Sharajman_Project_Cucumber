@@ -36,10 +36,12 @@ class DashboardCFP {
     static Quantum_2 = null;
     static LOA_no = null;
     static loaIssuanceMins = null;
+    static imp_start_date;
+    static imp_end_date;
+    static exp_start_date;
+    static exp_end_date;
 
     CFP_Num = null;
-
-
     //-------------------------------------------------------------------------------------------------------------
 
     //locators or xpaths
@@ -106,7 +108,7 @@ class DashboardCFP {
         // Create a TabSwitcher instance
         const tabSwitch = new tabSwitcher();
         await tabSwitch.switchToTab("cfp");
-
+        await pageFixture.page.waitForTimeout(2000);
         await pageFixture.page.getByRole('button', { name: /Create New CFP/i }).click({ timeout: 50000 });
         switch (chooseCFP) {
             case "Quick CFP":
@@ -150,11 +152,32 @@ class DashboardCFP {
 
     }
 
-    //Import period
-    async importPeriod(quantumValue, imp_start_date, imp_end_date, imp_start_time, imp_end_time) {
 
-        await pageFixture.page.locator(this.fromDate_imp).fill(imp_start_date);
-        await pageFixture.page.locator(this.toDate_imp).fill(imp_end_date);
+    //Import period
+    async importPeriod(quantumValue, impStartDate, impEndDate, imp_start_time, imp_end_time) {
+
+        function addDays(date, days) {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+        // Calculating dates
+        var importStartDate = addDays(currentDate, impStartDate);
+        var importEndDate = addDays(currentDate, impEndDate);
+        console.log(importStartDate);
+
+        // Function to format date to 'YYYY-MM-DD' format
+        var formatDate = function (date) {
+            return date.toISOString().split('T')[0];
+        };
+
+        DashboardCFP.imp_start_date = (formatDate(importStartDate)).toString();
+        DashboardCFP.imp_end_date = (formatDate(importEndDate)).toString();
+
+        console.log("Import start date :", DashboardCFP.imp_start_date);
+        console.log("Import end date:", DashboardCFP.imp_end_date);
+        await pageFixture.page.locator(this.fromDate_imp).fill(DashboardCFP.imp_start_date);
+        await pageFixture.page.locator(this.toDate_imp).fill(DashboardCFP.imp_end_date);
         await pageFixture.page.locator(this.startTime_imp).selectOption({ label: imp_start_time });
         await pageFixture.page.locator(this.endTime_imp).selectOption({ label: imp_end_time });
         await pageFixture.page.fill(this.quantum, quantumValue);
@@ -172,10 +195,30 @@ class DashboardCFP {
     }
 
     //Export period
-    async exportPeriod(exp_start_date, exp_end_date, exp_start_time, exp_end_time) {
+    async exportPeriod(expStartDate, expEndDate, exp_start_time, exp_end_time) {
 
-        await pageFixture.page.locator(this.fromDate_exp).fill(exp_start_date);
-        await pageFixture.page.locator(this.toDate_exp).fill(exp_end_date);
+        function addDays(date, days) {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+        // Calculating dates
+        var exportStartDate = addDays(currentDate, expStartDate);
+        var exportEndDate = addDays(currentDate, expEndDate);
+
+        // Function to format date to 'YYYY-MM-DD' format
+        var formatDate = function (date) {
+            return date.toISOString().split('T')[0];
+        };
+
+        DashboardCFP.exp_start_date = (formatDate(exportStartDate)).toString();
+        DashboardCFP.exp_end_date = (formatDate(exportEndDate)).toString();
+
+
+        console.log("Export start date :", DashboardCFP.exp_start_date);
+        console.log("Export end date :", DashboardCFP.exp_end_date ,"\n");
+        await pageFixture.page.locator(this.fromDate_exp).fill(DashboardCFP.exp_start_date);
+        await pageFixture.page.locator(this.toDate_exp).fill(DashboardCFP.exp_end_date);
         await pageFixture.page.locator(this.startTime_exp).selectOption({ label: exp_start_time });
         await pageFixture.page.locator(this.endTime_exp).selectOption({ label: exp_end_time });
     }
@@ -454,7 +497,7 @@ class DashboardCFP {
             //const msg = await msgElement.textContent();
             console.log(`An error Message is : ${msg}`);
             await pageFixture.page.waitForTimeout(2000);
-            await expect(msg).toContain("Please enter response amount smaller than or equal to ceiling percentage");
+            expect(msg).toContain("Please enter response amount smaller than or equal to ceiling percentage");
             await pageFixture.page.locator("//img[contains(@class,'cursor-pointer on-h')]").click();
             console.log("-------------------- X Response CFP couldn't placed Successfully X -----------------");
         }
@@ -658,6 +701,7 @@ class DashboardCFP {
         } else {
             console.log(` X Failed Actual Quantum in MW : ${roundedQuantum} is not equal to the Expected Quantum in MW : ${numericquantum}\n`);
         }
+
     }
 
 
@@ -742,30 +786,27 @@ class DashboardCFP {
         console.log("Highest Number:", maxNumber);
         console.log("Index of Highest Number:", maxIndex + 1);
 
-
+        await pageFixture.page.waitForTimeout(2000);
         //click the award icon & proceed with award
         // const award = await pageFixture.page.locator("//a[@ngbtooltip='Click to Award']").nth(0);
-        const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Award'])[" + (maxIndex + 1) + "]");
+        // const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Award'])[" + (maxIndex + 1) + "]");
+        const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Accept'])[" + (maxIndex + 1) + "]");
         if (await award.isVisible()) {
             await award.click();
-            await pageFixture.page.getByRole('button', { name: /Award/i }).click();
+            // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
+            await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
             await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
             //asserting the Awarded Successfully.
-            const awarded = await pageFixture.page.locator("//*[contains(text(),'Responder Awarded successfully')]").textContent();
-            await expect(awarded).toContain("Responder Awarded successfully");
-            console.log("              ✔ Responder Awarded successfully ✔          ");
+            const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
+            expect(awarded).toContain("Response Accepted Successfully");
+            console.log("              ✔ Response Accepted Successfully ✔          ");
         }
-        ////button[contains(text(),'Award')]
-        ////button[contains(text(),' Yes ')]
         else {
             console.log("------------ X No Award Icon X ------------");
         }
     }
 
-    static async set() {
-        let Utility = this.Utility_1;
-    }
 
     //Generate LOA
     async generateLOA(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price, loa_issuance_mins) {
@@ -919,8 +960,6 @@ class DashboardCFP {
                 console.log(`X Expected Result is not equal to Actual Result : ${str}\n`);
             }
         }
-
-
         console.log("-------------------LOA Document Verification have Done------------------");
 
         //TimeLine Functionality
@@ -946,7 +985,7 @@ class DashboardCFP {
             console.log(`Contarct Awarding time is not added or equal to Loa Issuance Time`)
         }
 
-
+        await pageFixture.page.waitForTimeout(5000);//Wait until document verification 
         //Need to verify the time.....
         await pageFixture.page.click("//span[text()='Upload']");
         await pageFixture.page.waitForSelector("(//input[@type='file'])[2]");

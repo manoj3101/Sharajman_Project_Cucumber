@@ -18,7 +18,7 @@ const login = new Login(pageFixture.page);
 const home = new Home(pageFixture.page);
 const dashboardCFP = new DashboardCFP(pageFixture.page);
 const loaManagement = new LOAManagement(pageFixture.page);
-
+let cfpNumber;
 
 
 //-------------------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_IM_001                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-
+    console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
 });
@@ -80,10 +80,12 @@ Then('Call for Proposal CFP should be Published successfully as per import case 
 
     console.log("--------------------CFP has been created and Published Successfully-----------------");
 
-    //CFP = dashboardCFP.CFP_Num;
-    global.cfpNumber = dashboardCFP.CFP_Num;
+    cfpNumber = dashboardCFP.CFP_Num;
 
-    console.log("Global CFP :" + global.cfpNumber);
+    // global.cfpNumber = dashboardCFP.CFP_Num;
+    // console.log("Global CFP :" + global.cfpNumber);
+
+    console.log("Global CFP :" + cfpNumber);
 
 });
 
@@ -93,6 +95,7 @@ Then('Call for Proposal CFP should be Published successfully as per import case 
 Given('User navigate to the Application and logged in as a discom user as Responder as per import case one', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(data.user2, data.user2_password);
 
 });
@@ -111,19 +114,15 @@ Given('User started placing Response to the CFP as per import case one', { timeo
 
 Then('Response CFP should be Placed successfully as per import case one', async function () {
 
-    const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await dashboardCFP.place_Respond(cfpNumber, data.TC_01.minQuantumValue1, data.TC_01.ReturnValue1);
 
-    // await dashboardCFP.view_Respond(cfpNumber);
+    await dashboardCFP.view_Respond(cfpNumber);
 
-    // await dashboardCFP.energycalculation_initiator(data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.minQuantumValue1);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.minQuantumValue1);
 
-    // await dashboardCFP.energycalculation_responder(data.TC_01.exp_start_date, data.TC_01.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1);
-
-
-    console.log("--------------------Response CFP couldn't placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1);
 
 });
 
@@ -138,12 +137,10 @@ Given('User started generating the award and generating the LOA from initiator s
     await home.clickCallForPropsal();
 
     // //wait time for 15 minutes 
-    // await pageFixture.page.waitForTimeout(885000);
+    await pageFixture.page.waitForTimeout(885000);
 
     console.log("Wait time is over Awarding CFP has started......");
 
-    //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await dashboardCFP.initiatedFeed(cfpNumber);
@@ -155,17 +152,15 @@ Given('User started generating the award and generating the LOA from initiator s
 
 Then('Awarding and Generate LOA should be successfull as per import case one', async function () {
 
-    //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.minQuantumValue1);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.minQuantumValue1);
 
-    await dashboardCFP.energycalculation_responder(data.TC_01.exp_start_date, data.TC_01.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value, data.TC_01.exp_start_date, data.TC_01.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1, data.TC_01.Settlement_Price);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1, data.TC_01.Settlement_Price);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -187,10 +182,10 @@ Given('User started Uploading the documents from Responder Side as per import ca
 
 Then('Responder Uploading the documents should be successfull as per import case one', async function () {
 
-    const cfpNumber = global.cfpNumber;
+
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value, data.TC_01.exp_start_date, data.TC_01.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1, data.TC_01.Settlement_Price);
+    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_01.exp_start_time, data.TC_01.exp_end_time, data.TC_01.ReturnValue1, data.TC_01.Settlement_Price);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
@@ -203,15 +198,14 @@ Then('Responder Uploading the documents should be successfull as per import case
 
 Then('Format D should be successfully Generated from initiator side as per import case one', async function () {
 
-    //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
+
     console.log("Global CFP: " + cfpNumber);
 
     await loaManagement.loaGeneration();
 
     await loaManagement.action(cfpNumber);
 
-    await loaManagement.formatD(data.TC_01.GTAM, data.TC_01.source_of_generation, data.TC_01.RPO, data.TC_01.TGNA, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value);
+    await loaManagement.formatD(data.TC_01.GTAM, data.TC_01.source_of_generation, data.TC_01.RPO, data.TC_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value);
 
 
 
@@ -224,15 +218,14 @@ Then('Format D should be successfully Generated from initiator side as per impor
 
 Then('Format D should be successfully Generated from Responder side as per import case one', async function () {
 
-    //cfp carried from initial Step definition
-    const cfpNumber = global.cfpNumber;
+
     console.log("Global CFP: " + cfpNumber);
 
     await loaManagement.loaGeneration();
 
     await loaManagement.action_FormatD(cfpNumber);
 
-    await loaManagement.formatD(data.TC_01.GTAM, data.TC_01.source_of_generation, data.TC_01.RPO, data.TC_01.TGNA, data.TC_01.imp_start_date, data.TC_01.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value);
+    await loaManagement.formatD(data.TC_01.GTAM, data.TC_01.source_of_generation, data.TC_01.RPO, data.TC_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_01.imp_start_time, data.TC_01.imp_end_time, data.TC_01.Quantum_value);
 
 
 });

@@ -27,7 +27,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_009                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-
+    console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
 });
@@ -92,6 +92,7 @@ Then('CFP should be Published successfully as Expected from initiator as per exp
 Given('User navigate to the Application and logged in as a discom user as Responder as per export case nine', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(data.user2, data.user2_password);
 
 });
@@ -117,12 +118,10 @@ Then('CFP should be Placed successfully as Expected from responder as per export
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_09.imp_start_date, data.EX_09.imp_end_date, data.EX_09.imp_start_time, data.EX_09.imp_end_time, data.EX_09.minQuantumValue1);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_09.imp_start_time, data.EX_09.imp_end_time, data.EX_09.minQuantumValue1);
 
-    await dashboardCFP.energycalculation_responder(data.EX_09.exp_start_date, data.EX_09.exp_end_date, data.EX_09.exp_start_time, data.EX_09.exp_end_time, data.EX_09.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_09.exp_start_time, data.EX_09.exp_end_time, data.EX_09.ReturnValue1);
 
-
-    console.log("--------------------Response CFP placed Successfully-----------------");
 
 });
 
@@ -159,11 +158,11 @@ Then('Awarding and Generate LOA should be successfull as Expected from initiator
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_09.imp_start_date, data.EX_09.imp_end_date, data.EX_09.imp_start_time, data.EX_09.imp_end_time, data.EX_09.minQuantumValue1);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_09.imp_start_time, data.EX_09.imp_end_time, data.EX_09.minQuantumValue1);
 
-    await dashboardCFP.energycalculation_responder(data.EX_09.exp_start_date, data.EX_09.exp_end_date, data.EX_09.exp_start_time, data.EX_09.exp_end_time, data.EX_09.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_09.exp_start_time, data.EX_09.exp_end_time, data.EX_09.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.EX_09.imp_start_date, data.EX_09.imp_end_date, data.EX_09.imp_start_time, data.EX_09.imp_end_time, data.EX_09.Quantum_value, data.EX_09.exp_start_date, data.EX_09.exp_end_date, data.EX_09.exp_start_time, data.EX_09.exp_end_time, data.EX_09.ReturnValue1, data.EX_09.Settlement_Price, data.EX_09.loa_issuance_mins);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_09.imp_start_time, data.EX_09.imp_end_time, data.EX_09.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_09.exp_start_time, data.EX_09.exp_end_time, data.EX_09.ReturnValue1, data.EX_09.Settlement_Price, data.EX_09.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
     console.log("Initiator Uploaded the LOA documents successfully. \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");

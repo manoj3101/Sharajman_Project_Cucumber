@@ -46,11 +46,11 @@ let cfpNumber;
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
-Given('New user navigates to the application and initiates the sign-up process as per Admin case one', async function () {
+Given('New user navigates to the application and initiates the sign-up process as per Admin case two', async function () {
     await signUp.signup(); //Sign Up
 });
 
-Then('New user logs into the application again and changes the password as per Admin case one', async function () {
+Then('New user logs into the application again and changes the password as per Admin case two', async function () {
 
     await signUp.login_Again("oldpassword"); //Login Again after SignUp
     await signUp.changePasswordAndTFA(); //Change Password & Two Factor Autentication
@@ -63,7 +63,7 @@ Then('New user logs into the application again and changes the password as per A
 
 });
 
-Then('New user begins the registration process as per Admin case one', async function () {
+Then('New user begins the registration process as per Admin case two', async function () {
 
     await signUp.login_Again("newpassword"); //Login Again after Change Password
     console.log(`Organization name : ${org_name}\n`);
@@ -80,7 +80,7 @@ Then('New user begins the registration process as per Admin case one', async fun
 //@                                                     Scenario 2
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('Admin User navigates to the application and logs in as an admin as per Admin case one', async function () {
+Given('Admin User navigates to the application and logs in as an admin as per Admin case two', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_AD_001                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
@@ -90,7 +90,7 @@ Given('Admin User navigates to the application and logs in as an admin as per Ad
 
 });
 
-Then('Admin approves the new discom user and assigns a subscription plan as per Admin case one', async function () {
+Then('Admin approves the new discom user and assigns a subscription plan as per Admin case two', async function () {
 
     await manage_Member.click_Manage_Member(); //Manage Member
     await manage_Member.approve_Member(org_name);  //Member assitance
@@ -99,7 +99,7 @@ Then('Admin approves the new discom user and assigns a subscription plan as per 
 
 });
 
-Then('Admin approves the payment and assigns rights to the new user as per Admin case one', async function () {
+Then('Admin approves the payment and assigns rights to the new user as per Admin case two', async function () {
 
     await payment_Approval.clickPaymentApproval(); //Payment Approval
     await payment_Approval.paymentApproval(org_name);
@@ -112,7 +112,7 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('New User navigate to the Application and logged in as a discom user as initiator as per admin case one', async function () {
+Given('New User navigate to the Application and logged in as a discom user as initiator as per admin case two', async function () {
 
     //New user as a Initiator
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
@@ -120,7 +120,7 @@ Given('New User navigate to the Application and logged in as a discom user as in
 
 });
 
-Given('New User started creating Call for Proposal CFP as an initiator as per admin case one', async function () {
+Given('New User started creating Call for Proposal CFP as an initiator as per admin case two', async function () {
 
     await home.clickCallForPropsal();
 
@@ -162,7 +162,7 @@ Given('New User started creating Call for Proposal CFP as an initiator as per ad
 
 });
 
-Then('Call for Proposal CFP should be Published successfully as per admin case one', async function () {
+Then('Call for Proposal CFP should be Published successfully as per admin case two', async function () {
 
     await dashboardCFP.publish();
 
@@ -178,7 +178,7 @@ Then('Call for Proposal CFP should be Published successfully as per admin case o
 //@                                                     Scenario 4
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User navigate to the Application and logged in as a discom user as Responder as per admin case one', async function () {
+Given('User navigate to the Application and logged in as a discom user as Responder as per admin case two', async function () {
 
     //Old User as a Responder
     // login = new Login(pageFixture.page);
@@ -188,7 +188,7 @@ Given('User navigate to the Application and logged in as a discom user as Respon
 });
 
 
-Given('User started placing Response to the CFP as per admin case one', { timeout: 120 * 1000 }, async function () {
+Given('User started placing Response to the CFP as per admin case two', { timeout: 120 * 1000 }, async function () {
 
     await home.clickCallForPropsal();
 
@@ -199,7 +199,7 @@ Given('User started placing Response to the CFP as per admin case one', { timeou
 });
 
 
-Then('Response CFP should be Placed successfully as per admin case one', async function () {
+Then('Response CFP should be Placed successfully as per admin case two', async function () {
 
     console.log("Global CFP: " + cfpNumber);
 
@@ -219,7 +219,7 @@ Then('Response CFP should be Placed successfully as per admin case one', async f
 //@                                                     Scenario 5
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('New User started generating the award and generating the LOA from initiator side as per admin case one', { timeout: 1200000 }, async function () {
+Given('New User started generating the award and generating the LOA from initiator side as per admin case two', { timeout: 1200000 }, async function () {
 
     await home.clickCallForPropsal();
 
@@ -238,7 +238,7 @@ Given('New User started generating the award and generating the LOA from initiat
 });
 
 
-Then('Awarding and Generate LOA should be successfull as per admin case one', async function () {
+Then('Awarding and Generate LOA should be successfull as per admin case two', async function () {
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
@@ -263,7 +263,7 @@ Then('Awarding and Generate LOA should be successfull as per admin case one', as
 
 
 
-Then('Responder Uploading the documents should be successfull as per admin case one', async function () {
+Then('Responder Uploading the documents should be successfull as per admin case two', async function () {
 
     await loaManagement.loaGeneration();
 
@@ -280,7 +280,7 @@ Then('Responder Uploading the documents should be successfull as per admin case 
 //@                                                     Scenario 7
 //-------------------------------------------------------------------------------------------------------------------------
 
-Then('Format D should be successfully Generated from initiator side as per admin case one', async function () {
+Then('Format D should be successfully Generated from initiator side as per admin case two', async function () {
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
@@ -297,7 +297,7 @@ Then('Format D should be successfully Generated from initiator side as per admin
 //@                                                     Scenario 8
 //-------------------------------------------------------------------------------------------------------------------------
 
-Then('Format D should be successfully Generated from Responder side as per admin case one', async function () {
+Then('Format D should be successfully Generated from Responder side as per admin case two', async function () {
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
@@ -314,7 +314,7 @@ Then('Format D should be successfully Generated from Responder side as per admin
 //@                                                     Scenario 9
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User navigate to the Application and logged in as a discom user as initiator as per admin case one', async function () {
+Given('User navigate to the Application and logged in as a discom user as initiator as per admin case two', async function () {
 
     //Old User as a Inititator
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
@@ -322,7 +322,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
 
 });
 
-Given('User started creating Call for Proposal CFP as an initiator as per admin case one', async function () {
+Given('User started creating Call for Proposal CFP as an initiator as per admin case two', async function () {
 
     await home.clickCallForPropsal();
 
@@ -368,7 +368,7 @@ Given('User started creating Call for Proposal CFP as an initiator as per admin 
 //@                                                     Scenario 10
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('New User navigate to the Application and logged in as a discom user as Responder as per admin case one', async function () {
+Given('New User navigate to the Application and logged in as a discom user as Responder as per admin case two', async function () {
 
     //New user as a Responder
     console.log("-----------------------------------------RESPONDER-----------------------------------------");
@@ -377,7 +377,7 @@ Given('New User navigate to the Application and logged in as a discom user as Re
 
 });
 
-Given('New User started placing Response to the CFP as per admin case one', { timeout: 120 * 1000 }, async function () {
+Given('New User started placing Response to the CFP as per admin case two', { timeout: 120 * 1000 }, async function () {
 
     await home.clickCallForPropsal();
 
@@ -387,7 +387,7 @@ Given('New User started placing Response to the CFP as per admin case one', { ti
 
 });
 
-Then('New User Response CFP should be Placed successfully as per admin case one', async function () {
+Then('New User Response CFP should be Placed successfully as per admin case two', async function () {
 
     console.log("Global CFP: " + cfpNumber);
 
@@ -406,7 +406,7 @@ Then('New User Response CFP should be Placed successfully as per admin case one'
 //@                                                     Scenario 11
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User started generating the award and generating the LOA from initiator side as per admin case one', { timeout: 1200000 }, async function () {
+Given('User started generating the award and generating the LOA from initiator side as per admin case two', { timeout: 1200000 }, async function () {
 
     await home.clickCallForPropsal();
 
@@ -424,7 +424,7 @@ Given('User started generating the award and generating the LOA from initiator s
 
 });
 
-Then('User Awarding and Generate LOA should be successfull as per admin case one', async function () {
+Then('User Awarding and Generate LOA should be successfull as per admin case two', async function () {
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
@@ -449,7 +449,7 @@ Then('User Awarding and Generate LOA should be successfull as per admin case one
 //-------------------------------------------------------------------------------------------------------------------------
 
 
-Then('New User Responder Uploading the documents should be successfull as per admin case one', async function () {
+Then('New User Responder Uploading the documents should be successfull as per admin case two', async function () {
 
     await loaManagement.loaGeneration();
 
@@ -465,7 +465,7 @@ Then('New User Responder Uploading the documents should be successfull as per ad
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 13
 //-------------------------------------------------------------------------------------------------------------------------
-Then('User Format D should be successfully Generated from initiator side as per admin case one', async function () {
+Then('User Format D should be successfully Generated from initiator side as per admin case two', async function () {
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
@@ -481,7 +481,7 @@ Then('User Format D should be successfully Generated from initiator side as per 
 //@                                                     Scenario 14
 //-------------------------------------------------------------------------------------------------------------------------
 
-Then('New User Format D should be successfully Generated from Responder side as per admin case one', async function () {
+Then('New User Format D should be successfully Generated from Responder side as per admin case two', async function () {
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
@@ -499,7 +499,7 @@ Then('New User Format D should be successfully Generated from Responder side as 
 //@                                                     Scenario 15
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('New user navigates to the application and logs in as an admin as per Admin Case One', async function () {
+Given('New user navigates to the application and logs in as an admin as per Admin Case two', async function () {
 
     await login.login(email_id, password);  //Sign Up 
 
@@ -508,7 +508,7 @@ Given('New user navigates to the application and logs in as an admin as per Admi
 });
 
 
-Given('New user adds a staff user and assigns rights to the new user as per Admin Case One', { timeout: 120 * 1000 }, async function () {
+Given('New user adds a staff user and assigns rights to the new user as per Admin Case two', { timeout: 120 * 1000 }, async function () {
 
     await manage_User.add_User(ad_data.AD_01.department, ad_data.AD_01.designation, ad_data.AD_01.sub_type);
 
@@ -527,7 +527,7 @@ Given('New user adds a staff user and assigns rights to the new user as per Admi
 });
 
 
-Then('Assigned new user successfully logs in as a staff member of the new member as per Admin Case One', async function () {
+Then('Assigned new user successfully logs in as a staff member of the new member as per Admin Case two', async function () {
 
     await login.re_login(ADDUSER_EMAILID, password); //Assigned new user Re-Logged with change password
 

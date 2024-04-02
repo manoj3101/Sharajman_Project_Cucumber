@@ -141,6 +141,7 @@ class SignUp {
 
     
     async changePasswordAndTFA() {
+        await pageFixture.page.waitForTimeout(2000);
         await pageFixture.page.locator(this.old_password).fill(this.pass_word); //Fill Old Password
         await pageFixture.page.locator(this.new_password).fill(this.new_pass); //Fill New Password
         await pageFixture.page.locator(this.confirm).fill(this.new_pass); //Fill Confirm New Password
@@ -154,9 +155,9 @@ class SignUp {
         await pageFixture.page.click(this.TFA_OTP); //Next Step is to click OTP Two Factor Autentication
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
 
-        // const TFA_assert = await pageFixture.page.locator("//*[contains(text(),'Please check your OTP vie email and sms')]").textContent();
-        // expect(TFA_assert).toContain("Please check your OTP vie email and sms");
-
+        // const TFA_assert = await pageFixture.page.locator("//*[contains(text(),'Please check your OTP via email and sms')]").textContent();
+        // expect(TFA_assert).toContain("Please check your OTP via email and sms");
+        await pageFixture.page.waitForTimeout(2000);
         await this.OTP();
         console.log(`✔ OTP Two Factor Autentication Completed\n`);
     }

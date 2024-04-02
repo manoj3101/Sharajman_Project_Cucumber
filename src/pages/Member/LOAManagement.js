@@ -42,7 +42,7 @@ class LOAManagement {
 
     async loaGeneration() {
         const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[2]");
-        await home.hover();
+        await home.hover({ timeout: 50000 });
         await pageFixture.page.locator("//span[contains(text(),'LOA Management')]").click();
         await pageFixture.page.locator("//span[contains(text(),'LOA Generation')]").click();
 
@@ -57,8 +57,6 @@ class LOAManagement {
 
         //Document Verification
         await this.LOA_documentverification(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price)
-
-        await pageFixture.page.waitForTimeout(10000);//Wait until document verification 
 
         // //LOA Acceptance Deadline
         // const time = await pageFixture.page.locator("//small//small").textContent();
@@ -82,6 +80,8 @@ class LOAManagement {
         else {
             console.log(`Contarct Awarding time is ${loaAcceptanceMins} not  equal ${addedLOAAcceptanceTime} to Loa Issuance Time`);
         }
+
+        await pageFixture.page.waitForTimeout(5000);//Wait until document verification 
 
         await pageFixture.page.click("//div[contains(@class,'gredient-blue-icon-box')]");
         await pageFixture.page.waitForSelector("(//input[@type='file'])[2]");
@@ -363,6 +363,7 @@ class LOAManagement {
     //Action 
     async action_FormatD(CFP) {
         await pageFixture.page.locator("//label[contains(text(),'Responder')]").click();
+        await pageFixture.page.waitForTimeout(2000);
         await pageFixture.page.getByPlaceholder('Search').fill(CFP);
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
     }
@@ -375,7 +376,7 @@ class LOAManagement {
         await pageFixture.page.waitForTimeout(2000);
 
         //punch Application
-        await pageFixture.page.locator("//label[contains(text(),'Application generation')]").click();
+        await pageFixture.page.locator("//label[contains(text(),'Application generation')]").click({ timeout: 50000 });
         //Generate New Format-D
         await pageFixture.page.getByRole('button', { name: /Generate New Format-D/i }).click();
 
@@ -424,7 +425,7 @@ class LOAManagement {
         console.log("----------------Format-D Generated Successfully ----------------");
 
         //Format-D document verification
-        await pageFixture.page.waitForTimeout(5000);
+        await pageFixture.page.waitForTimeout(4000);
         await this.formatD_DocumentVerification(imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, gtam, source, rpo, tGna);
 
     }

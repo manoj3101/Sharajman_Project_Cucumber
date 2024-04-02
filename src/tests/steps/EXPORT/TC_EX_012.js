@@ -29,7 +29,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_012                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-
+    console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
 });
@@ -94,6 +94,7 @@ Then('CFP should be Published successfully as Expected from initiator as per exp
 Given('User navigate to the Application and logged in as a discom user as Responder as per export case twelve', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(data.user2, data.user2_password);
 
 });
@@ -119,12 +120,9 @@ Then('CFP should be Placed successfully as Expected from responder as per export
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_12.imp_start_date, data.EX_12.imp_end_date, data.EX_12.imp_start_time, data.EX_12.imp_end_time, data.EX_12.minQuantumValue1);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_12.imp_start_time, data.EX_12.imp_end_time, data.EX_12.minQuantumValue1);
 
-    await dashboardCFP.energycalculation_responder(data.EX_12.exp_start_date, data.EX_12.exp_end_date, data.EX_12.exp_start_time, data.EX_12.exp_end_time, data.EX_12.ReturnValue1);
-
-
-    console.log("--------------------Response CFP placed Successfully-----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_12.exp_start_time, data.EX_12.exp_end_time, data.EX_12.ReturnValue1);
 
 });
 

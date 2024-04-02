@@ -27,7 +27,6 @@ Feature: TC_AD_001
 
   Scenario: Discom Member Uploading the documents from Responder Side.
     Given User navigate to the Application and logged in as a discom user as Responder as per admin case one
-    And User started Uploading the documents from Responder Side as per admin case one
     Then Responder Uploading the documents should be successfull as per admin case one
 
   Scenario: New Discom Member Genarating Format D as initiator
@@ -51,22 +50,27 @@ Feature: TC_AD_001
   Scenario: New Discom Member Responding to the  CFP as a Responder.
     Given New User navigate to the Application and logged in as a discom user as Responder as per admin case one
     And New User started placing Response to the CFP as per admin case one
-    Then Response CFP should be Placed successfully as per admin case one
+    Then New User Response CFP should be Placed successfully as per admin case one
 
   Scenario: Discom Member Awarding CFP and Generating LOA.
     Given User navigate to the Application and logged in as a discom user as initiator as per admin case one
     And User started generating the award and generating the LOA from initiator side as per admin case one
-    Then Awarding and Generate LOA should be successfull as per admin case one
+    Then User Awarding and Generate LOA should be successfull as per admin case one
 
   Scenario: New Discom Member Uploading the documents from Responder Side.
     Given New User navigate to the Application and logged in as a discom user as Responder as per admin case one
-    And New User started Uploading the documents from Responder Side as per admin case one
-    Then Responder Uploading the documents should be successfull as per admin case one
+    Then New User Responder Uploading the documents should be successfull as per admin case one
 
   Scenario: Discom Member Genarating Format D as initiator
     Given User navigate to the Application and logged in as a discom user as initiator as per admin case one
-    Then Format D should be successfully Generated from initiator side as per admin case one
+    Then User Format D should be successfully Generated from initiator side as per admin case one
 
   Scenario: New Discom Member Genarating Format D as Responder
     Given New User navigate to the Application and logged in as a discom user as Responder as per admin case one
-    Then Format D should be successfully Generated from Responder side as per admin case one
+    Then New User Format D should be successfully Generated from Responder side as per admin case one
+
+
+ Scenario: New Discom Member assigning mew user to him
+    Given New user navigates to the application and logs in as an admin as per Admin Case One
+    And New user adds a staff user and assigns rights to the new user as per Admin Case One
+    Then Assigned new user successfully logs in as a staff member of the new member as per Admin Case One

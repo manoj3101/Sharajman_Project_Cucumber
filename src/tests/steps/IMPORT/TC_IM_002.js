@@ -29,7 +29,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_IM_002                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-
+    console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
 });
@@ -93,7 +93,7 @@ Then('Call for Proposal CFP should be Published successfully as per import case 
 //-------------------------------------------------------------------------------------------------------------------------
 Given('User navigate to the Application and logged in as a discom user as Responder as per import case two', async function () {
 
-    // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(data.user2, data.user2_password);
 
 });
@@ -119,12 +119,9 @@ Then('Response CFP should be Placed successfully as per import case two', async 
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
 
-    await dashboardCFP.energycalculation_responder(data.TC_02.exp_start_date, data.TC_02.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1);
-
-
-    console.log("--------------------Response CFP couldn't placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1);
 
 });
 
@@ -162,12 +159,9 @@ Then('Responder two Response CFP should be Placed successfully as per import cas
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
 
-    await dashboardCFP.energycalculation_responder(data.TC_02.exp_start_date, data.TC_02.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue2);
-
-
-    console.log("--------------------Response CFP couldn't placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue2);
 
 });
 
@@ -204,12 +198,9 @@ Then('Responder three Response CFP should be Placed successfully as per import c
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
 
-    await dashboardCFP.energycalculation_responder(data.TC_02.exp_start_date, data.TC_02.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue3);
-
-
-    console.log("--------------------Response CFP couldn't placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue3);
 
 });
 
@@ -246,11 +237,11 @@ Then('Awarding and Generate LOA should be successfull as per import case two', a
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
 
-    await dashboardCFP.energycalculation_responder(data.TC_02.exp_start_date, data.TC_02.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value, data.TC_02.exp_start_date, data.TC_02.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1, data.TC_02.Settlement_Price);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1, data.TC_02.Settlement_Price);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -276,7 +267,7 @@ Then('Responder Uploading the documents should be successfull as per import case
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value, data.TC_02.exp_start_date, data.TC_02.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1, data.TC_02.Settlement_Price);
+    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_02.exp_start_time, data.TC_02.exp_end_time, data.TC_02.ReturnValue1, data.TC_02.Settlement_Price);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
@@ -296,7 +287,7 @@ Then('Format D should be successfully Generated from initiator side as per impor
 
     await loaManagement.action(cfpNumber);
 
-    await loaManagement.formatD(data.TC_02.GTAM, data.TC_02.source_of_generation, data.TC_02.RPO, data.TC_02.TGNA, data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
+    await loaManagement.formatD(data.TC_02.GTAM, data.TC_02.source_of_generation, data.TC_02.RPO, data.TC_02.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
 
 
 
@@ -317,8 +308,7 @@ Then('Format D should be successfully Generated from Responder side as per impor
 
     await loaManagement.action_FormatD(cfpNumber);
 
-    await loaManagement.formatD(data.TC_02.GTAM, data.TC_02.source_of_generation, data.TC_02.RPO, data.TC_02.TGNA, data.TC_02.imp_start_date, data.TC_02.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
-
+    await loaManagement.formatD(data.TC_02.GTAM, data.TC_02.source_of_generation, data.TC_02.RPO, data.TC_02.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_02.imp_start_time, data.TC_02.imp_end_time, data.TC_02.Quantum_value);
 
 });
 

@@ -28,7 +28,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_007                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-
+    console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
 });
@@ -93,6 +93,7 @@ Then('Call for Proposal CFP should be Published successfully as per export case 
 Given('User navigate to the Application and logged in as a discom user as Responder as per export case Seven', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(data.user2, data.user2_password);
 
 });
@@ -118,12 +119,9 @@ Then('Response CFP should be Placed successfully as per export case Seven', asyn
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.minQuantumValue1);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.minQuantumValue1);
 
-    await dashboardCFP.energycalculation_responder(data.EX_07.exp_start_date, data.EX_07.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1);
-
-
-    console.log("--------------------Response CFP couldn't placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1);
 
 });
 
@@ -161,12 +159,9 @@ Then('Responder two Response CFP should be Placed successfully as per export cas
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.minQuantumValue2);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.minQuantumValue2);
 
-    await dashboardCFP.energycalculation_responder(data.EX_07.exp_start_date, data.EX_07.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue2);
-
-
-    console.log("--------------------Response CFP placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue2);
 
 });
 
@@ -203,12 +198,9 @@ Then('Responder three Response CFP should be Placed successfully as per export c
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.minQuantumValue3);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.minQuantumValue3);
 
-    await dashboardCFP.energycalculation_responder(data.EX_07.exp_start_date, data.EX_07.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue3);
-
-
-    console.log("--------------------Response CFP  placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue3);
 
 });
 
@@ -247,11 +239,11 @@ Then('Awarding and Generate LOA should be successfull as per export case Seven',
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Minimum_QuantumValue);
 
-    await dashboardCFP.energycalculation_responder(data.EX_07.exp_start_date, data.EX_07.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value, data.EX_07.exp_start_date, data.EX_07.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1, data.EX_07.Settlement_Price, data.EX_07.loa_issuance_mins);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1, data.EX_07.Settlement_Price, data.EX_07.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -277,7 +269,7 @@ Then('Responder Uploading the documents should be successfull as per export case
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value, data.EX_07.exp_start_date, data.EX_07.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1, data.EX_07.Settlement_Price, data.EX_07.loa_acceptance_mins);
+    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1, data.EX_07.Settlement_Price, data.EX_07.loa_acceptance_mins);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
@@ -298,7 +290,7 @@ Then('Format D should be successfully Generated from initiator side as per expor
 
     await loaManagement.action(cfpNumber);
 
-    await loaManagement.formatD(data.EX_07.GTAM, data.EX_07.source_of_generation, data.EX_07.RPO, data.EX_07.TGNA, data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value);
+    await loaManagement.formatD(data.EX_07.GTAM, data.EX_07.source_of_generation, data.EX_07.RPO, data.EX_07.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value);
 
 });
 
@@ -316,7 +308,7 @@ Then('Format D should be successfully Generated from Responder side as per expor
 
     await loaManagement.action_FormatD(cfpNumber);
 
-    await loaManagement.formatD(data.EX_07.GTAM, data.EX_07.source_of_generation, data.EX_07.RPO, data.EX_07.TGNA, data.EX_07.imp_start_date, data.EX_07.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value);
+    await loaManagement.formatD(data.EX_07.GTAM, data.EX_07.source_of_generation, data.EX_07.RPO, data.EX_07.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Quantum_value);
 
 });
 

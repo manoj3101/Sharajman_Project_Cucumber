@@ -71,9 +71,9 @@ class Manage_User {
         //Click the Search  Button
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
 
-        await pageFixture.page.waitForTimeout(3000);
+        await pageFixture.page.waitForTimeout(4000);
         //Click the Rights Action 
-        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").first().click();
         await pageFixture.page.waitForTimeout(3000);
 
 
