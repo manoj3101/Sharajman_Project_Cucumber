@@ -161,7 +161,7 @@ Then('Awarding and Generate LOA should be successfull as Expected from initiator
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_11.exp_start_time, data.TC_11.exp_end_time, data.TC_11.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_11.imp_start_time, data.TC_11.imp_end_time, data.TC_11.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_11.exp_start_time, data.TC_11.exp_end_time, data.TC_11.ReturnValue1, data.TC_11.Settlement_Price);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_11.imp_start_time, data.TC_11.imp_end_time, data.TC_11.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_11.exp_start_time, data.TC_11.exp_end_time, data.TC_11.ReturnValue1, data.TC_11.Settlement_Price, data.TC_11.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
     console.log("Initiator Uploaded the LOA documents successfully. \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");

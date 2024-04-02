@@ -1,25 +1,25 @@
 
 
 LOA	No.
-LOA/00851
-Date28-03-2024
+LOA/00896
+Date02-04-2024
 	
 To,
-TATA_1
+TATA_2
 19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar,	Chennai,	Tamil	Nadu	600083	Chennai	600083
-Junk@yopmail.com
-Subject	:	Power	swap	arrangement	by	Strategic	Solutions_28161234	via	CFP	Ref.	No.	23240303786.
-Ref:1.	e-Listing	23240303786	dated
-2.	Your	offer	dated	28-03-2024	on	NAME	portal
+Donglegongle@yopmail.com
+Subject	:	Power	swap	arrangement	by	TickingMinds	via	CFP	Ref.	No.	2425040366.
+Ref:1.	e-Listing	2425040366	dated
+2.	Your	offer	dated	02-04-2024	on	NAME	portal
 	
 Dear	Sir,
-With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	TATA_1,	as	per	below
+With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	TATA_2,	as	per	below
 mentioned	arrangement.
-Supply	of	Power	from	TATA_1	to	Strategic	Solutions_28161234
+Supply	of	Power	from	TATA_2	to	TickingMinds
 UtilityPeriodDuration	(Hrs.)Quantum	(MW)
-Strategic	Solutions_2816123410-01-2026	to	10-01-202601:00	-	05:3099998.0
+TickingMinds02-04-2026	to	02-04-202600:30	-	04:3099998.0
 	
-Return	of	Power	by	Strategic	Solutions_28161234	to	TATA_1
+Return	of	Power	by	TickingMinds	to	TATA_2
 UtilityPeriod
 Duration
 (Hrs.)
@@ -29,20 +29,20 @@ and	%	return
 percentage)
 Return	Ratio
 in	%
-TATA_110-01-2026	to	10-01-202611:00	-	15:001124966.25999.99
+TATA_202-04-2026	to	02-04-202608:30	-	12:001142811.42999.98
 	
 Delivery	Point
 The	delivery	point,	in	either	case,	shall	be	the	Regional	Periphery	of	Exporting
 Utility.
-Settlement	rate	(Rs./kWh).01
+Settlement	rate	(Rs./kWh)IEX	DAM	RTC	Average	Price	(Rs./kWh)
 General	Terms	&	Conditions
 As	per	the	Framework	Agreement	/	As	per	the	Listing	Document	(Ref.	No.)
-23240303786
+2425040366
 	
 You	are	requested	to	acknowledge	the	receipt	of	this	LOA	&	give	your	acceptance	on	it.
 Regards,
 Yours	Faithfully,
-For	Strategic	Solutions_28161234
+For	TickingMinds
 	
 Authorised	Signatory
 (Other	Information	if	any)

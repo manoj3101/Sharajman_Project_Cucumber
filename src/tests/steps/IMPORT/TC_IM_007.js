@@ -248,7 +248,7 @@ Then('Awarding and Generate LOA should be successfull as per import case seven',
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue1, data.TC_07.Settlement_Price);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue1, data.TC_07.Settlement_Price, data.TC_07.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -274,7 +274,7 @@ Then('Responder Uploading the documents should be successfull as per import case
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue1, data.TC_07.Settlement_Price);
+    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue1, data.TC_07.Settlement_Price, data.TC_07.loa_acceptance_mins);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 

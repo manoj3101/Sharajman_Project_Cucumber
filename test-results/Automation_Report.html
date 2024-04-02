@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +18,6 @@
         margin: 0;
         text-decoration: none;
         list-style: none;
-
-        /* display: inline; */
     }
 
     #overrallBody {
@@ -209,7 +206,7 @@
         cursor: pointer;
     }
 
-    a:hover {
+    #side-nav a:hover {
         background: #d4ada3;
         color: snow;
         transition: 0.08s ease-in;
@@ -242,15 +239,16 @@
     .testScenarioName li {
         display: block;
         /* Display list items as block */
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
         /* Add bottom margin between test scenarios */
     }
 
     .testSteps {
-        margin-left: 90px;
+        margin-left: 120px;
         /* Add margin to the left for indentation */
         list-style: none;
         /* Remove default list styles */
+        margin-top: 10px;
     }
 
     .testSteps li {
@@ -269,6 +267,17 @@
         float: right;
         /* margin-right: 55%; */
     }
+
+    #failedTestsInfoTable tbody td {
+        text-align: left;
+    }
+
+    #failedTestsSummaryTable tbody tr td {
+        text-align: left;
+    }
+#material-symbols-outlined{
+    display: inline;
+}
 </style>
 
 
@@ -308,7 +317,7 @@
             </div>
             <h1>AUTOMATION REPORT</h1>
             <span id="reportGeneratedTime">
-                04/02/2024, 12:21:32
+                04/02/2024, 13:32:51
             </span>
         </div>
 
@@ -360,16 +369,16 @@
                                                 https://platform.test.newage.market/login
                                             </a></td>
                                         <td>
-                                            04/02/2024, 12:00:44
+                                            04/02/2024, 13:11:25
                                         </td>
                                         <td>
-                                            04/02/2024, 12:21:32
+                                            04/02/2024, 13:32:51
                                         </td>
                                         <td>
                                             Retest
                                         </td>
                                         <td>
-                                            20.80 Minutes
+                                            21.43 Minutes
                                         </td>
                                     </tr>
                                 </tbody>
@@ -393,19 +402,25 @@
                                     </tr>
                                     <tr>
                                         <td style="color: inherit">Pass</td>
-                                        <td class="">
+                                        <td class=""
+                                            style="color: inherit">
                                             0
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="color: red">Fail</td>
-                                        <td class="failed">
+                                        <td>
+                                            <a style="color:red; text-decoration: underline; " href="#"
+                                                onclick="showSection('testSummary')">Fail</a>
+                                        </td>
+                                        <td class="failed"
+                                            style="color: red">
                                             1
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="color: orange">Skipped</td>
-                                        <td class="">
+                                        <td class=""
+                                            style="color: orange">
                                             0
                                         </td>
                                     </tr>
@@ -439,19 +454,35 @@
                                         <td>
                                             msedge
                                         </td>
-                                        <td>
+                                        <td style="color: inherit">
                                             0
                                         </td>
-                                        <td>
-                                            1
+                                        <td style="color: red">
+                                            <a style="color:red; text-decoration: underline; " href="#"
+                                                onclick="showSection('testSummary')">
+                                                1
+                                            </a>
                                         </td>
-                                        <td>
+                                        <td style="color: orange">
                                             0
                                         </td>
                                         <td>
                                             
-                                                0.00%
+                                            
+                                            
+                                                
+                                                
+                                            <span style="color: hsl(0,100%,50%);">
+                                                0%
+                                                <!-- passPercentage.toFixed(2) -->
+                                            </span>
                                         </td>
+                                        
+
+
+
+
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -482,9 +513,9 @@
                                     
                                         <tr>
                                             <td>
-                                                TC_IM_001
+                                                TC_IM_002
                                             </td>
-                                            <td>Failed</td>
+                                            <td style="color: red">Failed</td>
                                             <td>
                                                 msedge
                                             </td>
@@ -553,26 +584,6 @@
                                                     
                                                             
                                                     
-                                                        <tr>
-                                                            <td>
-                                                                TC_IM_001
-                                                            </td>
-                                                            <td>
-                                                                Discom Member Awarding CFP and Generating LOA.
-                                                            </td>
-                                                            <td>
-                                                                Awarding and Generate LOA should be successfull as per import case one
-                                                            </td>
-                                                            <td>
-                                                                locator.fill: Timeout 30000ms exceeded.
-Call log:
-  [2m- waiting for locator(&#39;//input[contains(@placeholder,\&#39;Search\&#39;)]&#39;)[22m
-
-    at DashboardCFP.generateLOA (D:\Sharajman_Project_Cucumber\src\pages\Member\DashboardCFP.js:869:84)
-    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_001.js:163:5)
-                                                            </td>
-                                                        </tr>
-                                                        
                                                             
                                                     
                                                             
@@ -583,261 +594,53 @@ Call log:
                                                     
                                                             
                                                     
+                                                            
+                                                    
+                                                            
+                                                    
+                                                            
+                                                                
+                                                
+                                                    
+                                                            
+                                                    
+                                                            
+                                                    
+                                                            
+                                                    
+                                                            
+                                                    
+                                                            
+                                                                
+                                                
+                                                    
+                                                            
+                                                    
+                                                            
+                                                    
+                                                            
+                                                    
                                                         <tr>
-                                                            <td>
-                                                                TC_IM_001
+                                                            <td style="color: red;">
+                                                                TC_IM_002
                                                             </td>
                                                             <td>
                                                                 Discom Member Uploading the documents from Responder Side.
                                                             </td>
                                                             <td>
-                                                                User started Uploading the documents from Responder Side as per import case one
+                                                                Responder Uploading the documents should be successfull as per import case two
                                                             </td>
                                                             <td>
-                                                                locator.click: Timeout 30000ms exceeded.
+                                                                page.click: Timeout 30000ms exceeded.
 Call log:
-  [2m- waiting for locator(&#39;//span[contains(text(),\&#39;LOA Management\&#39;)]&#39;)[22m
-[2m  -   locator resolved to &lt;span class=&#34;hide-menu&#34; _ngcontent-ng-c3308577967=&#34;&#34;&gt;LOA Management&lt;/span&gt;[22m
-[2m  - attempting click action[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #1[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #2[22m
-[2m  -   waiting 20ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #3[22m
-[2m  -   waiting 100ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #4[22m
-[2m  -   waiting 100ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #5[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #6[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #7[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #8[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #9[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #10[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #11[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #12[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #13[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #14[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #15[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #16[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #17[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #18[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #19[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #20[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #21[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #22[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #23[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #24[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #25[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #26[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #27[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #28[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #29[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #30[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #31[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #32[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #33[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #34[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #35[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #36[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #37[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #38[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #39[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #40[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #41[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #42[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #43[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #44[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #45[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #46[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #47[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #48[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #49[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #50[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #51[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #52[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #53[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #54[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #55[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #56[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #57[22m
-[2m  -   waiting 500ms[22m
-[2m  -   waiting for element to be visible, enabled and stable[22m
-[2m  -   element is not visible[22m
-[2m  - retrying click action, attempt #58[22m
-[2m  -   waiting 500ms[22m
+  [2m- waiting for locator(&#39;//td[@class=\&#39;align-middle\&#39;]//img[@container=\&#39;body\&#39;]&#39;)[22m
 
-    at LOAManagement.loaGeneration (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:46:85)
-    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_001.js:178:5)
+    at LOAManagement.LOA_documentverification (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:111:30)
+    at async LOAManagement.uploadDocument (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:59:9)
+    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:270:5)
                                                             </td>
                                                         </tr>
                                                         
-                                                            
-                                                    
                                                             
                                                     
                                                             
@@ -849,8 +652,8 @@ Call log:
                                                             
                                                     
                                                         <tr>
-                                                            <td>
-                                                                TC_IM_001
+                                                            <td style="color: red;">
+                                                                TC_IM_002
                                                             </td>
                                                             <td>
                                                                 Discom Member Genarating Format D as initiator
@@ -859,9 +662,12 @@ Call log:
                                                                 Format D should be successfully Generated from initiator side as per import case two
                                                             </td>
                                                             <td>
-                                                                locator.fill: value: expected string, got undefined
-    at LOAManagement.action (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:353:59)
-    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:288:25)
+                                                                locator.click: Timeout 40000ms exceeded.
+Call log:
+  [2m- waiting for getByRole(&#39;button&#39;, { name: /Action/i })[22m
+
+    at LOAManagement.action (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:356:73)
+    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:288:5)
                                                             </td>
                                                         </tr>
                                                         
@@ -876,8 +682,8 @@ Call log:
                                                             
                                                     
                                                         <tr>
-                                                            <td>
-                                                                TC_IM_001
+                                                            <td style="color: red;">
+                                                                TC_IM_002
                                                             </td>
                                                             <td>
                                                                 Discom Member Genarating Format D as Responder
@@ -886,9 +692,12 @@ Call log:
                                                                 Format D should be successfully Generated from Responder side as per import case two
                                                             </td>
                                                             <td>
-                                                                locator.fill: value: expected string, got undefined
-    at LOAManagement.action_FormatD (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:367:59)
-    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:309:5)
+                                                                locator.click: Timeout 50000ms exceeded.
+Call log:
+  [2m- waiting for locator(&#39;//label[contains(text(),\&#39;Application generation\&#39;)]&#39;)[22m
+
+    at LOAManagement.formatD (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:379:94)
+    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:311:5)
                                                             </td>
                                                         </tr>
                                                         
@@ -899,13 +708,13 @@ Call log:
                                                                     
                                     </tbody>
 
+
                                 </table>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
 
 
 
@@ -927,7 +736,7 @@ Call log:
                                 
                                     <tr>
                                         <td>
-                                            TC_IM_001
+                                            TC_IM_002
                                         </td>
                                         <td style="color: red;">Failed</td>
                                     </tr>
@@ -937,338 +746,442 @@ Call log:
 
                     </div>
                     
-                        
-                            <div class="testcases_div">
-                                <ul class="testCaseName">
-                                    <h2 style="display: inline-block;">Testcases</h2>
-                                    
-                                        <li>
-                                            <div id="material-symbols-outlined">
-                                                <span class="material-symbols-outlined">
-                                                    expand_more
-                                                </span>
-                                            </div>
-                                            <a onclick="toggleScenarios(this)" class="tc">
-                                                TC_IM_001
-                                            </a>
-                                            <ul class="testScenarioName" style="display: none;">
 
-                                                
-                                                    <li>
-                                                        <span class="material-symbols-outlined">
-                                                            expand_circle_right
-                                                        </span>
-                                                        <h3 style="display: inline-block;margin-top: 25px;">
-                                                            Scenarios</h3>
-                                                        <a onclick="toggleSteps(this)" class="ts"
-                                                            style="color: green">
-                                                            Discom Member Create CFP and Publishing the CFP.
-                                                        </a>
-                                                        <ul class="testSteps" style="display: none;">
-                                                            <h4 style="display: inline-block; margin-top: 17px;">
-                                                                Steps</h4>
-                                                            
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User navigate to the Application and logged in as a discom user as initiator as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User started creating Call for Proposal CFP as an initiator as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        Call for Proposal CFP should be Published successfully as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                        </ul>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <span class="material-symbols-outlined">
-                                                            expand_circle_right
-                                                        </span>
-                                                        <h3 style="display: inline-block;margin-top: 25px;">
-                                                            Scenarios</h3>
-                                                        <a onclick="toggleSteps(this)" class="ts"
-                                                            style="color: green">
-                                                            Discom Member Responding to the  CFP as a Responder.
-                                                        </a>
-                                                        <ul class="testSteps" style="display: none;">
-                                                            <h4 style="display: inline-block; margin-top: 17px;">
-                                                                Steps</h4>
-                                                            
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User navigate to the Application and logged in as a discom user as Responder as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User started placing Response to the CFP as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        Response CFP should be Placed successfully as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                        </ul>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <span class="material-symbols-outlined">
-                                                            expand_circle_right
-                                                        </span>
-                                                        <h3 style="display: inline-block;margin-top: 25px;">
-                                                            Scenarios</h3>
-                                                        <a onclick="toggleSteps(this)" class="ts"
-                                                            style="color: red">
-                                                            Discom Member Awarding CFP and Generating LOA.
-                                                        </a>
-                                                        <ul class="testSteps" style="display: none;">
-                                                            <h4 style="display: inline-block; margin-top: 17px;">
-                                                                Steps</h4>
-                                                            
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User navigate to the Application and logged in as a discom user as initiator as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User started generating the award and generating the LOA from initiator side as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: red">
-                                                                        Awarding and Generate LOA should be successfull as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                        </ul>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <span class="material-symbols-outlined">
-                                                            expand_circle_right
-                                                        </span>
-                                                        <h3 style="display: inline-block;margin-top: 25px;">
-                                                            Scenarios</h3>
-                                                        <a onclick="toggleSteps(this)" class="ts"
-                                                            style="color: red">
-                                                            Discom Member Uploading the documents from Responder Side.
-                                                        </a>
-                                                        <ul class="testSteps" style="display: none;">
-                                                            <h4 style="display: inline-block; margin-top: 17px;">
-                                                                Steps</h4>
-                                                            
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User navigate to the Application and logged in as a discom user as Responder as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: red">
-                                                                        User started Uploading the documents from Responder Side as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: orange">
-                                                                        Responder Uploading the documents should be successfull as per import case one
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                        </ul>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <span class="material-symbols-outlined">
-                                                            expand_circle_right
-                                                        </span>
-                                                        <h3 style="display: inline-block;margin-top: 25px;">
-                                                            Scenarios</h3>
-                                                        <a onclick="toggleSteps(this)" class="ts"
-                                                            style="color: red">
-                                                            Discom Member Genarating Format D as initiator
-                                                        </a>
-                                                        <ul class="testSteps" style="display: none;">
-                                                            <h4 style="display: inline-block; margin-top: 17px;">
-                                                                Steps</h4>
-                                                            
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User navigate to the Application and logged in as a discom user as initiator as per import case two
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: red">
-                                                                        Format D should be successfully Generated from initiator side as per import case two
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                        </ul>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <span class="material-symbols-outlined">
-                                                            expand_circle_right
-                                                        </span>
-                                                        <h3 style="display: inline-block;margin-top: 25px;">
-                                                            Scenarios</h3>
-                                                        <a onclick="toggleSteps(this)" class="ts"
-                                                            style="color: red">
-                                                            Discom Member Genarating Format D as Responder
-                                                        </a>
-                                                        <ul class="testSteps" style="display: none;">
-                                                            <h4 style="display: inline-block; margin-top: 17px;">
-                                                                Steps</h4>
-                                                            
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        User navigate to the Application and logged in as a discom user as Responder as per import case two
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: red">
-                                                                        Format D should be successfully Generated from Responder side as per import case two
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: green">
-                                                                        
-                                                                    </a>
-                                                                </li>
-                                                                
-                                                        </ul>
-                                                    </li>
-                                                    
-                                            </ul>
-                                        </li>
+                        
+                            
+                                <div class="testcases_div">
+                                    <ul class="testCaseName">
+                                        <h2 style="display: inline-block;">Testcases</h2>
                                         
-                                </ul>
-                            </div>
+                                            <li>
+                                                <div id="material-symbols-outlined">
+                                                    <span class="material-symbols-outlined"
+                                                        style="color: red;">
+                                                        expand_more
+                                                    </span>
+                                                </div>
+                                                <a onclick="toggleScenarios(this)" class="tc"
+                                                    style="color: red;">
+                                                    TC_IM_002
+                                                </a>
+                                                <!-- Rest of your HTML code -->
+
+                                                <ul class="testScenarioName" style="display: none;">
+
+                                                    
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: green">
+                                                                Discom Member Create CFP and Publishing the CFP.
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as initiator as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User started creating Call for Proposal CFP as an initiator as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            Call for Proposal CFP should be Published successfully as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: green">
+                                                                Discom Member Responding to the  CFP as a Responder.
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as Responder as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User started placing Response to the CFP as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            Response CFP should be Placed successfully as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: green">
+                                                                Discom Member Responding to the  CFP as a Responder two.
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as Responder two as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            Responder two started placing Response to the CFP as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            Responder two Response CFP should be Placed successfully as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: green">
+                                                                Discom Member Responding to the  CFP as a Responder three.
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as Responder three as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            Responder three started placing Response to the CFP as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            Responder three Response CFP should be Placed successfully as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: green">
+                                                                Discom Member Awarding CFP and Generating LOA.
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as initiator as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User started generating the award and generating the LOA from initiator side as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            Awarding and Generate LOA should be successfull as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: red">
+                                                                Discom Member Uploading the documents from Responder Side.
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as Responder as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User started Uploading the documents from Responder Side as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: red">
+                                                                            Responder Uploading the documents should be successfull as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: red">
+                                                                Discom Member Genarating Format D as initiator
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as initiator as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: red">
+                                                                            Format D should be successfully Generated from initiator side as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: red">
+                                                                Discom Member Genarating Format D as Responder
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            User navigate to the Application and logged in as a discom user as Responder as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: red">
+                                                                            Format D should be successfully Generated from Responder side as per import case two
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: green">
+                                                                            
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                </ul>
+                                            </li>
+                                            
+                                    </ul>
+                                </div>
 
                 </div>
 
 
-
-
-
             </div>
-
-
         </div>
-
 
 </body>
 
@@ -1285,6 +1198,7 @@ Call log:
 
 
 <script>
+
 
 
     const ctx = document.getElementById('doughnut').getContext('2d');
@@ -1381,6 +1295,3 @@ Call log:
         showSection('detailedSummary');
     }
 </script>
-apps-fileview.texmex_20240314.01_p3
-!DOCTYPE.html
-Displaying !DOCTYPE.html.
