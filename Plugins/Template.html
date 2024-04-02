@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +18,6 @@
         margin: 0;
         text-decoration: none;
         list-style: none;
-
-        /* display: inline; */
     }
 
     #overrallBody {
@@ -209,7 +206,7 @@
         cursor: pointer;
     }
 
-    a:hover {
+    #side-nav a:hover {
         background: #d4ada3;
         color: snow;
         transition: 0.08s ease-in;
@@ -242,15 +239,16 @@
     .testScenarioName li {
         display: block;
         /* Display list items as block */
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
         /* Add bottom margin between test scenarios */
     }
 
     .testSteps {
-        margin-left: 90px;
+        margin-left: 120px;
         /* Add margin to the left for indentation */
         list-style: none;
         /* Remove default list styles */
+        margin-top: 10px;
     }
 
     .testSteps li {
@@ -269,6 +267,17 @@
         float: right;
         /* margin-right: 55%; */
     }
+
+    #failedTestsInfoTable tbody td {
+        text-align: left;
+    }
+
+    #failedTestsSummaryTable tbody tr td {
+        text-align: left;
+    }
+#material-symbols-outlined{
+    display: inline;
+}
 </style>
 
 
@@ -393,19 +402,25 @@
                                     </tr>
                                     <tr>
                                         <td style="color: <%= passCount > 0 ? 'green' : 'inherit' %>">Pass</td>
-                                        <td class="<%= passCount > 0 ? 'passed' : '' %>">
+                                        <td class="<%= passCount > 0 ? 'passed' : '' %>"
+                                            style="color: <%= passCount > 0 ? 'green' : 'inherit' %>">
                                             <%= passCount %>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="color: <%= failCount > 0 ? 'red' : 'inherit' %>">Fail</td>
-                                        <td class="<%= failCount > 0 ? 'failed' : '' %>">
+                                        <td>
+                                            <a style="color:red; text-decoration: underline; " href="#"
+                                                onclick="showSection('testSummary')">Fail</a>
+                                        </td>
+                                        <td class="<%= failCount > 0 ? 'failed' : '' %>"
+                                            style="color: <%= failCount > 0 ? 'red' : 'inherit' %>">
                                             <%= failCount %>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="color: <%= skipCount >= 0 ? 'orange' : 'inherit' %>">Skipped</td>
-                                        <td class="<%= skipCount > 0 ? 'skipped' : '' %>">
+                                        <td class="<%= skipCount > 0 ? 'skipped' : '' %>"
+                                            style="color: <%= skipCount >= 0 ? 'orange' : 'inherit' %>">
                                             <%= skipCount %>
                                         </td>
                                     </tr>
@@ -439,19 +454,36 @@
                                         <td>
                                             <%= browserName %>
                                         </td>
-                                        <td>
+                                        <td style="color: <%= passCount > 0 ? 'green' : 'inherit' %>">
                                             <%= passCount %>
                                         </td>
-                                        <td>
-                                            <%= failCount %>
+                                        <td style="color: <%= failCount > 0 ? 'red' : 'inherit' %>">
+                                            <a style="color:red; text-decoration: underline; " href="#"
+                                                onclick="showSection('testSummary')">
+                                                <%= failCount %>
+                                            </a>
                                         </td>
-                                        <td>
+                                        <td style="color: <%= skipCount >= 0 ? 'orange' : 'inherit' %>">
                                             <%= skipCount %>
                                         </td>
                                         <td>
-                                            <%const passPercentage=(passCount / testCaseCount) * 100; %>
-                                                <%= passPercentage.toFixed(2) %>%
+                                            <% function calculateColor(passPercentage) { %>
+                                                <% var hue = (passPercentage * 1.2).toString(10); %>
+                                                <% return ["hsl(", hue, ",100%,50%)"].join(""); %>
+                                            <% } %>
+                                            <% const passPercentage = (passCount / testCaseCount) * 100; %>
+                                            <% const color = calculateColor(passPercentage); %>
+                                            <span style="color: <%= color %>;">
+                                                <%= 0 %>%
+                                                <!-- passPercentage.toFixed(2) -->
+                                            </span>
                                         </td>
+                                        
+
+
+
+
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -501,7 +533,7 @@
                                             <td>
                                                 <%= testCase.name %>
                                             </td>
-                                            <td>Failed</td>
+                                            <td style="color: <%= failCount > 0 ? 'red' : 'inherit' %>">Failed</td>
                                             <td>
                                                 <%= browserName %>
                                             </td>
@@ -545,14 +577,15 @@
                                             }
                                             });
                                             });
-                                            if (skipped) { %>
+                                            if (skipped) %>
                                             <tr>
                                                 <td>
                                                     <%= testCase.name %>
                                                 </td>
-                                                <td>Skipped</td>
+                                                <td style="color: orange;">
+                                                    Skipped</td>
                                             </tr>
-                                            <% } }); %>
+                                            <% }); %>
                                     </tbody>
                                 </table>
                                 <% } %>
@@ -579,7 +612,7 @@
                                                 <% scenario.steps.forEach(step=> { %>
                                                     <% if (step.errorMessage) { %>
                                                         <tr>
-                                                            <td>
+                                                            <td style="color: red;">
                                                                 <%= testCase.name %>
                                                             </td>
                                                             <td>
@@ -598,13 +631,13 @@
                                                                     <% }); %>
                                     </tbody>
 
+
                                 </table>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
 
 
 
@@ -666,80 +699,92 @@
                         </table>
 
                     </div>
-                    <% function getScenarioColor(scenario) { if (scenario.steps.some(step=> step.stepStatus
-                        ==="failed")) {
-                        return "red" ;
+                    <% function getTestCaseColor(testCase) { if (testCase.scenarios.some(scenario=>
+                        scenario.steps.some(step => step.stepStatus === "failed"))) {
+                        return "red";
+                        } else if (testCase.scenarios.every(scenario => scenario.steps.every(step => step.stepStatus
+                        ===
+                        "passed"))) {
+                        return "green";
+                        } else {
+                        return "orange";
                         }
-                        else if (scenario.steps.every(step=> step.stepStatus === "passed")) {
-                        return "green" ;
                         }
-                        else {
-                        return "orange" ;
-                        }
-                        } %>
-                        <% function getStepColor(status) { if (status==="passed" ) { return "green" ; } else if
-                            (status==="failed" ) { return "red" ; } else { return "orange" ; } } %>
-                            <div class="testcases_div">
-                                <ul class="testCaseName">
-                                    <h2 style="display: inline-block;">Testcases</h2>
-                                    <% testCases.forEach(testCase=>
-                                        { %>
-                                        <li>
-                                            <div id="material-symbols-outlined">
-                                                <span class="material-symbols-outlined">
-                                                    expand_more
-                                                </span>
-                                            </div>
-                                            <a onclick="toggleScenarios(this)" class="tc">
-                                                <%= testCase.name %>
-                                            </a>
-                                            <ul class="testScenarioName" style="display: none;">
+                        %>
 
-                                                <% testCase.scenarios.forEach(scenario=>
-                                                    { %>
-                                                    <li>
-                                                        <span class="material-symbols-outlined">
-                                                            expand_circle_right
-                                                        </span>
-                                                        <h3 style="display: inline-block;margin-top: 25px;">
-                                                            Scenarios</h3>
-                                                        <a onclick="toggleSteps(this)" class="ts"
-                                                            style="color: <%= getScenarioColor(scenario) %>">
-                                                            <%= scenario.name %>
-                                                        </a>
-                                                        <ul class="testSteps" style="display: none;">
-                                                            <h4 style="display: inline-block; margin-top: 17px;">
-                                                                Steps</h4>
-                                                            <% scenario.steps.forEach(step=>
-                                                                {
-                                                                %>
-                                                                <li>
-                                                                    <a class="tStep"
-                                                                        style="color: <%= getStepColor(step.stepStatus) %>">
-                                                                        <%= step.name %>
-                                                                    </a>
-                                                                </li>
-                                                                <% }); %>
-                                                        </ul>
-                                                    </li>
-                                                    <% }); %>
-                                            </ul>
-                                        </li>
-                                        <% }); %>
-                                </ul>
-                            </div>
+                        <% function getScenarioColor(scenario) { if (scenario.steps.some(step=> step.stepStatus
+                            ==="failed")) {
+                            return "red" ;
+                            }
+                            else if (scenario.steps.every(step=> step.stepStatus === "passed")) {
+                            return "green" ;
+                            }
+                            else {
+                            return "orange" ;
+                            }
+                            } %>
+                            <% function getStepColor(status) { if (status==="passed" ) { return "green" ; } else if
+                                (status==="failed" ) { return "red" ; } else { return "orange" ; } } %>
+                                <div class="testcases_div">
+                                    <ul class="testCaseName">
+                                        <h2 style="display: inline-block;">Testcases</h2>
+                                        <% testCases.forEach(testCase=> {
+                                            const testCaseColor = getTestCaseColor(testCase);
+                                            %>
+                                            <li>
+                                                <div id="material-symbols-outlined">
+                                                    <span class="material-symbols-outlined"
+                                                        style="color: <%= testCaseColor %>;">
+                                                        expand_more
+                                                    </span>
+                                                </div>
+                                                <a onclick="toggleScenarios(this)" class="tc"
+                                                    style="color: <%= testCaseColor %>;">
+                                                    <%= testCase.name %>
+                                                </a>
+                                                <!-- Rest of your HTML code -->
+
+                                                <ul class="testScenarioName" style="display: none;">
+
+                                                    <% testCase.scenarios.forEach(scenario=>
+                                                        { %>
+                                                        <li>
+                                                            <span class="material-symbols-outlined">
+                                                                expand_circle_right
+                                                            </span>
+                                                            <h3 style="display: inline-block;margin-top: 3px;">
+                                                                Scenarios</h3>
+                                                            <a onclick="toggleSteps(this)" class="ts"
+                                                                style="color: <%= getScenarioColor(scenario) %>">
+                                                                <%= scenario.name %>
+                                                            </a>
+                                                            <ul class="testSteps" style="display: none;">
+                                                                <h4 style="display: inline-block; margin-top: 6px;">
+                                                                    Steps</h4>
+                                                                <% scenario.steps.forEach(step=>
+                                                                    {
+                                                                    %>
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: <%= getStepColor(step.stepStatus) %>">
+                                                                            <%= step.name %>
+                                                                        </a>
+                                                                    </li>
+                                                                    <% }); %>
+                                                            </ul>
+                                                        </li>
+                                                        <% }); %>
+                                                </ul>
+                                            </li>
+                                            <% }); %>
+                                    </ul>
+                                </div>
 
                 </div>
 
 
-
-
-
             </div>
-
-
         </div>
-
 
 </body>
 
@@ -756,6 +801,7 @@
 
 
 <script>
+
 
 
     const ctx = document.getElementById('doughnut').getContext('2d');
@@ -852,6 +898,3 @@
         showSection('detailedSummary');
     }
 </script>
-apps-fileview.texmex_20240314.01_p3
-!DOCTYPE.html
-Displaying !DOCTYPE.html.
