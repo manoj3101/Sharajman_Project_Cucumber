@@ -178,10 +178,6 @@ Export end time - 4 hours after export start time
 
 
 
-
-
-
-
 EXPORT
 
 TC_EX_001 ==> Minimum Quantum - Yes Single

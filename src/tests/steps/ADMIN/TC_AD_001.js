@@ -47,6 +47,9 @@ let cfpNumber;
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
 Given('New user navigates to the application and initiates the sign-up process as per Admin case one', async function () {
+    console.log("------------------------------------------------------------------------------------------------------");
+    console.log("                                            TC_AD_001                                                 ");
+    console.log("------------------------------------------------------------------------------------------------------");
     await signUp.signup(); //Sign Up
 });
 
@@ -81,10 +84,6 @@ Then('New user begins the registration process as per Admin case one', async fun
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('Admin User navigates to the application and logs in as an admin as per Admin case one', async function () {
-    console.log("------------------------------------------------------------------------------------------------------");
-    console.log("                                            TC_AD_001                                                 ");
-    console.log("------------------------------------------------------------------------------------------------------");
-
     await login.login(ad_data.admin, ad_data.admin_password); //Login as a admin 
     // await signUp.OTP(); //OTP Validation 
 

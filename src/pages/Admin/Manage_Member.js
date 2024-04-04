@@ -49,7 +49,7 @@ class Manage_Member {
         const elements = await pageFixture.page.$$("//tbody/tr");
 
         // Output the number of row elements found
-        console.log(`Number of Row elements found: ${elements.length}`);
+        // console.log(`Number of Row elements found: ${elements.length}`);
 
         //If it has multiple row
         // for (let i = 0; i < elements.length; i++) {
@@ -73,7 +73,7 @@ class Manage_Member {
         // //Assert the company name 
         const cmp_name = await pageFixture.page.locator("//input[@id='orgname']").textContent();
         // expect(cmp_name).toContain(org_name);
-        console.log(`Organization name : ${cmp_name}`);
+        // console.log(`Organization name : ${cmp_name}`);
 
         //click the button 
         await pageFixture.page.getByRole('button', { name: /Approve/i }).click();  // Reject False case

@@ -54,7 +54,7 @@ class Member_Assistance {
 
         //Row Lenght 
         const rowLenght = await pageFixture.page.$$("//tbody//tr");
-        console.log(`Number of Row found in Member Assistance: ${rowLenght.length}`);
+        // console.log(`Number of Row found in Member Assistance: ${rowLenght.length}`);
 
         //Subscription Plan ==>//tbody/tr/td[8]  Xpath  List of xpath 
 

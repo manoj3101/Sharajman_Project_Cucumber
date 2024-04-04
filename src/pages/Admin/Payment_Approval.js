@@ -52,7 +52,7 @@ class Payment_Approval {
 
 
         // Output the number of row elements found
-        console.log(`Number of Row found in Payment Approval: ${elements.length}`);
+        // console.log(`Number of Row found in Payment Approval: ${elements.length}`);
 
         //If it has multiple row
         for (let i = elements.length; i > 0; i--) {
