@@ -117,7 +117,7 @@ Then('CFP should be Placed successfully as Expected as per import case nine', as
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_09.imp_start_time, data.TC_09.imp_end_time, data.TC_09.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_09.imp_start_time, data.TC_09.imp_end_time, data.TC_09.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_09.exp_start_time, data.TC_09.exp_end_time, data.TC_09.ReturnValue1);
 
@@ -157,7 +157,7 @@ Then('Awarding and Generate LOA should be successfull as Expected as per import 
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_09.imp_start_time, data.TC_09.imp_end_time, data.TC_09.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_09.imp_start_time, data.TC_09.imp_end_time, data.TC_09.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_09.exp_start_time, data.TC_09.exp_end_time, data.TC_09.ReturnValue1);
 
@@ -185,11 +185,13 @@ Then('Responder should be able to reject the LOA successfully as per import case
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
+    console.log("Waiting 2 minutes for the timeline expires.........");
+
     await pageFixture.page.waitForTimeout(90 * 1000);
 
     await loaManagement.responder_Rejects_loa(cfpNumber);
 
-    console.log("Responder reject the LOA successfully  \n <<<<<<<<<<<Loa is rejected successfully.>>>>>>>>>>>>>>");
+    console.log("Responder reject the LOA successfully");
 
 
 });

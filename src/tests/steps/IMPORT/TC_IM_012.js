@@ -119,7 +119,7 @@ Then('CFP should be Placed successfully as Expected from responder as per import
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_12.imp_start_time, data.TC_12.imp_end_time, data.TC_12.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_12.imp_start_time, data.TC_12.imp_end_time, data.TC_12.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_12.exp_start_time, data.TC_12.exp_end_time, data.TC_12.ReturnValue1);
 

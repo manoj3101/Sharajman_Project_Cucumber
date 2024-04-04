@@ -118,7 +118,7 @@ Then('Response CFP should be Placed successfully as per import case seven', asyn
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue1);
 
@@ -158,12 +158,10 @@ Then('Responder two Response CFP should be Placed successfully as per import cas
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.minQuantumValue2);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue2);
 
-
-    console.log("--------------------Response CFP couldn't placed Successfully -----------------");
 
 });
 
@@ -200,12 +198,10 @@ Then('Responder three Response CFP should be Placed successfully as per import c
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_07.imp_start_time, data.TC_07.imp_end_time, data.TC_07.minQuantumValue3);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_07.exp_start_time, data.TC_07.exp_end_time, data.TC_07.ReturnValue3);
 
-
-    console.log("--------------------Response CFP couldn't placed Successfully -----------------");
 
 });
 
@@ -221,7 +217,7 @@ Given('User started generating the award and generating the LOA from initiator s
     await home.clickCallForPropsal();
 
     // //wait time for 15 minutes 
-    // await pageFixture.page.waitForTimeout(885000);
+    await pageFixture.page.waitForTimeout(885000);
 
     console.log("Wait time is over Awarding CFP has started......");
 

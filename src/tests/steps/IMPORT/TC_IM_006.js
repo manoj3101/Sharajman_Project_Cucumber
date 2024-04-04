@@ -118,7 +118,7 @@ Then('Response CFP should be Placed successfully as per import case six', async 
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_06.imp_start_time, data.TC_06.imp_end_time, data.TC_06.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_06.imp_start_time, data.TC_06.imp_end_time, data.TC_06.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_06.exp_start_time, data.TC_06.exp_end_time, data.TC_06.ReturnValue1);
 
@@ -157,7 +157,7 @@ Then('Awarding and Generate LOA should be successfull as per import case six', a
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_06.imp_start_time, data.TC_06.imp_end_time, data.TC_06.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_06.imp_start_time, data.TC_06.imp_end_time, data.TC_06.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_06.exp_start_time, data.TC_06.exp_end_time, data.TC_06.ReturnValue1);
 

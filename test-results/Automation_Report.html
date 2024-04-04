@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,7 +112,7 @@
 
     .table-container {
         margin-right: 20px;
-        display: inline;
+        display: block;
         line-height: 22px;
         margin-left: 12px;
 
@@ -150,6 +151,9 @@
 
     .automationMetrics_div {
         margin-left: 15px;
+        display: inline-block;
+        margin-top: 35px;
+        width: 50%;
     }
 
     .automationExecutionSummaryTable_div {
@@ -177,7 +181,7 @@
     }
 
     .testcases_div {
-        margin-top: -30%;
+        display: inline;
     }
 
     table {
@@ -191,7 +195,7 @@
         margin: 10px;
         display: inline-table;
         font-size: 0.9em;
-        width: 20%;
+        width: 30%;
     }
 
     .detailedTestSummaryTable {
@@ -212,14 +216,13 @@
         transition: 0.08s ease-in;
     }
 
-
     /* Style for test case name */
     .testCaseName {
         margin-left: 30px;
         /* Add margin to the left for indentation */
         list-style: none;
         /* Remove default list styles */
-        margin-top: 35%;
+        margin-top: 5%;
     }
 
     .testCaseName li {
@@ -265,6 +268,7 @@
         display: inline;
         box-sizing: border-box;
         float: right;
+        margin-left: 24px;
         /* margin-right: 55%; */
     }
 
@@ -275,9 +279,10 @@
     #failedTestsSummaryTable tbody tr td {
         text-align: left;
     }
-#material-symbols-outlined{
-    display: inline;
-}
+
+    #material-symbols-outlined {
+        display: inline;
+    }
 </style>
 
 
@@ -317,7 +322,7 @@
             </div>
             <h1>AUTOMATION REPORT</h1>
             <span id="reportGeneratedTime">
-                04/02/2024, 13:32:51
+                04/04/2024, 17:44:11
             </span>
         </div>
 
@@ -369,16 +374,16 @@
                                                 https://platform.test.newage.market/login
                                             </a></td>
                                         <td>
-                                            04/02/2024, 13:11:25
+                                            04/04/2024, 17:41:39
                                         </td>
                                         <td>
-                                            04/02/2024, 13:32:51
+                                            04/04/2024, 17:44:11
                                         </td>
                                         <td>
                                             Retest
                                         </td>
                                         <td>
-                                            21.43 Minutes
+                                            2.53 Minutes
                                         </td>
                                     </tr>
                                 </tbody>
@@ -428,7 +433,8 @@
                             </table>
                             <div class="doughnutChart">
                                 <!-- <canvas id="pieChart" width="100px" height="100px"></canvas> -->
-                                <canvas id="doughnut"></canvas>
+                                <canvas id="doughnut" width="190" height="190"
+                                    style="display: block;box-sizing: border-box;height: 100%;width: 22%;"></canvas>
                             </div>
                         </div>
                     </div>
@@ -468,16 +474,11 @@
                                         </td>
                                         <td>
                                             
-                                            
-                                            
-                                                
-                                                
-                                            <span style="color: hsl(0,100%,50%);">
-                                                0%
-                                                <!-- passPercentage.toFixed(2) -->
-                                            </span>
+                                                <span>
+                                                    0.00%
+                                                </span>
                                         </td>
-                                        
+
 
 
 
@@ -513,7 +514,7 @@
                                     
                                         <tr>
                                             <td>
-                                                TC_IM_002
+                                                TC_EX_001
                                             </td>
                                             <td style="color: red">Failed</td>
                                             <td>
@@ -560,6 +561,30 @@
                                                     
                                                             
                                                     
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Create CFP and Publishing the CFP.
+                                                            </td>
+                                                            <td>
+                                                                Call for Proposal CFP should be Published successfully as per export case one
+                                                            </td>
+                                                            <td>
+                                                                
+                                        
+                                            locator.textContent: Timeout 30000ms exceeded.
+Call log:
+  [2m- waiting for locator(&#39;//h4[contains(text(),\&#39;The CFP\&#39;)]&#39;)[22m
+
+    at DashboardCFP.publish (D:\Sharajman_Project_Cucumber\src\pages\Member\DashboardCFP.js:382:68)
+    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests...
+                                                
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
                                                             
                                                     
                                                             
@@ -568,52 +593,27 @@
                                                     
                                                             
                                                     
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Responding to the  CFP as a Responder.
+                                                            </td>
+                                                            <td>
+                                                                User navigate to the Application and logged in as a discom user as Responder as per export case one
+                                                            </td>
+                                                            <td>
                                                                 
-                                                
-                                                    
+                                        
+                                                    page.goto: Target page, context or browser has been closed
+    at Login.login (D:\Sharajman_Project_Cucumber\src\pages\Member\Login.js:27:32)
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\EXPORT\TC_EX_001.js:116:17)
+                                                        
                                                             
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                                
-                                                
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                                
-                                                
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                    
-                                                            
-                                                                
-                                                
-                                                    
+                                                            </td>
+                                                        </tr>
+                                                        
                                                             
                                                     
                                                             
@@ -622,30 +622,111 @@
                                                     
                                                         <tr>
                                                             <td style="color: red;">
-                                                                TC_IM_002
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Responding to the  CFP as a Responder.
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                
+                                        
+                                                    page.screenshot: Target page, context or browser has been closed
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\hooks\hooks.js:35:40)
+                                                        
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                            
+                                                                
+                                                
+                                                    
+                                                            
+                                                    
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Awarding CFP and Generating LOA.
+                                                            </td>
+                                                            <td>
+                                                                User navigate to the Application and logged in as a discom user as initiator as per export case one
+                                                            </td>
+                                                            <td>
+                                                                
+                                        
+                                            page.goto: Target page, context or browser has been closed
+Call log:
+  [2m- navigating to &#34;https://platform.test.newage.market/login&#34;, waiting until &#34;load&#34;[22m
+
+    at Login.login (D:\Sharajman_Project_Cucumber\src\pages\Member\Login.js:27:32)
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumbe...
+                                                
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                            
+                                                    
+                                                            
+                                                    
+                                                            
+                                                    
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Awarding CFP and Generating LOA.
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                
+                                        
+                                                    page.screenshot: Target page, context or browser has been closed
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\hooks\hooks.js:35:40)
+                                                        
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                            
+                                                                
+                                                
+                                                    
+                                                            
+                                                    
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
                                                             </td>
                                                             <td>
                                                                 Discom Member Uploading the documents from Responder Side.
                                                             </td>
                                                             <td>
-                                                                Responder Uploading the documents should be successfull as per import case two
+                                                                User navigate to the Application and logged in as a discom user as Responder as per export case one
                                                             </td>
                                                             <td>
-                                                                page.click: Timeout 30000ms exceeded.
+                                                                
+                                        
+                                            page.goto: net::ERR_ABORTED; maybe frame was detached?
 Call log:
-  [2m- waiting for locator(&#39;//td[@class=\&#39;align-middle\&#39;]//img[@container=\&#39;body\&#39;]&#39;)[22m
+  [2m- navigating to &#34;https://platform.test.newage.market/login&#34;, waiting until &#34;load&#34;[22m
 
-    at LOAManagement.LOA_documentverification (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:111:30)
-    at async LOAManagement.uploadDocument (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:59:9)
-    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:270:5)
+    at Login.login (D:\Sharajman_Project_Cucumber\src\pages\Member\Login.js:27:32)
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\sr...
+                                                
+                                                            
                                                             </td>
                                                         </tr>
                                                         
                                                             
-                                                    
-                                                            
-                                                                
-                                                
                                                     
                                                             
                                                     
@@ -653,61 +734,143 @@ Call log:
                                                     
                                                         <tr>
                                                             <td style="color: red;">
-                                                                TC_IM_002
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Uploading the documents from Responder Side.
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                
+                                        
+                                                    page.screenshot: Target page, context or browser has been closed
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\hooks\hooks.js:35:40)
+                                                        
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                            
+                                                                
+                                                
+                                                    
+                                                            
+                                                    
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
                                                             </td>
                                                             <td>
                                                                 Discom Member Genarating Format D as initiator
                                                             </td>
                                                             <td>
-                                                                Format D should be successfully Generated from initiator side as per import case two
+                                                                User navigate to the Application and logged in as a discom user as initiator as per export case one
                                                             </td>
                                                             <td>
-                                                                locator.click: Timeout 40000ms exceeded.
+                                                                
+                                        
+                                            page.goto: net::ERR_ABORTED; maybe frame was detached?
 Call log:
-  [2m- waiting for getByRole(&#39;button&#39;, { name: /Action/i })[22m
+  [2m- navigating to &#34;https://platform.test.newage.market/login&#34;, waiting until &#34;load&#34;[22m
 
-    at LOAManagement.action (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:356:73)
-    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:288:5)
+    at Login.login (D:\Sharajman_Project_Cucumber\src\pages\Member\Login.js:27:32)
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\sr...
+                                                
+                                                            
                                                             </td>
                                                         </tr>
                                                         
-                                                            
-                                                    
-                                                            
-                                                                
-                                                
-                                                    
                                                             
                                                     
                                                             
                                                     
                                                         <tr>
                                                             <td style="color: red;">
-                                                                TC_IM_002
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Genarating Format D as initiator
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                
+                                        
+                                                    page.screenshot: Target page, context or browser has been closed
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\hooks\hooks.js:35:40)
+                                                        
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                            
+                                                                
+                                                
+                                                    
+                                                            
+                                                    
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
                                                             </td>
                                                             <td>
                                                                 Discom Member Genarating Format D as Responder
                                                             </td>
                                                             <td>
-                                                                Format D should be successfully Generated from Responder side as per import case two
+                                                                User navigate to the Application and logged in as a discom user as Responder as per export case one
                                                             </td>
                                                             <td>
-                                                                locator.click: Timeout 50000ms exceeded.
+                                                                
+                                        
+                                            page.goto: net::ERR_ABORTED; maybe frame was detached?
 Call log:
-  [2m- waiting for locator(&#39;//label[contains(text(),\&#39;Application generation\&#39;)]&#39;)[22m
+  [2m- navigating to &#34;https://platform.test.newage.market/login&#34;, waiting until &#34;load&#34;[22m
 
-    at LOAManagement.formatD (D:\Sharajman_Project_Cucumber\src\pages\Member\LOAManagement.js:379:94)
-    at async World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\tests\steps\IMPORT\TC_IM_002.js:311:5)
+    at Login.login (D:\Sharajman_Project_Cucumber\src\pages\Member\Login.js:27:32)
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\sr...
+                                                
+                                                            
                                                             </td>
                                                         </tr>
                                                         
                                                             
                                                     
                                                             
+                                                    
+                                                        <tr>
+                                                            <td style="color: red;">
+                                                                TC_EX_001
+                                                            </td>
+                                                            <td>
+                                                                Discom Member Genarating Format D as Responder
+                                                            </td>
+                                                            <td>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                
+                                        
+                                                    page.screenshot: Target page, context or browser has been closed
+Call log:
+  [2m- taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at World.&lt;anonymous&gt; (D:\Sharajman_Project_Cucumber\src\hooks\hooks.js:35:40)
+                                                        
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                            
                                                                 
                                                                     
                                     </tbody>
 
+                                    
 
                                 </table>
                             </div>
@@ -736,7 +899,7 @@ Call log:
                                 
                                     <tr>
                                         <td>
-                                            TC_IM_002
+                                            TC_EX_001
                                         </td>
                                         <td style="color: red;">Failed</td>
                                     </tr>
@@ -762,7 +925,7 @@ Call log:
                                                 </div>
                                                 <a onclick="toggleScenarios(this)" class="tc"
                                                     style="color: red;">
-                                                    TC_IM_002
+                                                    TC_EX_001
                                                 </a>
                                                 <!-- Rest of your HTML code -->
 
@@ -776,7 +939,7 @@ Call log:
                                                             <h3 style="display: inline-block;margin-top: 3px;">
                                                                 Scenarios</h3>
                                                             <a onclick="toggleSteps(this)" class="ts"
-                                                                style="color: green">
+                                                                style="color: red">
                                                                 Discom Member Create CFP and Publishing the CFP.
                                                             </a>
                                                             <ul class="testSteps" style="display: none;">
@@ -793,21 +956,21 @@ Call log:
                                                                     <li>
                                                                         <a class="tStep"
                                                                             style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as initiator as per import case two
+                                                                            User navigate to the Application and logged in as a discom user as initiator as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
                                                                             style="color: green">
-                                                                            User started creating Call for Proposal CFP as an initiator as per import case two
+                                                                            User started creating Call for Proposal CFP as an initiator as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            Call for Proposal CFP should be Published successfully as per import case two
+                                                                            style="color: red">
+                                                                            Call for Proposal CFP should be Published successfully as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
@@ -828,7 +991,7 @@ Call log:
                                                             <h3 style="display: inline-block;margin-top: 3px;">
                                                                 Scenarios</h3>
                                                             <a onclick="toggleSteps(this)" class="ts"
-                                                                style="color: green">
+                                                                style="color: red">
                                                                 Discom Member Responding to the  CFP as a Responder.
                                                             </a>
                                                             <ul class="testSteps" style="display: none;">
@@ -844,28 +1007,28 @@ Call log:
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as Responder as per import case two
+                                                                            style="color: red">
+                                                                            User navigate to the Application and logged in as a discom user as Responder as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User started placing Response to the CFP as per import case two
+                                                                            style="color: orange">
+                                                                            User started placing Response to the CFP as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            Response CFP should be Placed successfully as per import case two
+                                                                            style="color: orange">
+                                                                            Response CFP should be Placed successfully as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
+                                                                            style="color: red">
                                                                             
                                                                         </a>
                                                                     </li>
@@ -880,111 +1043,7 @@ Call log:
                                                             <h3 style="display: inline-block;margin-top: 3px;">
                                                                 Scenarios</h3>
                                                             <a onclick="toggleSteps(this)" class="ts"
-                                                                style="color: green">
-                                                                Discom Member Responding to the  CFP as a Responder two.
-                                                            </a>
-                                                            <ul class="testSteps" style="display: none;">
-                                                                <h4 style="display: inline-block; margin-top: 6px;">
-                                                                    Steps</h4>
-                                                                
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as Responder two as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            Responder two started placing Response to the CFP as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            Responder two Response CFP should be Placed successfully as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                            </ul>
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <span class="material-symbols-outlined">
-                                                                expand_circle_right
-                                                            </span>
-                                                            <h3 style="display: inline-block;margin-top: 3px;">
-                                                                Scenarios</h3>
-                                                            <a onclick="toggleSteps(this)" class="ts"
-                                                                style="color: green">
-                                                                Discom Member Responding to the  CFP as a Responder three.
-                                                            </a>
-                                                            <ul class="testSteps" style="display: none;">
-                                                                <h4 style="display: inline-block; margin-top: 6px;">
-                                                                    Steps</h4>
-                                                                
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as Responder three as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            Responder three started placing Response to the CFP as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            Responder three Response CFP should be Placed successfully as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
-                                                                            
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                            </ul>
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <span class="material-symbols-outlined">
-                                                                expand_circle_right
-                                                            </span>
-                                                            <h3 style="display: inline-block;margin-top: 3px;">
-                                                                Scenarios</h3>
-                                                            <a onclick="toggleSteps(this)" class="ts"
-                                                                style="color: green">
+                                                                style="color: red">
                                                                 Discom Member Awarding CFP and Generating LOA.
                                                             </a>
                                                             <ul class="testSteps" style="display: none;">
@@ -1000,28 +1059,28 @@ Call log:
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as initiator as per import case two
+                                                                            style="color: red">
+                                                                            User navigate to the Application and logged in as a discom user as initiator as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User started generating the award and generating the LOA from initiator side as per import case two
+                                                                            style="color: orange">
+                                                                            User started generating the award and generating the LOA from initiator side as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            Awarding and Generate LOA should be successfull as per import case two
+                                                                            style="color: orange">
+                                                                            Awarding and Generate LOA should be successfull as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
+                                                                            style="color: red">
                                                                             
                                                                         </a>
                                                                     </li>
@@ -1052,28 +1111,28 @@ Call log:
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as Responder as per import case two
+                                                                            style="color: red">
+                                                                            User navigate to the Application and logged in as a discom user as Responder as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User started Uploading the documents from Responder Side as per import case two
+                                                                            style="color: orange">
+                                                                            User started Uploading the documents from Responder Side as per export case one
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: orange">
+                                                                            Responder Uploading the documents should be successfull as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
                                                                             style="color: red">
-                                                                            Responder Uploading the documents should be successfull as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
                                                                             
                                                                         </a>
                                                                     </li>
@@ -1104,21 +1163,21 @@ Call log:
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as initiator as per import case two
+                                                                            style="color: red">
+                                                                            User navigate to the Application and logged in as a discom user as initiator as per export case one
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: orange">
+                                                                            Format D should be successfully Generated from initiator side as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
                                                                             style="color: red">
-                                                                            Format D should be successfully Generated from initiator side as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
                                                                             
                                                                         </a>
                                                                     </li>
@@ -1149,21 +1208,21 @@ Call log:
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
-                                                                            style="color: green">
-                                                                            User navigate to the Application and logged in as a discom user as Responder as per import case two
+                                                                            style="color: red">
+                                                                            User navigate to the Application and logged in as a discom user as Responder as per export case one
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li>
+                                                                        <a class="tStep"
+                                                                            style="color: orange">
+                                                                            Format D should be successfully Generated from Responder side as per export case one
                                                                         </a>
                                                                     </li>
                                                                     
                                                                     <li>
                                                                         <a class="tStep"
                                                                             style="color: red">
-                                                                            Format D should be successfully Generated from Responder side as per import case two
-                                                                        </a>
-                                                                    </li>
-                                                                    
-                                                                    <li>
-                                                                        <a class="tStep"
-                                                                            style="color: green">
                                                                             
                                                                         </a>
                                                                     </li>
@@ -1232,6 +1291,18 @@ Call log:
             }
         }
     });
+
+    function truncateErrorMessage(errorMessage) {
+        // Check if the errorMessage length exceeds 300 characters
+        if (errorMessage.length > 300) {
+            // Truncate the errorMessage to 300 characters and add ellipsis
+            return errorMessage.slice(0, 300) + '...';
+        } else {
+            // Return the errorMessage as is if it's within the limit
+            return errorMessage;
+        }
+    }
+
 
     function styleScenario(scenarioElement, status) {
         if (status === 'passed') {

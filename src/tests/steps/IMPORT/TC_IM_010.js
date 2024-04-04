@@ -121,7 +121,7 @@ Then('CFP should be Placed as Expected from responder as per import case ten', a
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_10.imp_start_time, data.TC_10.imp_end_time, data.TC_10.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_10.imp_start_time, data.TC_10.imp_end_time, data.TC_10.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_10.exp_start_time, data.TC_10.exp_end_time, data.TC_10.ReturnValue1);
 
@@ -159,7 +159,7 @@ Then('Awarding should be successfull and generate LOA Timeline should be Expired
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_10.imp_start_time, data.TC_10.imp_end_time, data.TC_10.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_10.imp_start_time, data.TC_10.imp_end_time, data.TC_10.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_10.exp_start_time, data.TC_10.exp_end_time, data.TC_10.ReturnValue1);
 

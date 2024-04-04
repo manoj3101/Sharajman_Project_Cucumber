@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,7 +112,7 @@
 
     .table-container {
         margin-right: 20px;
-        display: inline;
+        display: block;
         line-height: 22px;
         margin-left: 12px;
 
@@ -150,6 +151,9 @@
 
     .automationMetrics_div {
         margin-left: 15px;
+        display: inline-block;
+        margin-top: 35px;
+        width: 50%;
     }
 
     .automationExecutionSummaryTable_div {
@@ -177,7 +181,7 @@
     }
 
     .testcases_div {
-        margin-top: -30%;
+        display: inline;
     }
 
     table {
@@ -191,7 +195,7 @@
         margin: 10px;
         display: inline-table;
         font-size: 0.9em;
-        width: 20%;
+        width: 30%;
     }
 
     .detailedTestSummaryTable {
@@ -212,14 +216,13 @@
         transition: 0.08s ease-in;
     }
 
-
     /* Style for test case name */
     .testCaseName {
         margin-left: 30px;
         /* Add margin to the left for indentation */
         list-style: none;
         /* Remove default list styles */
-        margin-top: 35%;
+        margin-top: 5%;
     }
 
     .testCaseName li {
@@ -265,6 +268,7 @@
         display: inline;
         box-sizing: border-box;
         float: right;
+        margin-left: 24px;
         /* margin-right: 55%; */
     }
 
@@ -275,9 +279,10 @@
     #failedTestsSummaryTable tbody tr td {
         text-align: left;
     }
-#material-symbols-outlined{
-    display: inline;
-}
+
+    #material-symbols-outlined {
+        display: inline;
+    }
 </style>
 
 
@@ -428,7 +433,8 @@
                             </table>
                             <div class="doughnutChart">
                                 <!-- <canvas id="pieChart" width="100px" height="100px"></canvas> -->
-                                <canvas id="doughnut"></canvas>
+                                <canvas id="doughnut" width="190" height="190"
+                                    style="display: block;box-sizing: border-box;height: 100%;width: 22%;"></canvas>
                             </div>
                         </div>
                     </div>
@@ -467,18 +473,12 @@
                                             <%= skipCount %>
                                         </td>
                                         <td>
-                                            <% function calculateColor(passPercentage) { %>
-                                                <% var hue = (passPercentage * 1.2).toString(10); %>
-                                                <% return ["hsl(", hue, ",100%,50%)"].join(""); %>
-                                            <% } %>
-                                            <% const passPercentage = (passCount / testCaseCount) * 100; %>
-                                            <% const color = calculateColor(passPercentage); %>
-                                            <span style="color: <%= color %>;">
-                                                <%= 0 %>%
-                                                <!-- passPercentage.toFixed(2) -->
-                                            </span>
+                                            <% const passPercentage=(passCount / testCaseCount) * 100; %>
+                                                <span>
+                                                    <%= passPercentage.toFixed(2) %>%
+                                                </span>
                                         </td>
-                                        
+
 
 
 
@@ -622,7 +622,7 @@
                                                                 <%= step.name %>
                                                             </td>
                                                             <td>
-                                                                <%= step.errorMessage %>
+                                                                <%= truncateErrorMessage(step.errorMessage) %>
                                                             </td>
                                                         </tr>
                                                         <% } %>
@@ -631,6 +631,13 @@
                                                                     <% }); %>
                                     </tbody>
 
+                                    <% function truncateErrorMessage(errorMessage) { %>
+                                        <% if (errorMessage.length> 300) { %>
+                                            <%= errorMessage.slice(0, 300) + '...' %>
+                                                <% } else { %>
+                                                    <%= errorMessage %>
+                                                        <% } %>
+                                                            <% } %>
 
                                 </table>
                             </div>
@@ -835,6 +842,18 @@
             }
         }
     });
+
+    function truncateErrorMessage(errorMessage) {
+        // Check if the errorMessage length exceeds 300 characters
+        if (errorMessage.length > 300) {
+            // Truncate the errorMessage to 300 characters and add ellipsis
+            return errorMessage.slice(0, 300) + '...';
+        } else {
+            // Return the errorMessage as is if it's within the limit
+            return errorMessage;
+        }
+    }
+
 
     function styleScenario(scenarioElement, status) {
         if (status === 'passed') {

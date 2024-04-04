@@ -65,8 +65,7 @@ function generateHTMLReport() {
                             name: scenario.name,
                                 scenario.steps.forEach(step => {
                                     step.results.forEach(result => {
-                                        const trimmedErrorMessage = result.errorMessage.substring(0, 300);
-                                        console.log("errorMessage: " + trimmedErrorMessage);
+                                       
                                     });
                                 });
                         });
@@ -82,13 +81,7 @@ function generateHTMLReport() {
                 }
             });
 
-            console.log("Pass Count:", passCount);
-            console.log("Fail Count:", failCount);
-            console.log("Skip Count:", skipCount);
-            console.log("Failed Test Cases:", failedTestCases);
-            console.log("Passed Test Cases:", passedTestCases);
-            console.log("Skipped Test Cases:", skippedTestCases);
-
+        
             const renderedHtml = ejs.render(htmlTemplate, {
                 testCases,
                 testCaseCount,
@@ -118,7 +111,7 @@ function generateHTMLReport() {
 }
 function onTestStart(testtype, browsername, environmentName) {
     startDateAndTime = getDateAndTime();
-    console.log("startDateAndTime:", startDateAndTime);
+    
     testType = testtype;
     browserName = browsername;
     url = environmentName;
@@ -126,9 +119,9 @@ function onTestStart(testtype, browsername, environmentName) {
 
 function onTestEnd() {
     endDateAndTime = getDateAndTime();
-    console.log("endDateAndTime:", endDateAndTime);
+    
     totalTimeInMinutes = calculateTotalTime(startDateAndTime, endDateAndTime).toFixed(2);
-    console.log("Total time taken:", totalTimeInMinutes, "minutes");
+    
 
 }
 

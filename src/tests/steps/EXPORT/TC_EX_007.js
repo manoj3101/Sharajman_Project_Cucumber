@@ -239,7 +239,7 @@ Then('Awarding and Generate LOA should be successfull as per export case Seven',
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_07.imp_start_time, data.EX_07.imp_end_time, data.EX_07.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_07.exp_start_time, data.EX_07.exp_end_time, data.EX_07.ReturnValue1);
 

@@ -134,7 +134,7 @@
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"04",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -144,7 +144,6 @@
             "loa_acceptance_hours":"00",
             "loa_acceptance_mins":"01",
           
-           
             "index":1,
             "Settlement_Price":"",
             "query_Box" :false,
@@ -157,10 +156,10 @@
             "ReturnValue1":"999.99",
     
             "minQuantumValue2":"99998",
-            "ReturnValue2":"999.99",
+            "ReturnValue2":"999.98",
     
             "minQuantumValue3":"99998",
-            "ReturnValue3":"999.99",
+            "ReturnValue3":"999.98",
         
             "route":"YES",
             "GTAM":"YES",
@@ -199,7 +198,7 @@
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"04",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -324,7 +323,7 @@
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"04",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -350,7 +349,7 @@
             "ReturnValue2":"988",
             
             "minQuantumValue3":"0.01",
-            "ReturnValue3":"999",
+            "ReturnValue3":"998",
         
             "route":"YES",
             "GTAM":"YES",
@@ -449,7 +448,7 @@
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"04",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -464,12 +463,12 @@
             "Settlement_Price":"999",
             "query_Box" :false,
             "Ceiling_Base_Return":true,
-            "Ceiling_Base_Return_value":"0.01",
+            "Ceiling_Base_Return_value":"0.02",
             "custom_Guests":"monica.k.2019.bt@rajalakshmi.edu.in, monicaa@yopmail.com",
             "remarks":"Good",
         
             "minQuantumValue1":"0.01",
-            "ReturnValue1":"0.01",
+            "ReturnValue1":"0.02",
         
             "minQuantumValue2":"0.02",
             "ReturnValue2":"0.01",
@@ -846,7 +845,7 @@
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"03",
+        "award_mins":"04",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
@@ -858,7 +857,7 @@
       
        
         "index":1,
-        "Settlement_Price":"No",
+        "Settlement_Price":"",
         "query_Box" :false,
         "Ceiling_Base_Return":true,
         "Ceiling_Base_Return_value":"999.99",
@@ -869,10 +868,10 @@
         "ReturnValue1":"999.98",
 
         "minQuantumValue2":"99998",
-        "ReturnValue2":"999.98",
+        "ReturnValue2":"999.97",
 
         "minQuantumValue3":"99998",
-        "ReturnValue3":"999.98",
+        "ReturnValue3":"999.97",
     
         "application_no":"54657",
         "route":"YES",
@@ -895,8 +894,8 @@
         "Minimum_Quantum":false,
         "Minimum_QuantumValue":"",
     
-        "imp_start_date" : 730,
-        "imp_end_date" : 730,
+        "imp_start_date" : 729,
+        "imp_end_date" : 729,
         "imp_start_time":"16:30",
         "imp_end_time":"20:30",
         "Quantum_value":"0.01",
@@ -912,7 +911,7 @@
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"03",
+        "award_mins":"04",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
@@ -961,7 +960,7 @@
         "Minimum_QuantumValue":"",
     
         "imp_start_date" : 1,
-        "imp_end_date" : 730,
+        "imp_end_date" : 729,
         "imp_start_time":"20:00",
         "imp_end_time":"23:30",
         "Quantum_value":"0.01",
@@ -1036,7 +1035,7 @@
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"03",
+        "award_mins":"04",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
@@ -1062,7 +1061,7 @@
         "ReturnValue2":"988",
         
         "minQuantumValue3":"0.01",
-        "ReturnValue3":"999",
+        "ReturnValue3":"998",
     
         "route":"YES",
         "GTAM":"YES",
@@ -1143,14 +1142,14 @@
     "Minimum_Quantum":true,
     "Minimum_QuantumValue":"0.01",
 
-    "imp_start_date" :"2024-04-06",
-    "imp_end_date" :"2024-04-06",
+    "imp_start_date" : 1,
+    "imp_end_date" : 1,
     "imp_start_time":"18:00",
     "imp_end_time":"23:30",
     "Quantum_value":"10",
 
-    "exp_start_date" : "2026-02-02",
-    "exp_end_date" :"2026-02-02",
+    "exp_start_date" : 730,
+    "exp_end_date" : 730,
     "exp_start_time" :"03:00",
     "exp_end_time" :"06:00",
 
@@ -1160,7 +1159,7 @@
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"03",
+    "award_mins":"04",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
@@ -1175,12 +1174,12 @@
     "Settlement_Price":"999",
     "query_Box" :false,
     "Ceiling_Base_Return":true,
-    "Ceiling_Base_Return_value":"0.01",
+    "Ceiling_Base_Return_value":"0.02",
     "custom_Guests":"monica.k.2019.bt@rajalakshmi.edu.in, monicaa@yopmail.com",
     "remarks":"Good",
 
     "minQuantumValue1":"0.01",
-    "ReturnValue1":"0.01",
+    "ReturnValue1":"0.02",
 
     "minQuantumValue2":"0.02",
     "ReturnValue2":"0.01",
@@ -1279,11 +1278,11 @@
 
     "response_days":"00",
     "response_hours":"00",
-    "response_mins":"05",
+    "response_mins":"02",
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"03",
+    "award_mins":"02",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
@@ -1335,7 +1334,7 @@
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"03",
+    "award_mins":"02",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
@@ -1438,7 +1437,7 @@
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"03",
+    "award_mins":"02",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",
