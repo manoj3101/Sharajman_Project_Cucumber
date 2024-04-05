@@ -40,14 +40,14 @@
         "Minimum_Quantum":true,
         "Minimum_QuantumValue":"99998",
     
-        "imp_start_date" :"2026-01-10",
-        "imp_end_date" :"2026-01-10",
+        "imp_start_date" : 1,
+        "imp_end_date" : 1,
         "imp_start_time":"01:00",
         "imp_end_time":"05:30",
         "Quantum_value":"99999",
     
-        "exp_start_date" : "2026-01-10",
-        "exp_end_date" :"2026-01-10",
+        "exp_start_date" : 2,
+        "exp_end_date" : 2,
         "exp_start_time" :"11:00",
         "exp_end_time" :"15:00",
     
@@ -122,14 +122,14 @@
         "Minimum_Quantum":true,
         "Minimum_QuantumValue":"99998",
     
-        "imp_start_date" :"2026-01-10",
-        "imp_end_date" :"2026-01-10",
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
         "imp_start_time":"01:00",
         "imp_end_time":"05:30",
         "Quantum_value":"99999",
     
-        "exp_start_date" : "2026-01-10",
-        "exp_end_date" :"2026-01-10",
+        "exp_start_date" :730,
+        "exp_end_date" : 730,
         "exp_start_time" :"11:00",
         "exp_end_time" :"15:00",
     

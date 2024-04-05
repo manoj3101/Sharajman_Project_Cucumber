@@ -375,7 +375,11 @@ class DashboardCFP {
         //await pageFixture.page.locator(this.next).click();
         await pageFixture.page.getByRole('button', { name: /Next/i }).click();
         await pageFixture.page.getByRole('button', { name: /Publish/i }).click();
-        await pageFixture.page.getByRole('button', { name: /Proceed/i }).click();//New feature click proceed to continue
+
+        //Get the text content from the Remaining listing
+        const text = await pageFixture.page.locator("(//div[contains(@class,'modal-body')])[2]").textContent();
+        console.log(`Remaining listing :${text}`);
+        await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //New feature click proceed to continue
         await pageFixture.page.waitForTimeout(2000);
 
         //submitted status
@@ -644,69 +648,7 @@ class DashboardCFP {
 
     }
 
-    //Calculation part for the energycalculation_responder
-    async energycalculation_responder(start_date, end_date, start_time, end_time, returnpercent) {
-        // Combine date and time for start and end
-        const startdate = new Date(start_date);
-        const enddate = new Date(end_date);
-        const startTime = new Date(`${startdate.toISOString().split('T')[0]}T${start_time}`);
-        const endTime = new Date(`${enddate.toISOString().split('T')[0]}T${end_time}`);
 
-        // Calculate the time difference in milliseconds
-        const timeDifference = endTime - startTime;
-
-        // Convert milliseconds to days, hours, and minutes
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(timeDifference / (1000 * 60 * 60)) % 24;
-        const minutes = (timeDifference / (1000 * 60)) % 60;
-        const time = hours + minutes / 60;
-
-        // Display the result
-        console.log(`Responder Difference: ${days} days, ${hours + minutes / 60} hours\n`);
-
-        const initiator_kwh = global.eng;
-
-        //Calculation part        
-        const responder_kwh = initiator_kwh * (returnpercent / 100); //return percentage is
-        const responder_megawatt = responder_kwh / (1000 * (days + 1) * time); // Responder quantum 
-        const roundedQuantum = Math.floor(responder_megawatt * 100) / 100; // Round down to 2 decimal places  //Responder quantum 
-        const reverse_energy = roundedQuantum * 1000 * (days + 1) * time; //Responder reverse energy
-
-        console.log("Expected Energy1 in KWH : " + initiator_kwh); //Initiator Energy calculated in above method
-        console.log("Old Expected Energy2 in KWH : " + responder_kwh); //Responder Energy calculate as per old method
-        console.log("New Expected Energy2 in KWH : " + reverse_energy); //Responder Reverse energy
-        const roundedQuantum1 = Number(responder_megawatt.toFixed(2));
-        console.log("Expected Quantum in MW : " + responder_megawatt);
-        console.log("New Round off Expected Quantum in MW : " + roundedQuantum);
-        console.log("Old Round off Expected Quantum in MW : " + roundedQuantum1);
-
-        //assert 
-        //export
-        const content2 = await pageFixture.page.locator("((//div[contains(@class,'ng-star-inserted')])//h5)[7]").textContent();
-        const Energy2 = await pageFixture.page.locator("(//td[8])[1]").textContent();
-        const quantum = await pageFixture.page.locator("(//td[7])[2]").textContent();
-        console.log("<<<<<<<<<<<<<<<<" + content2 + ">>>>>>>>>>>>>>>>>>>>\n");
-        console.log("Actual Energy in KWH :" + Energy2);
-        console.log("Actual Quantum in MH :" + quantum);
-        const numericEnergy1 = parseFloat(Energy2);
-        const numericquantum = parseFloat(quantum);
-
-        //  await expect.soft(numericquantum).toBe(roundedQuantum);
-        //  await expect.soft(numericEnergy1).toBe(responder_kwh);
-
-
-        if (reverse_energy === numericEnergy1) {
-            console.log(` ✔ Passed Actual Energy in KWH : ${reverse_energy} is equal to the Expected Energy in KWH : ${numericEnergy1}`);
-        } else {
-            console.log(` X Failed  Actual Energy in KWH : ${reverse_energy} is not equal to the Expected Energy in KWH : ${numericEnergy1}`);
-        }
-        if (roundedQuantum === numericquantum) {
-            console.log(` ✔ Passed Actual Quantum in MW : ${roundedQuantum} is equal to the Expected Quantum in MW : ${numericquantum}\n`);
-        } else {
-            console.log(` X Failed Actual Quantum in MW : ${roundedQuantum} is not equal to the Expected Quantum in MW : ${numericquantum}\n`);
-        }
-
-    }
 
     // //Calculation part for the energycalculation_responder
     // async energycalculation_responder(start_date, end_date, start_time, end_time, returnpercent) {

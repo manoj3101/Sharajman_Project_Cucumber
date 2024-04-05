@@ -1,6 +1,7 @@
 Feature: TC_IM_011
 
   Scenario: Discom Member Create CFP and Publishing the CFP.
+    Given Admin navigate to the application and login and fetching the transaction fee formula as per import case eleven
     Given User navigate to the Application and logged in as a discom user as initiator as per import case eleven
     And User started creating Call for Proposal CFP as an initiator as per import case eleven
     Then CFP should be Published successfully as Expected from initiator as per import case eleven

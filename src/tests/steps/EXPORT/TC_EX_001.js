@@ -31,17 +31,20 @@ let exp_end_date = DashboardCFP.exp_end_date;
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User navigate to the Application and logged in as a discom user as initiator as per export case one', async function () {
+Given('Admin navigate to the application and login and fetching the transaction fee formula as per export case one', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_001                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    console.log("-----------------------------------------INITIATOR-----------------------------------------");
-    // await login.login(data.admin, data.admin_password);
-    // await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-    // await transactionFee.fetch_Transaction_Fee("Demo1",data.EX_01.Quantum_value); // Fetch the transaction fee formula
-    // await login.logout(); //Logout
-    await login.login(data.user1, data.user1_password);
+    await login.login(data.admin, data.admin_password);
+    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+    await transactionFee.fetch_Transaction_Fee(data.feeName, data.EX_01.Quantum_value); // Fetch the transaction fee formula
+    await login.logout(); //Logout
 
+});
+
+Given('User navigate to the Application and logged in as a discom user as initiator as per export case one', async function () {
+    console.log("-----------------------------------------INITIATOR-----------------------------------------");
+    await login.login(data.user1, data.user1_password);
 });
 
 Given('User started creating Call for Proposal CFP as an initiator as per export case one', async function () {
@@ -100,9 +103,9 @@ Then('Call for Proposal CFP should be Published successfully as per export case 
 
     console.log("Import start date:", DashboardCFP.imp_start_date);
     console.log("Import end date:", DashboardCFP.imp_end_date);
-    console.log("Export start date:",DashboardCFP.exp_start_date);
+    console.log("Export start date:", DashboardCFP.exp_start_date);
     console.log("Export end date:", DashboardCFP.exp_end_date);
-    
+
 
 });
 

@@ -5,6 +5,7 @@ const Login = require("../../../pages/Member/Login");
 const Home = require("../../../pages/Member/Home");
 const DashboardCFP = require("../../../pages/Member/DashboardCFP");
 const LOAManagement = require("../../../pages/Member/LOAManagement");
+const TransactionFee = require("../../../pages/Admin/TransactionFee");
 
 //setDefaultTimeout(120 * 1000);// Set global timeout for all actions
 setDefaultTimeout({
@@ -18,6 +19,7 @@ const login = new Login(pageFixture.page);
 const home = new Home(pageFixture.page);
 const dashboardCFP = new DashboardCFP(pageFixture.page);
 const loaManagement = new LOAManagement(pageFixture.page);
+const transactionFee = new TransactionFee(pageFixture.page);
 
 
 
@@ -25,10 +27,19 @@ const loaManagement = new LOAManagement(pageFixture.page);
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User navigate to the Application and logged in as a discom user as initiator as per export case two', async function () {
+
+Given('Admin navigate to the application and login and fetching the transaction fee formula as per export case two', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_002                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
+    await login.login(data.admin, data.admin_password);
+    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+    await transactionFee.fetch_Transaction_Fee(data.feeName, data.EX_02.Quantum_value); // Fetch the transaction fee formula
+    await login.logout(); //Logout
+
+});
+
+Given('User navigate to the Application and logged in as a discom user as initiator as per export case two', async function () {
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
@@ -249,7 +260,7 @@ Then('Awarding and Generate LOA should be successfull as per export case two', a
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_02.exp_start_time, data.EX_02.exp_end_time, data.EX_02.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_02.imp_start_time, data.EX_02.imp_end_time, data.EX_02.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_02.exp_start_time, data.EX_02.exp_end_time, data.EX_02.ReturnValue1, data.EX_02.Settlement_Price,  data.EX_02.loa_issuance_mins);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_02.imp_start_time, data.EX_02.imp_end_time, data.EX_02.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_02.exp_start_time, data.EX_02.exp_end_time, data.EX_02.ReturnValue1, data.EX_02.Settlement_Price, data.EX_02.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 

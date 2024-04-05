@@ -5,6 +5,7 @@ const Login = require("../../../pages/Member/Login");
 const Home = require("../../../pages/Member/Home");
 const DashboardCFP = require("../../../pages/Member/DashboardCFP");
 const LOAManagement = require("../../../pages/Member/LOAManagement");
+const TransactionFee = require("../../../pages/Admin/TransactionFee");
 
 //setDefaultTimeout(120 * 1000);// Set global timeout for all actions
 setDefaultTimeout({
@@ -19,16 +20,24 @@ const login = new Login(pageFixture.page);
 const home = new Home(pageFixture.page);
 const dashboardCFP = new DashboardCFP(pageFixture.page);
 const loaManagement = new LOAManagement(pageFixture.page);
+const transactionFee = new TransactionFee(pageFixture.page);
 
 
 
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
+Given('Admin navigate to the application and login and fetching the transaction fee formula as per import case twelve', async function () {
+    console.log("------------------------------------------------------------------------------------------------------");
+    console.log("                                            TC_IM_12                                                 ");
+    console.log("------------------------------------------------------------------------------------------------------");
+    await login.login(data.admin, data.admin_password);
+    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+    await transactionFee.fetch_Transaction_Fee(data.feeName, data.TC_12.Quantum_value); // Fetch the transaction fee formula
+    await login.logout(); //Logout
+});
+
 Given('User navigate to the Application and logged in as a discom user as initiator as per import case twelve', async function () {
-    console.log("------------------------------------------------------------------------------------------------------");
-    console.log("                                            TC_IM_012                                                 ");
-    console.log("------------------------------------------------------------------------------------------------------");
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
