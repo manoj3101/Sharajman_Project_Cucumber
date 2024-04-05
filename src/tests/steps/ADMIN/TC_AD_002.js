@@ -12,6 +12,7 @@ const Home = require("../../../pages/Member/Home");
 const DashboardCFP = require("../../../pages/Member/DashboardCFP");
 const LOAManagement = require("../../../pages/Member/LOAManagement");
 const Manage_User = require('../../../pages/Member/Manage_User');
+const TransactionFee = require("../../../pages/Admin/TransactionFee");
 
 
 //setDefaultTimeout(120 * 1000);// Set global timeout for all actions
