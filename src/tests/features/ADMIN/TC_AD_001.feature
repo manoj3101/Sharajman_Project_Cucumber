@@ -1,5 +1,5 @@
 Feature: TC_AD_001
-
+    
   Scenario: New Member Signing Up for the OTC Platform
     Given New user navigates to the application and initiates the sign-up process as per Admin case one
     And New user logs into the application again and changes the password as per Admin case one

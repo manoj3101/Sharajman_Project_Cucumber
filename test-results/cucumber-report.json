@@ -121,8 +121,9 @@
               "location": "src\\tests\\steps\\EXPORT\\TC_EX_001.js:124"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "failed",
+              "duration": 3208359800,
+              "error_message": "page.waitForTimeout: Target page, context or browser has been closed\n    at Home.clickCallForPropsal (D:\\Sharajman_Project_Cucumber\\src\\pages\\Member\\Home.js:18:28)\n    at async World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\ADMIN\\TC_AD_001.js:192:5)"
             }
           },
           {
