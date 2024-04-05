@@ -1,5 +1,5 @@
 Feature: TC_AD_001
-
+    
   Scenario: New Member Signing Up for the OTC Platform
     Given New user navigates to the application and initiates the sign-up process as per Admin case one
     And New user logs into the application again and changes the password as per Admin case one
@@ -11,6 +11,7 @@ Feature: TC_AD_001
     Then Admin approves the payment and assigns rights to the new user as per Admin case one
 
   Scenario: New Discom Member Create CFP and Publishing the CFP.
+    Given Admin navigate to the application and login and fetching the transaction fee formula as per admin case one
     Given New User navigate to the Application and logged in as a discom user as initiator as per admin case one
     And New User started creating Call for Proposal CFP as an initiator as per admin case one
     Then Call for Proposal CFP should be Published successfully as per admin case one
