@@ -1,10 +1,9 @@
 node_modules/
-/test-results/
 /blob-report/
 /playwright/.cache/
-/Automation_Report.html/
-/cucumber-report.json/
-/Report.html/
-/screenshots/
+test-results/Automation_Report.html
+test-results/Report.html
+test-results/cucumber-report.json
+test-results/screenshots
 
 
