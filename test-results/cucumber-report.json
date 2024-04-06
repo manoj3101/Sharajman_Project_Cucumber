@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1122898099
+              "duration": 1190526100
             }
           },
           {
@@ -27,8 +27,8 @@
             },
             "result": {
               "status": "failed",
-              "duration": 6896691699,
-              "error_message": "page.waitForTimeout: Target page, context or browser has been closed\n    at Login.login (D:\\Sharajman_Project_Cucumber\\src\\pages\\Member\\Login.js:32:32)\n    at async World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\EXPORT\\TC_EX_001.js:38:5)"
+              "duration": 12568589700,
+              "error_message": "locator.hover: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for locator('xpath=(//span[contains(@class,\\'m-icon ng-star-inserted\\')])[9]')\u001b[22m\n\u001b[2m  -   locator resolved to <span _ngcontent-ng-c3308577967=\"\" class=\"m-icon ng-st…>…</span>\u001b[22m\n\u001b[2m  - attempting hover action\u001b[22m\n\u001b[2m  -   waiting for element to be visible and stable\u001b[22m\n\n    at TransactionFee.click_Transaction_Fee (D:\\Sharajman_Project_Cucumber\\src\\pages\\Admin\\TransactionFee.js:79:20)\n    at async World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\EXPORT\\TC_EX_001.js:39:5)"
             }
           },
           {
@@ -75,7 +75,7 @@
             "hidden": true,
             "result": {
               "status": "failed",
-              "duration": 4118300,
+              "duration": 4297999,
               "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\hooks\\hooks.js:35:40)"
             }
           }
@@ -95,7 +95,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 788074300
+              "duration": 727990100
             }
           },
           {
@@ -108,7 +108,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 210423399,
+              "duration": 208510499,
               "error_message": "page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n  \u001b[2m- navigating to \"https://platform.test.newage.market/login\", waiting until \"load\"\u001b[22m\n\n    at Login.login (D:\\Sharajman_Project_Cucumber\\src\\pages\\Member\\Login.js:27:32)\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\EXPORT\\TC_EX_001.js:119:17)"
             }
           },
@@ -143,7 +143,7 @@
             "hidden": true,
             "result": {
               "status": "failed",
-              "duration": 8971699,
+              "duration": 5913600,
               "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\hooks\\hooks.js:35:40)"
             }
           }
@@ -163,7 +163,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 697891400
+              "duration": 580403299
             }
           },
           {
@@ -176,7 +176,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 218628200,
+              "duration": 295079799,
               "error_message": "page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n  \u001b[2m- navigating to \"https://platform.test.newage.market/login\", waiting until \"load\"\u001b[22m\n\n    at Login.login (D:\\Sharajman_Project_Cucumber\\src\\pages\\Member\\Login.js:27:32)\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\EXPORT\\TC_EX_001.js:47:17)"
             }
           },
@@ -211,7 +211,7 @@
             "hidden": true,
             "result": {
               "status": "failed",
-              "duration": 3809899,
+              "duration": 8013999,
               "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\hooks\\hooks.js:35:40)"
             }
           }
@@ -231,7 +231,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 704604700
+              "duration": 570802800
             }
           },
           {
@@ -244,7 +244,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 379796699,
+              "duration": 235603800,
               "error_message": "page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n  \u001b[2m- navigating to \"https://platform.test.newage.market/login\", waiting until \"load\"\u001b[22m\n\n    at Login.login (D:\\Sharajman_Project_Cucumber\\src\\pages\\Member\\Login.js:27:32)\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\EXPORT\\TC_EX_001.js:119:17)"
             }
           },
@@ -279,7 +279,7 @@
             "hidden": true,
             "result": {
               "status": "failed",
-              "duration": 3800300,
+              "duration": 4557099,
               "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\hooks\\hooks.js:35:40)"
             }
           }
@@ -299,7 +299,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 684808100
+              "duration": 750255599
             }
           },
           {
@@ -312,7 +312,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 199481799,
+              "duration": 392162599,
               "error_message": "page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n  \u001b[2m- navigating to \"https://platform.test.newage.market/login\", waiting until \"load\"\u001b[22m\n\n    at Login.login (D:\\Sharajman_Project_Cucumber\\src\\pages\\Member\\Login.js:27:32)\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\EXPORT\\TC_EX_001.js:47:17)"
             }
           },
@@ -334,7 +334,7 @@
             "hidden": true,
             "result": {
               "status": "failed",
-              "duration": 3973899,
+              "duration": 4018000,
               "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\hooks\\hooks.js:35:40)"
             }
           }
@@ -354,7 +354,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 874337100
+              "duration": 582079199
             }
           },
           {
@@ -367,7 +367,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 215683800,
+              "duration": 211008299,
               "error_message": "page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n  \u001b[2m- navigating to \"https://platform.test.newage.market/login\", waiting until \"load\"\u001b[22m\n\n    at Login.login (D:\\Sharajman_Project_Cucumber\\src\\pages\\Member\\Login.js:27:32)\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\tests\\steps\\EXPORT\\TC_EX_001.js:119:17)"
             }
           },
@@ -389,7 +389,7 @@
             "hidden": true,
             "result": {
               "status": "failed",
-              "duration": 3413800,
+              "duration": 2757799,
               "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (D:\\Sharajman_Project_Cucumber\\src\\hooks\\hooks.js:35:40)"
             }
           }
