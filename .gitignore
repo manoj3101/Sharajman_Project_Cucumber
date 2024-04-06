@@ -4,3 +4,4 @@ node_modules/
 test-results/Automation_Report.html
 test-results/Report.html
 test-results/cucumber-report.json
+test-results/screenshots
