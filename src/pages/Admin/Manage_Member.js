@@ -61,7 +61,7 @@ class Manage_Member {
         // }
 
         //Click the View Action 
-        await pageFixture.page.locator("//*[contains(text(),'View')]").click();
+        await pageFixture.page.locator("//a[contains(text(),'View')]").click();
 
         //Assert the alertmsg Message 
         const alertmsg_assert = await pageFixture.page.locator("//*[contains(text(),'Registration pending for approval')]").textContent();

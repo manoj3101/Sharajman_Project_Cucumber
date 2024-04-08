@@ -22,10 +22,6 @@ const loaManagement = new LOAManagement(pageFixture.page);
 const transactionFee = new TransactionFee(pageFixture.page);
 
 let cfpNumber;
-let imp_start_date = DashboardCFP.imp_start_date;
-let imp_end_date = DashboardCFP.imp_end_date;
-let exp_start_date = DashboardCFP.exp_start_date;
-let exp_end_date = DashboardCFP.exp_end_date;
 
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
@@ -35,9 +31,15 @@ Given('Admin navigate to the application and login and fetching the transaction 
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_001                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    await login.login(data.admin, data.admin_password);
+
+    await login.login(data.admin, data.admin_password); //Login to the admin user 
+
     await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+
     await transactionFee.fetch_Transaction_Fee(data.feeName, data.EX_01.Quantum_value); // Fetch the transaction fee formula
+
+    await transactionFee.fetch_Success_Fee(data.successfee, data.EX_01.Quantum_value); // Fetch the Success fee formula
+
     await login.logout(); //Logout
 
 });
@@ -100,13 +102,7 @@ Then('Call for Proposal CFP should be Published successfully as per export case 
     // console.log("Global CFP :" + global.cfpNumber);
 
     console.log("Global CFP :" + cfpNumber);
-
-    console.log("Import start date:", DashboardCFP.imp_start_date);
-    console.log("Import end date:", DashboardCFP.imp_end_date);
-    console.log("Export start date:", DashboardCFP.exp_start_date);
-    console.log("Export end date:", DashboardCFP.exp_end_date);
-
-
+    
 });
 
 //-------------------------------------------------------------------------------------------------------------------------

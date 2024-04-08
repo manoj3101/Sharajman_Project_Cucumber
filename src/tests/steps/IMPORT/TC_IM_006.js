@@ -30,11 +30,17 @@ Given('Admin navigate to the application and login and fetching the transaction 
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_IM_006                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    await login.login(data.admin, data.admin_password);
+    await login.login(data.admin, data.admin_password); //Login to the admin user 
+
     await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-    await transactionFee.fetch_Transaction_Fee(data.feeName, data.TC_06.Quantum_value); // Fetch the transaction fee formula
+
+    await transactionFee.fetch_Transaction_Fee(data.feeName, data.TC_05.Quantum_value); // Fetch the transaction fee formula
+
+    await transactionFee.fetch_Success_Fee(data.successfee, data.TC_05.Quantum_value); // Fetch the Success fee formula
+
     await login.logout(); //Logout
 });
+
 Given('User navigate to the Application and logged in as a discom user as initiator as per import case six', async function () {
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
