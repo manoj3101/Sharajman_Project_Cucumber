@@ -29,9 +29,14 @@ Given('Admin navigate to the application and login and fetching the transaction 
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_IM_009                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    await login.login(data.admin, data.admin_password);
+    await login.login(data.admin, data.admin_password); //Login to the admin user 
+
     await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+
     await transactionFee.fetch_Transaction_Fee(data.feeName, data.TC_09.Quantum_value); // Fetch the transaction fee formula
+
+    await transactionFee.fetch_Success_Fee(data.successfee, data.TC_09.Quantum_value); // Fetch the Success fee formula
+
     await login.logout(); //Logout
 });
 

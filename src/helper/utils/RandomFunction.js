@@ -220,10 +220,11 @@ class RandomFunction {
         return newMinutes;
     }
 
-    //     // Test the function
-    //     var time = "Expires in 10:35:40";
-    // console.log("New minutes:", addMinutesToCurrentTime(time));
 
+    // Capitalize the sentence
+    capitalizeWords(str) {
+        return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
 
 
 }
