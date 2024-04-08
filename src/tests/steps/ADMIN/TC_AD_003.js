@@ -116,6 +116,8 @@ Given('Admin navigate to the application and login and fetching the transaction 
 
     await login.login(data.admin, data.admin_password);
     await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+
+
     await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_03.Quantum_value); // Fetch the transaction fee formula
     await login.logout(); //Logout
 

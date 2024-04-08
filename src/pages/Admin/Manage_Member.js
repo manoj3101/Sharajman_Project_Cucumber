@@ -179,7 +179,7 @@ class Manage_Member {
             if (initiate) {
                 await check_Initiate.check();
             } else {
-                await check_Initiate.umcheck();
+                await check_Initiate.uncheck();
             }
         }
 
