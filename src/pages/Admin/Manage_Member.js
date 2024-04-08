@@ -61,7 +61,7 @@ class Manage_Member {
         // }
 
         //Click the View Action 
-        await pageFixture.page.locator("//*[contains(text(),'View')]").click();
+        await pageFixture.page.locator("//a[contains(text(),'View')]").click();
 
         //Assert the alertmsg Message 
         const alertmsg_assert = await pageFixture.page.locator("//*[contains(text(),'Registration pending for approval')]").textContent();
@@ -98,7 +98,7 @@ class Manage_Member {
 
 
     //Member Rights
-    async member_rights(org_name, selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, lOA_Management,) {
+    async member_rights(org_name, selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, initiate) {
 
         await pageFixture.page.waitForTimeout(3000);
         //Search organization name 
@@ -124,7 +124,6 @@ class Manage_Member {
         const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
         const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
         const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_LOA_Management = await pageFixture.page.locator("(//input[@id='write'])[5]");
         const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
         const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
         const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
@@ -177,11 +176,10 @@ class Manage_Member {
             } else {
                 await check_Respond.uncheck();
             }
-            //LOA Management 
-            if (lOA_Management) {
-                await check_LOA_Management.check();
+            if (initiate) {
+                await check_Initiate.check();
             } else {
-                await check_LOA_Management.uncheck();
+                await check_Initiate.umcheck();
             }
         }
 

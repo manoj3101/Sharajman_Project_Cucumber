@@ -1,6 +1,6 @@
 {
-    "admin": "manoj@yopmail.com",
-    "admin_password": "K#(j{83&ym",
+    "admin": "sanjaykumars@yopmail.com",
+    "admin_password": "16121999@Dob",
     "static_password":"654321",
 
 
@@ -87,7 +87,7 @@
     },
 
     "AD_02": {
-        "NOAR": true,
+        "NOAR": false,
         "natureofapplicant":"PRIVATELIMITED",
         "gsttype":"ZEROTAX",
         "discomType":"PRI",
@@ -96,16 +96,15 @@
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "selectall":true,
+        "selectall":false,
         "Home": true,
         "Initiate": true,
         "Award": true,
         "Respond": true,
         "LOA_Generation": true,
-        "FormatD": true,
+        "FormatD": false,
         "Registration": true,
-        "Manage_User": true,
-        "LOA_Management":true,
+        "Manage_User": false,
 
         "department":"testing",
         "designation":"lead",
@@ -178,16 +177,15 @@
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "selectall":true,
+        "selectall":false,
         "Home": true,
         "Initiate": true,
         "Award": true,
         "Respond": true,
-        "LOA_Generation": true,
-        "FormatD": true,
-        "Registration": true,
+        "LOA_Generation": false,
+        "FormatD": false,
+        "Registration": false,
         "Manage_User": true,
-        "LOA_Management":true,
 
         "department":"testing",
         "designation":"lead",

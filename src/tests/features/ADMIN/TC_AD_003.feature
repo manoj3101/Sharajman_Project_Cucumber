@@ -1,4 +1,4 @@
-Feature: TC_AD_002
+Feature: TC_AD_003
 
   Scenario: New Member Signing Up for the OTC Platform
     Given New user navigates to the application and initiates the sign-up process as per Admin case three
@@ -23,21 +23,8 @@ Feature: TC_AD_002
 
   Scenario: New Discom Member Awarding CFP and Generating LOA.
     Given New User navigate to the Application and logged in as a discom user as initiator as per admin case three
-    And New User started generating the award and generating the LOA from initiator side as per admin case three
-    Then Awarding and Generate LOA should be successfull as per admin case three
-
-  Scenario: Discom Member Uploading the documents from Responder Side.
-    Given User navigate to the Application and logged in as a discom user as Responder as per admin case three
-    Then Responder Uploading the documents should be successfull as per admin case three
-
-  Scenario: New Discom Member Genarating Format D as initiator
-    Given New User navigate to the Application and logged in as a discom user as initiator as per admin case three
-    Then Format D should be successfully Generated from initiator side as per admin case three
-
-  Scenario: Discom Member Genarating Format D as Responder
-    Given User navigate to the Application and logged in as a discom user as Responder as per admin case three
-    Then Format D should be successfully Generated from Responder side as per admin case three
-
+    And New User started generating the award and verify that the application does not allow generating the LOA from initiator side as per admin case three
+    Then Verify Awarding and Generate LOA as per admin case three
 
 
 
@@ -57,18 +44,6 @@ Feature: TC_AD_002
     Given User navigate to the Application and logged in as a discom user as initiator as per admin case three
     And User started generating the award and generating the LOA from initiator side as per admin case three
     Then User Awarding and Generate LOA should be successfull as per admin case three
-
-  Scenario: New Discom Member Uploading the documents from Responder Side.
-    Given New User navigate to the Application and logged in as a discom user as Responder as per admin case three
-    Then New User Responder Uploading the documents should be successfull as per admin case three
-
-  Scenario: Discom Member Genarating Format D as initiator
-    Given User navigate to the Application and logged in as a discom user as initiator as per admin case three
-    Then User Format D should be successfully Generated from initiator side as per admin case three
-
-  Scenario: New Discom Member Genarating Format D as Responder
-    Given New User navigate to the Application and logged in as a discom user as Responder as per admin case three
-    Then New User Format D should be successfully Generated from Responder side as per admin case three
 
 
  Scenario: New Discom Member assigning mew user to him
