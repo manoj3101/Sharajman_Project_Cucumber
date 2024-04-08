@@ -1,0 +1,48 @@
+
+
+LOA	No.
+LOA/00921
+Date03-04-2024
+	
+To,
+TATA_2
+19,	B2,	Emporio,	33,	10th	Ave,	Ashok	Nagar,	Chennai,	Tamil	Nadu	600083	Chennai	600083
+Donglegongle@yopmail.com
+Subject	:	Power	swap	arrangement	by	TickingMinds	via	CFP	Ref.	No.	24250403115.
+Ref:1.	e-Listing	24250403115	dated
+2.	Your	offer	dated	03-04-2024	on	NAME	portal
+	
+Dear	Sir,
+With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	TATA_2,	as	per	below
+mentioned	arrangement.
+Supply	of	Power	from	TATA_2	to	TickingMinds
+UtilityPeriodDuration	(Hrs.)Quantum	(MW)
+TickingMinds03-04-2026	to	03-04-202600:30	-	04:3099998.0
+	
+Return	of	Power	by	TickingMinds	to	TATA_2
+UtilityPeriod
+Duration
+(Hrs.)
+Quantum	in	MW	(As
+per	return	schedule
+and	%	return
+percentage)
+Return	Ratio
+in	%
+TATA_203-04-2026	to	03-04-202608:30	-	12:001142811.42999.98
+	
+Delivery	Point
+The	delivery	point,	in	either	case,	shall	be	the	Regional	Periphery	of	Exporting
+Utility.
+Settlement	rate	(Rs./kWh)IEX	DAM	RTC	Average	Price	(Rs./kWh)
+General	Terms	&	Conditions
+As	per	the	Framework	Agreement	/	As	per	the	Listing	Document	(Ref.	No.)
+24250403115
+	
+You	are	requested	to	acknowledge	the	receipt	of	this	LOA	&	give	your	acceptance	on	it.
+Regards,
+Yours	Faithfully,
+For	TickingMinds
+	
+Authorised	Signatory
+(Other	Information	if	any)
