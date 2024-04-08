@@ -40,14 +40,14 @@
         "Minimum_Quantum":true,
         "Minimum_QuantumValue":"99998",
     
-        "imp_start_date" : 1,
-        "imp_end_date" : 1,
+        "imp_start_date" :"2026-01-10",
+        "imp_end_date" :"2026-01-10",
         "imp_start_time":"01:00",
         "imp_end_time":"05:30",
         "Quantum_value":"99999",
     
-        "exp_start_date" : 2,
-        "exp_end_date" : 2,
+        "exp_start_date" : "2026-01-10",
+        "exp_end_date" :"2026-01-10",
         "exp_start_time" :"11:00",
         "exp_end_time" :"15:00",
     
@@ -122,14 +122,14 @@
         "Minimum_Quantum":true,
         "Minimum_QuantumValue":"99998",
     
-        "imp_start_date" : 730,
-        "imp_end_date" : 730,
+        "imp_start_date" :"2026-01-10",
+        "imp_end_date" :"2026-01-10",
         "imp_start_time":"01:00",
         "imp_end_time":"05:30",
         "Quantum_value":"99999",
     
-        "exp_start_date" :730,
-        "exp_end_date" : 730,
+        "exp_start_date" : "2026-01-10",
+        "exp_end_date" :"2026-01-10",
         "exp_start_time" :"11:00",
         "exp_end_time" :"15:00",
     
@@ -166,6 +166,1835 @@
         "source_of_generation":"SOLAR",
         "RPO":"NO",
         "TGNA":"YES"
-    }
+    },
+
+    "AD_03": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+    "AD_04": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Quick CFP",
+        "multiple_responder":false,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Export",
+        "Result_Published":true,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"0.01",
+    
+        "imp_start_date" : 1,
+        "imp_end_date" : 1,
+        "impStartDate" :"2024-04-05",
+        "impEndDate" :"2024-04-05",
+        "imp_start_time":"20:00",
+        "imp_end_time":"23:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 2,
+        "exp_end_date" : 2,
+        "expStartDate" : "2024-04-06",
+        "expEndDate" :"2024-04-06",
+        "exp_start_time" :"03:00",
+        "exp_end_time" :"06:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"03",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":0,
+        "Settlement_Price":"0.01",
+        "query_Box" :true,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"0.01",
+        "custom_Guests":"monicaa@yopmail.com",
+        "remarks":"Good",
+    
+        "minQuantumValue1":"0.01",
+        "ReturnValue1":"0.01",
+    
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        }, 
+    
+
+
+    "AD_05": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+    "AD_06": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+    "AD_07": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+            "multiple_responder":true,
+            "Power_swapping":10,
+            "Fisrt_choice":"Export",
+            "Result_Published":true,
+           
+        
+            "Minimum_Quantum":true,
+            "Minimum_QuantumValue":"0.01",
+        
+            "imp_start_date" : 1,
+            "imp_end_date" : 1,
+            "imp_start_time":"18:00",
+            "imp_end_time":"23:30",
+            "Quantum_value":"10",
+        
+            "exp_start_date" : 730,
+            "exp_end_date" : 730,
+            "exp_start_time" :"03:00",
+            "exp_end_time" :"06:00",
+        
+            "response_days":"00",
+            "response_hours":"00",
+            "response_mins":"05",
+        
+            "award_days":"00",
+            "award_hours":"00",
+            "award_mins":"04",
+        
+            "loa_issuance_days":"00",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
+        
+            "loa_acceptance_days":"00",
+            "loa_acceptance_hours":"00",
+            "loa_acceptance_mins":"01",
+          
+           
+            "index":5,
+            "Settlement_Price":"999",
+            "query_Box" :false,
+            "Ceiling_Base_Return":true,
+            "Ceiling_Base_Return_value":"0.02",
+            "custom_Guests":"monica.k.2019.bt@rajalakshmi.edu.in, monicaa@yopmail.com",
+            "remarks":"Good",
+        
+            "minQuantumValue1":"0.01",
+            "ReturnValue1":"0.02",
+        
+            "minQuantumValue2":"0.02",
+            "ReturnValue2":"0.01",
+            
+            "minQuantumValue3":"0.03",
+            "ReturnValue3":"0.01",
+        
+            "application_no":"909092",
+            "route":"YES",
+            "GTAM":"YES",
+            "source_of_generation":"SOLAR",
+            "RPO":"NO",
+            "TGNA":"YES"
+        
+        },
+          
+
+
+
+    "AD_08": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"0.01",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"10:00",
+        "imp_end_time":"14:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"19:00",
+        "exp_end_time" :"22:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":6,
+        "Settlement_Price":"999",
+        "query_Box" :true,
+        "Ceiling_Base_Return":false,
+        "Ceiling_Base_Return_value":"",
+        "custom_Guests":"monicaa@yopmail.com, aparnaa@yopmail.com, sanjay@yopmail.com",
+        "remarks":"No",
+    
+        "minQuantumValue1":"0.01",
+        "ReturnValue1":"999",
+
+        "minQuantumValue2":"0.01",
+        "ReturnValue2":"988",
+        
+        "minQuantumValue3":"0.01",
+        "ReturnValue3":"998",
+    
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"YES",
+        "TGNA":"YES"
+    
+        },
+
+
+    "AD_09": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+            "multiple_responder":true,
+            "Power_swapping":99999,
+            "Fisrt_choice":"Export",
+            "Result_Published":false,
+           
+        
+            "Minimum_Quantum":true,
+            "Minimum_QuantumValue":"0.01",
+        
+            "imp_start_date" : 730,
+            "imp_end_date" : 730,
+            "imp_start_time":"10:00",
+            "imp_end_time":"14:30",
+            "Quantum_value":"99999",
+        
+            "exp_start_date" : 730,
+            "exp_end_date" : 730,
+            "exp_start_time" :"19:00",
+            "exp_end_time" :"22:00",
+        
+            "response_days":"00",
+            "response_hours":"00",
+            "response_mins":"05",
+        
+            "award_days":"00",
+            "award_hours":"00",
+            "award_mins":"04",
+        
+            "loa_issuance_days":"00",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
+        
+            "loa_acceptance_days":"00",
+            "loa_acceptance_hours":"00",
+            "loa_acceptance_mins":"01",
+          
+           
+            "index":6,
+            "Settlement_Price":"999",
+            "query_Box" :true,
+            "Ceiling_Base_Return":false,
+            "Ceiling_Base_Return_value":"",
+            "custom_Guests":"monicaa@yopmail.com, aparnaa@yopmail.com, sanjay@yopmail.com",
+            "remarks":"No",
+        
+            "minQuantumValue1":"0.01",
+            "ReturnValue1":"999",
+    
+            "minQuantumValue2":"0.01",
+            "ReturnValue2":"988",
+            
+            "minQuantumValue3":"0.01",
+            "ReturnValue3":"998",
+        
+            "route":"YES",
+            "GTAM":"YES",
+            "source_of_generation":"SOLAR",
+            "RPO":"YES",
+            "TGNA":"YES"
+        
+        },
+
+
+
+    "AD_10": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Quick CFP",
+    "multiple_responder":false,
+    "Power_swapping":99999,
+    "Fisrt_choice":"Import",
+    "Result_Published":true,
+   
+
+    "Minimum_Quantum":true,
+    "Minimum_QuantumValue":"99998",
+
+    "imp_start_date" : 1,
+    "imp_end_date" : 730,
+    "imp_start_time":"20:00",
+    "imp_end_time":"23:30",
+    "Quantum_value":"99999",
+
+    "exp_start_date" : 730,
+    "exp_end_date" : 730,
+    "exp_start_time" :"03:00",
+    "exp_end_time" :"06:00",
+
+    "response_days":"00",
+    "response_hours":"00",
+    "response_mins":"05",
+
+    "award_days":"00",
+    "award_hours":"00",
+    "award_mins":"03",
+
+    "loa_issuance_days":"00",
+    "loa_issuance_hours":"00",
+    "loa_issuance_mins":"01",
+
+    "loa_acceptance_days":"00",
+    "loa_acceptance_hours":"00",
+    "loa_acceptance_mins":"01",
+  
+
+    "index":0,
+    "Settlement_Price":"0.01",
+    "query_Box" :true,
+    "Ceiling_Base_Return":true,
+    "Ceiling_Base_Return_value":"999.99",
+    "custom_Guests":"",
+    "remarks":"Good",
+
+    "minQuantumValue1":"99999",
+    "ReturnValue1":"999.98",
+
+    "route":"YES",
+    "GTAM":"YES",
+    "source_of_generation":"SOLAR",
+    "RPO":"NO",
+    "TGNA":"YES"
+
+        },
+
+
+    "AD_11": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Quick CFP",
+            "multiple_responder":false,
+            "Power_swapping":99999,
+            "Fisrt_choice":"Export",
+            "Result_Published":true,
+           
+        
+            "Minimum_Quantum":true,
+            "Minimum_QuantumValue":"99998",
+        
+            "imp_start_date" : 1,
+            "imp_end_date" : 730,
+            "imp_start_time":"20:00",
+            "imp_end_time":"23:30",
+            "Quantum_value":"99999",
+        
+            "exp_start_date" : 730,
+            "exp_end_date" : 730,
+            "exp_start_time" :"03:00",
+            "exp_end_time" :"06:00",
+        
+            "response_days":"00",
+            "response_hours":"00",
+            "response_mins":"05",
+        
+            "award_days":"00",
+            "award_hours":"00",
+            "award_mins":"03",
+        
+            "loa_issuance_days":"00",
+            "loa_issuance_hours":"00",
+            "loa_issuance_mins":"01",
+        
+            "loa_acceptance_days":"00",
+            "loa_acceptance_hours":"00",
+            "loa_acceptance_mins":"01",
+          
+        
+            "index":4,
+            "Settlement_Price":"0.01",
+            "query_Box" :true,
+            "Ceiling_Base_Return":true,
+            "Ceiling_Base_Return_value":"999.99",
+            "custom_Guests":"",
+            "remarks":"Good",
+        
+            "minQuantumValue1":"99999",
+            "ReturnValue1":"999.99",
+        
+            "application_no":"909999",
+            "route":"YES",
+            "GTAM":"YES",
+            "source_of_generation":"SOLAR",
+            "RPO":"NO",
+            "TGNA":"YES"
+        
+        },
+
+
+
+    "AD_12": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+
+    "AD_13": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+    "AD_14": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+
+    "AD_15": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+
+    "AD_16": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+
+    "AD_17": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+
+    "AD_18": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+    "AD_19": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+
+    "AD_20": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+    "AD_21": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        },
+
+
+
+
+    "AD_22": {
+        "NOAR": true,
+        "natureofapplicant":"PRIVATELIMITED",
+        "gsttype":"ZEROTAX",
+        "discomType":"PRI",
+        "Max_Inj_Cap":"600",
+        "Max_Draw_Cap":"1000",
+
+        "Manage_member": "Approve",
+        "Payment_approval": "Approve",
+        "selectall":true,
+        "Home": true,
+        "Initiate": true,
+        "Award": true,
+        "Respond": true,
+        "LOA_Generation": true,
+        "FormatD": true,
+        "Registration": true,
+        "Manage_User": true,
+        "LOA_Management":true,
+
+        "department":"testing",
+        "designation":"lead",
+        "sub_type":"Staff",
+
+
+        "chooseCFP":"Custom CFP",
+        "multiple_responder":true,
+        "Power_swapping":99999,
+        "Fisrt_choice":"Import",
+        "Result_Published":false,
+       
+    
+        "Minimum_Quantum":true,
+        "Minimum_QuantumValue":"99998",
+    
+        "imp_start_date" : 730,
+        "imp_end_date" : 730,
+        "imp_start_time":"00:30",
+        "imp_end_time":"04:30",
+        "Quantum_value":"99999",
+    
+        "exp_start_date" : 730,
+        "exp_end_date" : 730,
+        "exp_start_time" :"08:30",
+        "exp_end_time" :"12:00",
+    
+        "response_days":"00",
+        "response_hours":"00",
+        "response_mins":"05",
+    
+        "award_days":"00",
+        "award_hours":"00",
+        "award_mins":"04",
+    
+        "loa_issuance_days":"00",
+        "loa_issuance_hours":"00",
+        "loa_issuance_mins":"01",
+    
+        "loa_acceptance_days":"00",
+        "loa_acceptance_hours":"00",
+        "loa_acceptance_mins":"01",
+      
+       
+        "index":1,
+        "Settlement_Price":"",
+        "query_Box" :false,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"999.99",
+        "custom_Guests":"",
+        "remarks":"No",
+    
+        "minQuantumValue1":"99999",
+        "ReturnValue1":"999.98",
+
+        "minQuantumValue2":"99998",
+        "ReturnValue2":"999.97",
+
+        "minQuantumValue3":"99998",
+        "ReturnValue3":"999.97",
+    
+        "application_no":"54657",
+        "route":"YES",
+        "GTAM":"YES",
+        "source_of_generation":"SOLAR",
+        "RPO":"NO",
+        "TGNA":"YES"
+    
+        }
+
+
+
        
 }

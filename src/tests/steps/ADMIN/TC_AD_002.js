@@ -86,7 +86,7 @@ Then('New user begins the registration process as per Admin case two', async fun
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('Admin User navigates to the application and logs in as an admin as per Admin case two', async function () {
-    
+
     await login.login(ad_data.admin, ad_data.admin_password); //Login as a admin 
     // await signUp.OTP(); //OTP Validation 
 
@@ -123,6 +123,14 @@ Given('Admin navigate to the application and login and fetching the transaction 
 
 });
 
+Given('Admin navigate to the application and login and fetching the transaction fee formula as per admin case two', async function () {
+
+    await login.login(data.admin, data.admin_password);
+    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+    await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_01.Quantum_value); // Fetch the transaction fee formula
+    await login.logout(); //Logout
+
+});
 Given('New User navigate to the Application and logged in as a discom user as initiator as per admin case two', async function () {
 
     //New user as a Initiator
