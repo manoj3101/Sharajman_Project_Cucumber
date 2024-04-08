@@ -15,6 +15,7 @@ const Manage_User = require('../../../pages/Member/Manage_User');
 const TransactionFee = require("../../../pages/Admin/TransactionFee");
 
 
+
 //setDefaultTimeout(120 * 1000);// Set global timeout for all actions
 setDefaultTimeout({
     step: 90000,           // Timeout for actions like clicks, typing
@@ -112,14 +113,6 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per admin case one', async function () {
-
-    await login.login(data.admin, data.admin_password);
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-    await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_01.Quantum_value); // Fetch the transaction fee formula
-    await login.logout(); //Logout
-
-});
 
 Given('New User navigate to the Application and logged in as a discom user as initiator as per admin case one', async function () {
 

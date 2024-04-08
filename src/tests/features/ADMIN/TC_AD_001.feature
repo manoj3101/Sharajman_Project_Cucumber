@@ -4,7 +4,7 @@ Feature: TC_AD_001
     Given New user navigates to the application and initiates the sign-up process as per Admin case one
     And New user logs into the application again and changes the password as per Admin case one
     Then New user begins the registration process as per Admin case one
-    
+
   Scenario: Admin Approving the New Member and Assigning Subscription Plan and Rights
     Given Admin User navigates to the application and logs in as an admin as per Admin case one
     And Admin approves the new discom user and assigns a subscription plan as per Admin case one
@@ -41,8 +41,6 @@ Feature: TC_AD_001
 
 
 
-
-
   Scenario: Discom Member Create CFP and Publishing the CFP.
     Given User navigate to the Application and logged in as a discom user as initiator as per admin case one
     And User started creating Call for Proposal CFP as an initiator as per admin case one
@@ -70,8 +68,7 @@ Feature: TC_AD_001
     Given New User navigate to the Application and logged in as a discom user as Responder as per admin case one
     Then New User Format D should be successfully Generated from Responder side as per admin case one
 
-
- Scenario: New Discom Member assigning mew user to him
+  Scenario: New Discom Member assigning mew user to him
     Given New user navigates to the application and logs in as an admin as per Admin Case One
     And New user adds a staff user and assigns rights to the new user as per Admin Case One
     Then Assigned new user successfully logs in as a staff member of the new member as per Admin Case One

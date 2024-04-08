@@ -23,6 +23,13 @@ class TransactionFee {
 
     //Variables 
     static getFormula;
+    static setFormula;
+    static FormulaValue;
+    static getSuccessFormula;
+    static setSuccessFormula;
+    static successFormulaValue;
+
+
 
     //Xpath
 
@@ -57,6 +64,12 @@ class TransactionFee {
     quantum = "//button[contains(text(),'Quantum')]";
     discovered_Price = "//button[contains(text(),'Discovered Price')]";
     submit = "//button[contains(text(),'Submit')]";
+    //Filter Xpath
+    filter="//a[@type='button']";
+    search="(//button[contains(text(),'Search')])[2]"; //Search button 2 
+    selectEvent="(//select[contains(@class,'form-select ng-untouched ng-pristine ng-valid')])[3]"; //selectEvent
+
+
 
     //Methods
 
@@ -83,29 +96,55 @@ class TransactionFee {
         }
 
     }
-    async fetch_Transaction_Fee(org_name, quantumValue) {
+    async fetch_Transaction_Fee(fee_name, quantumValue) {
         await pageFixture.page.waitForTimeout(2000);
-        await pageFixture.page.locator(this.search).fill(org_name); //Fill the org Name 
+        await pageFixture.page.locator(this.search).fill(fee_name); //Fill the org Name 
         await pageFixture.page.getByRole('button', { name: /Search/i }).click(); //Click the search button 
         await pageFixture.page.waitForTimeout(2000);
 
         //Get the Formula from the Transaction fee 
         TransactionFee.getFormula = await pageFixture.page.locator(this.fetchFormula).textContent();  //Get the formula & store it in the variable 
         console.log(`Transaction fee Formula ${TransactionFee.getFormula}`);
-        await pageFixture.page.waitForTimeout(10000);
 
         // Remove the "=" sign
         const formulaWithoutEquals = TransactionFee.getFormula.slice(1);
 
         // Replace "Quantum" with the value
-        const formulaWithQuantumReplaced = formulaWithoutEquals.replace("Quantum", quantumValue);
+        TransactionFee.setFormula = formulaWithoutEquals.replace("Quantum", quantumValue);
 
         // Evaluate the expression
-        const result = eval(formulaWithQuantumReplaced);
+        TransactionFee.FormulaValue = eval(TransactionFee.setFormula);
 
-        console.log("Result:", formulaWithQuantumReplaced);
-        console.log("Result:", result);
+        console.log("Formula :", TransactionFee.setFormula);
+        console.log("Formula Value:", TransactionFee.FormulaValue);
 
+        await pageFixture.page.waitForTimeout(3000);
+    }
+
+    //Success Fee
+    async fetch_Success_Fee(fee_name, quantumValue) {
+        await pageFixture.page.waitForTimeout(2000);
+        await pageFixture.page.locator(this.search).fill(fee_name); //Fill the org Name 
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click(); //Click the search button 
+        await pageFixture.page.waitForTimeout(2000);
+
+        //Get the Formula from the Transaction fee 
+        TransactionFee.getSuccessFormula = await pageFixture.page.locator(this.fetchFormula).textContent();  //Get the formula & store it in the variable 
+        console.log(`Transaction fee Formula ${TransactionFee.getSuccessFormula}`);
+
+        // Remove the "=" sign
+        const formulaWithoutEquals = TransactionFee.getSuccessFormula.slice(1);
+
+        // Replace "Quantum" with the value
+        TransactionFee.setSuccessFormula = formulaWithoutEquals.replace("Quantum", quantumValue);
+
+        // Evaluate the expression
+        TransactionFee.successFormulaValue = eval(TransactionFee.setSuccessFormula);
+
+        console.log("Formula :", TransactionFee.setSuccessFormula);
+        console.log("Formula Value:", TransactionFee.successFormulaValue);
+
+        await pageFixture.page.waitForTimeout(3000);
     }
 
 }

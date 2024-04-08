@@ -85,10 +85,10 @@ class Login {
 
 
     async logout() {
-        await pageFixture.page.waitForTimeout(3000);
+        await pageFixture.page.waitForTimeout(2500);
         await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
         await pageFixture.page.locator("//a[contains(text(),'Logout')]").click();
-        await pageFixture.page.waitForTimeout(3000);
+        await pageFixture.page.waitForTimeout(2500);
     }
 
 
