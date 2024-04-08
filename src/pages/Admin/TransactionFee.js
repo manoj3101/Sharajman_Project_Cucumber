@@ -125,7 +125,7 @@ class TransactionFee {
         await pageFixture.page.waitForTimeout(2000);
 
         //Get the Formula from the Transaction fee 
-        TransactionFee.getFormula = await pageFixture.page.locator(this.fetchFormula).textContent();  //Get the formula & store it in the variable 
+        TransactionFee.getFormula = await pageFixture.page.locator(this.fetchFormula).nth(0).textContent();  //Get the formula & store it in the variable 
         console.log(`Transaction fee Formula ${TransactionFee.getFormula}`);
 
         // Remove the "=" sign
@@ -153,7 +153,7 @@ class TransactionFee {
         await pageFixture.page.waitForTimeout(2000);
 
         //Get the Formula from the Transaction fee 
-        TransactionFee.getSuccessFormula = await pageFixture.page.locator(this.fetchFormula).textContent();  //Get the formula & store it in the variable 
+        TransactionFee.getSuccessFormula = await pageFixture.page.locator(this.fetchFormula).nth(0).textContent();  //Get the formula & store it in the variable 
         console.log(`Success fee Formula ${TransactionFee.getSuccessFormula}`);
 
         // Remove the "=" sign
