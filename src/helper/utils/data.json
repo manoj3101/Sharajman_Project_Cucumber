@@ -26,24 +26,24 @@
 
     "user22":"Xavier@yopmail.com",
     "user22_password":"Testing@123",
-    
+     
     "user33":"david@yopmail.com",
     "user33_password":"Testing@1234",
-
+     
     "user44":"abd@yopmail.com",
     "user44_password":"Testing@1234",
-
+    
     "user5":"sugumaran.n@tickingminds.com",
     "user5_password":"Otc@123456",
 
     "Utility_1":"Ticking Minds",
     "Utility_2":"Tickingminds_1",
-
+     
     "responder":"Tata_",
     
-    "feeName":"Sample test 1",
+    "feeName":"",
 
-    "successfee":"Success Fee",
+    "successfee":"",
 
    
     "EX_01":{

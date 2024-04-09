@@ -371,6 +371,7 @@ class DashboardCFP {
         await pageFixture.page.getByPlaceholder("Enter Remarks").fill(remarks);
     }
 
+    //Transaction fee verification
     async transactionfee_Verify_Initiator(){
         //Get the text content from the Remaining listing
         const text = await pageFixture.page.locator("(//div[contains(@class,'modal-body')])[2]").textContent();
@@ -820,6 +821,36 @@ class DashboardCFP {
     }
 
 
+    //Success fee verification
+    async successfee_Verify_Loa(){
+        //Get the text content from the Remaining listing
+        const text = await pageFixture.page.locator("//span[contains(text(),'Success fee')]").textContent();
+        const text1 = await pageFixture.page.locator("(//span[contains(text(),'Success Fee Debited')]//following::span)[1]").textContent();
+
+        console.log(`Success Fee :${text}`);
+        console.log(`Success Fee :${text1}`);
+
+        // Regular expression to extract values
+        const regex = /INR (\d+)/;
+
+        // Executing the regular expression on the text
+        const matches = regex.exec(text1);
+
+        if (matches) {
+            const successFee = matches[1];
+            console.log("Actual Success fee:", successFee);
+            if (successFee == TransactionFee.successFormulaValue) {
+                console.log(`Expected Success fee ${ TransactionFee.successFormulaValue} is equal to actual value ${successFee}`);
+            } else {
+                console.log(`Expected not met actual`);
+            }
+        } else {
+            console.log("No Success fee matches found.");
+        }
+    }
+
+
+
     //Generate Award
     async generateAward() {
         const returns = await pageFixture.page.$$("//table[contains(@class,'table overflow-hidden rounded')]//tbody//tr[1]/td[4]//div");
@@ -870,6 +901,7 @@ class DashboardCFP {
             // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
+            await this.successfee_Verify_Loa();
             await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
             //asserting the Awarded Successfully.
             const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
