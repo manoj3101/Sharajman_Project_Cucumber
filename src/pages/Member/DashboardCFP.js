@@ -371,20 +371,22 @@ class DashboardCFP {
         await pageFixture.page.getByPlaceholder("Enter Remarks").fill(remarks);
     }
 
+    //Transaction fee verification
     async transactionfee_Verify_Initiator(){
         //Get the text content from the Remaining listing
         const text = await pageFixture.page.locator("(//div[contains(@class,'modal-body')])[2]").textContent();
         console.log(`Remaining listing :${text}`);
 
         // Regular expression to extract values
-        const regex = /INR (\d+) .* (\d+\*\d+)/;
+        // const regex = /INR (\d+) .* (\d+\*\d+)/;
+        const regex = /INR (\d+(\.\d+)?) .* (\d+\*\d+(\.\d+)?)/;
 
         // Executing the regular expression on the text
         const matches = regex.exec(text);
 
         if (matches) {
             const amountOnHold = matches[1];
-            const successFee = matches[2];
+            const successFee = matches[3];
             console.log("Amount on hold:", amountOnHold);
             console.log("Success fee:", successFee);
             if (amountOnHold == TransactionFee.FormulaValue) {
@@ -393,9 +395,9 @@ class DashboardCFP {
                 console.log(`Expected not met actual `);
             }
             if (successFee == TransactionFee.setFormula) {
-                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}`);
+                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
             } else {
-                console.log(`Expected not met actual`);
+                console.log(`Expected not met actual\n`);
             }
         } else {
             console.log("No matches found.");
@@ -443,14 +445,15 @@ class DashboardCFP {
         console.log(`Remaining listing :${text}`);
 
         // Regular expression to extract values
-        const regex = /INR (\d+) .* (\d+\*\d+)/;
+        // const regex = /INR (\d+) .* (\d+\*\d+)/;
+        const regex = /INR (\d+(\.\d+)?) .* (\d+\*\d+(\.\d+)?)/;
 
         // Executing the regular expression on the text
         const matches = regex.exec(text);
 
         if (matches) {
             const amountOnHold = matches[1];
-            const successFee = matches[2];
+            const successFee = matches[3];
             console.log("Amount on hold:", amountOnHold);
             console.log("Success fee:", successFee);
             if (amountOnHold == TransactionFee.FormulaValue) {
@@ -459,9 +462,9 @@ class DashboardCFP {
                 console.log(`Expected not met actual `);
             }
             if (successFee == TransactionFee.setFormula) {
-                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}`);
+                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
             } else {
-                console.log(`Expected not met actual`);
+                console.log(`Expected not met actual\n`);
             }
         } else {
             console.log("No matches found.");
@@ -694,7 +697,7 @@ class DashboardCFP {
 
         //Assertion 
         //import 
-        const content1 = await pageFixture.page.locator("((//div[contains(@class,'ng-star-inserted')])//h5)[6]").textContent();
+        const content1 = await pageFixture.page.locator("(//h5[contains(text(),'Period')])[1]").textContent();
         const Energy1 = await pageFixture.page.locator("(//td[7])[1]").textContent();
         console.log("<<<<<<<<<<<<<<<<<<<<" + content1 + ">>>>>>>>>>>>>>>>>>>>>>\n");
         console.log(`Actual Energy in KWH : ${Energy1}`);
@@ -751,7 +754,7 @@ class DashboardCFP {
 
         //assert 
         //export
-        const content2 = await pageFixture.page.locator("((//div[contains(@class,'ng-star-inserted')])//h5)[7]").textContent();
+        const content2 = await pageFixture.page.locator("(//h5[contains(text(),'Period')])[2]").textContent();
         const Energy2 = await pageFixture.page.locator("(//td[8])[1]").textContent();
         const quantum = await pageFixture.page.locator("(//td[7])[2]").textContent();
         console.log("<<<<<<<<<<<<<<<<" + content2 + ">>>>>>>>>>>>>>>>>>>>\n");
@@ -820,6 +823,37 @@ class DashboardCFP {
     }
 
 
+    //Success fee verification
+    async successfee_Verify_Loa(){
+        //Get the text content from the Remaining listing
+        const text = await pageFixture.page.locator("//span[contains(text(),'Success fee')]").textContent();
+        const text1 = await pageFixture.page.locator("(//span[contains(text(),'Success Fee Debited')]//following::span)[1]").textContent();
+
+        console.log(`Success Fee :${text}`);
+        console.log(`Success Fee :${text1}`);
+
+        // Regular expression to extract values
+        // const regex = /INR (\d+)/;
+        const regex = /INR (\d+(\.\d+)?)/;
+
+        // Executing the regular expression on the text
+        const matches = regex.exec(text1);
+
+        if (matches) {
+            const successFee = matches[1];
+            console.log("Actual Success fee:", successFee);
+            if (successFee == TransactionFee.successFormulaValue) {
+                console.log(`Expected Success fee ${ TransactionFee.successFormulaValue} is equal to actual value ${successFee}`);
+            } else {
+                console.log(`Expected not met actual`);
+            }
+        } else {
+            console.log("No Success fee matches found.");
+        }
+    }
+
+
+
     //Generate Award
     async generateAward() {
         const returns = await pageFixture.page.$$("//table[contains(@class,'table overflow-hidden rounded')]//tbody//tr[1]/td[4]//div");
@@ -870,6 +904,7 @@ class DashboardCFP {
             // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
+            await this.successfee_Verify_Loa();
             await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
             //asserting the Awarded Successfully.
             const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();

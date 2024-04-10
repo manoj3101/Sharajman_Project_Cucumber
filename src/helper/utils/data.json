@@ -3,45 +3,47 @@
     "testtype":"Retest",
     "URL":"https://platform.test.newage.market/login",
   
-    "admin":"sanjaykumars@yopmail.com",
-    "admin_password":"16121999@Dob",
+    "admin":"manoj@yopmail.com",
+    "admin_password":"K#(j{83&ym",
+
+    "user1":"smanoj3101work@gmail.com",
+    "user1_password":"Testing@123",
+    
+    "user2":"Junk@yopmail.com",
+    "user2_password":"Testing@123",
+    
+    "user3":"Donglegongle@yopmail.com",
+    "user3_password":"Testing@000",
+    
+    "user4":"Bravoo@yopmail.com",
+    "user4_password":"Bravoo@54321",
 
     "user11":"manojkumar.s@tickingminds.com",
     "user11_password":"Testing@123",
 
     "user21":"CamilaPhillips@yopmail.com",
     "user21_password":"Phillips@123456",
-    
-    "user2":"leodas@yopmail.com",
-    "user2_password":"Test@12345",
-
-    "user3":"Donglegongle@yopmail.com",
-    "user3_password":"Testing@000",
-
-    "user4":"Bravoo@yopmail.com",
-    "user4_password":"Bravoo@54321",
 
     "user22":"Xavier@yopmail.com",
     "user22_password":"Testing@123",
-    
+     
     "user33":"david@yopmail.com",
     "user33_password":"Testing@1234",
-
+     
     "user44":"abd@yopmail.com",
     "user44_password":"Testing@1234",
-
+    
     "user5":"sugumaran.n@tickingminds.com",
     "user5_password":"Otc@123456",
 
-    "user1":"smanoj3101work@gmail.com",
-    "user1_password":"Testing@123",
-
     "Utility_1":"Ticking Minds",
     "Utility_2":"Tickingminds_1",
-
-    "responder1":"Tickingminds_",
+     
     "responder":"Tata_",
-    "feeName":"Sample test 1",
+    
+    "feeName":"",
+
+    "successfee":"",
 
    
     "EX_01":{
@@ -149,7 +151,7 @@
             "Settlement_Price":"",
             "query_Box" :false,
             "Ceiling_Base_Return":true,
-            "Ceiling_Base_Return_value":"999.99",
+            "Ceiling_Base_Return_value":"999.98",
             "custom_Guests":"",
             "remarks":"No",
         
@@ -182,8 +184,8 @@
             "Minimum_Quantum":false,
             "Minimum_QuantumValue":"",
         
-            "imp_start_date" : 730,
-            "imp_end_date" : 730,
+            "imp_start_date" : 729,
+            "imp_end_date" : 729,
             "imp_start_time":"16:30",
             "imp_end_time":"20:30",
             "Quantum_value":"0.01",
@@ -249,7 +251,7 @@
             "Minimum_QuantumValue":"",
         
             "imp_start_date" : 1,
-            "imp_end_date" : 730,
+            "imp_end_date" : 729,
             "imp_start_time":"20:00",
             "imp_end_time":"23:30",
             "Quantum_value":"0.01",
