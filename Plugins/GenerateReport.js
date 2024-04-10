@@ -17,7 +17,7 @@ let browserName = "Chrome as Default";
 let url = "Not Mentioned";
 
 function generateHTMLReport() {
-    readCucumberReport.readCucumberReport((err, data, ) => {
+    readCucumberReport.readCucumberReport((err, data,) => {
         if (err) {
             console.error("Error reading cucumber report:", err);
             return;
@@ -30,7 +30,7 @@ function generateHTMLReport() {
             }
             const { testCases } = data;
             const testCaseCount = testCases.length;
-            
+
             testCases.forEach(testCase => {
                 let allPassed = true;
                 let anyFailed = false;
@@ -65,7 +65,7 @@ function generateHTMLReport() {
                             name: scenario.name,
                                 scenario.steps.forEach(step => {
                                     step.results.forEach(result => {
-                                       
+
                                     });
                                 });
                         });
@@ -81,7 +81,7 @@ function generateHTMLReport() {
                 }
             });
 
-        
+
             const renderedHtml = ejs.render(htmlTemplate, {
                 testCases,
                 testCaseCount,
@@ -111,7 +111,7 @@ function generateHTMLReport() {
 }
 function onTestStart(testtype, browsername, environmentName) {
     startDateAndTime = getDateAndTime();
-    
+
     testType = testtype;
     browserName = browsername;
     url = environmentName;
@@ -119,9 +119,9 @@ function onTestStart(testtype, browsername, environmentName) {
 
 function onTestEnd() {
     endDateAndTime = getDateAndTime();
-    
+
     totalTimeInMinutes = calculateTotalTime(startDateAndTime, endDateAndTime).toFixed(2);
-    
+
 
 }
 

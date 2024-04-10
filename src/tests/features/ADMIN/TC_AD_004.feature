@@ -49,29 +49,4 @@ Feature: TC_AD_004
     Then Call for Proposal CFP should be Published successfully as per admin case four
 
   Scenario: New Discom Member Responding to the  CFP as a Responder.
-    Given New User navigate to the Application and logged in as a discom user as Responder as per admin case four
-    And New User started placing Response to the CFP as per admin case four
-    Then New User Response CFP should be Placed successfully as per admin case four
-
-  Scenario: Discom Member Awarding CFP and Generating LOA.
-    Given User navigate to the Application and logged in as a discom user as initiator as per admin case four
-    And User started generating the award and generating the LOA from initiator side as per admin case four
-    Then User Awarding and Generate LOA should be successfull as per admin case four
-
-  Scenario: New Discom Member Uploading the documents from Responder Side.
-    Given New User navigate to the Application and logged in as a discom user as Responder as per admin case four
-    Then New User Responder Uploading the documents should be successfull as per admin case four
-
-  Scenario: Discom Member Genarating Format D as initiator
-    Given User navigate to the Application and logged in as a discom user as initiator as per admin case four
-    Then User Format D should be successfully Generated from initiator side as per admin case four
-
-  Scenario: New Discom Member Genarating Format D as Responder
-    Given New User navigate to the Application and logged in as a discom user as Responder as per admin case four
-    Then New User Format D should be successfully Generated from Responder side as per admin case four
-
-
- Scenario: New Discom Member assigning mew user to him
-    Given New user navigates to the application and logs in as an admin as per Admin Case four
-    And New user adds a staff user and assigns rights to the new user as per Admin Case four
-    Then Assigned new user successfully logs in as a staff member of the new member as per Admin Case four
+    Given Verify New User couldn't able to  Respond for a CFP created by User as per admin case four
