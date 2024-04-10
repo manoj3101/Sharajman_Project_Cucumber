@@ -13,7 +13,7 @@ let run_features = [
 
 
 let sanity_run1 = [
-    './src/tests/features/IMPORT/TC_IM_008.feature',
+    './src/tests/features/ADMIN/TC_AD_004.feature',
     // './src/tests/features/ADMIN/TC_AD_003.feature',
     // './src/tests/features/EXPORT/TC_EX_001.feature', // Specify our feature files location
     // './src/tests/features/EXPORT/TC_EX_005.feature', // Export => src/tests/steps/EXPORT/*.feature

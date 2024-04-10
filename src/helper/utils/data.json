@@ -12,8 +12,8 @@
     "user21":"CamilaPhillips@yopmail.com",
     "user21_password":"Phillips@123456",
     
-    "user2":"leodas@yopmail.com",
-    "user2_password":"Test@12345",
+    "user22":"leodas@yopmail.com",
+    "user22_password":"Test@12345",
 
     "user3":"antonydas@yopmail.com",
     "user3_password":"Test@12345",
@@ -21,8 +21,8 @@
     "user4":"harolddas@yopmail.com",
     "user4_password":"Test@12345",
 
-    "user22":"Xavier@yopmail.com",
-    "user22_password":"Testing@123",
+    "user2":"Xavier@yopmail.com",
+    "user2_password":"Testing@123",
     
     "user33":"david@yopmail.com",
     "user33_password":"Testing@1234",
@@ -37,7 +37,7 @@
     "Utility_2":"Tickingminds_1",
 
     "responder1":"Tickingminds_",
-    "responder":"Das&Co",
+    "responder":"Tickingminds_",
 
     
     "feeName":"",

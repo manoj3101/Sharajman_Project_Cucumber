@@ -259,7 +259,7 @@
 
 
     "AD_04": {
-        "NOAR": true,
+        "NOAR": false,
         "natureofapplicant":"PRIVATELIMITED",
         "gsttype":"ZEROTAX",
         "discomType":"PRI",
@@ -272,11 +272,11 @@
         "Home": true,
         "Initiate": true,
         "Award": true,
-        "Respond": true,
+        "Respond": false,
         "LOA_Generation": true,
         "FormatD": true,
-        "Registration": true,
-        "Manage_User": true,
+        "Registration": false,
+        "Manage_User": false,
         "LOA_Management":true,
 
         "department":"testing",
