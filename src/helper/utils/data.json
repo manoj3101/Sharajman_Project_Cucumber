@@ -151,7 +151,7 @@
             "Settlement_Price":"",
             "query_Box" :false,
             "Ceiling_Base_Return":true,
-            "Ceiling_Base_Return_value":"999.99",
+            "Ceiling_Base_Return_value":"999.98",
             "custom_Guests":"",
             "remarks":"No",
         
@@ -184,8 +184,8 @@
             "Minimum_Quantum":false,
             "Minimum_QuantumValue":"",
         
-            "imp_start_date" : 730,
-            "imp_end_date" : 730,
+            "imp_start_date" : 729,
+            "imp_end_date" : 729,
             "imp_start_time":"16:30",
             "imp_end_time":"20:30",
             "Quantum_value":"0.01",
@@ -251,7 +251,7 @@
             "Minimum_QuantumValue":"",
         
             "imp_start_date" : 1,
-            "imp_end_date" : 730,
+            "imp_end_date" : 729,
             "imp_start_time":"20:00",
             "imp_end_time":"23:30",
             "Quantum_value":"0.01",

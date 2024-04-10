@@ -378,14 +378,15 @@ class DashboardCFP {
         console.log(`Remaining listing :${text}`);
 
         // Regular expression to extract values
-        const regex = /INR (\d+) .* (\d+\*\d+)/;
+        // const regex = /INR (\d+) .* (\d+\*\d+)/;
+        const regex = /INR (\d+(\.\d+)?) .* (\d+\*\d+(\.\d+)?)/;
 
         // Executing the regular expression on the text
         const matches = regex.exec(text);
 
         if (matches) {
             const amountOnHold = matches[1];
-            const successFee = matches[2];
+            const successFee = matches[3];
             console.log("Amount on hold:", amountOnHold);
             console.log("Success fee:", successFee);
             if (amountOnHold == TransactionFee.FormulaValue) {
@@ -394,9 +395,9 @@ class DashboardCFP {
                 console.log(`Expected not met actual `);
             }
             if (successFee == TransactionFee.setFormula) {
-                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}`);
+                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
             } else {
-                console.log(`Expected not met actual`);
+                console.log(`Expected not met actual\n`);
             }
         } else {
             console.log("No matches found.");
@@ -444,14 +445,15 @@ class DashboardCFP {
         console.log(`Remaining listing :${text}`);
 
         // Regular expression to extract values
-        const regex = /INR (\d+) .* (\d+\*\d+)/;
+        // const regex = /INR (\d+) .* (\d+\*\d+)/;
+        const regex = /INR (\d+(\.\d+)?) .* (\d+\*\d+(\.\d+)?)/;
 
         // Executing the regular expression on the text
         const matches = regex.exec(text);
 
         if (matches) {
             const amountOnHold = matches[1];
-            const successFee = matches[2];
+            const successFee = matches[3];
             console.log("Amount on hold:", amountOnHold);
             console.log("Success fee:", successFee);
             if (amountOnHold == TransactionFee.FormulaValue) {
@@ -460,9 +462,9 @@ class DashboardCFP {
                 console.log(`Expected not met actual `);
             }
             if (successFee == TransactionFee.setFormula) {
-                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}`);
+                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
             } else {
-                console.log(`Expected not met actual`);
+                console.log(`Expected not met actual\n`);
             }
         } else {
             console.log("No matches found.");
@@ -695,7 +697,7 @@ class DashboardCFP {
 
         //Assertion 
         //import 
-        const content1 = await pageFixture.page.locator("((//div[contains(@class,'ng-star-inserted')])//h5)[6]").textContent();
+        const content1 = await pageFixture.page.locator("(//h5[contains(text(),'Period')])[1]").textContent();
         const Energy1 = await pageFixture.page.locator("(//td[7])[1]").textContent();
         console.log("<<<<<<<<<<<<<<<<<<<<" + content1 + ">>>>>>>>>>>>>>>>>>>>>>\n");
         console.log(`Actual Energy in KWH : ${Energy1}`);
@@ -752,7 +754,7 @@ class DashboardCFP {
 
         //assert 
         //export
-        const content2 = await pageFixture.page.locator("((//div[contains(@class,'ng-star-inserted')])//h5)[7]").textContent();
+        const content2 = await pageFixture.page.locator("(//h5[contains(text(),'Period')])[2]").textContent();
         const Energy2 = await pageFixture.page.locator("(//td[8])[1]").textContent();
         const quantum = await pageFixture.page.locator("(//td[7])[2]").textContent();
         console.log("<<<<<<<<<<<<<<<<" + content2 + ">>>>>>>>>>>>>>>>>>>>\n");
@@ -831,7 +833,8 @@ class DashboardCFP {
         console.log(`Success Fee :${text1}`);
 
         // Regular expression to extract values
-        const regex = /INR (\d+)/;
+        // const regex = /INR (\d+)/;
+        const regex = /INR (\d+(\.\d+)?)/;
 
         // Executing the regular expression on the text
         const matches = regex.exec(text1);

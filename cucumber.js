@@ -7,7 +7,7 @@ let opt = [
 
 let run_features = [
     './src/tests/features/*/*.feature', // Specify our feature files location
-    '--format html:test-results/Report.html',
+    '--format html:test-results/Cucumber_Report.html',
     '--format json:test-results/cucumber-report.json'
 ].join(' ');
 
@@ -15,9 +15,9 @@ let run_features = [
 let sanity_run1 = [
     // './src/tests/features/ADMIN/TC_AD_003.feature',
     // './src/tests/features/EXPORT/TC_EX_001.feature', // Specify our feature files location
-    // './src/tests/features/EXPORT/TC_EX_002.feature', // Export => src/tests/steps/EXPORT/*.feature
-    './src/tests/features/IMPORT/TC_IM_001.feature', // Import => src/tests/steps/IMPORT/*.feature
-    '--format html:test-results/Report.html', //HTML Report
+    './src/tests/features/EXPORT/TC_EX_005.feature', // Export => src/tests/steps/EXPORT/*.feature
+    // './src/tests/features/IMPORT/TC_IM_003.feature', // Import => src/tests/steps/IMPORT/*.feature
+    '--format html:test-results/Cucumber_Report.html', //HTML Report
     '--format json:test-results/cucumber-report.json', //Json Report
 
 ].join(' ');
