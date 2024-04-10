@@ -98,7 +98,7 @@ function generateHTMLReport() {
             });
 
 
-            fs.writeFile('./test-results/Automation_Report.html' + endDateAndTime, renderedHtml, err => {
+            fs.writeFile('./test-results/Automation_Report.html', renderedHtml, err => {
                 if (err) {
                     console.error("Error writing rendered HTML file:", err);
                     return;
