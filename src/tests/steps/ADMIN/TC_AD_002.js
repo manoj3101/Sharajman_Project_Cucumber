@@ -107,7 +107,6 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
     await payment_Approval.paymentApproval(org_name);
     await manage_Member.click_Manage_Member(); //Manage User - Rights
     await manage_Member.member_rights(org_name, ad_data.AD_02.selectall, ad_data.AD_02.Home, ad_data.AD_02.Registration, ad_data.AD_02.Manage_User, ad_data.AD_02.FormatD, ad_data.AD_02.LOA_Generation, ad_data.AD_02.Award, ad_data.AD_02.Respond, ad_data.AD_02.Initiate);
-
 });
 
 //-------------------------------------------------------------------------------------------------------------------------

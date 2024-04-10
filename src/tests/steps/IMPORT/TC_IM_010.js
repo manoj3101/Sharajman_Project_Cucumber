@@ -164,7 +164,7 @@ Given('User started generating the award and generating the LOA from initiator s
 
 });
 
-Then('Awarding should be successfull and generate LOA Timeline should be Expired as per import case ten', { timeout: 160 * 1000 }, async function () {
+Then('Awarding should be successfull and generate LOA Timeline should be Expired as per import case ten', { timeout: 240 * 1000 }, async function () {
 
     //cfp carried from initial Step definition
     const cfpNumber = global.cfpNumber;

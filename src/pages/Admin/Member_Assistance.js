@@ -76,20 +76,6 @@ class Member_Assistance {
         //Click the Make Payment button 
         await pageFixture.page.getByRole('button', { name: /Make Payment/i }).click();
 
-        //Payment Process
-
-        // // Function to Generate a random 12 digit number
-        // function generateRandomNumber(min, max) {
-        //     return Math.floor(Math.random() * (max - min + 1)) + min;
-        // }
-
-        // // Generate a random 12 digit number
-        // let randomNumber = generateRandomNumber(10 ** 11, (10 ** 12) - 1);
-
-        // let trans_id = randomNumber.toString();
-
-        // console.log(`Application Number : ${trans_id}`);
-
         //Transaction ID
         await pageFixture.page.locator("//input[contains(@formcontrolname,'ref_no')]").fill(this.trans_id);
 

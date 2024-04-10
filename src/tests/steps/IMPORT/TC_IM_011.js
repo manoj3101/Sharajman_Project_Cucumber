@@ -193,19 +193,14 @@ Given('User started Uploading the documents from Responder Side as per import ca
 });
 
 
-
-Then('LOA acceptance timeline by the Responder as per import case eleven', { timeout: 120 * 1000 }, async function () {
+Then('LOA acceptance timeline by the Responder as per import case eleven', { timeout: 300 * 1000 }, async function () {
 
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await pageFixture.page.waitForTimeout(90 * 1000); //Wait for the Responder timeline ends.
+    await pageFixture.page.waitForTimeout(240 * 1000); //Wait for the Responder timeline ends.
 
     await loaManagement.responder_LOA_Expires(cfpNumber);
-
-    console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<< Your LOA acceptance timeline has been expired >>>>>>>>>>>>>>");
-
-
 
 });
 

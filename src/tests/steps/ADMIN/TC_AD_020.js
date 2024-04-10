@@ -105,8 +105,7 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
     await payment_Approval.clickPaymentApproval(); //Payment Approval
     await payment_Approval.paymentApproval(org_name);
     await manage_Member.click_Manage_Member(); //Manage User - Rights
-    await manage_Member.member_rights(org_name, ad_data.AD_20.selectall, ad_data.AD_20.Home, ad_data.AD_20.Manage_User, ad_data.AD_20.FormatD, ad_data.AD_20.LOA_Generation, ad_data.AD_20.Award, ad_data.AD_20.Respond, ad_data.AD_20.LOA_Management);
-
+    await manage_Member.member_rights(org_name, ad_data.AD_20.selectall, ad_data.AD_20.Home, ad_data.AD_20.Registration, ad_data.AD_20.Manage_User, ad_data.AD_20.FormatD, ad_data.AD_20.LOA_Generation, ad_data.AD_20.Award, ad_data.AD_20.Respond, ad_data.AD_20.Initiate);
 });
 
 //-------------------------------------------------------------------------------------------------------------------------

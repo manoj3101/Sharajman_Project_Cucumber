@@ -372,7 +372,7 @@ class DashboardCFP {
     }
 
     //Transaction fee verification
-    async transactionfee_Verify_Initiator(){
+    async transactionfee_Verify_Initiator() {
         //Get the text content from the Remaining listing
         const text = await pageFixture.page.locator("(//div[contains(@class,'modal-body')])[2]").textContent();
         console.log(`Remaining listing :${text}`);
@@ -439,7 +439,7 @@ class DashboardCFP {
     }
 
 
-    async transactionfee_Verify_Responder(){
+    async transactionfee_Verify_Responder() {
         //Get the text content from the Remaining listing
         const text = await pageFixture.page.locator("(//div[contains(@class,'modal-body')])[1]").textContent();
         console.log(`Remaining listing :${text}`);
@@ -824,7 +824,7 @@ class DashboardCFP {
 
 
     //Success fee verification
-    async successfee_Verify_Loa(){
+    async successfee_Verify_Loa() {
         //Get the text content from the Remaining listing
         const text = await pageFixture.page.locator("//span[contains(text(),'Success fee')]").textContent();
         const text1 = await pageFixture.page.locator("(//span[contains(text(),'Success Fee Debited')]//following::span)[1]").textContent();
@@ -843,7 +843,7 @@ class DashboardCFP {
             const successFee = matches[1];
             console.log("Actual Success fee:", successFee);
             if (successFee == TransactionFee.successFormulaValue) {
-                console.log(`Expected Success fee ${ TransactionFee.successFormulaValue} is equal to actual value ${successFee}`);
+                console.log(`Expected Success fee ${TransactionFee.successFormulaValue} is equal to actual value ${successFee}`);
             } else {
                 console.log(`Expected not met actual`);
             }
@@ -1109,6 +1109,32 @@ class DashboardCFP {
 
     }
 
+
+    //verify loa couldn't generate if LOA Generation is uncheck 
+    async generateLOA_Access_Denied() {
+        //click the Generate LOA icon & proceed with LOA
+        const LOA = await pageFixture.page.locator("//a[contains(text(),'Generate LOA')]");
+        if (await LOA.isVisible()) {
+            const expire_Time = await pageFixture.page.locator("//span[contains(@class,'badge fw-600 bg-danger text-white ng-star-inserted')]").textContent();
+            console.log(expire_Time);
+            expect(expire_Time).toContain("Expires");
+            await LOA.click();
+            await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+            console.log("-------------Successfully Navigated to Generate LOA Page----------");
+        }
+        else {
+            console.log("-------------No Generate LOA is Visible----------");
+        }
+
+        //switch to the tab
+        const tabSwitch = new tabSwitcher();
+        await tabSwitch.switchToTab("loi");
+
+        //asset the message Acccess Denied 
+        const loa_assert = await pageFixture.page.locator("//h2").textContent();
+        expect(loa_assert).toContain("Access Denied");
+        console.log(`X ${loa_assert}`);
+    }
 
     // Helper function to clear files in the folder
     async clearFolder(folderPath) {
