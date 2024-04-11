@@ -165,7 +165,7 @@ class DashboardCFP {
         // Calculating dates
         var importStartDate = addDays(currentDate, impStartDate);
         var importEndDate = addDays(currentDate, impEndDate);
-        console.log(importStartDate);
+        // console.log(importStartDate);
 
         // Function to format date to 'YYYY-MM-DD' format
         var formatDate = function (date) {
@@ -350,7 +350,7 @@ class DashboardCFP {
                 //await pageFixture.page.waitForTimeout(2000);
             }
             //Select all option
-            // await pageFixture.page.locator("//input[@id='flexCheckChecked']").click();
+            await pageFixture.page.locator("//input[@id='flexCheckChecked']").click();
         }
         else {
             await pageFixture.page.waitForTimeout(1500);
@@ -390,14 +390,14 @@ class DashboardCFP {
             console.log("Amount on hold:", amountOnHold);
             console.log("Success fee:", successFee);
             if (amountOnHold == TransactionFee.FormulaValue) {
-                console.log(`Expected transaction fee ${TransactionFee.FormulaValue} is equal to actual value ${amountOnHold}`);
+                console.log(`✔ Expected transaction fee ${TransactionFee.FormulaValue} is equal to actual value ${amountOnHold}`);
             } else {
-                console.log(`Expected not met actual `);
+                console.log(`X Expected not met actual `);
             }
             if (successFee == TransactionFee.setFormula) {
-                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
+                console.log(`✔ Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
             } else {
-                console.log(`Expected not met actual\n`);
+                console.log(`X Expected not met actual\n`);
             }
         } else {
             console.log("No matches found.");
@@ -457,14 +457,14 @@ class DashboardCFP {
             console.log("Amount on hold:", amountOnHold);
             console.log("Success fee:", successFee);
             if (amountOnHold == TransactionFee.FormulaValue) {
-                console.log(`Expected transaction fee ${TransactionFee.FormulaValue} is equal to actual value ${amountOnHold}`);
+                console.log(`✔ Expected transaction fee ${TransactionFee.FormulaValue} is equal to actual value ${amountOnHold}`);
             } else {
-                console.log(`Expected not met actual `);
+                console.log(`X Expected not met actual `);
             }
             if (successFee == TransactionFee.setFormula) {
-                console.log(`Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
+                console.log(`✔ Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
             } else {
-                console.log(`Expected not met actual\n`);
+                console.log(`X Expected not met actual\n`);
             }
         } else {
             console.log("No matches found.");
@@ -680,20 +680,11 @@ class DashboardCFP {
         const time = hours + minutes / 60;
 
         // Display the result
-        console.log(`Initiator Difference: ${days} days, ${hours + minutes / 60} hours\n`);
+        // console.log(`Initiator Difference: ${days} days, ${hours + minutes / 60} hours\n`);
 
         //Calculation part 
         const energy_kwh = (days + 1) * time * quantum * 1000;
         console.log(`Expected Energy in KWH :${energy_kwh}`);
-
-        // If there is any decimal point we can use this.
-        // if (energy_kwh % 1 !== 0) {
-        //     const energy_kwh= energy_kwh.toFixed(1)
-        //     console.log("Energy in KWH: " + energy_kwh.toFixed(1));
-        //   } else {
-        //     const energy_kwh= energy_kwh.toFixed(0)
-        //     console.log("Energy in KWH: " + energy_kwh.toFixed(0));
-        //   }
 
         //Assertion 
         //import 
@@ -734,7 +725,7 @@ class DashboardCFP {
         const time = hours + minutes / 60;
 
         // Display the result
-        console.log(`Responder Difference: ${days} days, ${hours + minutes / 60} hours\n`);
+        // console.log(`Responder Difference: ${days} days, ${hours + minutes / 60} hours\n`);
 
         const initiator_kwh = global.eng;
 
@@ -843,9 +834,9 @@ class DashboardCFP {
             const successFee = matches[1];
             console.log("Actual Success fee:", successFee);
             if (successFee == TransactionFee.successFormulaValue) {
-                console.log(`Expected Success fee ${TransactionFee.successFormulaValue} is equal to actual value ${successFee}`);
+                console.log(`✔ Expected Success fee ${TransactionFee.successFormulaValue} is equal to actual value ${successFee}`);
             } else {
-                console.log(`Expected not met actual`);
+                console.log(`X Expected not met actual`);
             }
         } else {
             console.log("No Success fee matches found.");
@@ -1131,9 +1122,11 @@ class DashboardCFP {
         await tabSwitch.switchToTab("loi");
 
         //asset the message Acccess Denied 
-        const loa_assert = await pageFixture.page.locator("//h2").textContent();
+        await pageFixture.page.waitForTimeout(3000);
+        console.log("Waiting for locator....................");
+        const loa_assert = await pageFixture.page.locator("//*[contains(text(),'Access Denied')]").textContent();
         expect(loa_assert).toContain("Access Denied");
-        console.log(`X ${loa_assert}`);
+        console.log(`X ${loa_assert} for LOA Generation`);
     }
 
     // Helper function to clear files in the folder

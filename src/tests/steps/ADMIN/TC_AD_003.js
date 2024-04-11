@@ -223,7 +223,7 @@ Then('Response CFP should be Placed successfully as per admin case three', async
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue1);
 
@@ -257,19 +257,15 @@ Given('Responder two started placing Response to the CFP as per admin case three
 
 Then('Responder two Response CFP should be Placed successfully as per admin case three', async function () {
 
-    const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await dashboardCFP.place_Respond(cfpNumber, data.EX_02.minQuantumValue2, data.EX_02.ReturnValue2);
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_03.minQuantumValue2, ad_data.AD_03.ReturnValue2);
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_02.imp_start_time, data.EX_02.imp_end_time, data.EX_02.minQuantumValue2);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue2);
 
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_02.exp_start_time, data.EX_02.exp_end_time, data.EX_02.ReturnValue2);
-
-
-    console.log("--------------------Response CFP  placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue2);
 
 });
 
@@ -303,16 +299,13 @@ Then('Responder three Response CFP should be Placed successfully as per admin ca
 
     console.log("Global CFP: " + cfpNumber);
 
-    await dashboardCFP.place_Respond(cfpNumber, data.EX_02.minQuantumValue2, data.EX_02.ReturnValue2);
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_03.minQuantumValue2, ad_data.AD_03.ReturnValue2);
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.EX_02.imp_start_time, data.EX_02.imp_end_time, data.EX_02.minQuantumValue2);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue2);
 
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.EX_02.exp_start_time, data.EX_02.exp_end_time, data.EX_02.ReturnValue2);
-
-
-    console.log("--------------------Response CFP  placed Successfully -----------------");
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue2);
 
 });
 
@@ -347,13 +340,11 @@ Then('New User can able to award and could not able to generate LOA as per admin
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue1);
 
     await dashboardCFP.generateLOA_Access_Denied();
-
-    console.log("X New User couldn't able to generate LOA Due to Rights Uncheck X");
 
 });
 
@@ -443,7 +434,7 @@ Then('New User Response CFP should be Placed successfully as per admin case thre
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue1);
 
@@ -479,7 +470,7 @@ Then('User Awarding and Generate LOA should be successfull as per admin case thr
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue1);
 
@@ -530,7 +521,7 @@ Then('Assigned new user successfully logs in as a staff member of the new member
 
     await signUp.OTP(); //Fill OTP
 
-    await pageFixture.page.waitForTimeout(10000);
+    await pageFixture.page.waitForTimeout(2000);
 
     console.log("--------------------Assigned new user successfully logged In -----------------");
 
