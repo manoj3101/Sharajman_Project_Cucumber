@@ -1124,9 +1124,11 @@ class DashboardCFP {
         //asset the message Acccess Denied 
         await pageFixture.page.waitForTimeout(3000);
         console.log("Waiting for locator....................");
-        const loa_assert = await pageFixture.page.locator("//*[contains(text(),'Access Denied')]").textContent();
+        const loa_assert = await pageFixture.page.locator("//h2[normalize-space()='Access Denied']").textContent();
+        const loa_assert1 = await pageFixture.page.locator("//*[contains(text(),'Access Denied')]/following::p").textContent();
         expect(loa_assert).toContain("Access Denied");
         console.log(`X ${loa_assert} for LOA Generation`);
+        console.log(`X ${loa_assert1}`);
     }
 
     // Helper function to clear files in the folder
