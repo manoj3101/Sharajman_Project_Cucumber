@@ -345,8 +345,6 @@ Then('New User can able to award and could not able to generate LOA as per admin
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue1);
 
     await dashboardCFP.generateLOA_Access_Denied();
-    
-    await login.logout();
 
 });
 

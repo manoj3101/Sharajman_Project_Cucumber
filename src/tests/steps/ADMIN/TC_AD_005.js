@@ -113,9 +113,14 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
 //-------------------------------------------------------------------------------------------------------------------------
 Given('Admin navigate to the application and login and fetching the transaction fee formula as per admin case five', async function () {
 
-    await login.login(data.admin, data.admin_password);
+    await login.login(data.admin, data.admin_password); //Login to the admin user 
+
     await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+
     await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_05.Quantum_value); // Fetch the transaction fee formula
+
+    await transactionFee.fetch_Success_Fee(data.successfee, ad_data.AD_05.Quantum_value); // Fetch the Success fee formula
+
     await login.logout(); //Logout
 
 });
@@ -215,7 +220,7 @@ Then('Response CFP should be Placed successfully as per admin case five', async 
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Quantum_value);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time, ad_data.AD_05.exp_end_time, ad_data.AD_05.ReturnValue1);
 
@@ -253,7 +258,7 @@ Then('Awarding and Generate LOA should be successfull as per admin case five', a
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Quantum_value);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time, ad_data.AD_05.exp_end_time, ad_data.AD_05.ReturnValue1);
 
@@ -334,41 +339,41 @@ Given('User started creating Call for Proposal CFP as an initiator as per admin 
 
     await home.clickCallForPropsal();
 
-    await dashboardCFP.clickCreateCFP(ad_data.AD_05.chooseCFP);
+    await dashboardCFP.clickCreateCFP(ad_data.AD_05.chooseCFP1);
 
-    await dashboardCFP.powerSwapping(ad_data.AD_05.Power_swapping);
+    await dashboardCFP.powerSwapping(ad_data.AD_05.Power_swapping1);
 
-    await dashboardCFP.firstChoice(ad_data.AD_05.Fisrt_choice);
+    await dashboardCFP.firstChoice(ad_data.AD_05.Fisrt_choice1);
 
-    await dashboardCFP.resultPublish(ad_data.AD_05.Result_Published);
+    await dashboardCFP.resultPublish(ad_data.AD_05.Result_Published1);
 
-    await dashboardCFP.importPeriod(ad_data.AD_05.Quantum_value, ad_data.AD_05.imp_start_date, ad_data.AD_05.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time);
+    await dashboardCFP.importPeriod(ad_data.AD_05.Quantum_value1, ad_data.AD_05.imp_start_date1, ad_data.AD_05.imp_end_date1, ad_data.AD_05.imp_start_time1, ad_data.AD_05.imp_end_time1);
 
-    await dashboardCFP.minimumQuantum(ad_data.AD_05.Minimum_Quantum, ad_data.AD_05.Minimum_QuantumValue);
+    await dashboardCFP.minimumQuantum(ad_data.AD_05.Minimum_Quantum1, ad_data.AD_05.Minimum_QuantumValue1);
 
-    await dashboardCFP.exportPeriod(ad_data.AD_05.exp_start_date, ad_data.AD_05.exp_end_date, ad_data.AD_05.exp_start_time, ad_data.AD_05.exp_end_time);
+    await dashboardCFP.exportPeriod(ad_data.AD_05.exp_start_date1, ad_data.AD_05.exp_end_date1, ad_data.AD_05.exp_start_time1, ad_data.AD_05.exp_end_time1);
 
     await dashboardCFP.publishing_time();
 
-    await dashboardCFP.response_validityTime(ad_data.AD_05.response_days, ad_data.AD_05.response_hours, ad_data.AD_05.response_mins);
+    await dashboardCFP.response_validityTime(ad_data.AD_05.response_days1, ad_data.AD_05.response_hours1, ad_data.AD_05.response_mins1);
 
-    await dashboardCFP.awarding_time(ad_data.AD_05.award_days, ad_data.AD_05.award_hours, ad_data.AD_05.award_mins);
+    await dashboardCFP.awarding_time(ad_data.AD_05.award_days1, ad_data.AD_05.award_hours1, ad_data.AD_05.award_mins1);
 
-    await dashboardCFP.loa_Issuance_time(ad_data.AD_05.loa_issuance_days, ad_data.AD_05.loa_issuance_hours, ad_data.AD_05.loa_issuance_mins);
+    await dashboardCFP.loa_Issuance_time(ad_data.AD_05.loa_issuance_days1, ad_data.AD_05.loa_issuance_hours1, ad_data.AD_05.loa_issuance_mins1);
 
-    await dashboardCFP.loa_Acceptance_time(ad_data.AD_05.loa_acceptance_days, ad_data.AD_05.loa_acceptance_hours, ad_data.AD_05.loa_acceptance_mins);
+    await dashboardCFP.loa_Acceptance_time(ad_data.AD_05.loa_acceptance_days1, ad_data.AD_05.loa_acceptance_hours1, ad_data.AD_05.loa_acceptance_mins1);
 
-    await dashboardCFP.otherDetails(ad_data.AD_05.index, ad_data.AD_05.Settlement_Price);
+    await dashboardCFP.otherDetails(ad_data.AD_05.index1, ad_data.AD_05.Settlement_Price1);
 
-    await dashboardCFP.commentBox(ad_data.AD_05.query_Box);
+    await dashboardCFP.commentBox(ad_data.AD_05.query_Box1);
 
-    await dashboardCFP.ceilingBaseReturn(ad_data.AD_05.Ceiling_Base_Return, ad_data.AD_05.Ceiling_Base_Return_value);
+    await dashboardCFP.ceilingBaseReturn(ad_data.AD_05.Ceiling_Base_Return1, ad_data.AD_05.Ceiling_Base_Return_value1);
 
-    await dashboardCFP.selectResponder(ad_data.AD_05.multiple_responder, org_name);
+    await dashboardCFP.selectResponder(ad_data.AD_05.multiple_responder1, org_name);
 
-    await dashboardCFP.custom_Guests(ad_data.AD_05.custom_Guests);
+    await dashboardCFP.custom_Guests(ad_data.AD_05.custom_Guests1);
 
-    await dashboardCFP.remarks(ad_data.AD_05.remarks);
+    await dashboardCFP.remarks(ad_data.AD_05.remarks1);
 
 });
 
@@ -399,13 +404,13 @@ Then('New User Response CFP should be Placed successfully as per admin case five
 
     console.log("Global CFP: " + cfpNumber);
 
-    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_05.minQuantumValue1, ad_data.AD_05.ReturnValue1);
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_05.minQuantumValue11, ad_data.AD_05.ReturnValue11);
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time1, ad_data.AD_05.imp_end_time1, ad_data.AD_05.Quantum_value1);
 
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time, ad_data.AD_05.exp_end_time, ad_data.AD_05.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time1, ad_data.AD_05.exp_end_time1, ad_data.AD_05.ReturnValue11);
 
 });
 
@@ -439,11 +444,11 @@ Then('User Awarding and Generate LOA should be successfull as per admin case fiv
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time1, ad_data.AD_05.imp_end_time1, ad_data.AD_05.Quantum_value1);
 
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time, ad_data.AD_05.exp_end_time, ad_data.AD_05.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time1, ad_data.AD_05.exp_end_time1, ad_data.AD_05.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.minQuantumValue1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time, ad_data.AD_05.exp_end_time, ad_data.AD_05.ReturnValue1, ad_data.AD_05.Settlement_Price, ad_data.AD_05.loa_issuance_mins);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time1, ad_data.AD_05.imp_end_time1, ad_data.AD_05.minQuantumValue11, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time1, ad_data.AD_05.exp_end_time1, ad_data.AD_05.ReturnValue11, ad_data.AD_05.Settlement_Price1, ad_data.AD_05.loa_issuance_mins1);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -463,7 +468,7 @@ Then('New User Responder Uploading the documents should be successfull as per ad
 
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time, ad_data.AD_05.exp_end_time, ad_data.AD_05.ReturnValue1, ad_data.AD_05.Settlement_Price, ad_data.AD_05.loa_acceptance_mins);
+    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time1, ad_data.AD_05.imp_end_time1, ad_data.AD_05.Quantum_value1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_05.exp_start_time1, ad_data.AD_05.exp_end_time1, ad_data.AD_05.ReturnValue11, ad_data.AD_05.Settlement_Price1, ad_data.AD_05.loa_acceptance_mins1);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
@@ -482,7 +487,7 @@ Then('User Format D should be successfully Generated from initiator side as per 
 
     await loaManagement.action(cfpNumber);
 
-    await loaManagement.formatD(ad_data.AD_05.GTAM, ad_data.AD_05.source_of_generation, ad_data.AD_05.RPO, ad_data.AD_05.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Quantum_value);
+    await loaManagement.formatD(ad_data.AD_05.GTAM1, ad_data.AD_05.source_of_generation1, ad_data.AD_05.RPO1, ad_data.AD_05.TGNA1, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time1, ad_data.AD_05.imp_end_time1, ad_data.AD_05.Quantum_value1);
 
 });
 //-------------------------------------------------------------------------------------------------------------------------
@@ -491,6 +496,8 @@ Then('User Format D should be successfully Generated from initiator side as per 
 
 Then('New User Format D should be successfully Generated from Responder side as per admin case five', async function () {
 
+
+
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
 
@@ -498,7 +505,7 @@ Then('New User Format D should be successfully Generated from Responder side as 
 
     await loaManagement.action_FormatD(cfpNumber);
 
-    await loaManagement.formatD(ad_data.AD_05.GTAM, ad_data.AD_05.source_of_generation, ad_data.AD_05.RPO, ad_data.AD_05.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time, ad_data.AD_05.imp_end_time, ad_data.AD_05.Quantum_value);
+    await loaManagement.formatD(ad_data.AD_05.GTAM1, ad_data.AD_05.source_of_generation1, ad_data.AD_05.RPO1, ad_data.AD_05.TGNA1, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_05.imp_start_time1, ad_data.AD_05.imp_end_time1, ad_data.AD_05.Quantum_value1);
 
 });
 

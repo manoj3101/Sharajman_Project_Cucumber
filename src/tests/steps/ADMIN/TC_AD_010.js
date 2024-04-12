@@ -113,9 +113,14 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
 //-------------------------------------------------------------------------------------------------------------------------
 Given('Admin navigate to the application and login and fetching the transaction fee formula as per admin case ten', async function () {
 
-    await login.login(data.admin, data.admin_password);
+    await login.login(data.admin, data.admin_password); //Login to the admin user 
+
     await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
+
     await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_10.Quantum_value); // Fetch the transaction fee formula
+
+    await transactionFee.fetch_Success_Fee(data.successfee, ad_data.AD_10.Quantum_value); // Fetch the Success fee formula
+
     await login.logout(); //Logout
 
 });
