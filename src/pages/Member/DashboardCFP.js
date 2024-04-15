@@ -510,16 +510,6 @@ class DashboardCFP {
             await pageFixture.page.locator("//input[@formcontrolname='min_quantum']").fill('');
             await pageFixture.page.locator("//input[@formcontrolname='min_quantum']").type(minQuantumValue1);
 
-
-            // } catch (error) {
-            //     console.log("Catching...");
-            //     await pageFixture.page.evaluate((minQuantumValue1) => {
-            //         document.querySelector('input[placeholder*=Min]').value = minQuantumValue1;
-            //         document.querySelector('input[placeholder*=Min]').value = " ";
-            //         document.querySelector('input[placeholder*=Min]').value = minQuantumValue1;
-            //     }, minQuantumValue1);
-            // }
-
         } else {
             console.log("--------------------X No Min Quantum X----------------------");
         }
@@ -528,14 +518,7 @@ class DashboardCFP {
         if (await pageFixture.page.isVisible("//input[@formcontrolname='bid_amount']")) {
             console.log(await pageFixture.page.locator("//div[contains(@class,'d-flex align-items-center justify-content-between')]//p").nth(0).textContent());
             //Ener Return ...
-            // try {
             await pageFixture.page.locator("//input[@formcontrolname='bid_amount']").fill(ReturnValue1);
-            // } catch (error) {
-            //     console.log("Catching.......");
-            // await pageFixture.page.evaluate((ReturnValue1) => {
-            //     document.querySelector("input[placeholder='Enter Return(%)']").value = ReturnValue1;
-            // }, ReturnValue1);
-            // }
             await pageFixture.page.locator("//input[@id='flexCheckChecked']").click(); // Click Check Box
         }
         else {
@@ -545,46 +528,44 @@ class DashboardCFP {
         //Placing the responses....
         await pageFixture.page.waitForTimeout(2000);
         //Click place response button...
-        // try {
         await pageFixture.page.locator("//button[contains(text(),'Place Response')]").click({ timeout: 50000 });
 
         //verify the transaction fee
         await this.transactionfee_Verify_Responder();
         await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //new button
 
-        // } catch (error) {
-        // await pageFixture.page.evaluate(() => {
-        //     // Click the button
-        //     document.querySelector(".btn.btn-primary.text-white.font-13.w-100.ng-star-inserted").click();
-        // });
-        // }
+
 
         //Checking the Message Response Placed Successfully is correct or not.
         await pageFixture.page.waitForTimeout(2000);
 
-        //Negative Case Checking the error message 
-        if (await pageFixture.page.isVisible("//h4[ contains(text(),'Please enter response amount smaller than or equal')]")) {
-            let msg = await pageFixture.page.locator("//h4[ contains(text(),'Please enter response amount smaller than or equal')]").textContent();
-            //const msg = await msgElement.textContent();
+        // Negative Case: Checking the error message for response amount
+        if (await pageFixture.page.isVisible("//h4[contains(text(),'Please enter response amount smaller than or equal')]")) {
+            let msg = await pageFixture.page.locator("//h4[contains(text(),'Please enter response amount smaller than or equal')]").textContent();
             console.log(`An error Message is : ${msg}`);
             await pageFixture.page.waitForTimeout(2000);
             expect(msg).toContain("Please enter response amount smaller than or equal to ceiling percentage");
             await pageFixture.page.locator("//img[contains(@class,'cursor-pointer on-h')]").click();
             console.log("-------------------- X Response CFP couldn't placed Successfully X -----------------");
         }
-        else {
-            console.log("No Error occur while Response placing.........");
+        // Negative Case: Checking the error message for admin privilege
+        else if (await pageFixture.page.isVisible('//h4[contains(text(),"You don\'t have privilege")]')) {
+            let msg = await pageFixture.page.locator("//h4[contains(text(),'You')]").textContent();
+            console.log(`An error Message is : ${msg}`);
+            await pageFixture.page.waitForTimeout(2000);
+            expect(msg).toContain("You don't have privilege to perform this action");
+            await pageFixture.page.locator("//img[contains(@class,'cursor-pointer on-h')]").click();
         }
-
-        //Checking the Message Response Placed Successfully is correct or not.
-        const response = await pageFixture.page.locator("//a[contains(text(),'OK')]//preceding::h4[1]").textContent();
-        console.log("-----------------------------------------------------------------------");
-        console.log(`Response Placed : ${response}    ✔`);
-        console.log("-----------------------------------------------------------------------");
-        expect(response).toContain("Response Placed Successfully");
-        await pageFixture.page.locator("//*[contains(text(),'OK')]").click();
-        // await pageFixture.page.locator("(//img[contains(@class,'cursor-pointer')])[12]").click();
-        await pageFixture.page.locator("//span[contains(@class,'d-flex align-items')]/child::img[@class='cursor-pointer']").click();
+        // Checking if the response is placed successfully
+        else {
+            const response = await pageFixture.page.locator("//a[contains(text(),'OK')]//preceding::h4[1]").textContent();
+            console.log("-----------------------------------------------------------------------");
+            console.log(`Response Placed : ${response}    ✔`);
+            console.log("-----------------------------------------------------------------------");
+            expect(response).toContain("Response Placed Successfully");
+            await pageFixture.page.locator("//*[contains(text(),'OK')]").click();
+            await pageFixture.page.locator("//span[contains(@class,'d-flex align-items')]/child::img[@class='cursor-pointer']").click();
+        }
 
 
     }
@@ -1011,11 +992,11 @@ class DashboardCFP {
         const line_15 = `Dear	Sir,`;
         const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -1123,18 +1104,13 @@ class DashboardCFP {
 
         //asset the message Acccess Denied 
         await pageFixture.page.waitForTimeout(3000);
-        // Wait for the response
-        const response = await pageFixture.page.waitForResponse(response => response.status() === 403);
-
-        // Check if the response is a 403 error
-        if (response) {
-            console.log('403 Forbidden error encountered.');
-            // You can handle the error here, such as logging or taking a screenshot
-        } else {
-            console.log('Page loaded successfully.');
-            // Continue with your verification process
-        }
         console.log("Access Denied\n You are not authorized to access this application.");
+
+        // pageFixture.page.on('response', async (response) => {
+        //     if (response.status() === 403) {
+        //       console.log('Received 403 Forbidden error.');
+        //     }
+        //   });
 
         //The below  one will not run because that page is 403 error 
         // const loa_assert = await pageFixture.page.locator("//h2[normalize-space()='Access Denied']").textContent();

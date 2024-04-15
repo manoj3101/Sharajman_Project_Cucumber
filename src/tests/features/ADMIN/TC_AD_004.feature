@@ -48,5 +48,6 @@ Feature: TC_AD_004
     And User started creating Call for Proposal CFP as an initiator as per admin case four
     Then Call for Proposal CFP should be Published successfully as per admin case four
 
-  Scenario: New Discom Member Responding to the  CFP as a Responder.
-    Given Verify New User couldn't able to  Respond for a CFP created by User as per admin case four
+  Scenario: New Discom Member can not Response CFP successfully because of privilege action.
+    Given New User navigate to the Application and logged in as a discom user as Responder as per admin case four
+    Then New User can not Response CFP successfully as per admin case four

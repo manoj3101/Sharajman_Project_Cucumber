@@ -50,7 +50,7 @@ let cfpNumber;
 //-------------------------------------------------------------------------------------------------------------------------
 Given('New user navigates to the application and initiates the sign-up process as per Admin case tweleve', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
-    console.log("                                            TC_AD_001                                                 ");
+    console.log("                                            TC_AD_012                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
     await signUp.signup(); //Sign Up
 });

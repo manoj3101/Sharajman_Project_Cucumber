@@ -1,4 +1,4 @@
-Feature: TC_AD_002
+Feature: TC_AD_007
 
   Scenario: New Member Signing Up for the OTC Platform
     Given New user navigates to the application and initiates the sign-up process as per Admin case seven
