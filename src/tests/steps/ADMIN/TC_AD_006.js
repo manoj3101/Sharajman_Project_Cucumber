@@ -229,6 +229,29 @@ Then('Response CFP should be Placed successfully as per admin case six', async f
 
 });
 
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 5
+//-------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 5
+//-------------------------------------------------------------------------------------------------------------------------
+Given('New User started generating the award and generating the LOA from initiator side as per admin case six', { timeout: 1200000 }, async function () {
+
+    await home.clickCallForPropsal();
+
+    // //wait time for 15 minutes 
+    await pageFixture.page.waitForTimeout(885000);
+
+    console.log("Wait time is over Awarding CFP has started......");
+
+    //cfp carried from initial Step definition
+    console.log("Global CFP: " + cfpNumber);
+
+    await dashboardCFP.initiatedFeed(cfpNumber);
+
+    await dashboardCFP.generateAward();
+
+});
 
 Then('Awarding and Generate LOA should be successfull as per admin case six', async function () {
 
