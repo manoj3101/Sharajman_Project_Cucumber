@@ -4,9 +4,11 @@ const data = require("../../helper/utils/data.json");
 const admin_data = require('../../helper/utils/admin_data.json');
 const SignUp = require('../Admin/SignUp');
 const RandomFunction = require('../../helper/utils/RandomFunction');
+const Wrapper = require('../../helper/wrapper/assert');
 
 //Object Instance
 const randomFunction = new RandomFunction();
+const assert = new Wrapper();
 
 
 
@@ -64,9 +66,7 @@ class Manage_Member {
         await pageFixture.page.locator("//a[contains(text(),'View')]").click();
 
         //Assert the alertmsg Message 
-        const alertmsg_assert = await pageFixture.page.locator("//*[contains(text(),'Registration pending for approval')]").textContent();
-        expect(alertmsg_assert).toContain("Registration pending for approval");
-        console.log(`✔ ${alertmsg_assert}`);
+        await assert.assertToContains("//*[contains(text(),'Registration pending for approval')]","Registration pending for approval");
 
 
         await pageFixture.page.waitForTimeout(4000);
@@ -83,9 +83,7 @@ class Manage_Member {
 
         //Assert the congratulation
         //Assert the OTP Message 
-        const congratsmsg = await pageFixture.page.locator("//h4[@id='modal-basic-title']").textContent();
-        expect(congratsmsg).toContain("Congratulations");
-        console.log(`✔ ${congratsmsg}`);
+        await assert.assertToContains("//h4[@id='modal-basic-title']","Congratulations");
 
         // console.log(await pageFixture.page.locator("//b[contains(text(),'Member')]/..").first().textContent());
         console.log(await pageFixture.page.locator("//div[@class='modal-body']").textContent());
@@ -189,9 +187,7 @@ class Manage_Member {
 
         //Assert Part 
         //Required previliges have been assigned to the user
-        const message = await pageFixture.page.locator("//*[contains(text(),'Required previliges have been assigned to the user')]").textContent();
-        console.log(`✔ ${message}`);
-        expect(message).toContain("Required previliges have been assigned to the user");
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]","Required previliges have been assigned to the user");
         await pageFixture.page.waitForTimeout(5000);
     }
 

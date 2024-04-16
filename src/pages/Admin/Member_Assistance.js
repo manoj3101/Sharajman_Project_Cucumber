@@ -3,10 +3,11 @@ const pageFixture = require("../../hooks/pageFixture");
 const data = require("../../helper/utils/data.json");
 const admin_data = require('../../helper/utils/admin_data.json');
 const SignUp = require('../Admin/SignUp');
-
+const Wrapper = require('../../helper/wrapper/assert');
 
 // Get the current date
 const currentDate = new Date();
+const assert = new Wrapper();
 
 // Extract year, month, and day
 const year = currentDate.getFullYear();
@@ -98,9 +99,8 @@ class Member_Assistance {
 
         //Assert Part 
         //Subscription plan has been assigned successfully and is pending for approval, kindly check and approve the plan.
-        const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan has been assigned successfully')]").textContent();
-        console.log(`✔ ${message}`);
-        expect(message).toContain("Subscription plan has been assigned successfully");
+        await assert.assertToContains("//*[contains(text(),'Subscription plan has been assigned successfully')]","Subscription plan has been assigned successfully");
+
 
     }
 

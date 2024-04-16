@@ -255,8 +255,6 @@
     
         },
 
-
-
     "AD_04": {
         "NOAR": false,
         "natureofapplicant":"PRIVATELIMITED",
@@ -267,7 +265,7 @@
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "selectall":true,
+        "selectall":false,
         "Home": true,
         "Initiate": true,
         "Award": true,
@@ -727,29 +725,25 @@
 
 
     "AD_08": {
-        "NOAR": true,
+        "NOAR": false,
         "natureofapplicant":"PRIVATELIMITED",
         "gsttype":"ZEROTAX",
         "discomType":"PRI",
-        "Max_Inj_Cap":"600",
+        "Max_Inj_Cap":"800",
         "Max_Draw_Cap":"1000",
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "selectall":true,
+        "selectall":false,
         "Home": true,
         "Initiate": true,
-        "Award": true,
-        "Respond": true,
-        "LOA_Generation": true,
-        "FormatD": true,
-        "Registration": true,
-        "Manage_User": true,
-        "LOA_Management":true,
+        "Award": false,
+        "Respond": false,
+        "LOA_Generation": false,
+        "FormatD": false,
+        "Registration": false,
+        "Manage_User": false,
 
-        "department":"testing",
-        "designation":"lead",
-        "sub_type":"Staff",
 
 
         "chooseCFP":"Custom CFP",
