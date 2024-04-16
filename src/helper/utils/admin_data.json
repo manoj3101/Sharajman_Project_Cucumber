@@ -1,6 +1,6 @@
 {
-    "admin":"manoj@yopmail.com",
-    "admin_password":"K#(j{83&ym",
+    "admin": "sanjaykumars@yopmail.com",
+    "admin_password": "16121999@Dob",
     "static_password":"654321",
 
 
@@ -643,14 +643,14 @@
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "selectall":true,
+        "selectall":false,
         "Home": true,
         "Initiate": true,
-        "Award": true,
+        "Award": false,
         "Respond": true,
         "LOA_Generation": true,
         "FormatD": true,
-        "Registration": true,
+        "Registration": false,
         "Manage_User": true,
         "LOA_Management":true,
 

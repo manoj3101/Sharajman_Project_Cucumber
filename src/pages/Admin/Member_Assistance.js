@@ -37,8 +37,8 @@ class Member_Assistance {
     async clickMemberAssitance() {
         
         const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[6]"); //Hover to the Member Assitance
-        await home.hover();
-        await pageFixture.page.locator("//span[contains(text(),'Member Assistance')]").click(); //Click the Member Assitance
+        await home.hover({timeout:40000});
+        await pageFixture.page.locator("//span[contains(text(),'Member Assistance')]").click({timeout:40000}); //Click the Member Assitance
     }
 
     async subscription_Plan_Selection(org_name) {
