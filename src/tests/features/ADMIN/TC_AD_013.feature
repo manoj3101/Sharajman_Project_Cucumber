@@ -1,4 +1,4 @@
-Feature: TC_AD_002
+Feature: TC_AD_013
 
   Scenario: New Member Signing Up for the OTC Platform
     Given New user navigates to the application and initiates the sign-up process as per Admin case thirteen
@@ -69,9 +69,3 @@ Feature: TC_AD_002
   Scenario: New Discom Member Genarating Format D as Responder
     Given New User navigate to the Application and logged in as a discom user as Responder as per admin case thirteen
     Then New User Format D should be successfully Generated from Responder side as per admin case thirteen
-
-
- Scenario: New Discom Member assigning mew user to him
-    Given New user navigates to the application and logs in as an admin as per Admin Case thirteen
-    And New user adds a staff user and assigns rights to the new user as per Admin Case thirteen
-    Then Assigned new user successfully logs in as a staff member of the new member as per Admin Case thirteen

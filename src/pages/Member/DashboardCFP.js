@@ -6,9 +6,11 @@ const pdf = require('pdf-parse');
 const fs = require('fs').promises;
 const RandomFunction = require('../../helper/utils/RandomFunction');
 const TransactionFee = require('../Admin/TransactionFee');
+const Wrapper = require('../../helper/wrapper/assert');
 
 //Object Instance
 const randomFunction = new RandomFunction();
+const assert = new Wrapper();
 
 
 const currentDate = new Date();
@@ -410,24 +412,25 @@ class DashboardCFP {
         await pageFixture.page.getByRole('button', { name: /Next/i }).click();
         await pageFixture.page.getByRole('button', { name: /Publish/i }).click();
 
-        //verify the transaction fee listing 
-        await this.transactionfee_Verify_Initiator();
-        await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //New feature click proceed to continue
-        await pageFixture.page.waitForTimeout(2000);
+        if (await pageFixture.page.isVisible('//*[contains(text(),"You don\'t have privilege")]')) {
+            await assert.assertToContains('//*[contains(text(),"You don\'t have privilege")]', "You don't have privilege to perform this action");
+        }
+        else {
+            await this.transactionfee_Verify_Initiator();
+            await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //New feature click proceed to continue
+            await pageFixture.page.waitForTimeout(2000);
 
-        //submitted status
-        const cfpstatus = await pageFixture.page.locator(this.cfp).textContent();
-        console.log("---------------- ✔ " + cfpstatus + " ✔-----------------");
-        expect(cfpstatus).toContain("created successfully");
-        const CFP_N = await pageFixture.page.locator(this.cfpNumber).innerText();
+            //submitted status
+            const cfpstatus = await pageFixture.page.locator(this.cfp).textContent();
+            console.log("---------------- ✔ " + cfpstatus + " ✔-----------------");
+            expect(cfpstatus).toContain("created successfully");
+            const CFP_N = await pageFixture.page.locator(this.cfpNumber).innerText();
 
-        this.CFP_Num = CFP_N;
-        console.log("CFP ID Status -----------:" + this.CFP_Num);
-
+            this.CFP_Num = CFP_N;
+            console.log("CFP ID Status -----------:" + this.CFP_Num);
+        }
 
     }
-
-
 
 
     //-----------------------------------------------------------------------------------------------------
@@ -876,9 +879,11 @@ class DashboardCFP {
             // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
+
             //Negative Case
             if (await pageFixture.page.isVisible('//*[contains(text(),"You don\'t have privilege")]')) {
-                const textMsg = await pageFixture.page.locator('//*[contains(text(),"You don\'t have privilege")]').textContent();
+                const errorMsgElement = await pageFixture.page.locator('//*[contains(text(),"You don\'t have privilege")]');
+                const textMsg = await errorMsgElement.textContent();
                 console.log(`An error Message is : ${textMsg}`);
                 // await pageFixture.page.waitForTimeout(2000);
                 expect(textMsg).toContain("You don't have privilege to perform this action");

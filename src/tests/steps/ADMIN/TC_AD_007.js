@@ -133,6 +133,7 @@ Given('New User navigate to the Application and logged in as a discom user as in
     await login.login(email_id, password);
 
 });
+
 Given('New User verifying the registration status as per admin case seven', async function () {
 
     //New user verifying  the registration status

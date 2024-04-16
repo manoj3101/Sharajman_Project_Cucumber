@@ -134,6 +134,13 @@ Given('New User navigate to the Application and logged in as a discom user as in
 
 });
 
+Given('New User verifying the registration status as per admin case eight', async function () {
+
+    //New user verifying  the registration status
+    await home.clickRegistration();
+});
+
+
 Given('New User started creating Call for Proposal CFP as an initiator as per admin case eight', async function () {
 
     await home.clickCallForPropsal();

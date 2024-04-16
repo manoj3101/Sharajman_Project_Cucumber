@@ -33,7 +33,6 @@ class Home {
     const isElementPresent = await registrationElement.isVisible();
 
     if (isElementPresent) {
-      
       // If element is present, click on it
       await registrationElement.click();
       
@@ -43,7 +42,7 @@ class Home {
       expect(isElementPresent).toBeFalsy();
       await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
       // Alternatively, you can log a message
-      await pageFixture.page.waitForTimeout(3000)
+      await pageFixture.page.waitForTimeout(3000);
       
     }
 
