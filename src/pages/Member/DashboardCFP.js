@@ -880,22 +880,12 @@ class DashboardCFP {
             // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
-            //Negative Case
-            if (await pageFixture.page.isVisible('//*[contains(text(),"You don\'t have privilege")]')) {
-                const textMsg = await pageFixture.page.locator('//*[contains(text(),"You don\'t have privilege")]').textContent();
-                console.log(`An error Message is : ${textMsg}`);
-                // await pageFixture.page.waitForTimeout(2000);
-                expect(textMsg).toContain("You don't have privilege to perform this action");
-            }
-            else {
-                await this.successfee_Verify_Loa();
-                await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
-                //asserting the Awarded Successfully.
-                const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
-                expect(awarded).toContain("Response Accepted Successfully");
-                console.log("              ✔ Response Accepted Successfully ✔          ");
-            }
-
+            await this.successfee_Verify_Loa();
+            await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
+            //asserting the Awarded Successfully.
+            const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
+            expect(awarded).toContain("Response Accepted Successfully");
+            console.log("              ✔ Response Accepted Successfully ✔          ");
         }
         else {
             console.log("------------ X No Award Icon X ------------");

@@ -24,7 +24,7 @@ Feature: TC_AD_008
 
   Scenario: New Discom Member unable to Award CFP and Generate LOA due to privilege action.
     Given New User navigate to the Application and logged in as a discom user as initiator as per admin case eight
-    And Verify the New User unable to generat the award and LOA from initiator side as per admin case eight
+    And Verify the New User unable to generate the award and LOA from initiator side as per admin case eight
 
 
 

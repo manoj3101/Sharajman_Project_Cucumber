@@ -240,7 +240,7 @@ Then('Response CFP should be Placed successfully as per admin case eight', async
 //@                                                     Scenario 5
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('Verify the New User unable to generat the award and LOA from initiator side as per admin case eight', { timeout: 1200000 }, async function () {
+Given('Verify the New User unable to generate the award and LOA from initiator side as per admin case eight', { timeout: 1200000 }, async function () {
 
     await home.clickCallForPropsal();
 
@@ -254,7 +254,7 @@ Given('Verify the New User unable to generat the award and LOA from initiator si
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.generateAward();
+    await dashboardCFP.unableToGenerateAward();
 
 });
 
