@@ -893,8 +893,8 @@ class DashboardCFP {
                 //asserting the Awarded Successfully.
                 const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
                 expect(awarded).toContain("Response Accepted Successfully");
-                console.log("              ✔ Response Accepted Successfully ✔          ");   
-            }        
+                console.log("              ✔ Response Accepted Successfully ✔          ");
+            }
 
         }
         else {
