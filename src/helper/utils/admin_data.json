@@ -820,13 +820,13 @@
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "selectall":true,
+        "selectall":false,
         "Home": true,
         "Initiate": true,
-        "Award": true,
+        "Award": false,
         "Respond": true,
         "LOA_Generation": true,
-        "FormatD": true,
+        "FormatD": false,
         "Registration": true,
         "Manage_User": true,
         "LOA_Management":true,
@@ -902,7 +902,7 @@
 
 
     "AD_10": {
-        "NOAR": true,
+        "NOAR": false,
         "natureofapplicant":"PRIVATELIMITED",
         "gsttype":"ZEROTAX",
         "discomType":"PRI",
@@ -911,15 +911,15 @@
 
         "Manage_member": "Approve",
         "Payment_approval": "Approve",
-        "selectall":true,
+        "selectall":false,
         "Home": true,
-        "Initiate": true,
-        "Award": true,
+        "Initiate": false,
+        "Award": false,
         "Respond": true,
         "LOA_Generation": true,
         "FormatD": true,
         "Registration": true,
-        "Manage_User": true,
+        "Manage_User": false,
         "LOA_Management":true,
 
         "department":"testing",

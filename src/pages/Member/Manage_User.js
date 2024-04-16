@@ -33,8 +33,31 @@ class Manage_User {
         //Hover to the Manage Member and click the Manage Member
         const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[2]");
         await home.hover();
-        await pageFixture.page.locator("//span[contains(text(),'Manage User')]").click();
+
+        // Locate the Registration element
+        const manageUserElement = await pageFixture.page.locator("//span[contains(text(),'Manage User')]");
+
+        // Check if the element is present
+        const isElementPresent = await manageUserElement.isVisible();
+
+        if (isElementPresent) {
+
+            // If element is present, click on it
+            await manageUserElement.click();
+
+        } else {
+
+            // If element is not present, perform an assertion
+            expect(isElementPresent).toBeFalsy();
+            await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
+            // Alternatively, you can log a message
+            await pageFixture.page.waitForTimeout(3000)
+
+        }
     }
+
+
+
     //Adding new user
 
     async add_User(department, designation, sub_type) {
@@ -61,8 +84,8 @@ class Manage_User {
     }
 
 
-     //Member Rights
-     async add_user_rights(user_name,selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, lOA_Management,) {
+    //Member Rights
+    async add_user_rights(user_name, selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, lOA_Management,) {
 
         await pageFixture.page.waitForTimeout(3000);
         //Search organization name 

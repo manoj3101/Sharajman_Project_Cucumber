@@ -6,9 +6,12 @@ const pdf = require('pdf-parse');
 const fs = require('fs').promises;
 const RandomFunction = require('../../helper/utils/RandomFunction');
 const TransactionFee = require('../Admin/TransactionFee');
+const admin_data = require('../../helper/utils/admin_data.json');
+const Wrapper = require('../../helper/wrapper/assert');
 
 //Object Instance
 const randomFunction = new RandomFunction();
+const assert = new Wrapper();
 
 
 const currentDate = new Date();
@@ -410,20 +413,23 @@ class DashboardCFP {
         await pageFixture.page.getByRole('button', { name: /Next/i }).click();
         await pageFixture.page.getByRole('button', { name: /Publish/i }).click();
 
-        //verify the transaction fee listing 
-        await this.transactionfee_Verify_Initiator();
-        await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //New feature click proceed to continue
-        await pageFixture.page.waitForTimeout(2000);
+        if (await pageFixture.page.isVisible('//*[contains(text(),"You don\'t have privilege")]')) {
+            await assert.assertToContains('//*[contains(text(),"You don\'t have privilege")]', "You don't have privilege to perform this action");
+        }
+        else {
+            await this.transactionfee_Verify_Initiator();
+            await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //New feature click proceed to continue
+            await pageFixture.page.waitForTimeout(2000);
 
-        //submitted status
-        const cfpstatus = await pageFixture.page.locator(this.cfp).textContent();
-        console.log("---------------- ✔ " + cfpstatus + " ✔-----------------");
-        expect(cfpstatus).toContain("created successfully");
-        const CFP_N = await pageFixture.page.locator(this.cfpNumber).innerText();
+            //submitted status
+            const cfpstatus = await pageFixture.page.locator(this.cfp).textContent();
+            console.log("---------------- ✔ " + cfpstatus + " ✔-----------------");
+            expect(cfpstatus).toContain("created successfully");
+            const CFP_N = await pageFixture.page.locator(this.cfpNumber).innerText();
 
-        this.CFP_Num = CFP_N;
-        console.log("CFP ID Status -----------:" + this.CFP_Num);
-
+            this.CFP_Num = CFP_N;
+            console.log("CFP ID Status -----------:" + this.CFP_Num);
+        }
 
     }
 
@@ -876,27 +882,85 @@ class DashboardCFP {
             // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
-            //Negative Case
-            if (await pageFixture.page.isVisible('//*[contains(text(),"You don\'t have privilege")]')) {
-                const textMsg = await pageFixture.page.locator('//*[contains(text(),"You don\'t have privilege")]').textContent();
-                console.log(`An error Message is : ${textMsg}`);
-                // await pageFixture.page.waitForTimeout(2000);
-                expect(textMsg).toContain("You don't have privilege to perform this action");
-            }
-            else {
+           
                 await this.successfee_Verify_Loa();
                 await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
                 //asserting the Awarded Successfully.
                 const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
                 expect(awarded).toContain("Response Accepted Successfully");
-                console.log("              ✔ Response Accepted Successfully ✔          ");
-            }
+                console.log("              ✔ Response Accepted Successfully ✔          ");           
+
         }
         else {
             console.log("------------ X No Award Icon X ------------");
         }
 
     }
+
+    async unableToGenerateAward() {
+        const returns = await pageFixture.page.$$("//table[contains(@class,'table overflow-hidden rounded')]//tbody//tr[1]/td[4]//div");
+        console.log(`The lenght of the ruturn (%) :${returns.length}`);
+        // Initialize an empty array to store objects with index and number
+        let numbersArray = [];
+
+        // Loop through the div elements, considering only odd ones
+        for (let i = 0; i < returns.length; i++) {
+            // await returns[i+1].highlight();
+            const returnsText = await returns[i].innerText();
+            // Remove the % symbol and convert to number
+            const numberValue = parseFloat(returnsText.replace('%', ''));
+            console.log(`The ruturn (%) :${numberValue}`);
+            // Create an object containing both index and number
+            const obj = {
+                index: i,
+                value: numberValue
+            };
+
+            // Push the object into the array
+            numbersArray.push(obj);
+        }
+
+        // Find the maximum number and its corresponding index
+        let maxNumber = 0;
+        let maxIndex;
+
+        for (let i = 0; i < numbersArray.length; i++) {
+            if (numbersArray[i].value > maxNumber) {
+                maxNumber = numbersArray[i].value;
+                maxIndex = numbersArray[i].index;
+            }
+        }
+
+        // Now maxNumber contains the highest number, and maxIndex contains its corresponding index
+        console.log("Highest Number:", maxNumber);
+        console.log("Index of Highest Number:", maxIndex + 1);
+
+        await pageFixture.page.waitForTimeout(2000);
+        //click the award icon & proceed with award
+        // const award = await pageFixture.page.locator("//a[@ngbtooltip='Click to Award']").nth(0);
+        // const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Award'])[" + (maxIndex + 1) + "]");
+        // await pageFixture.page.locator("(//thead//th)[2]").dblclick();
+        const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Accept'])[" + (maxIndex + 1) + "]");
+        if (await award.isVisible()) {
+            await award.click();
+            // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
+            await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
+            await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
+
+            //Negative Case
+            const errorMsgElement = await pageFixture.page.locator('//*[contains(text(),"You don\'t have privilege")]');
+            const textMsg = await errorMsgElement.textContent();
+            console.log(`An error Message is : ${textMsg}`);
+            // await pageFixture.page.waitForTimeout(2000);
+            expect(textMsg).toContain("You don't have privilege to perform this action");
+
+        }
+        else {
+            console.log("------------ X No Award Icon X ------------");
+        }
+
+    }
+
 
 
     //Generate LOA

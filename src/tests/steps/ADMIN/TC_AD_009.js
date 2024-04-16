@@ -232,7 +232,7 @@ Then('Response CFP should be Placed successfully as per admin case nine', async 
 //@                                                     Scenario 5
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('New User started generating the award and generating the LOA from initiator side as per admin case nine', { timeout: 1200000 }, async function () {
+Then('Verify the New User unable to generate the award and LOA from initiator side as per admin case nine', { timeout: 1200000 }, async function () {
 
     await home.clickCallForPropsal();
 
@@ -246,80 +246,7 @@ Given('New User started generating the award and generating the LOA from initiat
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.generateAward();
-
-});
-
-
-Then('Awarding and Generate LOA should be successfull as per admin case nine', async function () {
-
-    //cfp carried from initial Step definition
-    console.log("Global CFP: " + cfpNumber);
-
-    await dashboardCFP.initiatedFeed(cfpNumber);
-
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_09.imp_start_time, ad_data.AD_09.imp_end_time, ad_data.AD_09.Minimum_QuantumValue);
-
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_09.exp_start_time, ad_data.AD_09.exp_end_time, ad_data.AD_09.ReturnValue1);
-
-    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_09.imp_start_time, ad_data.AD_09.imp_end_time, ad_data.AD_09.minQuantumValue1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_09.exp_start_time, ad_data.AD_09.exp_end_time, ad_data.AD_09.ReturnValue1, ad_data.AD_09.Settlement_Price, ad_data.AD_09.loa_issuance_mins);
-
-    console.log("--------------------Awarding and LOA has generated Successfully-----------------");
-
-    console.log("Initiator Uploaded the LOA documents successfully. \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
-
-});
-
-///-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 6
-//-------------------------------------------------------------------------------------------------------------------------
-
-
-
-Then('Responder Uploading the documents should be successfull as per admin case nine', async function () {
-
-    await loaManagement.loaGeneration();
-
-    console.log("Global CFP: " + cfpNumber);
-
-    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_09.imp_start_time, ad_data.AD_09.imp_end_time, ad_data.AD_09.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_09.exp_start_time, ad_data.AD_09.exp_end_time, ad_data.AD_09.ReturnValue1, ad_data.AD_09.Settlement_Price, ad_data.AD_09.loa_acceptance_mins);
-
-    console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
-
-});
-
-
-//-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 7
-//-------------------------------------------------------------------------------------------------------------------------
-
-Then('Format D should be successfully Generated from initiator side as per admin case nine', async function () {
-
-    //cfp carried from initial Step definition
-    console.log("Global CFP: " + cfpNumber);
-
-    await loaManagement.loaGeneration();
-
-    await loaManagement.action(cfpNumber);
-
-    await loaManagement.formatD(ad_data.AD_09.GTAM, ad_data.AD_09.source_of_generation, ad_data.AD_09.RPO, ad_data.AD_09.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_09.imp_start_time, ad_data.AD_09.imp_end_time, ad_data.AD_09.Quantum_value);
-
-});
-
-//-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 8
-//-------------------------------------------------------------------------------------------------------------------------
-
-Then('Format D should be successfully Generated from Responder side as per admin case nine', async function () {
-
-    //cfp carried from initial Step definition
-    console.log("Global CFP: " + cfpNumber);
-
-    await loaManagement.loaGeneration();
-
-    await loaManagement.action_FormatD(cfpNumber);
-
-    await loaManagement.formatD(ad_data.AD_09.GTAM, ad_data.AD_09.source_of_generation, ad_data.AD_09.RPO, ad_data.AD_09.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_09.imp_start_time, ad_data.AD_09.imp_end_time, ad_data.AD_09.Quantum_value);
+    await dashboardCFP.unableToGenerateAward();
 
 });
 
@@ -494,7 +421,7 @@ Then('User Format D should be successfully Generated from initiator side as per 
 //@                                                     Scenario 14
 //-------------------------------------------------------------------------------------------------------------------------
 
-Then('New User Format D should be successfully Generated from Responder side as per admin case nine', async function () {
+Then('Verify the New User unable to generate Format D from Responder side as per admin case nine', async function () {
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
