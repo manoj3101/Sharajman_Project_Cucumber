@@ -94,7 +94,7 @@ Given('Admin User navigates to the application and logs in as an admin as per Ad
 Then('Admin approves the new discom user and assigns a subscription plan as per Admin case five', async function () {
 
     await manage_Member.click_Manage_Member(); //Manage Member
-    await manage_Member.approve_Member(org_name);  //Member assitance
+    await manage_Member.approve_Member(org_name, ad_data.AD_05.Manage_member);  //Member assitance
     await member_Assistance.clickMemberAssitance();
     await member_Assistance.subscription_Plan_Selection(org_name); //Subscription Plan Selection
 
@@ -103,7 +103,7 @@ Then('Admin approves the new discom user and assigns a subscription plan as per 
 Then('Admin approves the payment and assigns rights to the new user as per Admin case five', async function () {
 
     await payment_Approval.clickPaymentApproval(); //Payment Approval
-    await payment_Approval.paymentApproval(org_name);
+    await payment_Approval.paymentApproval(org_name, ad_data.AD_05.Payment_approval);
     await manage_Member.click_Manage_Member(); //Manage User - Rights
     await manage_Member.member_rights(org_name, ad_data.AD_05.selectall, ad_data.AD_05.Home, ad_data.AD_05.Registration, ad_data.AD_05.Manage_User, ad_data.AD_05.FormatD, ad_data.AD_05.LOA_Generation, ad_data.AD_05.Award, ad_data.AD_05.Respond, ad_data.AD_05.Initiate);
 });
@@ -140,7 +140,7 @@ Given('New User verifying the registration status as per admin case five', async
 
     await home.checkRegistration();
 
-    await home.clickHome();  
+    await home.clickHome();
 });
 
 Given('New User started creating Call for Proposal CFP as an initiator as per admin case five', async function () {
@@ -398,7 +398,7 @@ Given('New User can not Response CFP successfully as per admin case five', { tim
     await pageFixture.page.waitForTimeout(90 * 1000);
 
     console.log("Global CFP: " + cfpNumber);
-    
+
     await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_05.minQuantumValue11, ad_data.AD_05.ReturnValue11);
 });
 

@@ -29,7 +29,7 @@ class Manage_Member {
         await pageFixture.page.locator("//span[contains(text(),'Manage Member')]").click();
     }
 
-    async approve_Member(org_name) {
+    async approve_Member(org_name, memberApproveOrReject) {
 
         await pageFixture.page.waitForTimeout(3000);
         //Search organization name 
@@ -59,39 +59,45 @@ class Manage_Member {
         //     if (name.includes(user_name)) {
         //         await pageFixture.page.locator("(//*[contains(text(),'View')])[" + i + "]").click();
         //     }
-
         // }
 
         //Click the View Action 
         await pageFixture.page.locator("//a[contains(text(),'View')]").click();
 
         //Assert the alertmsg Message 
-        await assert.assertToContains("//*[contains(text(),'Registration pending for approval')]","Registration pending for approval");
-
-
+        await assert.assertToContains("//*[contains(text(),'Registration pending for approval')]", "Registration pending for approval");
         await pageFixture.page.waitForTimeout(4000);
+
         // //Assert the company name 
         const cmp_name = await pageFixture.page.locator("//input[@id='orgname']").textContent();
         // expect(cmp_name).toContain(org_name);
         // console.log(`Organization name : ${cmp_name}`);
 
-        //click the button 
-        await pageFixture.page.getByRole('button', { name: /Approve/i }).click();  // Reject False case
+        if (memberApproveOrReject) {
+            //click the button 
+            await pageFixture.page.getByRole('button', { name: /Approve/i }).click();
+            //click yes
+            await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+            //Assert the congratulation
+            //Assert the OTP Message 
+            await assert.assertToContains("//h4[@id='modal-basic-title']", "Congratulations");
 
-        //click yes9
-        await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+            // console.log(await pageFixture.page.locator("//b[contains(text(),'Member')]/..").first().textContent());
+            console.log(await pageFixture.page.locator("//div[@class='modal-body']").textContent());
 
-        //Assert the congratulation
-        //Assert the OTP Message 
-        await assert.assertToContains("//h4[@id='modal-basic-title']","Congratulations");
-
-        // console.log(await pageFixture.page.locator("//b[contains(text(),'Member')]/..").first().textContent());
-        console.log(await pageFixture.page.locator("//div[@class='modal-body']").textContent());
-
-
-        //Close the Congratulations Pop Up by clicking
-        await pageFixture.page.locator("//i-feather[@name='x']//*[name()='svg']").click();
-        await pageFixture.page.waitForTimeout(3000);
+            //Close the Congratulations Pop Up by clicking
+            await pageFixture.page.locator("//i-feather[@name='x']//*[name()='svg']").click();
+            await pageFixture.page.waitForTimeout(3000);
+        }
+        else {
+            // Reject False case
+            await pageFixture.page.locator('//textarea[@formcontrolname="documentRemarks"]').fill("Rejected");
+            await pageFixture.page.getByRole('button', { name: /Reject/i }).click();  // Reject False case
+            //click yes
+            await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+            //Registration form for member Agile Solutions_08144319 has been rejected successfully.
+            await assert.assertToContains("//*[contains(text(),'rejected successfully')]", "rejected successfully");
+        }
     }
 
 
@@ -107,8 +113,8 @@ class Manage_Member {
 
         //Click the Search  Button
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
-
         await pageFixture.page.waitForTimeout(3000);
+
         //Click the Rights Action 
         await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
         await pageFixture.page.waitForTimeout(3000);
@@ -187,7 +193,7 @@ class Manage_Member {
 
         //Assert Part 
         //Required previliges have been assigned to the user
-        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]","Required previliges have been assigned to the user");
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
         await pageFixture.page.waitForTimeout(5000);
     }
 

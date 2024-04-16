@@ -38,7 +38,7 @@ class Payment_Approval {
 
     }
 
-    async paymentApproval(org_name) {
+    async paymentApproval(org_name, paymentApproveOrReject) {
         await pageFixture.page.waitForTimeout(4000);
         //Search the organization name 
         await pageFixture.page.locator("//input[contains(@name,'search')]").fill(org_name);
@@ -59,22 +59,37 @@ class Payment_Approval {
         //If it has multiple row
         for (let i = elements.length; i > 0; i--) {
             //Approve the payment 
-            await pageFixture.page.locator("(//a[contains(text(),'Approve')])[" + i + "]").click();
+            if (paymentApproveOrReject) {
+                await pageFixture.page.locator("(//a[contains(text(),'Approve')])[" + i + "]").click();
+                //click yes in the pop up 
+                await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
 
-            //To reject the Payment ==> //tbody/tr/td[11]//a[contains(text(),'Reject')]
+                //Payment Date 
+                await pageFixture.page.locator("//input[@placeholder='Enter Date']").fill(formattedDate);
 
-            //click yes in the pop up 
-            await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+                //Click the submit Button 
+                await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
 
-            //Payment Date 
-            await pageFixture.page.locator("//input[@placeholder='Enter Date']").fill(formattedDate);
+                //Assert the Payment Message
+                //Subscription plan for member JW Company has been approved successfully.
+                await assert.assertToContains("//*[contains(text(),'Subscription plan for member')]", "Subscription plan for member");
+            }
+            else{
+                await pageFixture.page.locator("(//a[contains(text(),'Reject')])[" + i + "]").click();
+                //click yes in the pop up 
+                await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
 
-            //Click the submit Button 
-            await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+                //Payment Date 
+                await pageFixture.page.locator('//input[@formcontrolname="remark"]').fill("Payment Rejected");
 
-            //Assert the Payment Message
-            //Subscription plan for member JW Company has been approved successfully.
-            await assert.assertToContains("//*[contains(text(),'Subscription plan for member')]","Subscription plan for member");
+                //Click the submit Button 
+                await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+                //Assert the Payment Message
+                //Subscription plan for member Agile Solutions_08144319 has been rejected successfully.
+                await assert.assertToContains("//*[contains(text(),'rejected successfully')]", "rejected successfully");
+
+            }
             break;
 
         }

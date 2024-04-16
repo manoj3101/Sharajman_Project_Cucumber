@@ -47,3 +47,4 @@ Feature: TC_AD_012
   Scenario: New Discom Member Genarating Format D as Responder
     Given New User navigate to the Application and logged in as a discom user as Responder as per admin case tweleve
     Then New User Format D should be successfully Generated from Responder side as per admin case tweleve
+

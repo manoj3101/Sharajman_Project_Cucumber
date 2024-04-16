@@ -94,7 +94,7 @@ Given('Admin User navigates to the application and logs in as an admin as per Ad
 Then('Admin approves the new discom user and assigns a subscription plan as per Admin case twenty', async function () {
 
     await manage_Member.click_Manage_Member(); //Manage Member
-    await manage_Member.approve_Member(org_name);  //Member assitance
+    await manage_Member.approve_Member(org_namead_data.AD_20.Manage_member);  //Member assitance
     await member_Assistance.clickMemberAssitance();
     await member_Assistance.subscription_Plan_Selection(org_name); //Subscription Plan Selection
 
@@ -103,7 +103,7 @@ Then('Admin approves the new discom user and assigns a subscription plan as per 
 Then('Admin approves the payment and assigns rights to the new user as per Admin case twenty', async function () {
 
     await payment_Approval.clickPaymentApproval(); //Payment Approval
-    await payment_Approval.paymentApproval(org_name);
+    await payment_Approval.paymentApproval(org_name, ad_data.AD_20.Payment_approval);
     await manage_Member.click_Manage_Member(); //Manage User - Rights
     await manage_Member.member_rights(org_name, ad_data.AD_20.selectall, ad_data.AD_20.Home, ad_data.AD_20.Registration, ad_data.AD_20.Manage_User, ad_data.AD_20.FormatD, ad_data.AD_20.LOA_Generation, ad_data.AD_20.Award, ad_data.AD_20.Respond, ad_data.AD_20.Initiate);
 });
