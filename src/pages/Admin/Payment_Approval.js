@@ -3,10 +3,12 @@ const pageFixture = require("../../hooks/pageFixture");
 const data = require("../../helper/utils/data.json");
 const admin_data = require('../../helper/utils/admin_data.json');
 const SignUp = require('../Admin/SignUp');
+const Wrapper = require('../../helper/wrapper/assert');
 
 
 // Get the current date
 const currentDate = new Date();
+const assert = new Wrapper();
 
 // Extract year, month, and day
 const year = currentDate.getFullYear();
@@ -72,9 +74,7 @@ class Payment_Approval {
 
             //Assert the Payment Message
             //Subscription plan for member JW Company has been approved successfully.
-            const message = await pageFixture.page.locator("//*[contains(text(),'Subscription plan for member')]").textContent();
-            console.log(`✔ ${message}`);
-            expect(message).toContain("Subscription plan for member");
+            await assert.assertToContains("//*[contains(text(),'Subscription plan for member')]","Subscription plan for member");
             break;
 
         }

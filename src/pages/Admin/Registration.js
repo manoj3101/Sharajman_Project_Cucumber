@@ -3,10 +3,12 @@ const pageFixture = require("../../hooks/pageFixture");
 const data = require("../../helper/utils/data.json");
 const SignUp = require('../Admin/SignUp');
 const admin_data = require('../../helper/utils/admin_data.json');
+const Wrapper = require('../../helper/wrapper/assert');
 const RandomFunction = require('../../helper/utils/RandomFunction');
 
 //Object Instance
 const randomFunction = new RandomFunction();
+const assert = new Wrapper();
 
 
 //Object Instance
@@ -229,16 +231,11 @@ class Registration {
         //Submit Registration
         await pageFixture.page.click(this.submitRegistrationData);
 
+        //Assert the alertmsg Message 
+        await assert.assertToContains("//*[contains(text(),'Request Submitted for approval')]","Request Submitted for approval");
 
         //Assert the alertmsg Message 
-        const submittedapproval_assert = await pageFixture.page.locator("//*[contains(text(),'Request Submitted for approval')]").textContent();
-        expect(submittedapproval_assert).toContain("Request Submitted for approval");
-        console.log(`✔ ${submittedapproval_assert}`);
-
-        //Assert the alertmsg Message 
-        const alertmsg_assert = await pageFixture.page.locator("//*[contains(text(),'Registration pending for approval')]").textContent();
-        expect(alertmsg_assert).toContain("Registration pending for approval");
-        console.log(`✔ ${alertmsg_assert}`);
+        await assert.assertToContains("//*[contains(text(),'Registration pending for approval')]","Registration pending for approval");
 
         await pageFixture.page.waitForTimeout(3000);
 

@@ -381,11 +381,27 @@ Given('User started creating Call for Proposal CFP as an initiator as per admin 
 //@                                                     Scenario 10
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('Verify New User couldn\'t able to  Respond for a CFP created by User as per admin case four', async function () {
+Given('New User navigate to the Application and logged in as a discom user as Responder as per admin case four', async function () {
 
     //New user as a Responder
     console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(email_id, password);
 
+});
+
+Given('New User can not Response CFP successfully as per admin case four', async function () {
+
+    await home.clickCallForPropsal();
+
+    await dashboardCFP.clickresponder();
+
+    await pageFixture.page.waitForTimeout(90 * 1000);
+    
+    console.log("Global CFP: " + cfpNumber);
+
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_04.minQuantumValue1, ad_data.AD_04.ReturnValue1);
+
 
 });
+
+
