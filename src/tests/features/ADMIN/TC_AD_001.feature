@@ -20,6 +20,16 @@ Feature: TC_AD_001
     And User started placing Response to the CFP as per admin case one
     Then Response CFP should be Placed successfully as per admin case one
 
+  Scenario: Discom Member Responding to the  CFP as a Responder two.
+    Given User navigate to the Application and logged in as a discom user as Responder two as per admin case one
+    And Responder two started placing Response to the CFP as per admin case one
+    Then Responder two Response CFP should be Placed successfully as per admin case one
+
+  Scenario: Discom Member Responding to the  CFP as a Responder three.
+    Given User navigate to the Application and logged in as a discom user as Responder three as per admin case one
+    And Responder three started placing Response to the CFP as per admin case one
+    Then Responder three Response CFP should be Placed successfully as per admin case one
+
   Scenario: New Discom Member Awarding CFP and Generating LOA.
     Given New User navigate to the Application and logged in as a discom user as initiator as per admin case one
     And New User started generating the award and generating the LOA from initiator side as per admin case one
@@ -40,6 +50,7 @@ Feature: TC_AD_001
 
 
 
+
   Scenario: Discom Member Create CFP and Publishing the CFP.
     Given User navigate to the Application and logged in as a discom user as initiator as per admin case one
     And User started creating Call for Proposal CFP as an initiator as per admin case one
@@ -49,6 +60,16 @@ Feature: TC_AD_001
     Given New User navigate to the Application and logged in as a discom user as Responder as per admin case one
     And New User started placing Response to the CFP as per admin case one
     Then New User Response CFP should be Placed successfully as per admin case one
+
+  Scenario: Discom Member Responding to the  CFP as a Responder two.
+    Given User navigate to the Application and logged in as a discom user as Responder two as per admin case one
+    And Responder two started placing Response to the CFP as per admin case one
+    Then Responder two Response CFP should be Placed successfully as per admin case one
+
+  Scenario: Discom Member Responding to the  CFP as a Responder three.
+    Given User navigate to the Application and logged in as a discom user as Responder three as per admin case one
+    And Responder three started placing Response to the CFP as per admin case one
+    Then Responder three Response CFP should be Placed successfully as per admin case one
 
   Scenario: Discom Member Awarding CFP and Generating LOA.
     Given User navigate to the Application and logged in as a discom user as initiator as per admin case one
