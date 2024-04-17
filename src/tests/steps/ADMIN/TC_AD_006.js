@@ -114,19 +114,6 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per admin case six', async function () {
-
-    await login.login(data.admin, data.admin_password); //Login to the admin user 
-
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-
-    await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_06.Quantum_value); // Fetch the transaction fee formula
-
-    await transactionFee.fetch_Success_Fee(data.successfee, ad_data.AD_06.Quantum_value); // Fetch the Success fee formula
-
-    await login.logout(); //Logout
-
-});
 
 Given('New User navigate to the Application and logged in as a discom user as initiator as per admin case six', async function () {
 
@@ -223,7 +210,7 @@ Then('Response CFP should be Placed successfully as per admin case six', async f
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_06.imp_start_time, ad_data.AD_06.imp_end_time, ad_data.AD_06.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_06.imp_start_time, ad_data.AD_06.imp_end_time, ad_data.AD_06.minQuantumValue1);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_06.exp_start_time, ad_data.AD_06.exp_end_time, ad_data.AD_06.ReturnValue1);
 
@@ -231,6 +218,85 @@ Then('Response CFP should be Placed successfully as per admin case six', async f
 
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 5
+//-------------------------------------------------------------------------------------------------------------------------
+
+Given('User navigate to the Application and logged in as a discom user as Responder two as per admin case six', async function () {
+
+    // login = new Login(pageFixture.page);
+    await login.login(data.user3, data.user3_password);
+
+});
+
+
+
+Given('Responder two started placing Response to the CFP as per admin case six', { timeout: 120 * 1000 }, async function () {
+
+    await home.clickCallForPropsal();
+
+    await dashboardCFP.clickresponder();
+
+    // await pageFixture.page.waitForTimeout(90 * 1000);
+
+});
+
+
+
+Then('Responder two Response CFP should be Placed successfully as per admin case six', async function () {
+
+    console.log("Global CFP: " + cfpNumber);
+
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_06.minQuantumValue2, ad_data.AD_06.ReturnValue2);
+
+    await dashboardCFP.view_Respond(cfpNumber);
+
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_06.imp_start_time, ad_data.AD_06.imp_end_time, ad_data.AD_06.minQuantumValue2);
+
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_06.exp_start_time, ad_data.AD_06.exp_end_time, ad_data.AD_06.ReturnValue2);
+
+});
+
+
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 6
+//-------------------------------------------------------------------------------------------------------------------------
+
+Given('User navigate to the Application and logged in as a discom user as Responder three as per admin case six', async function () {
+
+    // login = new Login(pageFixture.page);
+    await login.login(data.user4, data.user4_password);
+
+});
+
+
+
+Given('Responder three started placing Response to the CFP as per admin case six', { timeout: 120 * 1000 }, async function () {
+
+    await home.clickCallForPropsal();
+
+    await dashboardCFP.clickresponder();
+
+    // await pageFixture.page.waitForTimeout(90 * 1000);
+
+});
+
+
+
+Then('Responder three Response CFP should be Placed successfully as per admin case six', async function () {
+
+    console.log("Global CFP: " + cfpNumber);
+
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_06.minQuantumValue3, ad_data.AD_06.ReturnValue3);
+
+    await dashboardCFP.view_Respond(cfpNumber);
+
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_06.imp_start_time, ad_data.AD_06.imp_end_time, ad_data.AD_06.minQuantumValue3);
+
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_06.exp_start_time, ad_data.AD_06.exp_end_time, ad_data.AD_06.ReturnValue3);
+
+});
+
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 7
 //-------------------------------------------------------------------------------------------------------------------------
 Given('New User started generating the award and generating the LOA from initiator side as per admin case six', { timeout: 1200000 }, async function () {
 
@@ -270,7 +336,7 @@ Then('Awarding and Generate LOA should be successfull as per admin case six', as
 });
 
 ///-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 6
+//@                                                     Scenario 8
 //-------------------------------------------------------------------------------------------------------------------------
 
 Then('Responder Uploading the documents should be successfull as per admin case six', async function () {
@@ -287,7 +353,7 @@ Then('Responder Uploading the documents should be successfull as per admin case 
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 7
+//@                                                     Scenario 9
 //-------------------------------------------------------------------------------------------------------------------------
 
 Then('Format D should be successfully Generated from initiator side as per admin case six', async function () {
@@ -304,7 +370,7 @@ Then('Format D should be successfully Generated from initiator side as per admin
 });
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 8
+//@                                                     Scenario 10
 //-------------------------------------------------------------------------------------------------------------------------
 
 Then('Format D should be successfully Generated from Responder side as per admin case six', async function () {
@@ -322,7 +388,7 @@ Then('Format D should be successfully Generated from Responder side as per admin
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 9
+//@                                                     Scenario 11
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('New user navigates to the application and logs in as an admin as per Admin Case six', async function () {
@@ -366,7 +432,7 @@ Then('Assigned new user successfully logs in as a staff member of the new member
 });
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 10
+//@                                                     Scenario 12
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('User navigate to the Application and logged in as a discom user as initiator as per admin case six', async function () {
@@ -430,7 +496,7 @@ Given('User started creating Call for Proposal CFP as an initiator as per admin 
 });
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 11
+//@                                                     Scenario 13
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('New User navigate to the Application and logged in as a discom user as Responder as per admin case six', async function () {

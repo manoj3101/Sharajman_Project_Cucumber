@@ -11,7 +11,6 @@ Feature: TC_AD_008
     Then Admin approves the payment and assigns rights to the new user as per Admin case eight
 
   Scenario: New Discom Member Create CFP and Publishing the CFP.
-    # Given Admin navigate to the application and login and fetching the transaction fee formula as per admin case eight
     Given New User navigate to the Application and logged in as a discom user as initiator as per admin case eight
     And New User verifying the registration status as per admin case eight
     And New User started creating Call for Proposal CFP as an initiator as per admin case eight
@@ -21,6 +20,16 @@ Feature: TC_AD_008
     Given User navigate to the Application and logged in as a discom user as Responder as per admin case eight
     And User started placing Response to the CFP as per admin case eight
     Then Response CFP should be Placed successfully as per admin case eight
+
+ Scenario: Discom Member Responding to the  CFP as a Responder two.
+    Given User navigate to the Application and logged in as a discom user as Responder two as per admin case eight
+    And Responder two started placing Response to the CFP as per admin case eight
+    Then Responder two Response CFP should be Placed successfully as per admin case eight
+
+  Scenario: Discom Member Responding to the  CFP as a Responder three.
+    Given User navigate to the Application and logged in as a discom user as Responder three as per admin case eight
+    And Responder three started placing Response to the CFP as per admin case eight
+    Then Responder three Response CFP should be Placed successfully as per admin case eight
 
   Scenario: New Discom Member unable to Award CFP and Generate LOA due to privilege action.
     Given New User navigate to the Application and logged in as a discom user as initiator as per admin case eight

@@ -50,7 +50,7 @@ let cfpNumber;
 //-------------------------------------------------------------------------------------------------------------------------
 Given('New user navigates to the application and initiates the sign-up process as per Admin case tweleve', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
-    console.log("                                            TC_AD_012                                                 ");
+    console.log("                                            TC_AD_122                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
     await signUp.signup(); //Sign Up
 });
@@ -111,19 +111,6 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per admin case tweleve', async function () {
-
-    await login.login(data.admin, data.admin_password); //Login to the admin user 
-
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-
-    await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_12.Quantum_value); // Fetch the transaction fee formula
-
-    await transactionFee.fetch_Success_Fee(data.successfee, ad_data.AD_12.Quantum_value); // Fetch the Success fee formula
-
-    await login.logout(); //Logout
-
-});
 
 Given('New User navigate to the Application and logged in as a discom user as initiator as per admin case tweleve', async function () {
 
@@ -288,9 +275,87 @@ Then('New User Response CFP should be Placed successfully as per admin case twel
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_12.imp_start_time1, ad_data.AD_12.imp_end_time1, ad_data.AD_12.Minimum_QuantumValue1);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_12.imp_start_time1, ad_data.AD_12.imp_end_time1, ad_data.AD_12.minQuantumValue11);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_12.exp_start_time1, ad_data.AD_12.exp_end_time1, ad_data.AD_12.ReturnValue11);
+
+});
+
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 5
+//-------------------------------------------------------------------------------------------------------------------------
+
+Given('User navigate to the Application and logged in as a discom user as Responder two as per admin case tweleve', async function () {
+
+    // login = new Login(pageFixture.page);
+    await login.login(data.user3, data.user3_password);
+
+});
+
+
+
+Given('Responder two started placing Response to the CFP as per admin case tweleve', { timeout: 120 * 1000 }, async function () {
+
+    await home.clickCallForPropsal();
+
+    await dashboardCFP.clickresponder();
+
+    // await pageFixture.page.waitForTimeout(90 * 1000);
+
+});
+
+
+
+Then('Responder two Response CFP should be Placed successfully as per admin case tweleve', async function () {
+
+    console.log("Global CFP: " + cfpNumber);
+
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_12.minQuantumValue21, ad_data.AD_12.ReturnValue21);
+
+    await dashboardCFP.view_Respond(cfpNumber);
+
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_12.imp_start_time1, ad_data.AD_12.imp_end_time1, ad_data.AD_12.minQuantumValue21);
+
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_12.exp_start_time1, ad_data.AD_12.exp_end_time1, ad_data.AD_12.ReturnValue21);
+
+});
+
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 6
+//-------------------------------------------------------------------------------------------------------------------------
+
+Given('User navigate to the Application and logged in as a discom user as Responder three as per admin case tweleve', async function () {
+
+    // login = new Login(pageFixture.page);
+    await login.login(data.user4, data.user4_password);
+
+});
+
+
+
+Given('Responder three started placing Response to the CFP as per admin case tweleve', { timeout: 120 * 1000 }, async function () {
+
+    await home.clickCallForPropsal();
+
+    await dashboardCFP.clickresponder();
+
+    // await pageFixture.page.waitForTimeout(90 * 1000);
+
+});
+
+
+
+Then('Responder three Response CFP should be Placed successfully as per admin case tweleve', async function () {
+
+    console.log("Global CFP: " + cfpNumber);
+
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_12.minQuantumValue31, ad_data.AD_12.ReturnValue21);
+
+    await dashboardCFP.view_Respond(cfpNumber);
+
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_12.imp_start_time1, ad_data.AD_12.imp_end_time1, ad_data.AD_12.minQuantumValue31);
+
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_12.exp_start_time1, ad_data.AD_12.exp_end_time1, ad_data.AD_12.ReturnValue21);
 
 });
 

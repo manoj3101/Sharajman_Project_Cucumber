@@ -112,19 +112,6 @@ Then('Admin approves the payment and assigns rights to the new user as per Admin
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per admin case three', async function () {
-
-    await login.login(data.admin, data.admin_password); //Login to the admin user 
-
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-
-    await transactionFee.fetch_Transaction_Fee(data.feeName, ad_data.AD_03.Quantum_value); // Fetch the transaction fee formula
-
-    await transactionFee.fetch_Success_Fee(data.successfee, ad_data.AD_03.Quantum_value); // Fetch the Success fee formula
-
-    await login.logout(); //Logout
-
-});
 
 Given('New User navigate to the Application and logged in as a discom user as initiator as per admin case three', async function () {
 
@@ -299,13 +286,13 @@ Then('Responder three Response CFP should be Placed successfully as per admin ca
 
     console.log("Global CFP: " + cfpNumber);
 
-    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_03.minQuantumValue2, ad_data.AD_03.ReturnValue2);
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_03.minQuantumValue3, ad_data.AD_03.ReturnValue3);
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue2);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_03.imp_start_time, ad_data.AD_03.imp_end_time, ad_data.AD_03.minQuantumValue3);
 
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue2);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_03.exp_start_time, ad_data.AD_03.exp_end_time, ad_data.AD_03.ReturnValue3);
 
 });
 

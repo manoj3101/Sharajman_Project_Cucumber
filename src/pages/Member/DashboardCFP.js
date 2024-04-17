@@ -669,7 +669,8 @@ class DashboardCFP {
         console.log(`Actual Energy in KWH : ${Energy1}`);
         const numericEnergy1 = parseFloat(Energy1);
 
-        // await expect(numericEnergy1).toBe(energy_kwh);
+        // expect.soft(energy_kwh).toBe(numericEnergy1);
+
         if (energy_kwh === numericEnergy1) {
             console.log(` ✔ Passed Actual Energy in KWH : ${energy_kwh} is equal to the Expected Energy in KWH : ${numericEnergy1}\n`);
         } else {
@@ -729,9 +730,8 @@ class DashboardCFP {
         const numericEnergy1 = parseFloat(Energy2);
         const numericquantum = parseFloat(quantum);
 
-        //  await expect.soft(numericquantum).toBe(roundedQuantum);
-        //  await expect.soft(numericEnergy1).toBe(responder_kwh);
-
+        // expect.soft(reverse_energy).toBe(numericEnergy1);
+        // expect.soft(reverse_energy).toEqual(numericEnergy1);
 
         if (reverse_energy === numericEnergy1) {
             console.log(` ✔ Passed Actual Energy in KWH : ${reverse_energy} is equal to the Expected Energy in KWH : ${numericEnergy1}`);

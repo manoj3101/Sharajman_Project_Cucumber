@@ -11,7 +11,6 @@ Feature: TC_AD_011
     Then Admin approves the payment and assigns rights to the new user as per Admin case eleven
 
   Scenario: New Discom Member Create CFP and Publishing the CFP.
-    # Given Admin navigate to the application and login and fetching the transaction fee formula as per admin case eleven
     Given New User navigate to the Application and logged in as a discom user as initiator as per admin case eleven
     And New User verifying the registration status as per admin case eleven
     And New User started creating Call for Proposal CFP as an initiator as per admin case eleven
