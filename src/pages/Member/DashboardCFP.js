@@ -870,23 +870,15 @@ class DashboardCFP {
             // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
-<<<<<<< HEAD
             //Negative Case
 
 
-=======
->>>>>>> 0be03078c687aae16626025acc70cc5858a062e6
             await this.successfee_Verify_Loa();
             await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
             //asserting the Awarded Successfully.
             const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
             expect(awarded).toContain("Response Accepted Successfully");
             console.log("              ✔ Response Accepted Successfully ✔          ");
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 0be03078c687aae16626025acc70cc5858a062e6
         }
         else {
             console.log("------------ X No Award Icon X ------------");
