@@ -18,15 +18,10 @@ const day = String(currentDate.getDate()).padStart(2, '0');
 // Form the date string in 'YYYY-MM-DD' format
 const formattedDate = `${year}-${month}-${day}`;
 
-//console.log(formattedDate); // Output example: 2024-02-27
+
 
 class Payment_Approval {
-    // Constructor
-    // constructor(page){
-    //     this.page =page;
-    // }
 
-    //Methods
 
     async clickPaymentApproval() {
 
@@ -53,9 +48,7 @@ class Payment_Approval {
         const elements = await pageFixture.page.$$("//tbody/tr");
 
 
-        // Output the number of row elements found
-        // console.log(`Number of Row found in Payment Approval: ${elements.length}`);
-
+       
         //If it has multiple row
         for (let i = elements.length; i > 0; i--) {
             //Approve the payment 
@@ -70,8 +63,7 @@ class Payment_Approval {
                 //Click the submit Button 
                 await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
 
-                //Assert the Payment Message
-                //Subscription plan for member JW Company has been approved successfully.
+               
                 await assert.assertToContains("//*[contains(text(),'Subscription plan for member')]", "Subscription plan for member");
             }
             else{
@@ -85,8 +77,7 @@ class Payment_Approval {
                 //Click the submit Button 
                 await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
 
-                //Assert the Payment Message
-                //Subscription plan for member Agile Solutions_08144319 has been rejected successfully.
+               
                 await assert.assertToContains("//*[contains(text(),'rejected successfully')]", "rejected successfully");
 
             }

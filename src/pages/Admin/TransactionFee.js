@@ -126,7 +126,7 @@ class TransactionFee {
 
         //Get the Formula from the Transaction fee 
         TransactionFee.getFormula = await pageFixture.page.locator(this.fetchFormula).nth(0).textContent();  //Get the formula & store it in the variable 
-        console.log(`Transaction fee Formula ${TransactionFee.getFormula}`);
+       
 
         // Remove the "=" sign
         const formulaWithoutEquals = TransactionFee.getFormula.slice(1);
@@ -137,8 +137,7 @@ class TransactionFee {
         // Evaluate the expression
         TransactionFee.FormulaValue = eval(TransactionFee.setFormula);
 
-        console.log("Formula :", TransactionFee.setFormula);
-        console.log("Formula Value:", TransactionFee.FormulaValue);
+        
 
         await pageFixture.page.waitForTimeout(3000);
     }
@@ -154,8 +153,7 @@ class TransactionFee {
 
         //Get the Formula from the Transaction fee 
         TransactionFee.getSuccessFormula = await pageFixture.page.locator(this.fetchFormula).nth(0).textContent();  //Get the formula & store it in the variable 
-        console.log(`Success fee Formula ${TransactionFee.getSuccessFormula}`);
-
+        
         // Remove the "=" sign
         const formulaWithoutEquals = TransactionFee.getSuccessFormula.slice(1);
 
@@ -165,8 +163,7 @@ class TransactionFee {
         // Evaluate the expression
         TransactionFee.successFormulaValue = eval(TransactionFee.setSuccessFormula);
 
-        console.log("Formula :", TransactionFee.setSuccessFormula);
-        console.log("Formula Value:", TransactionFee.successFormulaValue);
+       
 
         await pageFixture.page.waitForTimeout(3000);
     }

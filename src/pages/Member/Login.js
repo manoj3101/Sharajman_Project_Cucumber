@@ -36,11 +36,9 @@ class Login {
         const dialog = "//*[contains(text(),'Please confirm..')]";
         if (await pageFixture.page.isVisible(dialog)) {
             await pageFixture.page.getByRole('button', { name: ' Yes ' }).click();
-            console.log("------------------------------------------------------------------------------------------------------");
-            console.log("                                    ✔ Dialog Box Appeared ✔                                      ");
         }
         console.log("************************************** ✔ Successfully Logged In ✔ **************************************");
-        // console.log("-----------Page Title -------- :" + await pageFixture.page.title());
+        
 
     }
 
@@ -60,7 +58,7 @@ class Login {
         // expect(TFA_assert).toContain("Please check your OTP vie email and sms");
 
         await signUp.OTP();
-        console.log(`✔ OTP Two Factor Autentication Completed`);
+
         await pageFixture.page.waitForTimeout(5000);
     }
 
@@ -75,8 +73,7 @@ class Login {
         const dialog = "//*[contains(text(),'Please confirm..')]";
         if (await pageFixture.page.isVisible(dialog)) {
             await pageFixture.page.getByRole('button', { name: ' Yes ' }).click();
-            console.log("------------------------------------------------------------------------------------------------------");
-            console.log("                                    ✔ Dialog Box Appeared ✔                                      ");
+
         }
         console.log("************************************** ✔ Successfully Logged In ✔ **************************************");
 

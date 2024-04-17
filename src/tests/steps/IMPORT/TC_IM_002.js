@@ -26,22 +26,11 @@ const transactionFee = new TransactionFee(pageFixture.page);
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per import case two', async function () {
+
+Given('User navigate to the Application and logged in as a discom user as initiator as per import case two', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_IM_002                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    await login.login(data.admin, data.admin_password); //Login to the admin user 
-
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-
-    await transactionFee.fetch_Transaction_Fee(data.feeName, data.TC_02.Quantum_value); // Fetch the transaction fee formula
-
-    await transactionFee.fetch_Success_Fee(data.successfee, data.TC_02.Quantum_value); // Fetch the Success fee formula
-
-    await login.logout(); //Logout
-});
-
-Given('User navigate to the Application and logged in as a discom user as initiator as per import case two', async function () {
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 });

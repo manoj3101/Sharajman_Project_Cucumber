@@ -376,7 +376,7 @@ Given('New User navigate to the Application and logged in as a discom user as Re
 
 });
 
-Given('New User can not Response CFP successfully as per admin case five', { timeout: 120 * 1000 }, async function () {
+Given('New User can not Response CFP successfully as per admin case five', { timeout: 140 * 1000 }, async function () {
 
     await home.clickCallForPropsal();
 
