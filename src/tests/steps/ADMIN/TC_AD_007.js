@@ -254,7 +254,7 @@ Given('Verify the New User unable to generate the award and LOA from initiator s
 
     await dashboardCFP.initiatedFeed(cfpNumber);
 
-    await dashboardCFP.generateAward();
+    await dashboardCFP.unableToGenerateAward();
 
 });
 
