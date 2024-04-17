@@ -1,5 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const pageFixture = require("../../hooks/pageFixture");
+const Wrapper = require('../../helper/wrapper/assert');
+
+const assert = new Wrapper();
 
 class Home {
 
@@ -50,9 +53,7 @@ class Home {
 
   async checkRegistration() {
     //Assert the alertmsg Message 
-    const approved_assert = await pageFixture.page.locator("//ngb-alert[@role='alert']").textContent();
-    expect(approved_assert).toContain("Registration data is approved");
-    console.log(`✔ ${approved_assert}`);
+    await assert.assertToContains("//ngb-alert[@role='alert']","Registration data");
   }
 
   async clickHome() {

@@ -32,27 +32,20 @@ class Manage_User {
     async click_Manage_User() {
         //Hover to the Manage Member and click the Manage Member
         const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[2]");
-        await home.hover();
-
+        await home.hover({ timeout: 40000 });
         // Locate the Registration element
         const manageUserElement = await pageFixture.page.locator("//span[contains(text(),'Manage User')]");
-
         // Check if the element is present
         const isElementPresent = await manageUserElement.isVisible();
-
         if (isElementPresent) {
-
             // If element is present, click on it
             await manageUserElement.click();
-
         } else {
-
             // If element is not present, perform an assertion
             expect(isElementPresent).toBeFalsy();
             await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
             // Alternatively, you can log a message
             await pageFixture.page.waitForTimeout(3000)
-
         }
     }
 

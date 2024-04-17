@@ -19,17 +19,11 @@ const formattedDate = `${year}-${month}-${day}`;
 
 //console.log(formattedDate); // Output example: 2024-02-27
 
-
-
-
-
 class Member_Assistance {
     // Constructor
     // constructor(page){
     //     this.page =page;
     // }
-
-
 
     trans_id =(Math.floor(Math.random() * 900000000) + 100000000).toString(); 
 
