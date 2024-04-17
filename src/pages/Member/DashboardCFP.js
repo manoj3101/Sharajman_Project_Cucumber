@@ -871,10 +871,6 @@ class DashboardCFP {
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
             //Negative Case
-
-
-            await this.successfee_Verify_Loa();
-            await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
             //asserting the Awarded Successfully.
             const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
             expect(awarded).toContain("Response Accepted Successfully");
@@ -1055,11 +1051,11 @@ class DashboardCFP {
         const line_15 = `Dear	Sir,`;
         const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;

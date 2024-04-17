@@ -152,11 +152,11 @@ class LOAManagement {
         const line_15 = `Dear	Sir,`;
         const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
