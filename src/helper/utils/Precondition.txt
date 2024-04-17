@@ -1,5 +1,5 @@
 [Check the Import & Export date before running the script]
-
+[Here i have changed the Response time , Awarding time ]
 EXPORT
 
 TC_EX_001 ==>

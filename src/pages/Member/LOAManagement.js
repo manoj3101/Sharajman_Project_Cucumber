@@ -5,12 +5,14 @@ const pdf = require('pdf-parse');
 const fs = require('fs').promises;
 const DashboardCFP = require("../../pages/Member/DashboardCFP");
 const RandomFunction = require('../../helper/utils/RandomFunction');
+const Wrapper = require('../../helper/wrapper/assert');
 
 
 //Object Instance
 const randomFunction = new RandomFunction();
 const dashboardCFP = new DashboardCFP();
 const currentDate = new Date();
+const assert = new Wrapper();
 
 // Get day, month, and year
 const day = String(currentDate.getDate()).padStart(2, '0');
@@ -418,9 +420,8 @@ class LOAManagement {
         //Confirm Yes
         await pageFixture.page.getByRole('button', { name: ' Yes ' }).click();
 
-        const message = await pageFixture.page.locator("//*[contains(text(),'Format-D have been generated successfully')]").textContent();
-        console.log(`${message}`);
-        await expect(message).toContain("Format-D have been generated successfully");
+        //Assert 
+        await assert.assertToContains("//*[contains(text(),'Format-D have been generated successfully')]","Format-D have been generated successfully");
         await pageFixture.page.waitForTimeout(2000);
         console.log("----------------Format-D Generated Successfully ----------------");
 

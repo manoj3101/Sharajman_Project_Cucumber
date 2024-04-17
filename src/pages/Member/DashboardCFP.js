@@ -417,10 +417,6 @@ class DashboardCFP {
             await assert.assertToContains('//*[contains(text(),"You don\'t have privilege")]', "You don't have privilege to perform this action");
         }
         else {
-            await this.transactionfee_Verify_Initiator();
-            await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //New feature click proceed to continue
-            await pageFixture.page.waitForTimeout(2000);
-
             //submitted status
             const cfpstatus = await pageFixture.page.locator(this.cfp).textContent();
             console.log("---------------- ✔ " + cfpstatus + " ✔-----------------");
@@ -533,12 +529,6 @@ class DashboardCFP {
         await pageFixture.page.waitForTimeout(2000);
         //Click place response button...
         await pageFixture.page.locator("//button[contains(text(),'Place Response')]").click({ timeout: 50000 });
-
-        //verify the transaction fee
-        await this.transactionfee_Verify_Responder();
-        await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //new button
-
-
 
         //Checking the Message Response Placed Successfully is correct or not.
         await pageFixture.page.waitForTimeout(2000);
@@ -888,8 +878,6 @@ class DashboardCFP {
                 expect(textMsg).toContain("You don't have privilege to perform this action");
             }
             else {
-                await this.successfee_Verify_Loa();
-                await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
                 //asserting the Awarded Successfully.
                 const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
                 expect(awarded).toContain("Response Accepted Successfully");

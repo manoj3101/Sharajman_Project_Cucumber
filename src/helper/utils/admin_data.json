@@ -981,6 +981,12 @@
 
     "minQuantumValue1":"99999",
     "ReturnValue1":"999.98",
+    
+    "minQuantumValue2":"99998",
+    "ReturnValue2":"999.97",
+
+    "minQuantumValue3":"99998",
+    "ReturnValue3":"999.97",
 
     "route":"YES",
     "GTAM":"YES",
