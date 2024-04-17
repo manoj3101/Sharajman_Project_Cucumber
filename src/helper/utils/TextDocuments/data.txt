@@ -4,20 +4,20 @@ Format-D
 	
 T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA
 	
-1Application	No.6490861Date	:	17-04-2024
+1Application	No.5699763Date	:	17-04-2024
 2Applicant	NameDas&CoRegistration	Code
 3
 T-GNA	Request
 DateHours
 MW
 FromToFromTo
-18-04-202416-04-202620:0023:3099999.0
+17-04-202617-04-202600:3004:3099999.0
 4
 Name	of	Entity
 Injecting	entity	(mandatory	for	Exigency	T-
 GNAS	application)
 Drawee	Entity
-Nova	Nexus_17154909Das&Co
+LCUDas&Co
 5Injecting	RegionSRLDC
 6RouteSR-SR
 7

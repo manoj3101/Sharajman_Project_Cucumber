@@ -117,11 +117,11 @@ class DashboardCFP {
         switch (chooseCFP) {
             case "Quick CFP":
                 await pageFixture.page.locator("//span[contains(text(),'" + chooseCFP + "')]").nth(0).click();
-                console.log(`User Choose ${chooseCFP}`);
+                console.log(`User Choose -------- ${chooseCFP}`);
                 break;
             case "Custom CFP":
                 await pageFixture.page.locator("//span[contains(text(),'" + chooseCFP + "')]").nth(0).click();
-                console.log(`User Choose ${chooseCFP}`);
+                console.log(`User Choose -------- ${chooseCFP}`);
                 await pageFixture.page.waitForTimeout(3000);
                 await pageFixture.page.getByRole('textbox').setInputFiles('src/helper/utils/CFP.pdf');
                 await pageFixture.page.waitForTimeout(6000);
@@ -168,7 +168,7 @@ class DashboardCFP {
         // Calculating dates
         var importStartDate = addDays(currentDate, impStartDate);
         var importEndDate = addDays(currentDate, impEndDate);
-        // console.log(importStartDate);
+        
 
         // Function to format date to 'YYYY-MM-DD' format
         var formatDate = function (date) {
@@ -330,7 +330,7 @@ class DashboardCFP {
         }
         else {
             await pageFixture.page.check(this.ceiling_baseNo);
-            console.log(" X No Ceiling or Base Return X");
+            
         }
         //await pageFixture.page.locator(this.showHighlight).click();
         await pageFixture.page.waitForTimeout(3000);
@@ -375,37 +375,7 @@ class DashboardCFP {
     }
 
     //Transaction fee verification
-    async transactionfee_Verify_Initiator() {
-        //Get the text content from the Remaining listing
-        const text = await pageFixture.page.locator("(//div[contains(@class,'modal-body')])[2]").textContent();
-        console.log(`Remaining listing :${text}`);
-
-        // Regular expression to extract values
-        // const regex = /INR (\d+) .* (\d+\*\d+)/;
-        const regex = /INR (\d+(\.\d+)?) .* (\d+\*\d+(\.\d+)?)/;
-
-        // Executing the regular expression on the text
-        const matches = regex.exec(text);
-
-        if (matches) {
-            const amountOnHold = matches[1];
-            const successFee = matches[3];
-            console.log("Amount on hold:", amountOnHold);
-            console.log("Success fee:", successFee);
-            if (amountOnHold == TransactionFee.FormulaValue) {
-                console.log(`✔ Expected transaction fee ${TransactionFee.FormulaValue} is equal to actual value ${amountOnHold}`);
-            } else {
-                console.log(`X Expected not met actual `);
-            }
-            if (successFee == TransactionFee.setFormula) {
-                console.log(`✔ Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
-            } else {
-                console.log(`X Expected not met actual\n`);
-            }
-        } else {
-            console.log("No matches found.");
-        }
-    }
+  
 
     //next & publish
     async publish() {
@@ -424,7 +394,7 @@ class DashboardCFP {
             const CFP_N = await pageFixture.page.locator(this.cfpNumber).innerText();
 
             this.CFP_Num = CFP_N;
-            console.log("CFP ID Status -----------:" + this.CFP_Num);
+           
         }
 
     }
@@ -439,38 +409,7 @@ class DashboardCFP {
     }
 
 
-    async transactionfee_Verify_Responder() {
-        //Get the text content from the Remaining listing
-        const text = await pageFixture.page.locator("(//div[contains(@class,'modal-body')])[1]").textContent();
-        console.log(`Remaining listing :${text}`);
-
-        // Regular expression to extract values
-        // const regex = /INR (\d+) .* (\d+\*\d+)/;
-        const regex = /INR (\d+(\.\d+)?) .* (\d+\*\d+(\.\d+)?)/;
-
-        // Executing the regular expression on the text
-        const matches = regex.exec(text);
-
-        if (matches) {
-            const amountOnHold = matches[1];
-            const successFee = matches[3];
-            console.log("Amount on hold:", amountOnHold);
-            console.log("Success fee:", successFee);
-            if (amountOnHold == TransactionFee.FormulaValue) {
-                console.log(`✔ Expected transaction fee ${TransactionFee.FormulaValue} is equal to actual value ${amountOnHold}`);
-            } else {
-                console.log(`X Expected not met actual `);
-            }
-            if (successFee == TransactionFee.setFormula) {
-                console.log(`✔ Expected transaction fee ${TransactionFee.setFormula} is equal to actual value ${successFee}\n`);
-            } else {
-                console.log(`X Expected not met actual\n`);
-            }
-        } else {
-            console.log("No matches found.");
-        }
-    }
-
+   
     //Place Respond (Responder side)
     async place_Respond(CFP, minQuantumValue1, ReturnValue1) {
 
@@ -479,20 +418,15 @@ class DashboardCFP {
         await pageFixture.page.click(this.responder_tab);
         await pageFixture.page.waitForTimeout(3000);
         const LiveCFP = await pageFixture.page.$$("//div[@class='d-flex low-time-strip']");
-        console.log("--------------No of Live CFP Feed--------------: " + LiveCFP.length);
+        
         const lists = await pageFixture.page.$$("//b[text()='CFP ID ']/..");
-        // console.log("-------------------No of CFP ID-------------: " + lists.length);
-        //check the same cfp number 
-
-
         for (let i = 0; i < lists.length; i++) {
             const textContent = await lists[i].textContent();
-            //console.log(textContent);
             if (textContent.includes(CFP)) {
-                console.log("-------------------My CFP---------------: " + CFP);
+                
                 //(//span[contains(@class,'digital-time')]/following-sibling::div/button)[1]
                 await pageFixture.page.locator("(//span[contains(@class,'digital-time')]/following-sibling::div/button)[" + (i + 1) + "]").click();
-                console.log("                  ✔ Clicked Respond ✔                 ");
+                
                 break;
             }
             else {
@@ -516,7 +450,6 @@ class DashboardCFP {
 
         //If it has Base/ceiling return enter the value and place the 
         if (await pageFixture.page.isVisible("//input[@formcontrolname='bid_amount']")) {
-            console.log(await pageFixture.page.locator("//div[contains(@class,'d-flex align-items-center justify-content-between')]//p").nth(0).textContent());
             //Ener Return ...
             await pageFixture.page.locator("//input[@formcontrolname='bid_amount']").fill(ReturnValue1);
             await pageFixture.page.locator("//input[@id='flexCheckChecked']").click(); // Click Check Box
@@ -577,19 +510,16 @@ class DashboardCFP {
     //view response
     async view_Respond(CFP) {
         const LiveCFP = await pageFixture.page.$$("//div[@class='d-flex low-time-strip']");
-        // console.log("--------------Live CFP Feed--------------: "+LiveCFP.length);
+       
         const lists = await pageFixture.page.$$("//b[text()='CFP ID ']/..");
-        // console.log("-------------------CFP ID-------------: "+lists.length);
-        //check the same cfp number 
-
+        
         for (let i = 0; i < lists.length; i++) {
             const textContent = await lists[i].textContent();
-            //console.log(textContent);
+          
             if (textContent.includes(CFP)) {
-                console.log("My CFP :" + CFP);
                 // await pageFixture.page.locator("(//button[contains(text(),'View Response')])[" + (i + 1) + "]").click();
                 await pageFixture.page.locator("(//span[contains(@class,'digital-time')]/following-sibling::div/button)[" + (i + 1) + "]").click();
-                console.log("               ✔ Clicked view Response ✔            ");
+
                 break;
             }
             else {
@@ -604,21 +534,16 @@ class DashboardCFP {
         const tabSwitch = new tabSwitcher();
         await tabSwitch.switchToTab("cfp");
         await pageFixture.page.waitForTimeout(3000);
-        // const initiatedCFP= await pageFixture.page.$$("//div[@class='d-flex initiated-time-strip']");
-        // console.log("--------------Initiated CFP Feed--------------: "+initiatedCFP.length);
-
+      
         const lists = await pageFixture.page.$$("//b[contains(text(),'CFP ID')]/..");
-        // console.log("-------------------CFP ID-------------: " + lists.length);
-
-        //check the same cfp number            
-        for (let i = 0; i < lists.length; i++) {
+              for (let i = 0; i < lists.length; i++) {
             const textContent = await lists[i].textContent();
-            //console.log("-----------------------"+textContent);
+           
             if (textContent.includes(CFP)) {
-                console.log("My CFP : " + CFP);
+                
                 await pageFixture.page.locator("(//button//div[contains(@class,'icon-bg position-relative')])[" + (i + 1) + "]").click();
                 await pageFixture.page.waitForTimeout(2000);
-                console.log("--------------View Clicked--------------");
+               
                 break;
             }
             else {
@@ -654,19 +579,17 @@ class DashboardCFP {
         const minutes = (timeDifference / (1000 * 60)) % 60;
         const time = hours + minutes / 60;
 
-        // Display the result
-        // console.log(`Initiator Difference: ${days} days, ${hours + minutes / 60} hours\n`);
 
         //Calculation part 
         const energy_kwh = (days + 1) * time * quantum * 1000;
-        console.log(`Expected Energy in KWH :${energy_kwh}`);
+       
 
         //Assertion 
         //import 
         const content1 = await pageFixture.page.locator("(//h5[contains(text(),'Period')])[1]").textContent();
         const Energy1 = await pageFixture.page.locator("(//td[7])[1]").textContent();
-        console.log("<<<<<<<<<<<<<<<<<<<<" + content1 + ">>>>>>>>>>>>>>>>>>>>>>\n");
-        console.log(`Actual Energy in KWH : ${Energy1}`);
+        // console.log("<<<<<<<<<<<<<<<<<<<<" + content1 + ">>>>>>>>>>>>>>>>>>>>>>\n");
+        
         const numericEnergy1 = parseFloat(Energy1);
 
         // expect.soft(energy_kwh).toBe(numericEnergy1);
@@ -700,9 +623,6 @@ class DashboardCFP {
         const minutes = (timeDifference / (1000 * 60)) % 60;
         const time = hours + minutes / 60;
 
-        // Display the result
-        // console.log(`Responder Difference: ${days} days, ${hours + minutes / 60} hours\n`);
-
         const initiator_kwh = global.eng;
 
         //Calculation part        
@@ -711,12 +631,12 @@ class DashboardCFP {
         const roundedQuantum = Math.floor(responder_megawatt * 100) / 100; // Round down to 2 decimal places  //Responder quantum 
         const reverse_energy = roundedQuantum * 1000 * (days + 1) * time; //Responder reverse energy
 
-        console.log("Expected Energy1 in KWH : " + initiator_kwh); //Initiator Energy calculated in above method
+        // console.log("Expected Energy1 in KWH : " + initiator_kwh); //Initiator Energy calculated in above method
         // console.log("Old Expected Energy2 in KWH : " + responder_kwh); //Responder Energy calculate as per old method
-        console.log("Expected Energy2 in KWH : " + reverse_energy); //Responder Reverse energy
-        const roundedQuantum1 = Number(responder_megawatt.toFixed(2));
-        console.log("Expected Quantum in MW : " + responder_megawatt);
-        console.log("Round off Expected Quantum in MW : " + roundedQuantum);
+        // console.log("Expected Energy2 in KWH : " + reverse_energy); //Responder Reverse energy
+        // const roundedQuantum1 = Number(responder_megawatt.toFixed(2));
+        // console.log("Expected Quantum in MW : " + responder_megawatt);
+        // console.log("Round off Expected Quantum in MW : " + roundedQuantum);
         // console.log("Old Round off Expected Quantum in MW : " + roundedQuantum1);
 
         //assert 
@@ -724,9 +644,9 @@ class DashboardCFP {
         const content2 = await pageFixture.page.locator("(//h5[contains(text(),'Period')])[2]").textContent();
         const Energy2 = await pageFixture.page.locator("(//td[8])[1]").textContent();
         const quantum = await pageFixture.page.locator("(//td[7])[2]").textContent();
-        console.log("<<<<<<<<<<<<<<<<" + content2 + ">>>>>>>>>>>>>>>>>>>>\n");
-        console.log("Actual Energy in KWH :" + Energy2);
-        console.log("Actual Quantum in MH :" + quantum);
+        // console.log("<<<<<<<<<<<<<<<<" + content2 + ">>>>>>>>>>>>>>>>>>>>\n");
+        // console.log("Actual Energy in KWH :" + Energy2);
+        // console.log("Actual Quantum in MH :" + quantum);
         const numericEnergy1 = parseFloat(Energy2);
         const numericquantum = parseFloat(quantum);
 
@@ -780,50 +700,18 @@ class DashboardCFP {
             }
         }
 
-        // Now maxNumber contains the highest number, and maxIndex contains its corresponding index
-        console.log("Highest Number:", maxNumber);
-        console.log("Index of Highest Number:", maxIndex);
-
 
 
     }
 
 
-    //Success fee verification
-    async successfee_Verify_Loa() {
-        //Get the text content from the Remaining listing
-        const text = await pageFixture.page.locator("//span[contains(text(),'Success fee')]").textContent();
-        const text1 = await pageFixture.page.locator("(//span[contains(text(),'Success Fee Debited')]//following::span)[1]").textContent();
-
-        console.log(`Success Fee :${text}`);
-        console.log(`Success Fee :${text1}`);
-
-        // Regular expression to extract values
-        // const regex = /INR (\d+)/;
-        const regex = /INR (\d+(\.\d+)?)/;
-
-        // Executing the regular expression on the text
-        const matches = regex.exec(text1);
-
-        if (matches) {
-            const successFee = matches[1];
-            console.log("Actual Success fee:", successFee);
-            if (successFee == TransactionFee.successFormulaValue) {
-                console.log(`✔ Expected Success fee ${TransactionFee.successFormulaValue} is equal to actual value ${successFee}`);
-            } else {
-                console.log(`X Expected not met actual`);
-            }
-        } else {
-            console.log("No Success fee matches found.");
-        }
-    }
 
 
 
     //Generate Award
     async generateAward() {
         const returns = await pageFixture.page.$$("//table[contains(@class,'table overflow-hidden rounded')]//tbody//tr[1]/td[4]//div");
-        console.log(`The lenght of the ruturn (%) :${returns.length}`);
+       
         // Initialize an empty array to store objects with index and number
         let numbersArray = [];
 
@@ -833,7 +721,7 @@ class DashboardCFP {
             const returnsText = await returns[i].innerText();
             // Remove the % symbol and convert to number
             const numberValue = parseFloat(returnsText.replace('%', ''));
-            console.log(`The ruturn (%) :${numberValue}`);
+
             // Create an object containing both index and number
             const obj = {
                 index: i,
@@ -855,38 +743,20 @@ class DashboardCFP {
             }
         }
 
-        // Now maxNumber contains the highest number, and maxIndex contains its corresponding index
-        console.log("Highest Number:", maxNumber);
-        console.log("Index of Highest Number:", maxIndex + 1);
-
         await pageFixture.page.waitForTimeout(2000);
-        //click the award icon & proceed with award
-        // const award = await pageFixture.page.locator("//a[@ngbtooltip='Click to Award']").nth(0);
-        // const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Award'])[" + (maxIndex + 1) + "]");
-        // await pageFixture.page.locator("(//thead//th)[2]").dblclick();
+
         const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Accept'])[" + (maxIndex + 1) + "]");
         if (await award.isVisible()) {
             await award.click();
             // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
             await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
-<<<<<<< HEAD
-            //Negative Case
-
-
-=======
->>>>>>> 0be03078c687aae16626025acc70cc5858a062e6
-            await this.successfee_Verify_Loa();
-            await pageFixture.page.getByRole('button', { name: /Close/i }).click(); //new button
-            //asserting the Awarded Successfully.
+           
             const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
             expect(awarded).toContain("Response Accepted Successfully");
             console.log("              ✔ Response Accepted Successfully ✔          ");
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 0be03078c687aae16626025acc70cc5858a062e6
         }
         else {
             console.log("------------ X No Award Icon X ------------");
@@ -896,7 +766,7 @@ class DashboardCFP {
 
     async unableToGenerateAward() {
         const returns = await pageFixture.page.$$("//table[contains(@class,'table overflow-hidden rounded')]//tbody//tr[1]/td[4]//div");
-        console.log(`The lenght of the ruturn (%) :${returns.length}`);
+        
         // Initialize an empty array to store objects with index and number
         let numbersArray = [];
 
@@ -906,7 +776,7 @@ class DashboardCFP {
             const returnsText = await returns[i].innerText();
             // Remove the % symbol and convert to number
             const numberValue = parseFloat(returnsText.replace('%', ''));
-            console.log(`The ruturn (%) :${numberValue}`);
+           
             // Create an object containing both index and number
             const obj = {
                 index: i,
@@ -916,8 +786,6 @@ class DashboardCFP {
             // Push the object into the array
             numbersArray.push(obj);
         }
-
-        // Find the maximum number and its corresponding index
         let maxNumber = 0;
         let maxIndex;
 
@@ -928,15 +796,7 @@ class DashboardCFP {
             }
         }
 
-        // Now maxNumber contains the highest number, and maxIndex contains its corresponding index
-        console.log("Highest Number:", maxNumber);
-        console.log("Index of Highest Number:", maxIndex + 1);
-
-        await pageFixture.page.waitForTimeout(2000);
-        //click the award icon & proceed with award
-        // const award = await pageFixture.page.locator("//a[@ngbtooltip='Click to Award']").nth(0);
-        // const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Award'])[" + (maxIndex + 1) + "]");
-        // await pageFixture.page.locator("(//thead//th)[2]").dblclick();
+        await pageFixture.page.waitForTimeout(2000)
         const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Accept'])[" + (maxIndex + 1) + "]");
         if (await award.isVisible()) {
             await award.click();
@@ -1036,9 +896,6 @@ class DashboardCFP {
         const parsedData = await pdf(dataBuffer);
         const text = parsedData.text;
 
-        // Now you can use the extracted text
-        console.log(`\nText format Content are : ${text}`);
-
         // Write the parsed text content to a text file for reference
         await fs.writeFile('src/helper/utils/TextDocuments/data.txt', text); // Specify the correct file path
 
@@ -1114,17 +971,13 @@ class DashboardCFP {
         }
         console.log("-------------------LOA Document Verification have Done------------------");
 
-        //TimeLine Functionality
-        //LOA Issuance timeline
+
         var loaIssuanceTime = await pageFixture.page.locator("//div//small").textContent();
-        console.log(`LOA Issuance timeline : ${loaIssuanceTime}`);
 
         //Contact Awardin time 
         DashboardCFP.loaIssuanceMins = randomFunction.addMinutesToCurrentTime(loaIssuanceTime);
         const contarctAwardTime = DashboardCFP.loaIssuanceMins - parseInt(loa_issuance_mins);
-        console.log(`Contract Awarding Time: Expires in 00:${contarctAwardTime}:00`);
 
-        console.log("LOA Issuance Added minutes:", DashboardCFP.loaIssuanceMins);
 
 
         //Check contract time is added in the loa issuance time
@@ -1176,19 +1029,6 @@ class DashboardCFP {
         //asset the message Acccess Denied 
         await pageFixture.page.waitForTimeout(3000);
         console.log("Access Denied\n You are not authorized to access this application.");
-
-        // pageFixture.page.on('response', async (response) => {
-        //     if (response.status() === 403) {
-        //       console.log('Received 403 Forbidden error.');
-        //     }
-        //   });
-
-        //The below  one will not run because that page is 403 error 
-        // const loa_assert = await pageFixture.page.locator("//h2[normalize-space()='Access Denied']").textContent();
-        // const loa_assert1 = await pageFixture.page.locator("//*[contains(text(),'Access Denied')]/following::p").textContent();
-        // expect(loa_assert).toContain("Access Denied");
-        // console.log(`X ${loa_assert} for LOA Generation`);
-        // console.log(`X ${loa_assert1}`);
     }
 
     // Helper function to clear files in the folder
@@ -1226,8 +1066,6 @@ class DashboardCFP {
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
         await pageFixture.page.locator("//input[contains(@placeholder,'Search')]").fill(CFP);
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
-        //Need to verify the time.....
-        console.log("Waiting for Initiator LOA Expire .................");
         await pageFixture.page.waitForTimeout(150 * 1000);
         await pageFixture.page.click("//span[text()='Upload']");
         await pageFixture.page.waitForSelector("(//input[@type='file'])[2]");
