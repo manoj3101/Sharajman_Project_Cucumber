@@ -42,24 +42,11 @@ class Manage_Member {
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
         await pageFixture.page.waitForTimeout(4000);
 
-        //check the row   //tbody/tr    if the row is one then do  
-        //(//tbody/tr//td)[13]  ==> Action text content
-
-        //(//tbody/tr//td)[6] ==> view 
+        
 
         // List of row
         const elements = await pageFixture.page.$$("//tbody/tr");
 
-        // Output the number of row elements found
-        // console.log(`Number of Row elements found: ${elements.length}`);
-
-        //If it has multiple row
-        // for (let i = 0; i < elements.length; i++) {
-        //     const name = await pageFixture.page.locator("(//tbody/tr/td[2])[" + i + "]").textContent();
-        //     if (name.includes(user_name)) {
-        //         await pageFixture.page.locator("(//*[contains(text(),'View')])[" + i + "]").click();
-        //     }
-        // }
 
         //Click the View Action 
         await pageFixture.page.locator("//a[contains(text(),'View')]").click();
@@ -71,7 +58,6 @@ class Manage_Member {
         // //Assert the company name 
         const cmp_name = await pageFixture.page.locator("//input[@id='orgname']").textContent();
         // expect(cmp_name).toContain(org_name);
-        // console.log(`Organization name : ${cmp_name}`);
 
         if (memberApproveOrReject) {
             //click the button 
@@ -82,8 +68,6 @@ class Manage_Member {
             //Assert the OTP Message 
             await assert.assertToContains("//h4[@id='modal-basic-title']", "Congratulations");
 
-            // console.log(await pageFixture.page.locator("//b[contains(text(),'Member')]/..").first().textContent());
-            console.log(await pageFixture.page.locator("//div[@class='modal-body']").textContent());
 
             //Close the Congratulations Pop Up by clicking
             await pageFixture.page.locator("//i-feather[@name='x']//*[name()='svg']").click();
