@@ -3,12 +3,13 @@ const data = require("../../helper/utils/data.json");
 const pageFixture = require("../../hooks/pageFixture");
 const SignUp = require('../Admin/SignUp');
 const RandomFunction = require('../../helper/utils/RandomFunction');
-
+const Wrapper = require('../../helper/wrapper/assert');
 
 
 //Object Instance
 const signUp = new SignUp();
 const randomFunction = new RandomFunction();
+const assert = new Wrapper();
 
 
 
@@ -50,9 +51,7 @@ class Login {
         await pageFixture.page.click(signUp.Change_password, { timeout: 40000 }); //Click Change Button
 
         //Assert the changepass Message 
-        const changepass_assert = await pageFixture.page.locator("//*[contains(text(),'Password changed successfully')]").textContent();
-        expect(changepass_assert).toContain("Password changed successfully");
-        console.log(`✔ ${changepass_assert}\n`);
+        await assert.assertToContains("//*[contains(text(),'Password changed successfully')]","Password changed successfully")
 
         await pageFixture.page.click(signUp.TFA_OTP); //Next Step is to click OTP Two Factor Autentication
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();

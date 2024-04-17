@@ -25,31 +25,31 @@
         "Manage_User": true,
         "LOA_Management":true,
 
-        "department":"testing",
-        "designation":"lead",
+        "department":"Tester",
+        "designation":"Lead",
         "sub_type":"Staff",
 
 
         "chooseCFP":"Quick CFP",
-        "multiple_responder":false,
+        "multiple_responder":true,
         "Power_swapping":99999,
         "Fisrt_choice":"Import",
-        "Result_Published":false,
+        "Result_Published":true,
        
     
         "Minimum_Quantum":true,
-        "Minimum_QuantumValue":"99998",
+        "Minimum_QuantumValue":"0.01",
     
-        "imp_start_date" :"2026-01-10",
-        "imp_end_date" :"2026-01-10",
-        "imp_start_time":"01:00",
-        "imp_end_time":"05:30",
+        "imp_start_date" : 1,
+        "imp_end_date" : 1,
+        "imp_start_time":"20:00",
+        "imp_end_time":"23:30",
         "Quantum_value":"99999",
     
-        "exp_start_date" : "2026-01-10",
-        "exp_end_date" :"2026-01-10",
-        "exp_start_time" :"11:00",
-        "exp_end_time" :"15:00",
+        "exp_start_date" : 2,
+        "exp_end_date" : 2,
+        "exp_start_time" :"03:00",
+        "exp_end_time" :"06:00",
     
         "response_days":"00",
         "response_hours":"00",
@@ -68,16 +68,22 @@
         "loa_acceptance_mins":"01",
       
        
-        "index":7,
+        "index":0,
         "Settlement_Price":"0.01",
-        "query_Box" :false,
-        "Ceiling_Base_Return":false,
-        "Ceiling_Base_Return_value":"",
+        "query_Box" :true,
+        "Ceiling_Base_Return":true,
+        "Ceiling_Base_Return_value":"0.02",
         "custom_Guests":"monicaa@yopmail.com",
-        "remarks":"No",
+        "remarks":"Good",
+
+        "minQuantumValue1":"0.01",
+        "ReturnValue1":"0.02",
     
-        "minQuantumValue1":"99998",
-        "ReturnValue1":"999.99",
+        "minQuantumValue2":"0.02",
+        "ReturnValue2":"0.01",
+        
+        "minQuantumValue3":"0.03",
+        "ReturnValue3":"0.01",
     
         "route":"YES",
         "GTAM":"YES",
