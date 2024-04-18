@@ -13,11 +13,10 @@ let run_features = [
 
 
 let sanity_run1 = [
-    'src/tests/features/EXPORT/TC_EX_003.feature',
     // 'src/tests/features/EXPORT/TC_EX_002.feature',
     // './src/tests/features/ADMIN/TC_AD_001.feature',
     // './src/tests/features/EXPORT/TC_EX_005.feature', // Export => src/tests/steps/EXPORT/*.feature
-    './src/tests/features/IMPORT/TC_IM_002.feature', // Import => src/tests/steps/IMPORT/*.feature
+    './src/tests/features/IMPORT/TC_IM_003.feature', // Import => src/tests/steps/IMPORT/*.feature
     '--format html:test-results/Cucumber_Report.html', //HTML Report
     '--format json:test-results/cucumber-report.json', //Json Report
 
