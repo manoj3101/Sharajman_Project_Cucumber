@@ -119,11 +119,11 @@ Then('Response CFP should not be Placed successfully as per import case four', a
 
     await dashboardCFP.place_Respond(cfpNumber, data.TC_04.minQuantumValue1, data.TC_04.ReturnValue1);
 
-    // await dashboardCFP.view_Respond(cfpNumber);
+    await dashboardCFP.view_Respond(cfpNumber);
 
-    // await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_04.imp_start_time, data.TC_04.imp_end_time, data.TC_04.Quantum_value);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_04.imp_start_time, data.TC_04.imp_end_time, data.TC_04.Quantum_value);
 
-    // await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_04.exp_start_time, data.TC_04.exp_end_time, data.TC_04.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_04.exp_start_time, data.TC_04.exp_end_time, data.TC_04.ReturnValue1);
 
 
 });
@@ -139,7 +139,7 @@ Given('User started generating the award and generating the LOA from initiator s
     await home.clickCallForPropsal();
 
     // //wait time for 15 minutes 
-    // await pageFixture.page.waitForTimeout(885000);
+    await pageFixture.page.waitForTimeout(885000);
 
     console.log("Wait time is over Awarding CFP has started......");
 

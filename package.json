@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cucumber-js test",
-    "test-run": "cucumber-js test -p test_runner",
+    "test1": "npx cucumber-js test",
+    "test": "cucumber-js test -p test_runner",
     "allure:generate": "npx allure generate ./allure-results --clean",
     "allure:open": "allure open allure-report",
     "all": "npm test && npm run allure:generate && npm run allure:open"

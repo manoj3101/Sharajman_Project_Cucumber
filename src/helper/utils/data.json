@@ -1,5 +1,5 @@
 {
-    "browser":"msedge",
+    "browser":"chrome",
     "testtype":"Retest",
     "URL":"https://platform.test.newage.market/login",
   
@@ -375,7 +375,7 @@
             "Minimum_QuantumValue":"99998",
         
             "imp_start_date" : 1,
-            "imp_end_date" : 730,
+            "imp_end_date" : 729,
             "imp_start_time":"20:00",
             "imp_end_time":"23:30",
             "Quantum_value":"99999",

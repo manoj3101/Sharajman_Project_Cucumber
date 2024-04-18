@@ -175,23 +175,18 @@ Then('Awarding and Generate LOA should be successfull as Expected from initiator
 //@                                                     Scenario 4
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User started Uploading the documents from Responder Side as per import case eleven', async function () {
+Then('Verify whether the LOA acceptance timeline is expired as per import case eleven', { timeout: 300 * 1000 }, async function () {
 
     await loaManagement.loaGeneration();
 
-});
-
-
-Then('LOA acceptance timeline by the Responder as per import case eleven', { timeout: 300 * 1000 }, async function () {
-
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
-
+    
     await pageFixture.page.waitForTimeout(240 * 1000); //Wait for the Responder timeline ends.
-
+    
     await loaManagement.responder_LOA_Expires(cfpNumber);
-
 });
+
 
 
 

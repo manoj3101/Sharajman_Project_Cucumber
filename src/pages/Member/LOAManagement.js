@@ -408,6 +408,11 @@ class LOAManagement {
         await pageFixture.page.getByRole('button', { name: /Generate Format-D/i }).click();
         //Confirm Yes
         await pageFixture.page.getByRole('button', { name: ' Yes ' }).click();
+        //Database error 
+        if (await pageFixture.page.isVisible("//*[contains(text(),'Database')]")) {
+            const msg = await pageFixture.page.locator("//*[contains(text(),'Database')]").textContent({ timeout: 40000 });
+            console.log(`           ${msg}             `);
+        }
 
         //Assert 
         await assert.assertToContains("//*[contains(text(),'Format-D have been generated successfully')]","Format-D have been generated successfully");

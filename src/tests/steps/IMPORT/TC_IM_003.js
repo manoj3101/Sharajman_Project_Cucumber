@@ -135,6 +135,7 @@ Then('Response CFP should be Placed successfully as per import case three', asyn
 Given('User navigate to the Application and logged in as a discom user as Responder Three as per import case three', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER 2-----------------------------------------");
     await login.login(data.user3, data.user3_password);
 
 });
@@ -167,8 +168,6 @@ Then('Responder two Response CFP should be Placed successfully as per import cas
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_03.exp_start_time, data.TC_03.exp_end_time, data.TC_03.ReturnValue2);
 
 
-    console.log("--------------------Response CFP  placed Successfully -----------------");
-
 });
 
 
@@ -177,6 +176,7 @@ Then('Responder two Response CFP should be Placed successfully as per import cas
 //-------------------------------------------------------------------------------------------------------------------------
 Given('User navigate to the Application and logged in as a discom user as Responder three as per import case three', async function () {
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER 3-----------------------------------------");
     await login.login(data.user4, data.user4_password);
 
 });
@@ -206,9 +206,6 @@ Then('Responder three Response CFP should be Placed successfully as per import c
     await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_03.imp_start_time, data.TC_03.imp_end_time, data.TC_03.Quantum_value);
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_03.exp_start_time, data.TC_03.exp_end_time, data.TC_03.ReturnValue3);
-
-
-    console.log("--------------------Response CFP  placed Successfully -----------------");
 
 });
 

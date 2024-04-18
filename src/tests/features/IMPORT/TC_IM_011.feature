@@ -15,7 +15,6 @@ Feature: TC_IM_011
     And User started generating the award and generating the LOA from initiator side as per import case eleven
     Then Awarding and Generate LOA should be successfull as Expected from initiator as per import case eleven
 
-  Scenario: Discom Member Uploading the documents from Responder Side.
+  Scenario: LOA acceptance timeline should get expired.
     Given User navigate to the Application and logged in as a discom user as Responder as per import case eleven
-    And User started Uploading the documents from Responder Side as per import case eleven
-    Then LOA acceptance timeline by the Responder as per import case eleven
+    Then Verify whether the LOA acceptance timeline is expired as per import case eleven

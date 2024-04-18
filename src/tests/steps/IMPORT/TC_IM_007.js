@@ -134,6 +134,7 @@ Then('Response CFP should be Placed successfully as per import case seven', asyn
 Given('User navigate to the Application and logged in as a discom user as Responder two as per import case seven', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER 2-----------------------------------------");
     await login.login(data.user3, data.user3_password);
 
 });
@@ -175,6 +176,7 @@ Then('Responder two Response CFP should be Placed successfully as per import cas
 
 Given('User navigate to the Application and logged in as a discom user as Responder three as per import case seven', async function () {
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER 3-----------------------------------------");
     await login.login(data.user4, data.user4_password);
 
 });

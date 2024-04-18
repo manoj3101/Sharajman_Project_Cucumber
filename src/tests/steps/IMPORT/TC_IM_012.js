@@ -113,7 +113,7 @@ Given('User started placing Response to the CFP as per import case twelve', { ti
 });
 
 
-Then('CFP should be Placed successfully as Expected from responder as per import case twelve', async function () {
+Then('Verify whether the CFP Placed successfully from responder as per import case twelve', async function () {
 
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
@@ -134,7 +134,7 @@ Then('CFP should be Placed successfully as Expected from responder as per import
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
 
-Then('CFP for Awarding time should be expired successfully as Expected from initiator as per import case twelve', { timeout: 1200000 }, async function () {
+Then('Verify whether the Awarding time is expired as Expected from initiator as per import case twelve', { timeout: 1200000 }, async function () {
 
     await home.clickCallForPropsal();
 
