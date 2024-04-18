@@ -27,23 +27,12 @@ const transactionFee = new TransactionFee(pageFixture.page);
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per export case twelve', async function () {
+
+
+Given('User navigate to the Application and logged in as a discom user as initiator as per export case twelve', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_012                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    await login.login(data.admin, data.admin_password); //Login to the admin user 
-
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-
-    await transactionFee.fetch_Transaction_Fee(data.feeName, data.EX_12.Quantum_value); // Fetch the transaction fee formula
-
-    await transactionFee.fetch_Success_Fee(data.successfee, data.EX_12.Quantum_value); // Fetch the Success fee formula
-
-    await login.logout(); //Logout
-
-});
-
-Given('User navigate to the Application and logged in as a discom user as initiator as per export case twelve', async function () {
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
@@ -126,7 +115,7 @@ Given('User started placing Response to the CFP as per export case twelve', { ti
 });
 
 
-Then('CFP should be Placed successfully as Expected from responder as per export case twelve', async function () {
+Then('Verify whether the CFP Placed successfully from responder as per export case twelve', async function () {
 
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
@@ -147,7 +136,7 @@ Then('CFP should be Placed successfully as Expected from responder as per export
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
 
-Then('CFP for Awarding time should be expired successfully as Expected from initiator as per export case twelve', { timeout: 1200000 }, async function () {
+Then('Verify whether the Awarding time is expired as Expected from initiator as per export case twelve', { timeout: 1200000 }, async function () {
 
     await home.clickCallForPropsal();
 

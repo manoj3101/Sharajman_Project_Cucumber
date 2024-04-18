@@ -48,6 +48,7 @@ class LOAManagement {
         await pageFixture.page.locator("//span[contains(text(),'LOA Management')]").click();
         await pageFixture.page.locator("//span[contains(text(),'LOA Generation')]").click();
 
+
     }
 
     //Upload the Document ===> Responder Side 
@@ -60,15 +61,15 @@ class LOAManagement {
         //Document Verification
         await this.LOA_documentverification(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price)
 
-      
+
         const time = await pageFixture.page.locator("(//div//small)[1]").textContent();
-       
+
 
         const loaAcceptanceMins = randomFunction.addMinutesToCurrentTime(time);
-       
+
 
         const addedLOAAcceptanceTime = parseInt(loa_acceptance_mins) + DashboardCFP.loaIssuanceMins;
-       
+
         if (loaAcceptanceMins === addedLOAAcceptanceTime || loaAcceptanceMins === addedLOAAcceptanceTime - 1) {
             console.log(`Contarct Awarding time is added to Loa Issuance Time ${loaAcceptanceMins} equals ${addedLOAAcceptanceTime}`);
         }
@@ -118,7 +119,7 @@ class LOAManagement {
         const parsedData = await pdf(dataBuffer);
         const text = parsedData.text;
         // Now you can use the extracted text
-      
+
 
         // Write the parsed text content to a text file for reference
         await fs.writeFile('src/helper/utils/TextDocuments/data.txt', text); // Specify the correct file path
@@ -145,11 +146,11 @@ class LOAManagement {
         const line_15 = `Dear	Sir,`;
         const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -236,7 +237,7 @@ class LOAManagement {
         const dataBuffer = await fs.readFile(filePath); // Use async version of readFile
         const parsedData = await pdf(dataBuffer);
         const text = parsedData.text;
-       
+
 
         // Write the parsed text content to a text file for reference
         await fs.writeFile('src/helper/utils/TextDocuments/data.txt', text); // Specify the correct file path
@@ -388,7 +389,7 @@ class LOAManagement {
 
         await pageFixture.page.locator("//Select[@formcontrolname='source_generation']").selectOption({ value: source });
 
-       
+
         await pageFixture.page.locator("//Select[@formcontrolname='rpo_obligation']").selectOption({ value: rpo });
 
         //Granting T-GNA/T-GNARE exigency application
@@ -408,9 +409,12 @@ class LOAManagement {
         await pageFixture.page.getByRole('button', { name: /Generate Format-D/i }).click();
         //Confirm Yes
         await pageFixture.page.getByRole('button', { name: ' Yes ' }).click();
-
+        if (await pageFixture.page.isVisible("//a[contains(text(),'Database')]")) {
+            const msg = await pageFixture.page.locator("//*[contains(text(),'Database')]").textContent({ timeout: 40000 });
+            console.log(`           ${msg}             `);
+        }
         //Assert 
-        await assert.assertToContains("//*[contains(text(),'Format-D have been generated successfully')]","Format-D have been generated successfully");
+        await assert.assertToContains("//*[contains(text(),'Format-D have been generated successfully')]", "Format-D have been generated successfully");
         await pageFixture.page.waitForTimeout(2000);
         console.log("----------------Format-D Generated Successfully ----------------");
 

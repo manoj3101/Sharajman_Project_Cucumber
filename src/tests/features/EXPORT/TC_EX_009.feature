@@ -1,7 +1,6 @@
 Feature: TC_EX_009
 
   Scenario: Discom Member Create CFP and Publishing the CFP.
-    Given Admin navigate to the application and login and fetching the transaction fee formula as per export case nine
     Given User navigate to the Application and logged in as a discom user as initiator as per export case nine
     And User started creating Call for Proposal CFP as an initiator as per export case nine
     Then CFP should be Published successfully as Expected from initiator as per export case nine
@@ -16,7 +15,7 @@ Feature: TC_EX_009
     And User started generating the award and generating the LOA from initiator side as per export case nine
     Then Awarding and Generate LOA should be successfull as Expected from initiator Export
 
-  Scenario: Discom Member Uploading the documents from Responder Side.
+  Scenario:Discom Member should reject the LOA from Responder Side.
     Given User navigate to the Application and logged in as a discom user as Responder as per export case nine
     And User started Uploading the documents from Responder Side as per export case nine
     Then Responder should be able to reject the LOA successfully as per export case nine

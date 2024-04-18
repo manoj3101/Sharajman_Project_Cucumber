@@ -373,7 +373,7 @@
             "Minimum_QuantumValue":"99998",
         
             "imp_start_date" : 1,
-            "imp_end_date" : 730,
+            "imp_end_date" : 729,
             "imp_start_time":"20:00",
             "imp_end_time":"23:30",
             "Quantum_value":"99999",
@@ -464,7 +464,7 @@
             "Settlement_Price":"999",
             "query_Box" :false,
             "Ceiling_Base_Return":true,
-            "Ceiling_Base_Return_value":"0.02",
+            "Ceiling_Base_Return_value":"0.01",
             "custom_Guests":"monica.k.2019.bt@rajalakshmi.edu.in, monicaa@yopmail.com",
             "remarks":"Good",
         

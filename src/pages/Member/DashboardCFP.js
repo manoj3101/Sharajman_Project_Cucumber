@@ -26,13 +26,6 @@ const year = currentDate.getFullYear();
 
 class DashboardCFP {
 
-    //Constructor
-    // constructor(page, context, browser) {
-    //     this.page = page;
-    //     this.context = context;
-    //     this.browser = browser;        
-    // }
-
 
     //variable
     static Utility_1 = null;
@@ -405,6 +398,7 @@ class DashboardCFP {
     async clickresponder() {
         const tabSwitch = new tabSwitcher();
         await tabSwitch.switchToTab("cfp");
+        await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.click(this.responder_tab, { timeout: 40000 });
     }
 
@@ -429,9 +423,6 @@ class DashboardCFP {
                 
                 break;
             }
-            else {
-                console.log("               X No Responders List X               ");
-            }
         }
         await pageFixture.page.waitForTimeout(3000);
 
@@ -444,8 +435,6 @@ class DashboardCFP {
             await pageFixture.page.locator("//input[@formcontrolname='min_quantum']").fill('');
             await pageFixture.page.locator("//input[@formcontrolname='min_quantum']").type(minQuantumValue1);
 
-        } else {
-            console.log("--------------------X No Min Quantum X----------------------");
         }
 
         //If it has Base/ceiling return enter the value and place the 
@@ -522,9 +511,7 @@ class DashboardCFP {
 
                 break;
             }
-            else {
-                console.log("      X No Responders List X    ");
-            }
+            
         }
     }
 
@@ -545,9 +532,6 @@ class DashboardCFP {
                 await pageFixture.page.waitForTimeout(2000);
                
                 break;
-            }
-            else {
-                console.log("No Matching CFP found");
             }
         }
 
@@ -595,9 +579,9 @@ class DashboardCFP {
         // expect.soft(energy_kwh).toBe(numericEnergy1);
 
         if (energy_kwh === numericEnergy1) {
-            console.log(` ✔ Passed Actual Energy in KWH : ${energy_kwh} is equal to the Expected Energy in KWH : ${numericEnergy1}\n`);
+            console.log(` ✔ Passed Expected Energy in KWH : ${energy_kwh} is equal to the Actual Energy in KWH : ${numericEnergy1}\n`);
         } else {
-            console.log(` X Failed  Actual Energy in KWH : ${energy_kwh} is not equal to the Expected Energy in KWH : ${numericEnergy1}\n`);
+            console.log(` X Failed Expected Energy in KWH : ${energy_kwh} is not equal to the Actual Energy in KWH : ${numericEnergy1}\n`);
         }
 
         //Declaring as a  global 
@@ -654,14 +638,14 @@ class DashboardCFP {
         // expect.soft(reverse_energy).toEqual(numericEnergy1);
 
         if (reverse_energy === numericEnergy1) {
-            console.log(` ✔ Passed Actual Energy in KWH : ${reverse_energy} is equal to the Expected Energy in KWH : ${numericEnergy1}`);
+            console.log(` ✔ Passed Expected Energy in KWH : ${reverse_energy} is equal to the Actual Energy in KWH : ${numericEnergy1}`);
         } else {
-            console.log(` X Failed  Actual Energy in KWH : ${reverse_energy} is not equal to the Expected Energy in KWH : ${numericEnergy1}`);
+            console.log(` X Failed  Expected Energy in KWH : ${reverse_energy} is not equal to the Actual Energy in KWH : ${numericEnergy1}`);
         }
         if (roundedQuantum === numericquantum) {
-            console.log(` ✔ Passed Actual Quantum in MW : ${roundedQuantum} is equal to the Expected Quantum in MW : ${numericquantum}\n`);
+            console.log(` ✔ Passed Expected Quantum in MW : ${roundedQuantum} is equal to the Actual Quantum in MW : ${numericquantum}\n`);
         } else {
-            console.log(` X Failed Actual Quantum in MW : ${roundedQuantum} is not equal to the Expected Quantum in MW : ${numericquantum}\n`);
+            console.log(` X Failed Expected Quantum in MW : ${roundedQuantum} is not equal to the Actual Quantum in MW : ${numericquantum}\n`);
         }
 
     }
@@ -757,10 +741,6 @@ class DashboardCFP {
             expect(awarded).toContain("Response Accepted Successfully");
             console.log("              ✔ Response Accepted Successfully ✔          ");
         }
-        else {
-            console.log("------------ X No Award Icon X ------------");
-        }
-
     }
 
     async unableToGenerateAward() {
@@ -811,10 +791,6 @@ class DashboardCFP {
             expect(textMsg).toContain("You don't have privilege to perform this action");
 
         }
-        else {
-            console.log("------------ X No Award Icon X ------------");
-        }
-
     }
 
 
@@ -830,9 +806,6 @@ class DashboardCFP {
             await LOA.click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
             console.log("-------------Successfully Navigated to Generate LOA Page----------");
-        }
-        else {
-            console.log("-------------No Generate LOA is Visible----------");
         }
 
         //switch to the tab
@@ -863,6 +836,10 @@ class DashboardCFP {
         await pageFixture.page.getByRole('button', { name: /Verify LOA/i }).click();
         await pageFixture.page.getByRole('button', { name: /Generate LOA/i }).click();
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
+        if (await pageFixture.page.isVisible("//a[contains(text(),'Database')]")) {
+            const msg = await pageFixture.page.locator("//*[contains(text(),'Database')]").textContent({ timeout: 40000 });
+            console.log(`           ${msg}             `);
+        }
         // await pageFixture.page.locator("//a[contains(text(),'View LOA')]").click();
         // await tabSwitch.switchToTab("loi");
         await pageFixture.page.waitForTimeout(2000);
@@ -919,11 +896,11 @@ class DashboardCFP {
         const line_15 = `Dear	Sir,`;
         const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -985,9 +962,6 @@ class DashboardCFP {
         if (DashboardCFP.loaIssuanceMins === addedLOAIssuanceTime) {
             console.log(`Contarct Awarding time is added to Loa Issuance Time ${DashboardCFP.loaIssuanceMins} equals ${addedLOAIssuanceTime}`);
         }
-        else {
-            console.log(`Contarct Awarding time is not added or equal to Loa Issuance Time`)
-        }
 
         await pageFixture.page.waitForTimeout(5000);//Wait until document verification 
         //Need to verify the time.....
@@ -1017,9 +991,7 @@ class DashboardCFP {
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
             console.log("-------------Successfully Navigated to Generate LOA Page----------");
         }
-        else {
-            console.log("-------------No Generate LOA is Visible----------");
-        }
+        
 
         //switch to the tab
         const tabSwitch = new tabSwitcher();
@@ -1053,9 +1025,7 @@ class DashboardCFP {
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
             console.log("-------------Successfully Navigated to Generate LOA Page----------");
         }
-        else {
-            console.log("-------------No Generate LOA is Visible----------");
-        }
+
 
         //switch to the tab
         const tabSwitch = new tabSwitcher();
