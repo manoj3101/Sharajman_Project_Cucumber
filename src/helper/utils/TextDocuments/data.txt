@@ -4,8 +4,13 @@ Format-D
 	
 T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA
 	
+<<<<<<< HEAD
 1Application	No.5699763Date	:	17-04-2024
 2Applicant	NameDas&CoRegistration	Code
+=======
+1Application	No.6739274Date	:	17-04-2024
+2Applicant	NameTickingMindsRegistration	Code
+>>>>>>> 7037df9f298e9f792ae2d6e9942d7118e4413b4c
 3
 T-GNA	Request
 DateHours
@@ -17,7 +22,11 @@ Name	of	Entity
 Injecting	entity	(mandatory	for	Exigency	T-
 GNAS	application)
 Drawee	Entity
+<<<<<<< HEAD
 LCUDas&Co
+=======
+TATA_1TickingMinds
+>>>>>>> 7037df9f298e9f792ae2d6e9942d7118e4413b4c
 5Injecting	RegionSRLDC
 6RouteSR-SR
 7
