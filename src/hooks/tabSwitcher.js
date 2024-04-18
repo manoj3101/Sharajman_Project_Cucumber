@@ -6,10 +6,9 @@ class tabSwitcher {
 
         await pageFixture.page.waitForTimeout(4000);
         const allPages = await pageFixture.page.context().pages();
-        // console.log("All Contexts ============" + allPages.length);
         for (const page of allPages) {
             if ((await page.url()).includes(url)) {
-                console.log("  URL :" + await pageFixture.page.url());
+                // console.log("  URL :" + await pageFixture.page.url());
                 pageFixture.page = page;
                 await pageFixture.page.bringToFront();
             }
