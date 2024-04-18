@@ -28,23 +28,12 @@ const transactionFee = new TransactionFee(pageFixture.page);
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per export case three', async function () {
+
+
+Given('User navigate to the Application and logged in as a discom user as initiator as per export case three', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_003                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    await login.login(data.admin, data.admin_password); //Login to the admin user 
-
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-
-    await transactionFee.fetch_Transaction_Fee(data.feeName, data.EX_03.Quantum_value); // Fetch the transaction fee formula
-
-    await transactionFee.fetch_Success_Fee(data.successfee, data.EX_03.Quantum_value); // Fetch the Success fee formula
-
-    await login.logout(); //Logout
-
-});
-
-Given('User navigate to the Application and logged in as a discom user as initiator as per export case three', async function () {
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
@@ -148,6 +137,7 @@ Then('Response CFP should be Placed successfully as per export case three', asyn
 Given('User navigate to the Application and logged in as a discom user as Responder Three as per export case three', async function () {
 
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER 2-----------------------------------------");
     await login.login(data.user3, data.user3_password);
 
 });
@@ -190,6 +180,7 @@ Then('Responder two Response CFP should be Placed successfully as per export cas
 //-------------------------------------------------------------------------------------------------------------------------
 Given('User navigate to the Application and logged in as a discom user as Responder three as per export case three', async function () {
     // login = new Login(pageFixture.page);
+    console.log("-----------------------------------------RESPONDER 3-----------------------------------------");
     await login.login(data.user4, data.user4_password);
 
 });

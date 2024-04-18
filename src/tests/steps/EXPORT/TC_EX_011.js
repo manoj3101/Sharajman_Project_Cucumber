@@ -26,23 +26,12 @@ const transactionFee = new TransactionFee(pageFixture.page);
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 1
 //-------------------------------------------------------------------------------------------------------------------------
-Given('Admin navigate to the application and login and fetching the transaction fee formula as per export case eleven', async function () {
+
+
+Given('User navigate to the Application and logged in as a discom user as initiator as per export case eleven', async function () {
     console.log("------------------------------------------------------------------------------------------------------");
     console.log("                                            TC_EX_011                                                 ");
     console.log("------------------------------------------------------------------------------------------------------");
-    await login.login(data.admin, data.admin_password); //Login to the admin user 
-
-    await transactionFee.click_Transaction_Fee(); //Click the transaction fee 
-
-    await transactionFee.fetch_Transaction_Fee(data.feeName, data.EX_11.Quantum_value); // Fetch the transaction fee formula
-
-    await transactionFee.fetch_Success_Fee(data.successfee, data.EX_11.Quantum_value); // Fetch the Success fee formula
-
-    await login.logout(); //Logout
-
-});
-
-Given('User navigate to the Application and logged in as a discom user as initiator as per export case eleven', async function () {
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(data.user1, data.user1_password);
 
@@ -187,26 +176,24 @@ Then('Awarding and Generate LOA should be successfull as Expected from initiator
 //@                                                     Scenario 4
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User started Uploading the documents from Responder Side as per export case eleven', async function () {
-
+Then('Verify whether the LOA acceptance timeline is expired as per export case eleven', { timeout: 300 * 1000 }, async function () {
+    
     await loaManagement.loaGeneration();
-
-});
-
-
-
-Then('LOA acceptance timeline by the Responder as per export case eleven', { timeout: 300 * 1000 }, async function () {
-
+    
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
-
+    
     console.log(`Waiting for Responder LOA Expires......`);
-
+    
     await pageFixture.page.waitForTimeout(240 * 1000); //Wait for the Responder timeline ends.
-
+    
     await loaManagement.responder_LOA_Expires(cfpNumber);
-
 });
+
+
+
+
+
 
 
 

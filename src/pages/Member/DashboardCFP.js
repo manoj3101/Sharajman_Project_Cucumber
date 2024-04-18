@@ -26,13 +26,6 @@ const year = currentDate.getFullYear();
 
 class DashboardCFP {
 
-    //Constructor
-    // constructor(page, context, browser) {
-    //     this.page = page;
-    //     this.context = context;
-    //     this.browser = browser;        
-    // }
-
 
     //variable
     static Utility_1 = null;
@@ -430,7 +423,9 @@ class DashboardCFP {
 
                 break;
             }
-
+            else {
+                console.log("               X No Responders List X               ");
+            }
         }
         await pageFixture.page.waitForTimeout(3000);
 
@@ -519,7 +514,9 @@ class DashboardCFP {
 
                 break;
             }
-
+            else {
+                console.log("      X No Responders List X    ");
+            }
         }
     }
 
@@ -541,7 +538,9 @@ class DashboardCFP {
 
                 break;
             }
-
+            else {
+                console.log("No Matching CFP found");
+            }
         }
 
     }
@@ -750,10 +749,6 @@ class DashboardCFP {
             expect(awarded).toContain("Response Accepted Successfully");
             console.log("              ✔ Response Accepted Successfully ✔          ");
         }
-        else {
-            console.log("------------ X No Award Icon X ------------");
-        }
-
     }
 
     async unableToGenerateAward() {
@@ -849,10 +844,6 @@ class DashboardCFP {
         await pageFixture.page.getByRole('button', { name: /Verify LOA/i }).click();
         await pageFixture.page.getByRole('button', { name: /Generate LOA/i }).click();
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
-        if (await pageFixture.page.isVisible("//*[contains(text(),'Database')]")) {
-            const msg = await pageFixture.page.locator("//*[contains(text(),'Database')]").textContent({ timeout: 40000 });
-            console.log(`           ${msg}             `);
-        }
         // await pageFixture.page.locator("//a[contains(text(),'View LOA')]").click();
         // await tabSwitch.switchToTab("loi");
         await pageFixture.page.waitForTimeout(2000);
@@ -909,11 +900,11 @@ class DashboardCFP {
         const line_15 = `Dear	Sir,`;
         const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
         const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -975,9 +966,6 @@ class DashboardCFP {
         if (DashboardCFP.loaIssuanceMins === addedLOAIssuanceTime) {
             console.log(`Contarct Awarding time is added to Loa Issuance Time ${DashboardCFP.loaIssuanceMins} equals ${addedLOAIssuanceTime}`);
         }
-        else {
-            console.log(`Contarct Awarding time is not added or equal to Loa Issuance Time`)
-        }
 
         await pageFixture.page.waitForTimeout(5000);//Wait until document verification 
         //Need to verify the time.....
@@ -1007,9 +995,7 @@ class DashboardCFP {
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
             console.log("-------------Successfully Navigated to Generate LOA Page----------");
         }
-        else {
-            console.log("-------------No Generate LOA is Visible----------");
-        }
+        
 
         //switch to the tab
         const tabSwitch = new tabSwitcher();
@@ -1043,9 +1029,7 @@ class DashboardCFP {
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
             console.log("-------------Successfully Navigated to Generate LOA Page----------");
         }
-        else {
-            console.log("-------------No Generate LOA is Visible----------");
-        }
+
 
         //switch to the tab
         const tabSwitch = new tabSwitcher();
