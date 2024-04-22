@@ -118,7 +118,8 @@ class LOAManagement {
         const dataBuffer = await fs.readFile(filePath); // Use async version of readFile
         const parsedData = await pdf(dataBuffer);
         const text = parsedData.text;
-        // Now you can use the extracted text
+
+        console.log(`Text Content : ${text}`);
 
 
         // Write the parsed text content to a text file for reference
@@ -144,13 +145,13 @@ class LOAManagement {
         const line_14 = `2.	Your	offer	dated	${day}-${month}-${year}	on	NAME	portal`;
 
         const line_15 = `Dear	Sir,`;
-        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
-        const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of`;
+        const line_17 = `${DashboardCFP.Utility_2},	as	per  below	mentioned	arrangement.`;
+        const line_18 = `Supply	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_21 = `Return	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -238,6 +239,8 @@ class LOAManagement {
         const parsedData = await pdf(dataBuffer);
         const text = parsedData.text;
 
+        console.log(`Text Content : ${text}`);
+
 
         // Write the parsed text content to a text file for reference
         await fs.writeFile('src/helper/utils/TextDocuments/data.txt', text); // Specify the correct file path
@@ -248,7 +251,7 @@ class LOAManagement {
         const line_1 = `Format-D`;
         const line_2 = `T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA`;
         const line_3 = `1Application	No.${this.application_no}Date	:	${day}-${month}-${year}`;
-        const line_4 = `2Applicant	Name${DashboardCFP.Utility_2}Registration	Code`;
+        const line_4 = `2Applicant	Name${DashboardCFP.Utility_1}Registration	Code`;  //---------
         const line_5 = `T-GNA	Request`;
         const line_6 = `DateHours`;
         const line_7 = `FromToFromTo`;
@@ -259,7 +262,7 @@ class LOAManagement {
         const line_11 = `GNAS	application)`;
         const line_12 = `Drawee	Entity`;
         const line_13 = `${DashboardCFP.Utility_2}${DashboardCFP.Utility_1}`;
-        const line_14 = `5Injecting	RegionNRLDC`;
+        const line_14 = `5Injecting	RegionSRLDC`;
 
         const line_15 = `6Route${LOAManagement.Route}`;
         const line_16 = `Entity	in	which	it	is`;

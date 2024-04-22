@@ -249,7 +249,7 @@ Then('Awarding and Generate LOA should be successfull as per import case five', 
 
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_05.exp_start_time, data.TC_05.exp_end_time, data.TC_05.ReturnValue1);
 
-    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_05.exp_start_time, data.TC_05.exp_end_time, data.TC_05.ReturnValue1, data.TC_05.Settlement_Price, data.TC_05.loa_issuance_mins);
+    await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.minQuantumValue1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_05.exp_start_time, data.TC_05.exp_end_time, data.TC_05.ReturnValue1, data.TC_05.Settlement_Price, data.TC_05.loa_issuance_mins);
 
     console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
@@ -275,7 +275,7 @@ Then('Responder Uploading the documents should be successfull as per import case
     const cfpNumber = global.cfpNumber;
     console.log("Global CFP: " + cfpNumber);
 
-    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.Quantum_value, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_05.exp_start_time, data.TC_05.exp_end_time, data.TC_05.ReturnValue1, data.TC_05.Settlement_Price, data.TC_05.loa_acceptance_mins);
+    await loaManagement.uploadDocument(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.minQuantumValue1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, data.TC_05.exp_start_time, data.TC_05.exp_end_time, data.TC_05.ReturnValue1, data.TC_05.Settlement_Price, data.TC_05.loa_acceptance_mins);
 
     console.log("Responder Uploaded the documents successfully  \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
@@ -296,7 +296,7 @@ Given('Format D should be successfully Generated from initiator side as per impo
 
     await loaManagement.action(cfpNumber);
 
-    await loaManagement.formatD(data.TC_05.GTAM, data.TC_05.source_of_generation, data.TC_05.RPO, data.TC_05.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.Quantum_value);
+    await loaManagement.formatD(data.TC_05.GTAM, data.TC_05.source_of_generation, data.TC_05.RPO, data.TC_05.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.minQuantumValue1);
 
 
 });
@@ -317,7 +317,7 @@ Then('Format D should be successfully Generated from Responder side as per impor
 
     await loaManagement.action_FormatD(cfpNumber);
 
-    await loaManagement.formatD(data.TC_05.GTAM, data.TC_05.source_of_generation, data.TC_05.RPO, data.TC_05.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.Quantum_value);
+    await loaManagement.formatD(data.TC_05.GTAM, data.TC_05.source_of_generation, data.TC_05.RPO, data.TC_05.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, data.TC_05.imp_start_time, data.TC_05.imp_end_time, data.TC_05.minQuantumValue1);
 
 });
 
