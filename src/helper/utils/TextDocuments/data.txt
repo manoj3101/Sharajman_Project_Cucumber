@@ -4,20 +4,20 @@ Format-D
 	
 T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA
 	
-1Application	No.7314874Date	:	22-04-2024
-2Applicant	NameTATA_1Registration	Code
+1Application	No.8691961Date	:	23-04-2024
+2Applicant	NameTickingMindsRegistration	Code
 3
 T-GNA	Request
 DateHours
 MW
 FromToFromTo
-22-04-202622-04-202619:0022:000.14
+23-04-202623-04-202600:3004:3099999.0
 4
 Name	of	Entity
 Injecting	entity	(mandatory	for	Exigency	T-
 GNAS	application)
 Drawee	Entity
-TickingMindsTATA_1
+TATA_1TickingMinds
 5Injecting	RegionSRLDC
 6RouteSR-SR
 7
@@ -26,14 +26,14 @@ embedded
 TN-SLDCTN-SLDC
 8Whether	the	transaction	under	GTAM	(Yes/No)YES
 9
-Source	of	generation	is	solar/non	solar/hydro	(applicable	in	case	of	Exigency	T-GNA
-application)
+Source	of	generation	is	solar/non	solar/hydro	(applicable	in	case	of	Exigency	T-
+GNA	application)
 SOLAR
-10Whether	the	transaction	is	for	meeting	RPO	obligationYES
+10Whether	the	transaction	is	for	meeting	RPO	obligationNO
 11
-Granting	T-GNA/T-GNARE	exigency	application	in	part	quantum	and	part	period	or
-both	in	case	of	constrains	as	per	available	transmission	capability	**	For	Exigency
-Application15
+Granting	T-GNA/T-GNARE	exigency	application	in	part	quantum	and	part	period
+or	both	in	case	of	constrains	as	per	available	transmission	capability	**	For
+Exigency	Application15
 YES
 	
 Declaration:
