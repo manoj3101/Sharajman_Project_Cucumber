@@ -3,23 +3,26 @@
     "testtype":"Retest",
     "URL":"https://platform.test.newage.market/login",
   
-    "admin":"sanjaykumars@yopmail.com",
-    "admin_password":"16121999@Dob",
+    "admin":"manoj@yopmail.com",
+    "admin_password":"K#(j{83&ym",
 
-    "user1":"rolexdilly@yopmail.com",
-    "user1_password":"Test@12345",
+    "user1":"smanoj3101work@gmail.com",
+    "user1_password":"Testing@123",
+    
+    "user2":"Junk@yopmail.com",
+    "user2_password":"Testing@123",
+    
+    "user3":"Donglegongle@yopmail.com",
+    "user3_password":"Testing@000",
+    
+    "user4":"Bravoo@yopmail.com",
+    "user4_password":"Bravoo@54321",
+
+    "user11":"manojkumar.s@tickingminds.com",
+    "user11_password":"Testing@123",
 
     "user21":"CamilaPhillips@yopmail.com",
     "user21_password":"Phillips@123456",
-    
-    "user2":"leodas@yopmail.com",
-    "user2_password":"Test@12345",
-
-    "user3":"antonydas@yopmail.com",
-    "user3_password":"Test@12345",
-
-    "user4":"harolddas@yopmail.com",
-    "user4_password":"Test@12345",
 
     "user22":"Xavier@yopmail.com",
     "user22_password":"Testing@123",
@@ -36,8 +39,7 @@
     "Utility_1":"Ticking Minds",
     "Utility_2":"Tickingminds_1",
 
-    "responder1":"Tickingminds_",
-    "responder":"Das&Co",
+    "responder":"Tata_",
     
     "feeName":"",
 
@@ -131,11 +133,11 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"05",
+            "response_mins":"06",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"04",
+            "award_mins":"05",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -195,11 +197,11 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"05",
+            "response_mins":"06",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"04",
+            "award_mins":"05",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -261,11 +263,11 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"05",
+            "response_mins":"06",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"03",
+            "award_mins":"05",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -445,11 +447,11 @@
         
             "response_days":"00",
             "response_hours":"00",
-            "response_mins":"05",
+            "response_mins":"06",
         
             "award_days":"00",
             "award_hours":"00",
-            "award_mins":"04",
+            "award_mins":"05",
         
             "loa_issuance_days":"00",
             "loa_issuance_hours":"00",
@@ -842,11 +844,11 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"05",
+        "response_mins":"06",
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"04",
+        "award_mins":"05",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
@@ -907,11 +909,11 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"05",
+        "response_mins":"06",
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"04",
+        "award_mins":"05",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
@@ -972,11 +974,11 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"05",
+        "response_mins":"06",
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"03",
+        "award_mins":"05",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
@@ -1155,11 +1157,11 @@
 
     "response_days":"00",
     "response_hours":"00",
-    "response_mins":"05",
+    "response_mins":"06",
 
     "award_days":"00",
     "award_hours":"00",
-    "award_mins":"04",
+    "award_mins":"05",
 
     "loa_issuance_days":"00",
     "loa_issuance_hours":"00",

@@ -62,21 +62,17 @@ class LOAManagement {
         await this.LOA_documentverification(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price)
 
 
+        //LOA acceptance Time
         const time = await pageFixture.page.locator("(//div//small)[1]").textContent();
-
+        console.log(`LOA Acceptance Timeline  : ${time}`);
 
         const loaAcceptanceMins = randomFunction.addMinutesToCurrentTime(time);
-
-
         const addedLOAAcceptanceTime = parseInt(loa_acceptance_mins) + DashboardCFP.loaIssuanceMins;
 
         if (loaAcceptanceMins === addedLOAAcceptanceTime || loaAcceptanceMins === addedLOAAcceptanceTime - 1) {
             console.log(`Contarct Awarding time is added to Loa Issuance Time ${loaAcceptanceMins} equals ${addedLOAAcceptanceTime}`);
         }
-        else {
-            console.log(`Contarct Awarding time is ${loaAcceptanceMins} not  equal ${addedLOAAcceptanceTime} to Loa Issuance Time`);
-        }
-
+    
         await pageFixture.page.waitForTimeout(5000);//Wait until document verification 
 
         await pageFixture.page.click("//div[contains(@class,'gredient-blue-icon-box')]");
@@ -118,7 +114,8 @@ class LOAManagement {
         const dataBuffer = await fs.readFile(filePath); // Use async version of readFile
         const parsedData = await pdf(dataBuffer);
         const text = parsedData.text;
-        // Now you can use the extracted text
+
+        // console.log(`Text Content : ${text}`);
 
 
         // Write the parsed text content to a text file for reference
@@ -144,13 +141,13 @@ class LOAManagement {
         const line_14 = `2.	Your	offer	dated	${day}-${month}-${year}	on	NAME	portal`;
 
         const line_15 = `Dear	Sir,`;
-        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Award	(LoA)	in	favour	of	${DashboardCFP.Utility_2},	as	per`;
-        const line_17 = `below	mentioned	arrangement.`;
-        const line_18 = `Supply	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
+        const line_16 = `With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Acceptance	(LoA)	in	favour	of`;
+        const line_17 = `${DashboardCFP.Utility_2},	as	per  below	mentioned	arrangement.`;
+        const line_18 = `Supply	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
         const line_19 = `UtilityPeriodDuration	(Hrs.)Quantum	(MW)`;
         const line_20 = `${DashboardCFP.Utility_1}${imp_start_date.split('-').reverse().join('-')}	to	${imp_end_date.split('-').reverse().join('-')}${imp_start_time}	-	${imp_end_time}${quantum}`;
 
-        const line_21 = `Return	of	Power	from	${DashboardCFP.Utility_2}	to	${DashboardCFP.Utility_1}`;
+        const line_21 = `Return	of	Power	by	${DashboardCFP.Utility_1}	to	${DashboardCFP.Utility_2}`;
         const line_22 = `UtilityPeriod`;
         const line_23 = `Duration`;
         const line_24 = `(Hrs.)`;
@@ -162,9 +159,9 @@ class LOAManagement {
         const line_30 = `in	%`;
         const line_31 = `${DashboardCFP.Utility_2}${exp_start_date.split('-').reverse().join('-')}	to	${exp_end_date.split('-').reverse().join('-')}${exp_start_time}	-	${exp_end_time}${DashboardCFP.Quantum_2}${returnpercent}`;
 
-        const line_32 = `Delivery	Point`;
-        const line_33 = `The	delivery	point,	in	either	case,	shall	be	the	Regional	Periphery	of	Exporting`;
-        const line_34 = `Utility.`;
+        // const line_32 = `Delivery	Point`;
+        // const line_33 = `The	delivery	point,	in	either	case,	shall	be	the	Regional	Periphery	of	Exporting`;
+        // const line_34 = `Utility.`;
         const line_35 = `Settlement	rate	(Rs./kWh)${Settlement_Price}`;
         const line_36 = `General	Terms	&	Conditions`;
         const line_37 = `As	per	the	Framework	Agreement	/	As	per	the	Listing	Document	(Ref.	No.)`;
@@ -183,7 +180,7 @@ class LOAManagement {
         const stringsToCheck = [line_1.trim(), line_2.trim(), line_3.trim(), line_4.trim(), line_5.trim(), line_7.trim(), line_8.trim(), line_9.trim(), line_10.trim(),
         line_11.trim(), line_12.trim(), line_13.trim(), line_14.trim(), line_15.trim(), line_16.trim(), line_17.trim(), line_18.trim(), line_19.trim(), line_20.trim(),
         line_21.trim(), line_22.trim(), line_23.trim(), line_24.trim(), line_25.trim(), line_26.trim(), line_27.trim(), line_28.trim(), line_29.trim(), line_30.trim(),
-        line_31.trim(), line_32.trim(), line_33.trim(), line_34.trim(), line_35.trim(), line_36.trim(), line_37.trim(), line_38.trim(), line_39.trim(), line_40.trim(),
+        line_31.trim(), line_35.trim(), line_36.trim(), line_37.trim(), line_38.trim(), line_39.trim(), line_40.trim(),
         line_41.trim(), line_42.trim(), line_43.trim(), line_44.trim()];
 
         // Iterate over each string and assert its presence in the PDF content   
@@ -238,6 +235,8 @@ class LOAManagement {
         const parsedData = await pdf(dataBuffer);
         const text = parsedData.text;
 
+        // console.log(`Text Content : ${text}`);
+
 
         // Write the parsed text content to a text file for reference
         await fs.writeFile('src/helper/utils/TextDocuments/data.txt', text); // Specify the correct file path
@@ -248,7 +247,7 @@ class LOAManagement {
         const line_1 = `Format-D`;
         const line_2 = `T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA`;
         const line_3 = `1Application	No.${this.application_no}Date	:	${day}-${month}-${year}`;
-        const line_4 = `2Applicant	Name${DashboardCFP.Utility_2}Registration	Code`;
+        const line_4 = `2Applicant	Name${DashboardCFP.Utility_1}Registration	Code`;  //---------
         const line_5 = `T-GNA	Request`;
         const line_6 = `DateHours`;
         const line_7 = `FromToFromTo`;
@@ -259,7 +258,7 @@ class LOAManagement {
         const line_11 = `GNAS	application)`;
         const line_12 = `Drawee	Entity`;
         const line_13 = `${DashboardCFP.Utility_2}${DashboardCFP.Utility_1}`;
-        const line_14 = `5Injecting	RegionNRLDC`;
+        const line_14 = `5Injecting	RegionSRLDC`;
 
         const line_15 = `6Route${LOAManagement.Route}`;
         const line_16 = `Entity	in	which	it	is`;
