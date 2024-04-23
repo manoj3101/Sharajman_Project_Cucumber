@@ -42,7 +42,7 @@ class Manage_Member {
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
         await pageFixture.page.waitForTimeout(4000);
 
-        
+
 
         // List of row
         const elements = await pageFixture.page.$$("//tbody/tr");
@@ -122,7 +122,6 @@ class Manage_Member {
             await SelectAll.check();
         }
         else {
-            //Home
             if (home) {
                 await check_Home.check();
             } else {
@@ -180,9 +179,30 @@ class Manage_Member {
         await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
         await pageFixture.page.waitForTimeout(5000);
     }
-
-
-
+    async checkInitiate() {
+        
+    }
+    async checkAward() {
+        
+    }
+    async checkRespond() {
+        
+    }
+    async checkLoaGeneration() {
+        
+    }
+    async checkFormatD() {
+        
+    }
+    async checkRegistration() {
+        
+    }
+    async checkManageUser() {
+        
+    }
 
 }
+
+
+
 module.exports = Manage_Member;

@@ -7,10 +7,12 @@ const fs = require('fs').promises;
 const RandomFunction = require('../../helper/utils/RandomFunction');
 const TransactionFee = require('../Admin/TransactionFee');
 const Wrapper = require('../../helper/wrapper/assert');
+const AdminManageMember = require('../Admin/Manage_Member')
 
 //Object Instance
 const randomFunction = new RandomFunction();
 const assert = new Wrapper();
+const adminManageMember = new AdminManageMember();
 
 
 
@@ -815,10 +817,16 @@ class DashboardCFP {
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
             console.log("-------------Successfully Navigated to Generate LOA Page----------");
         }
-
-        //switch to the tab
         const tabSwitch = new tabSwitcher();
         await tabSwitch.switchToTab("loi");
+        const a = await pageFixture.page.url();
+        if (a.includes('403')) {
+            
+        }
+
+
+        //switch to the tab
+       
 
         //Getting the text from the LOA Form After generating the pdf
         const ref_no = (await pageFixture.page.locator("//input[@placeholder='rfq']").textContent()).trim();
@@ -995,9 +1003,8 @@ class DashboardCFP {
             expect(expire_Time).toContain("Expires");
             await LOA.click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
-            console.log("-------------Successfully Navigated to Generate LOA Page----------");
         }
-        
+
 
         //switch to the tab
         const tabSwitch = new tabSwitcher();

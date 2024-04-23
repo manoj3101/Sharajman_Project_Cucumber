@@ -227,7 +227,7 @@ Given('New User started generating the award and generating the LOA from initiat
     // //wait time for 15 minutes 
     await pageFixture.page.waitForTimeout(885000);
 
-    console.log("Wait time is over Awarding CFP has started......");
+   
 
     //cfp carried from initial Step definition
     console.log("Global CFP: " + cfpNumber);
