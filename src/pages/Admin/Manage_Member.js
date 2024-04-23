@@ -170,7 +170,6 @@ class Manage_Member {
                 await check_Initiate.uncheck();
             }
         }
-
         await pageFixture.page.waitForTimeout(3000);
         //Click the submit Button 
         await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
@@ -180,6 +179,10 @@ class Manage_Member {
         await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
         await pageFixture.page.waitForTimeout(5000);
     }
+    
+
+
+
 
 
 
