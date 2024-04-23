@@ -19,9 +19,6 @@ class Manage_Member {
     //     this.page =page;
     // }
 
-
-
-
     async click_Manage_Member() {
         //Hover to the Manage Member and click the Manage Member
         const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[2]");
@@ -29,6 +26,7 @@ class Manage_Member {
         await pageFixture.page.locator("//span[contains(text(),'Manage Member')]").click();
     }
 
+    //Aprove Member
     async approve_Member(org_name, memberApproveOrReject) {
 
         await pageFixture.page.waitForTimeout(3000);
@@ -169,6 +167,399 @@ class Manage_Member {
                 await check_Initiate.uncheck();
             }
         }
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+
+    //Registration 
+    async registration_Check(org_name, registration) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+
+        // expect(page.getByLabel('Subscribe to newsletter')).toBeChecked();
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+
+        //Registration
+        if (registration) {
+            await check_Registration.check();
+        } else {
+            await check_Registration.uncheck();
+        }
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+
+    //Manage user
+    async manageUser_Check(org_name, manage_User) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+
+        // expect(page.getByLabel('Subscribe to newsletter')).toBeChecked();
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+        //Manage User
+        if (manage_User) {
+            await check_Manage_User.check();
+        } else {
+            await check_Manage_User.uncheck();
+        }
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+
+    //Format D
+    async formatD_Check(org_name, format_D) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+
+        // expect(page.getByLabel('Subscribe to newsletter')).toBeChecked();
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+
+        //Format D
+        if (format_D) {
+            await check_Format_D.check();
+        } else {
+            await check_Format_D.uncheck();
+        }
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+    //LOA Generation 
+    async loaGeneration_Check(org_name, lOA_Generation) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+
+        //LOA Generation 
+        if (lOA_Generation) {
+            await check_LOA_Generation.check();
+        } else {
+            await check_LOA_Generation.uncheck();
+        }
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+
+    //Award Check
+    async award_Check(org_name, award) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+
+        // expect(page.getByLabel('Subscribe to newsletter')).toBeChecked();
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+        //Award
+        if (award) {
+            await check_Award.check();
+        } else {
+            await check_Award.uncheck();
+        }
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+
+    //respond check 
+    async respond_Check(org_name, respond) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+
+        // expect(page.getByLabel('Subscribe to newsletter')).toBeChecked();
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+
+        //Respond
+        if (respond) {
+            await check_Respond.check();
+        } else {
+            await check_Respond.uncheck();
+        }
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+
+    //initiate Check
+    async initiate_Check(org_name, initiate) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+        if (initiate) {
+            await check_Initiate.check();
+        } else {
+            await check_Initiate.uncheck();
+        }
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Click the submit Button 
+        await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
+
+        //Assert Part 
+        //Required previliges have been assigned to the user
+        await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
+        await pageFixture.page.waitForTimeout(5000);
+    }
+
+    //select all
+    async selectAll_Check(org_name, selectAll) {
+
+        await pageFixture.page.waitForTimeout(3000);
+        //Search organization name 
+        await pageFixture.page.getByPlaceholder('Search').fill(org_name);
+
+        //select Status pending     value="APPROVED" | value="PENDING" | value="REJECTED"
+        await pageFixture.page.locator("(//select[@name='region'])[2]").selectOption({ value: "APPROVED" });
+
+        //Click the Search  Button
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000);
+
+        //Click the Rights Action 
+        await pageFixture.page.locator("//a[contains(text(),'Rights')]").click();
+        await pageFixture.page.waitForTimeout(3000);
+
+
+        // expect(page.getByLabel('Subscribe to newsletter')).toBeChecked();
+
+        //Rights
+        const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
+        //select All
+        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
+        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
+        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
+        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
+        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
+        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
+        if (selectAll) {
+            await SelectAll.check();
+        }
+        else {
+            await SelectAll.uncheck();
+        }
 
         await pageFixture.page.waitForTimeout(3000);
         //Click the submit Button 
@@ -200,6 +591,12 @@ class Manage_Member {
     async checkManageUser() {
         
     }
+
+
+
+
+
+
 
 }
 
