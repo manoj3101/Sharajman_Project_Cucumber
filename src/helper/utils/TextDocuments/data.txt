@@ -4,14 +4,14 @@ Format-D
 	
 T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA
 	
-1Application	No.6234230Date	:	22-04-2024
+1Application	No.2136798Date	:	23-04-2024
 2Applicant	NameDas&CoRegistration	Code
 3
 T-GNA	Request
 DateHours
 MW
 FromToFromTo
-23-04-202421-04-202620:0023:3099999.0
+23-04-202623-04-202601:0005:3099998.0
 4
 Name	of	Entity
 Injecting	entity	(mandatory	for	Exigency	T-
