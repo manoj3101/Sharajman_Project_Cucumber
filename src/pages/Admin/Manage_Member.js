@@ -84,7 +84,7 @@ class Manage_Member {
 
 
     //Member Rights
-    async member_rights(org_name, selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, initiate) {
+    async member_rights(org_name, selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, initiate, unSelectAll) {
 
         await pageFixture.page.waitForTimeout(3000);
         //Search organization name 
@@ -116,56 +116,84 @@ class Manage_Member {
         const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
         const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
 
+        //Double click the select all 
+        if (unSelectAll) {
+            await SelectAll.dblclick();
+            expect(SelectAll).not.toBeChecked();
+            await pageFixture.page.waitForTimeout(2000);
+        }
+
+
+        //Rights
         if (selectAll) {
             await SelectAll.check();
+            expect(SelectAll).toBeChecked();
         }
         else {
             //Home
             if (home) {
                 await check_Home.check();
+                expect(check_Home).toBeChecked(); //assert
+                console.log("home checked");
+                
             } else {
                 await check_Home.uncheck();
+                expect(check_Home).not.toBeChecked(); //assert
             }
             //Registration
             if (registration) {
                 await check_Registration.check();
+                expect(check_Registration).toBeChecked(); //assert
             } else {
                 await check_Registration.uncheck();
+                expect(check_Registration).not.toBeChecked(); //assert
             }
             //Manage User
             if (manage_User) {
                 await check_Manage_User.check();
+                expect(check_Manage_User).toBeChecked(); //assert
             } else {
                 await check_Manage_User.uncheck();
+                expect(check_Manage_User).not.toBeChecked(); //assert
             }
             //Format D
             if (format_D) {
                 await check_Format_D.check();
+                expect(check_Format_D).toBeChecked(); //assert
             } else {
                 await check_Format_D.uncheck();
+                expect(check_Format_D).not.toBeChecked(); //assert
             }
             //LOA Generation 
             if (lOA_Generation) {
                 await check_LOA_Generation.check();
+                expect(check_LOA_Generation).toBeChecked(); //assert
             } else {
                 await check_LOA_Generation.uncheck();
+                expect(check_LOA_Generation).not.toBeChecked(); //assert
             }
             //Award
             if (award) {
                 await check_Award.check();
+                expect(check_Award).toBeChecked(); //assert
             } else {
                 await check_Award.uncheck();
+                expect(check_Award).not.toBeChecked(); //assert
             }
             //Respond
             if (respond) {
                 await check_Respond.check();
+                expect(check_Respond).toBeChecked(); //assert
             } else {
                 await check_Respond.uncheck();
+                expect(check_Respond).not.toBeChecked(); //assert
             }
             if (initiate) {
                 await check_Initiate.check();
+                expect(check_Initiate).toBeChecked(); //assert
             } else {
                 await check_Initiate.uncheck();
+                expect(check_Initiate).not.toBeChecked(); //assert
             }
         }
         await pageFixture.page.waitForTimeout(3000);
@@ -215,8 +243,10 @@ class Manage_Member {
         //Registration
         if (registration) {
             await check_Registration.check();
+            expect(check_Registration).toBeChecked();
         } else {
             await check_Registration.uncheck();
+            expect(check_Registration).not.toBeChecked();
         }
 
         await pageFixture.page.waitForTimeout(3000);
@@ -265,9 +295,12 @@ class Manage_Member {
         //Manage User
         if (manage_User) {
             await check_Manage_User.check();
+            expect(check_Manage_User).toBeChecked();
         } else {
             await check_Manage_User.uncheck();
+            expect(check_Manage_User).not.toBeChecked();
         }
+
         await pageFixture.page.waitForTimeout(3000);
         //Click the submit Button 
         await pageFixture.page.locator("//button[contains(text(),'Submit')]").click();
@@ -315,8 +348,10 @@ class Manage_Member {
         //Format D
         if (format_D) {
             await check_Format_D.check();
+            expect(check_Format_D).toBeChecked();
         } else {
             await check_Format_D.uncheck();
+            expect(check_Format_D).not.toBeChecked();
         }
 
         await pageFixture.page.waitForTimeout(3000);
@@ -362,8 +397,10 @@ class Manage_Member {
         //LOA Generation 
         if (lOA_Generation) {
             await check_LOA_Generation.check();
+            expect(check_LOA_Generation).toBeChecked();
         } else {
             await check_LOA_Generation.uncheck();
+            expect(check_LOA_Generation).not.toBeChecked();
         }
 
         await pageFixture.page.waitForTimeout(3000);
@@ -412,8 +449,10 @@ class Manage_Member {
         //Award
         if (award) {
             await check_Award.check();
+            expect(check_Award).toBeChecked();
         } else {
             await check_Award.uncheck();
+            expect(check_Award).not.toBeChecked();
         }
         await pageFixture.page.waitForTimeout(3000);
         //Click the submit Button 
@@ -462,8 +501,10 @@ class Manage_Member {
         //Respond
         if (respond) {
             await check_Respond.check();
+            expect(check_Respond).toBeChecked();
         } else {
             await check_Respond.uncheck();
+            expect(check_Respond).not.toBeChecked();
         }
 
         await pageFixture.page.waitForTimeout(3000);
@@ -508,8 +549,10 @@ class Manage_Member {
 
         if (initiate) {
             await check_Initiate.check();
+            expect(check_Initiate).toBeChecked();
         } else {
             await check_Initiate.uncheck();
+            expect(check_Initiate).not.toBeChecked();
         }
 
         await pageFixture.page.waitForTimeout(3000);
@@ -557,9 +600,11 @@ class Manage_Member {
 
         if (selectAll) {
             await SelectAll.check();
+            expect(SelectAll).toBeChecked();
         }
         else {
             await SelectAll.uncheck();
+            expect(SelectAll).not.toBeChecked();
         }
 
         await pageFixture.page.waitForTimeout(3000);
@@ -571,14 +616,6 @@ class Manage_Member {
         await assert.assertToContains("//*[contains(text(),'Required previliges have been assigned to the user')]", "Required previliges have been assigned to the user");
         await pageFixture.page.waitForTimeout(5000);
     }
-
-
-
-
-
-
-
-
 
 
 }

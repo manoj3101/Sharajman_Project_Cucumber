@@ -3,6 +3,15 @@
     "admin_password":"K#(j{83&ym",
     "static_password":"654321",
 
+    "user1":"SamuelHoward_24154906@yopmail.com",
+    "user1_password":"Howard@123456",
+
+    "user2":"BellaBaker_24125133@yopmail.com",
+    "user2_password":"Testing@123",
+
+    "orgName1":"Quantum Leap_24154906",
+    "orgName2":"Digital Architects_24125133",
+
 
     "AD_01": {
         "NOAR": true,
@@ -14,6 +23,7 @@
 
         "Manage_member": true,
         "Payment_approval": true,
+
         "selectall":true,
         "Home": true,
         "Initiate": true,
@@ -102,15 +112,30 @@
 
         "Manage_member": true,
         "Payment_approval": true,
-        "selectall":false,
-        "Home": true,
-        "Initiate": true,
-        "Award": true,
-        "Respond": true,
-        "LOA_Generation": true,
-        "FormatD": false,
-        "Registration": true,
-        "Manage_User": false,
+        "unSelectall":true,
+        
+        "selectall_int":false,
+        "Home_int": true,
+        "Initiate_int": true,
+        "Award_int": false, "Award_int1": true,
+        "Respond_int": true,
+        "LOA_Generation_int": true,
+        "FormatD_int": false, "FormatD_int1": true,
+        "Registration_int": true,
+        "Manage_User_int": false, "Manage_User_int1": true,
+        "LOA_Management_int":true,
+
+
+        "selectall_res":false,
+        "Home_res": true,
+        "Initiate_res": true,
+        "Award_res": true,
+        "Respond_res": true,
+        "LOA_Generation_res": false,  "LOA_Generation_res1": true,
+        "FormatD_res": true,
+        "Registration_res": false, "Registration_res1": true,
+        "Manage_User_res": true,
+        "LOA_Management_res":true,
 
         "department":"testing",
         "designation":"lead",
@@ -183,15 +208,29 @@
 
         "Manage_member": true,
         "Payment_approval": true,
-        "selectall":false,
-        "Home": true,
-        "Initiate": true,
-        "Award": true,
-        "Respond": true,
-        "LOA_Generation": false,
-        "FormatD": false,
-        "Registration": false,
-        "Manage_User": true,
+
+        "selectall_int":false,
+        "Home_int": true,
+        "Initiate_int": true,
+        "Award_int": true,
+        "Respond_int": true,
+        "LOA_Generation_int": false, "LOA_Generation_int1": true,
+        "FormatD_int": true,
+        "Registration_int": false, "Registration_int1": true,
+        "Manage_User_int": true,
+        "LOA_Management_int":true,
+
+
+        "selectall_res":false,
+        "Home_res": false, "Home_res1": true,
+        "Initiate_res": true,
+        "Award_res": true,
+        "Respond_res": true,
+        "LOA_Generation_res": true,
+        "FormatD_res": false, "FormatD_res1": false,
+        "Registration_res": true,
+        "Manage_User_res": true,
+        "LOA_Management_res":true,
 
         "department":"tester",
         "designation":"lead",
@@ -271,15 +310,29 @@
 
         "Manage_member": true,
         "Payment_approval": true,
-        "selectall":false,
-        "Home": true,
-        "Initiate": true,
-        "Award": true,
-        "Respond": false,
-        "LOA_Generation": true,
-        "FormatD": true,
-        "Registration": false,
-        "Manage_User": false,
+        
+        "selectall_int":false,
+        "Home_int": false, "Home_int1": true,
+        "Initiate_int": true,
+        "Award_int": false, "Award_int1": true,
+        "Respond_int": true,
+        "LOA_Generation_int": true,
+        "FormatD_int": false, "FormatD_int1": true,
+        "Registration_int": true,
+        "Manage_User_int": true,
+        "LOA_Management_int":true,
+
+
+        "selectall_res":false,
+        "Home_res": true,
+        "Initiate_res": true,
+        "Award_res": true,
+        "Respond_res": true,
+        "LOA_Generation_res": true,
+        "FormatD_res": true,
+        "Registration_res": true,
+        "Manage_User_res": false, "Manage_User_res1": true,
+        "LOA_Management_res":true,
 
         "department":"testing",
         "designation":"lead",
@@ -346,8 +399,6 @@
         "TGNA":"YES"
     
         }, 
-    
-
 
     "AD_05": {
         "NOAR": true,
@@ -359,15 +410,29 @@
 
         "Manage_member": true,
         "Payment_approval": true,
-        "selectall":false,
-        "Home": true,
-        "Initiate": true,
-        "Award": true,
-        "Respond": false,
-        "LOA_Generation": false,
-        "FormatD": false,
-        "Registration": true,
-        "Manage_User": true,
+        
+        "selectall_int":false,
+        "Home_int": false, "Home_int1": true,
+        "Initiate_int": true,
+        "Award_int": true,
+        "Respond_int": true,
+        "LOA_Generation_int": false, "LOA_Generation_int1": true,
+        "FormatD_int": true,
+        "Registration_int": true,
+        "Manage_User_int": true,
+        "LOA_Management_int":true,
+
+
+        "selectall_res":false,
+        "Home_res": false, "Home_res1": true,
+        "Initiate_res": true,
+        "Award_res": true,
+        "Respond_res": true,
+        "LOA_Generation_res": false, "LOA_Generation_res1": true,
+        "FormatD_res": true,
+        "Registration_res": true,
+        "Manage_User_res": true,
+        "LOA_Management_res":true,
 
         "department":"tester",
         "designation":"lead",
@@ -500,8 +565,6 @@
     
         },
 
-
-
     "AD_06": {
         "NOAR": false,
         "natureofapplicant":"PRIVATELIMITED",
@@ -512,15 +575,29 @@
 
         "Manage_member": true,
         "Payment_approval": true,
-        "selectall":false,
-        "Home": true,
-        "Initiate": true,
-        "Award": true,
-        "Respond": false,
-        "LOA_Generation": true,
-        "FormatD": false,
-        "Registration": true,
-        "Manage_User": false,
+        
+        "selectall_int":false,
+        "Home_int": true,
+        "Initiate_int": true,
+        "Award_int": true,
+        "Respond_int": true,
+        "LOA_Generation_int": true,
+        "FormatD_int": false, "FormatD_int1": true,
+        "Registration_int": true,
+        "Manage_User_int": false,  "Manage_User_int1": true,
+        "LOA_Management_int":true,
+
+
+        "selectall_res":false,
+        "Home_res": true,
+        "Initiate_res": true,
+        "Award_res": true,
+        "Respond_res": true,
+        "LOA_Generation_res": true,
+        "FormatD_res": false, "FormatD_res1": true,
+        "Registration_res": true,
+        "Manage_User_res": false, "Manage_User_res1": true,
+        "LOA_Management_res":true,
 
         "department":"testing",
         "designation":"lead",
@@ -641,8 +718,6 @@
     
         },
 
-
-
     "AD_07": {
         "NOAR": true,
         "natureofapplicant":"PRIVATELIMITED",
@@ -653,16 +728,29 @@
 
         "Manage_member": true,
         "Payment_approval": true,
-        "selectall":false,
-        "Home": true,
-        "Initiate": true,
-        "Award": false,
-        "Respond": true,
-        "LOA_Generation": true,
-        "FormatD": true,
-        "Registration": false,
-        "Manage_User": true,
-        "LOA_Management":true,
+
+        "selectall_int":false,
+        "Home_int": true,
+        "Initiate_int": false, "Initiate_int1": true,
+        "Award_int": true,
+        "Respond_int": false, "Respond_int1": true,
+        "LOA_Generation_int": true,
+        "FormatD_int": true,
+        "Registration_int": false,"Registration_int1": true,
+        "Manage_User_int": true,
+        "LOA_Management_int":true,
+
+
+        "selectall_res":false,
+        "Home_res": true,
+        "Initiate_res": true,
+        "Award_res": true,
+        "Respond_res": true,
+        "LOA_Generation_res": true,
+        "FormatD_res": false, "FormatD_res1": true,
+        "Registration_res": false, "Registration_res1": true,
+        "Manage_User_res": true,
+        "LOA_Management_res":true,
 
         "department":"testing",
         "designation":"lead",
@@ -732,9 +820,6 @@
         
         },
           
-
-
-
     "AD_08": {
         "NOAR": false,
         "natureofapplicant":"PRIVATELIMITED",
@@ -745,15 +830,29 @@
 
         "Manage_member": true,
         "Payment_approval": true,
-        "selectall":false,
-        "Home": true,
-        "Initiate": true,
-        "Award": false,
-        "Respond": false,
-        "LOA_Generation": false,
-        "FormatD": false,
-        "Registration": false,
-        "Manage_User": false,
+
+        "selectall_int":false,
+        "Home_int": false, "Home_int1": true,
+        "Initiate_int": false, "Initiate_int1": true,
+        "Award_int": true,
+        "Respond_int": false, "Respond_int1": true,
+        "LOA_Generation_int": true,
+        "FormatD_int": true,
+        "Registration_int": false, "Registration_int1": true, 
+        "Manage_User_int": true,
+        "LOA_Management_int":true,
+
+
+        "selectall_res":false,
+        "Home_res": true,
+        "Initiate_res": false, "Initiate_res1": true,
+        "Award_res": true,
+        "Respond_res": false, "Respond_res1": true,
+        "LOA_Generation_res": true,
+        "FormatD_res": true,
+        "Registration_res": true,
+        "Manage_User_res": false, "Manage_User_res1": true,
+        "LOA_Management_res":true,
 
 
 
@@ -819,6 +918,8 @@
         "TGNA":"YES"
     
         },
+
+
 
 
     "AD_09": {
