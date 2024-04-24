@@ -39,6 +39,7 @@ const transactionFee = new TransactionFee(pageFixture.page);
 
 //Variables
 let name = signUp.Name;
+
 let email_id = signUp.email_id;
 let password = signUp.new_pass;
 let org_name = signUp.org_name;

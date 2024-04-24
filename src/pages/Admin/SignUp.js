@@ -10,26 +10,39 @@ const assert = new Wrapper();
 
 //Get Current Date
 const now = new Date();
-const dateString = `${now.getDate().toString().padStart(2, '0')}`;
-const timeString = `${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+let dateString = `${now.getDate().toString().padStart(2, '0')}`;
+let timeString = `${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+let dateString1 = `${now.getDate().toString().padStart(2, '0')}`;
+let timeString1 = `${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
 
 class SignUp {
 
-    // Constructor
-    // constructor(page){
-    //     this.page =page;
-    // }
-
-    //Variable
     f_name = randomFunction.generateRandomFirstName(); //First Name 
     l_name = randomFunction.generateRandomLastName(); //Last Name 
+
+    f_name1 = randomFunction.generateRandomFirstName(); //First Name 
+    l_name1 = randomFunction.generateRandomLastName(); //Last Name 
+
     Name = this.f_name + " " + this.l_name; // Combined Name 
+    Name1 = this.f_name1 + " " + this.l_name1; // Combined Name 
+
     phone_no = randomFunction.generateRandomMobileNumber(); //Mobile number 
+    phone_no1 = randomFunction.generateRandomMobileNumber();
+
     email_id = `${this.f_name}${this.l_name}_${dateString}${timeString}@yopmail.com`;
-    org_name = randomFunction.generateRandomOrganizationName();  //Organization Name
+    email_id1 = `${this.f_name1}${this.l_name1}_${dateString}${timeString}@yopmail.com`;
+
+    org1 = randomFunction.generateRandomOrganizationName();  //Organization Name
+    org2 = randomFunction.generateRandomOrganizationName();  //Organization Name
+    a = this.org1 +  this.dateAndTime();
+    b = this.org1 + this.dateAndTime();
+    org_name = this.a  //Organization Name
+    org_name1 = this.b;  //Organization Name
 
     pass_word = "Testing@321"; //Old Password 
+
     new_pass = this.l_name + "@123456" //New Password 
+    new_pass1 = this.l_name1 + "@123456" //New Password 
 
 
     //Locators or Xpaths
@@ -73,17 +86,23 @@ class SignUp {
     //-------------------------------------------------------------------------------------------------------------------
     //Methods
     //signUp
-    async signup() {
+    async dateAndTime() {
+        const now = new Date();
+        // let dateString = `${now.getDate().toString().padStart(2, '0')}`;
+        let timeString = `${now.getDate().toString().padStart(2, '0')}${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+        return timeString
+    }
+    async signup(f_name, l_name, fullName, email_id, phoneNumber, org_name) {
         //Navigate to the url
         await pageFixture.page.goto(data.URL, { waitUntil: 'load' });
         await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.locator(this.sign_up).click({ timeout: 40000, waitUntil: 'load' }); //Click signUp Link
         await pageFixture.page.waitForTimeout(2000);
-        await pageFixture.page.locator(this.fname).fill(this.f_name); //Fill First name
-        await pageFixture.page.locator(this.lname).fill(this.l_name); //Fill Last name
-        await pageFixture.page.locator(this.mobileno).fill(this.phone_no); //Mobile number
-        await pageFixture.page.locator(this.email).fill(this.email_id); //Email ID
-        await pageFixture.page.locator(this.orgname).fill(this.org_name); //Organization Name
+        await pageFixture.page.locator(this.fname).fill(f_name); //Fill First name
+        await pageFixture.page.locator(this.lname).fill(l_name); //Fill Last name
+        await pageFixture.page.locator(this.mobileno).fill(phoneNumber); //Mobile number
+        await pageFixture.page.locator(this.email).fill(email_id); //Email ID
+        await pageFixture.page.locator(this.orgname).fill(org_name); //Organization Name
         await pageFixture.page.click(this.DISCOM); //Check Box
         await pageFixture.page.locator(this.Password).fill(this.pass_word); //Password
         await pageFixture.page.locator(this.confirm).fill(this.pass_word);//confirm Password
@@ -92,13 +111,13 @@ class SignUp {
         await this.OTP(); //Method to fill Otp
 
 
-        console.log(`Name : ${this.Name}`);
-        console.log(`Email_ID : ${this.email_id}`);
-        console.log(`Organization name : ${this.org_name}\n`);
+        console.log(`Name : ${fullName}`);
+        console.log(`Email_ID : ${email_id}`);
+        console.log(`Organization name : ${org_name}\n`);
 
-        
 
-        await assert.assertToContains("//*[contains(text(),'SMS Verified Successfully')]","SMS Verified Successfully");
+
+        await assert.assertToContains("//*[contains(text(),'SMS Verified Successfully')]", "SMS Verified Successfully");
 
         console.log(`✔ SignUp have been Successfully Completed`);
 
@@ -124,14 +143,14 @@ class SignUp {
         await pageFixture.page.waitForTimeout(3000);
     }
 
-    async login_Again(passcode) {
-        await pageFixture.page.getByPlaceholder('Email Address').fill(this.email_id); //Fill Email_ID
+    async login_Again(email_id, passcode, newPassword) {
+        await pageFixture.page.getByPlaceholder('Email Address').fill(email_id); //Fill Email_ID
         switch (passcode) {
             case "oldpassword":
                 await pageFixture.page.getByPlaceholder('Password').fill(this.pass_word); //Fill Password 
                 break;
             case "newpassword":
-                await pageFixture.page.getByPlaceholder('Password').fill(this.new_pass); //Fill Password 
+                await pageFixture.page.getByPlaceholder('Password').fill(newPassword); //Fill Password 
                 break;
         }
         // ------------------------------------------------
@@ -139,16 +158,16 @@ class SignUp {
         await pageFixture.page.waitForTimeout(3000);
     }
 
-    
-    async changePasswordAndTFA() {
+
+    async changePasswordAndTFA(newPassword) {
         await pageFixture.page.waitForTimeout(2000);
         await pageFixture.page.locator(this.old_password).fill(this.pass_word); //Fill Old Password
-        await pageFixture.page.locator(this.new_password).fill(this.new_pass); //Fill New Password
-        await pageFixture.page.locator(this.confirm).fill(this.new_pass); //Fill Confirm New Password
+        await pageFixture.page.locator(this.new_password).fill(newPassword); //Fill New Password
+        await pageFixture.page.locator(this.confirm).fill(newPassword); //Fill Confirm New Password
         await pageFixture.page.click(this.Change_password, { timeout: 40000 }); //Click Change Button
 
         //Assert the changepass Message 
-        await assert.assertToContains("//*[contains(text(),'Password changed successfully')]","Password changed successfully");
+        await assert.assertToContains("//*[contains(text(),'Password changed successfully')]", "Password changed successfully");
 
         await pageFixture.page.click(this.TFA_OTP); //Next Step is to click OTP Two Factor Autentication
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
@@ -159,15 +178,15 @@ class SignUp {
         await this.OTP();
     }
 
-    async inactiveTFA(){
+    async inactiveTFA() {
         await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
         await pageFixture.page.locator("//a[contains(text(),'My Profile')]").click();
         await pageFixture.page.locator("//a[contains(text(),'Two Factor Authentication')]").click();
         await pageFixture.page.locator("//label[contains(text(),'INACTIVE')]").click();
         await pageFixture.page.getByRole('button', { name: /Yes/i }).click();
         await this.OTP();
-         //Assert the changepass Message 
-         await assert.assertToContains("//*[contains(text(),'Two Factor Auth Type-NA Enabled Successfully')]","Two Factor Auth Type-NA Enabled Successfully");
+        //Assert the changepass Message 
+        await assert.assertToContains("//*[contains(text(),'Two Factor Auth Type-NA Enabled Successfully')]", "Two Factor Auth Type-NA Enabled Successfully");
 
     }
 

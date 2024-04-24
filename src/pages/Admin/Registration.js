@@ -15,10 +15,6 @@ const assert = new Wrapper();
 const signUp = new SignUp();
 
 class Registration {
-    // Constructor
-    // constructor(page){
-    //     this.page =page;
-    // }
 
     //Variable 
     //NORA details
@@ -40,6 +36,7 @@ class Registration {
     BranchName = "Ashok Nagar"; //Branch Name
     // AccountHolderName = signUp.Name; //Account Holder Name
     AccountNumber = (Math.floor(Math.random() * 90000000000) + 10000000000).toString(); //Account Number 
+    AccountNumber1 = (Math.floor(Math.random() * 90000000000) + 10000000000).toString(); //Account Number 
     IFSC = randomFunction.generateRandomIFSC(); //11 Digit 
     MICR = (Math.floor(Math.random() * 900000000) + 100000000).toString();
 
@@ -177,13 +174,13 @@ class Registration {
     }
 
     //Bank Details
-    async bank_Details(name) {
+    async bank_Details(name, accountNumber) {
 
         await pageFixture.page.waitForTimeout(3000);
         await pageFixture.page.locator(this.bankName).selectOption({ value: "19" }); //Bnamk Name | Bank Of India 
         await pageFixture.page.locator(this.branchName).fill(this.BranchName); //Branch Name
         await pageFixture.page.locator(this.accountHolderName).fill(name); //Fill the Account Holder Name
-        await pageFixture.page.locator(this.accountNumber).fill(this.AccountNumber); //Fill the Account Numnber
+        await pageFixture.page.locator(this.accountNumber).fill(accountNumber); //Fill the Account Numnber
         await pageFixture.page.locator(this.IFSC_Code).fill(this.IFSC); //Fill the IFSC code
         await pageFixture.page.locator(this.MICR_Code).fill(this.MICR); //Fill the MIRC code
         await pageFixture.page.waitForTimeout(3000);

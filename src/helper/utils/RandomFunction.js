@@ -51,6 +51,7 @@ class RandomFunction {
 
     }
 
+    
     // Generate a random Phone number
     generateRandomMobileNumber() {
         const number = Math.floor(Math.random() * 1000000000); // Random 9-digit number

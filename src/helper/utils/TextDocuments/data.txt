@@ -1,48 +1,56 @@
 
 
-LOA	No.
-LOA/001163
-Date23-04-2024
+Format-D
 	
-To,
-Das&Co
-nil	Chennai	435465
-leodas@yopmail.com
-Subject	:	Power	swap	arrangement	by	LCU	via	CFP	Ref.	No.	24250403672.
-Ref:1.	e-Listing	24250403672	dated	23-04-2024
-2.	Your	offer	dated	23-04-2024	on	NAME	portal
+T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA
 	
-Dear	Sir,
-With	reference	to	the	above,	we	are	pleased	to	place	Letter	of	Acceptance	(LoA)	in	favour	of	Das&Co,	as	per	below
-mentioned	arrangement.
-Supply	of	Power	by	LCU	to	Das&Co
-UtilityPeriodDuration	(Hrs.)Quantum	(MW)
-LCU23-04-2026	to	23-04-202601:00	-	04:3099999.0
+1Application	No.4438761Date	:	24-04-2024
+2Applicant	NameDas&CoRegistration	Code
+3
+T-GNA	Request
+DateHours
+MW
+FromToFromTo
+24-04-202624-04-202600:3004:3099999.0
+4
+Name	of	Entity
+Injecting	entity	(mandatory	for	Exigency	T-
+GNAS	application)
+Drawee	Entity
+LCUDas&Co
+5Injecting	RegionSRLDC
+6RouteSR-SR
+7
+Entity	in	which	it	is
+embedded
+TN-SLDCTN-SLDC
+8Whether	the	transaction	under	GTAM	(Yes/No)YES
+9
+Source	of	generation	is	solar/non	solar/hydro	(applicable	in	case	of	Exigency	T-
+GNA	application)
+SOLAR
+10Whether	the	transaction	is	for	meeting	RPO	obligationNO
+11
+Granting	T-GNA/T-GNARE	exigency	application	in	part	quantum	and	part	period
+or	both	in	case	of	constrains	as	per	available	transmission	capability	**	For
+Exigency	Application15
+YES
 	
-Return	of	Power	from	Das&Co	to	LCU
-UtilityPeriod
-Duration
-(Hrs.)
-Quantum	in	MW	(As
-per	return	schedule
-and	%	return
-percentage)
-Return	Ratio
-in	%
-Das&Co23-04-2026	to	23-04-202620:00	-	24:00874116.25999.0
+Declaration:
+1
+The	provisions	of	the	Electricity	Act	2003,	Indian	Electricity	Grid	Code	and	all	applicable	CERC	regulations	with	respect	to
+T-GNA/T-GNARE	transactions	in	interstate	transmission,	as	amended	from	time	to	time	are	hereby	understood	and	shall	be
+binding.
+2.
+Necessary	infrastructure	for	time-block	wise	metering	and	accounting	in	accordance	with	the	provisions	of	the	Grid	code
+and	appropriate	communication	system	in	accordance	with	the	provisions	of	the	Communication	Regulations	are	in	place
+for	the	point	of	drawal	and	point	of	injection,	if	available.
+3.
+The	Nodal	Agency	is	indemnified	at	all	times	from	any	and	all	claims,	actions	and	all	other	obligations	by	or	to	third	parties
+arising	out	of	or	resulting	from	the	transactions	under	T-GNA/T-GNARE.
+4.There	is	a	valid	contract	for	the	proposed	scheduling.
 	
-Delivery	Point
-The	delivery	point,	in	either	case,	shall	be	the	Regional	Periphery	of	Exporting
-Utility.
-Settlement	rate	(Rs./kWh)Others	-	1
-General	Terms	&	Conditions
-As	per	the	Framework	Agreement	/	As	per	the	Listing	Document	(Ref.	No.)
-24250403672
+Name:..........................................
+Designation:..........................................
 	
-You	are	requested	to	acknowledge	the	receipt	of	this	LOA	&	give	your	acceptance	on	it.
-Regards,
-Yours	Faithfully,
-For	LCU
-	
-Authorised	Signatory
-(Other	Information	if	any)
+Date:
