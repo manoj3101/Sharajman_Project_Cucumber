@@ -134,8 +134,6 @@ class Manage_Member {
             if (home) {
                 await check_Home.check();
                 expect(check_Home).toBeChecked(); //assert
-                console.log("home checked");
-                
             } else {
                 await check_Home.uncheck();
                 expect(check_Home).not.toBeChecked(); //assert

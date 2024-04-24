@@ -24,7 +24,35 @@ class RandomFunction {
     }
 
     // Generate a random organization name
-    generateRandomOrganizationName() {
+    // generateRandomOrganizationName() {
+    //     const organizationNames = [
+    //         'Bright Horizons', 'Tech Titans', 'Innovation Hub', 'Pixel Perfect', 'Quantum Solutions',
+    //         'Elite Creations', 'Code Masters', 'Digital Dreamers', 'Global Vision', 'Agile Solutions',
+    //         'NexTech Innovations', 'Data Dexterity', 'Smart Solutions', 'Fusion Technologies', 'Web Wizards',
+    //         'Future Horizons', 'Silver Lining', 'Cyber Dynamics', 'Tech Savvy', 'Virtual Ventures',
+    //         'Digital Architects', 'Innovate Labs', 'Cloud Chasers', 'Tech Trek', 'Alpha Omega',
+    //         'Synergy Solutions', 'Epic Innovations', 'Summit Strategies', 'Tech Fusion', 'Phoenix Solutions',
+    //         'Elevate Labs', 'Infinite Solutions', 'Byte Builders', 'Strategic Synergy', 'InnovaTech',
+    //         'Pioneer Partners', 'Blue Sky Technologies', 'Quantum Leap', 'Dynamic Designs', 'Apex Solutions',
+    //         'Nova Nexus', 'Hyperion Innovations', 'Tech Trails', 'Innovate Zone', 'Future Forge',
+    //         'Digital Dynamics', 'Vertex Ventures', 'Strategic Solutions', 'Creative Catalysts', 'Prime Partners'
+    //     ];
+
+    //     const randomOrganizationName = organizationNames[Math.floor(Math.random() * organizationNames.length)];
+
+    //     const now = new Date();
+    //     const dateString = `${now.getDate().toString().padStart(2, '0')}`;
+    //     const timeString = `${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
+
+    //     return `${randomOrganizationName}_${dateString}${timeString}`;
+    //     // return organizationNames[Math.floor(Math.random() * organizationNames.length)];
+    //     // const dateString = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+    //     // const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+
+    // }
+
+
+     generateRandomOrganizationName() {
         const organizationNames = [
             'Bright Horizons', 'Tech Titans', 'Innovation Hub', 'Pixel Perfect', 'Quantum Solutions',
             'Elite Creations', 'Code Masters', 'Digital Dreamers', 'Global Vision', 'Agile Solutions',
@@ -37,19 +65,30 @@ class RandomFunction {
             'Nova Nexus', 'Hyperion Innovations', 'Tech Trails', 'Innovate Zone', 'Future Forge',
             'Digital Dynamics', 'Vertex Ventures', 'Strategic Solutions', 'Creative Catalysts', 'Prime Partners'
         ];
-
-        const randomOrganizationName = organizationNames[Math.floor(Math.random() * organizationNames.length)];
-
+    
         const now = new Date();
         const dateString = `${now.getDate().toString().padStart(2, '0')}`;
         const timeString = `${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}`;
-
-        return `${randomOrganizationName}_${dateString}${timeString}`;
-        // return organizationNames[Math.floor(Math.random() * organizationNames.length)];
-        // const dateString = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-        // const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-
+        const millisecondString = now.getMilliseconds().toString().padStart(3, '0');
+    
+        let randomIndex1 = Math.floor(Math.random() * organizationNames.length);
+        let randomIndex2 = Math.floor(Math.random() * organizationNames.length);
+    
+        // Ensure the second index is different from the first one
+        while (randomIndex2 === randomIndex1) {
+            randomIndex2 = Math.floor(Math.random() * organizationNames.length);
+        }
+    
+        const randomOrganizationName1 = organizationNames[randomIndex1];
+        const randomOrganizationName2 = organizationNames[randomIndex2];
+    
+        // Add the milliseconds to the second organization name
+        const orgName1 = `${randomOrganizationName1}_${dateString}${timeString}`;
+        const orgName2 = `${randomOrganizationName2}_${timeString}`;
+    
+        return [orgName1, orgName2];
     }
+    
 
     // Generate a random Phone number
     generateRandomMobileNumber() {

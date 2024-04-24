@@ -7,6 +7,7 @@ const Wrapper = require('../../helper/wrapper/assert');
 //Object Instance
 const randomFunction = new RandomFunction();
 const assert = new Wrapper();
+const [organizationName1, organizationName2] = randomFunction.generateRandomOrganizationName();
 
 //Get Current Date
 const now = new Date();
@@ -21,13 +22,13 @@ class SignUp {
     // }
 
     //Variable
+    // Generate two different organization names
     f_name = randomFunction.generateRandomFirstName(); //First Name 
     l_name = randomFunction.generateRandomLastName(); //Last Name 
     Name = this.f_name + " " + this.l_name; // Combined Name 
     phone_no = randomFunction.generateRandomMobileNumber(); //Mobile number 
     email_id = `${this.f_name}${this.l_name}_${dateString}${timeString}@yopmail.com`;
     org_name = randomFunction.generateRandomOrganizationName();  //Organization Name
-
     pass_word = "Testing@321"; //Old Password 
     new_pass = this.l_name + "@123456" //New Password 
 

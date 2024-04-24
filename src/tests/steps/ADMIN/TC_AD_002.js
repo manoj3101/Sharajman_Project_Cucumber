@@ -73,7 +73,7 @@ Then('Admin user changing the rights for Responder as per Admin case two', async
 //@                                                     Scenario 2
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User navigate to the Application and logged in as a discom user as initiator as per admin case two', async function () {
+Given('Initiator navigate to the Application and logged in as a discom user as per admin case two', async function () {
 
     //New user as a Initiator
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
@@ -81,7 +81,7 @@ Given('User navigate to the Application and logged in as a discom user as initia
 
 });
 
-Given('User started creating Call for Proposal CFP as an initiator as per admin case two', async function () {
+Given('Initiator started creating Call for Proposal CFP as an initiator as per admin case two', async function () {
 
     await home.clickCallForPropsal();
 
@@ -115,7 +115,7 @@ Given('User started creating Call for Proposal CFP as an initiator as per admin 
 
     await dashboardCFP.ceilingBaseReturn(ad_data.AD_02.Ceiling_Base_Return, ad_data.AD_02.Ceiling_Base_Return_value);
 
-    await dashboardCFP.selectResponder(ad_data.AD_02.multiple_responder, data.orgName1);
+    await dashboardCFP.selectResponder(ad_data.AD_02.multiple_responder, ad_data.orgName1);
 
     await dashboardCFP.custom_Guests(ad_data.AD_02.custom_Guests);
 
@@ -139,10 +139,10 @@ Then('Verify whether the Call for Proposal CFP is Published successfully as per 
 //@                                                     Scenario 3
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User navigate to the Application and logged in as a discom user as Responder as per admin case two', async function () {
+Given('Responder navigate to the Application and logged in as a discom user as per admin case two', async function () {
 
     console.log("-----------------------------------------RESPONDER-----------------------------------------");
-    await login.login(ad_data.user2);
+    await login.login(ad_data.user2, ad_data.user2_password);
 
 });
 
@@ -170,10 +170,10 @@ Then('Verify whether Response CFP is Placed successfully as per admin case two',
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 5
+//@                                                     Scenario 4
 //-------------------------------------------------------------------------------------------------------------------------
 
-Given('User started generating the award and generating the LOA from initiator side as per admin case two', { timeout: 1200000 }, async function () {
+Given('Verify whether the user is unable to Award the CFP as per admin case two', { timeout: 1200000 }, async function () {
 
     await home.clickCallForPropsal();
 
@@ -191,18 +191,30 @@ Given('User started generating the award and generating the LOA from initiator s
 
 });
 
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 5
+//-------------------------------------------------------------------------------------------------------------------------
+
 Given('Admin user giving award Rights for Initiator as per Admin case two', async function () {
 
     await manage_Member.award_Check(ad_data.user1, ad_data.AD_02.Award_int1);
 
 });
 
+//-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 6
+//-------------------------------------------------------------------------------------------------------------------------
 
+Then('Verify whether the user is able to Award and Generate LOA after admin gave the rights to the initiator as per admin case two', async function () {
 
+    await home.clickCallForPropsal();
 
-Then('Verify whether the user is unable to Award the CFP as per admin case two', async function () {
+    console.log("Global CFP: " + cfpNumber);
 
-    //cfp carried from initial Step definition
+    await dashboardCFP.initiatedFeed(cfpNumber);
+
+    await dashboardCFP.generateAward();
+
     console.log("Global CFP: " + cfpNumber);
 
     await dashboardCFP.initiatedFeed(cfpNumber);
@@ -212,8 +224,6 @@ Then('Verify whether the user is unable to Award the CFP as per admin case two',
     await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_02.exp_start_time, ad_data.AD_02.exp_end_time, ad_data.AD_02.ReturnValue1);
 
     await dashboardCFP.generateLOA(cfpNumber, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_02.imp_start_time, ad_data.AD_02.imp_end_time, ad_data.AD_02.minQuantumValue1, DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_02.exp_start_time, ad_data.AD_02.exp_end_time, ad_data.AD_02.ReturnValue1, ad_data.AD_02.Settlement_Price, ad_data.AD_02.loa_issuance_mins);
-
-    console.log("--------------------Awarding and LOA has generated Successfully-----------------");
 
     console.log("Initiator Uploaded the LOA documents successfully. \n <<<<<<<<<<<LOA has been uploaded successfully.>>>>>>>>>>>>>>");
 
