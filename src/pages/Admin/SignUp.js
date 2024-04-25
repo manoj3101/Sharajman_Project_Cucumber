@@ -7,6 +7,8 @@ const Wrapper = require('../../helper/wrapper/assert');
 //Object Instance
 const randomFunction = new RandomFunction();
 const assert = new Wrapper();
+const [organizationName1, organizationName2] = randomFunction.generateRandomOrganizationName();
+
 
 //Get Current Date
 const now = new Date();
@@ -32,12 +34,9 @@ class SignUp {
     email_id = `${this.f_name}${this.l_name}_${dateString}${timeString}@yopmail.com`;
     email_id1 = `${this.f_name1}${this.l_name1}_${dateString}${timeString}@yopmail.com`;
 
-    org1 = randomFunction.generateRandomOrganizationName();  //Organization Name
-    org2 = randomFunction.generateRandomOrganizationName();  //Organization Name
-    a = this.org1 +  this.dateAndTime();
-    b = this.org1 + this.dateAndTime();
-    org_name = this.a  //Organization Name
-    org_name1 = this.b;  //Organization Name
+
+    org_name = organizationName1 //Organization Name
+    org_name1 = organizationName2;  //Organization Name
 
     pass_word = "Testing@321"; //Old Password 
 
@@ -103,7 +102,7 @@ class SignUp {
         await pageFixture.page.locator(this.mobileno).fill(phoneNumber); //Mobile number
         await pageFixture.page.locator(this.email).fill(email_id); //Email ID
         await pageFixture.page.locator(this.orgname).fill(org_name); //Organization Name
-        await pageFixture.page.click(this.DISCOM); //Check Box
+        // await pageFixture.page.click(this.DISCOM); //Check Box
         await pageFixture.page.locator(this.Password).fill(this.pass_word); //Password
         await pageFixture.page.locator(this.confirm).fill(this.pass_word);//confirm Password
         await pageFixture.page.click(this.check_resgister); //Click check box
