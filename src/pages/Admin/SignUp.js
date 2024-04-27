@@ -38,7 +38,10 @@ class SignUp {
     phone_no1 = randomFunction.generateRandomMobileNumber();
 
     email_id = `${this.f_name}${this.l_name}_${dateString}${timeString}@yopmail.com`;
-    org_name = randomFunction.generateRandomOrganizationName();  //Organization Name
+    email_id1 = `${this.f_name1}${this.l_name1}_${dateString1}${timeString1}@yopmail.com`;
+    
+    org_name = organizationName1;  //Organization Name
+    org_name1 = organizationName2;  //Organization Name
 
     pass_word = "Testing@321"; //Old Password 
 

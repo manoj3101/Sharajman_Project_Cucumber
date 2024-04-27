@@ -116,7 +116,7 @@ Given('Initiator started creating Call for Proposal CFP as an initiator as per a
 
     await dashboardCFP.ceilingBaseReturn(ad_data.AD_02.Ceiling_Base_Return, ad_data.AD_02.Ceiling_Base_Return_value);
 
-    await dashboardCFP.selectResponder(ad_data.AD_02.multiple_responder, ad_data.orgName1);
+    await dashboardCFP.selectResponder(ad_data.AD_02.multiple_responder, ad_data.orgName2);
 
     await dashboardCFP.custom_Guests(ad_data.AD_02.custom_Guests);
 
