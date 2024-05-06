@@ -56,7 +56,10 @@ class LOAManagement {
 
         await pageFixture.page.locator(" //label[contains(text(),'Responder')]").click();
         await pageFixture.page.getByPlaceholder('Search').fill(CFP);
+        await pageFixture.page.waitForTimeout(2000)
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+        await pageFixture.page.waitForTimeout(3000)
+
 
         //Document Verification
         await this.LOA_documentverification(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price)
@@ -363,9 +366,9 @@ class LOAManagement {
     }
 
 
-    async formatD(gtam, source, rpo, tGna, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum) {
-        // await pageFixture.page.getByPlaceholder('Search').fill(CFP);
-        // await pageFixture.page.getByRole('button', { name: /Search/i }).click();
+    async formatD(CFP, gtam, source, rpo, tGna, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum) {
+        await pageFixture.page.getByPlaceholder('Search').fill(CFP);
+        await pageFixture.page.getByRole('button', { name: /Search/i }).click();
 
         await pageFixture.page.waitForTimeout(2000);
 

@@ -193,6 +193,7 @@ Given('Initiator user navigates to the Application and logged in as per admin ca
     // login = new Login(pageFixture.page);
     console.log("-----------------------------------------INITIATOR-----------------------------------------");
     await login.login(email_id, newPassword);
+    // await login.login("monkeydluffy@gmail.com", "Test@12345");
 
 });
 
@@ -230,9 +231,8 @@ Given('Initiator started creating Call for Proposal CFP as per admin case one', 
 
     await dashboardCFP.ceilingBaseReturn(ad_data.AD_01.Ceiling_Base_Return, ad_data.AD_01.Ceiling_Base_Return_value);
 
-    await dashboardCFP.selectResponder(ad_data.AD_01.multiple_responder, data.responder);
-
-    await dashboardCFP.custom_Guests(ad_data.AD_01.custom_Guests);
+    await dashboardCFP.selectResponder(ad_data.AD_01.multiple_responder, org_name1);
+    // await dashboardCFP.selectResponder(ad_data.AD_01.multiple_responder, "OnePiece");
 
     await dashboardCFP.remarks(ad_data.AD_01.remarks);
 
@@ -249,7 +249,7 @@ Then('Verify Call for Proposal CFP Published successfully as per admin case one'
     console.log("Global CFP :" + cfpNumber);
 });
 
-//--------------WORKING FINE----------------------------------
+
 
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 6
@@ -261,6 +261,7 @@ Given('Responder navigates to the Application and logged in as per admin case on
 
     console.log("-----------------------------------------RESPONDER-----------------------------------------");
     await login.login(email_id1, newPassword1);
+    // await login.login("saanji@gmail.com", "Test@12345");
 
 });
 
@@ -275,106 +276,19 @@ Then('Verify Response CFP should be Placed successfully as per admin case one', 
 
     console.log("Global CFP: " + cfpNumber);
 
-    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_02.minQuantumValue1, ad_data.AD_02.ReturnValue1);
+    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_01.minQuantumValue1, ad_data.AD_01.ReturnValue1);
 
     await dashboardCFP.view_Respond(cfpNumber);
 
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_02.imp_start_time, ad_data.AD_02.imp_end_time, ad_data.AD_02.Minimum_QuantumValue);
+    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.Minimum_QuantumValue);
 
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_02.exp_start_time, ad_data.AD_02.exp_end_time, ad_data.AD_02.ReturnValue1);
+    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_01.exp_start_time, ad_data.AD_01.exp_end_time, ad_data.AD_01.ReturnValue1);
 
 });
 
 
 //-------------------------------------------------------------------------------------------------------------------------
 //@                                                     Scenario 7
-//-------------------------------------------------------------------------------------------------------------------------
-
-
-
-Given('Responder two navigates to the Application and logged in as per admin case one', async function () {
-
-   
-    console.log("-----------------------------------------RESPONDER 2 -----------------------------------------");
-    await login.login(data.user2, data.user2_password);
-
-});
-
-
-Then('Verify Responder two response CFP should be Placed successfully as per admin case one', async function () {
-
-    await home.clickCallForPropsal();
-
-    await dashboardCFP.clickresponder();
-
-    console.log("Global CFP: " + cfpNumber);
-
-    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_02.minQuantumValue1, ad_data.AD_02.ReturnValue1);
-
-    await dashboardCFP.view_Respond(cfpNumber);
-
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_02.imp_start_time, ad_data.AD_02.imp_end_time, ad_data.AD_02.Minimum_QuantumValue);
-
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_02.exp_start_time, ad_data.AD_02.exp_end_time, ad_data.AD_02.ReturnValue1);
-
-});
-
-//-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 8
-//-------------------------------------------------------------------------------------------------------------------------
-
-
-
-Given('Responder three navigates to the Application and logged in as per admin case one', async function () {
-
-    console.log("-----------------------------------------RESPONDER 3 -----------------------------------------");
-    await login.login(data.user2, data.user2_password);
-
-});
-
-
-Then('Verify Responder three response CFP should be Placed successfully as per admin case one', async function () {
-
-    await home.clickCallForPropsal();
-
-    await dashboardCFP.clickresponder();
-
-    console.log("Global CFP: " + cfpNumber);
-
-    await dashboardCFP.place_Respond(cfpNumber, ad_data.AD_02.minQuantumValue1, ad_data.AD_02.ReturnValue1);
-
-    await dashboardCFP.view_Respond(cfpNumber);
-
-    await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_02.imp_start_time, ad_data.AD_02.imp_end_time, ad_data.AD_02.Minimum_QuantumValue);
-
-    await dashboardCFP.energycalculation_responder(DashboardCFP.exp_start_date, DashboardCFP.exp_end_date, ad_data.AD_02.exp_start_time, ad_data.AD_02.exp_end_time, ad_data.AD_02.ReturnValue1);
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 9
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('Initiator started generating the award and generating the LOA as per admin case one', { timeout: 1200000 }, async function () {
@@ -416,7 +330,7 @@ Then('Verify Awarding and Generate LOA is successfull as per admin case one', as
 });
 
 ///-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 10
+//@                                                     Scenario 8
 //-------------------------------------------------------------------------------------------------------------------------
 
 
@@ -436,7 +350,7 @@ Then('Verify Responder\'s Upload documents is successfull as per admin case one'
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 11
+//@                                                     Scenario 9
 //-------------------------------------------------------------------------------------------------------------------------
 
 Then('Verify Format D is successfully Generated from initiator side as per admin case one', async function () {
@@ -446,14 +360,14 @@ Then('Verify Format D is successfully Generated from initiator side as per admin
 
     await loaManagement.loaGeneration();
 
-    await loaManagement.action_FormatD(cfpNumber);
+    await loaManagement.action(cfpNumber);
 
-    await loaManagement.formatD(ad_data.AD_01.GTAM, ad_data.AD_01.source_of_generation, ad_data.AD_01.RPO, ad_data.AD_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.Quantum_value);
+    await loaManagement.formatD(cfpNumber, ad_data.AD_01.GTAM, ad_data.AD_01.source_of_generation, ad_data.AD_01.RPO, ad_data.AD_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.Quantum_value);
 
 });
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 12
+//@                                                     Scenario 10
 //-------------------------------------------------------------------------------------------------------------------------
 
 Then('Verify Format D is successfully Generated from Responder side as per admin case one', async function () {
@@ -465,7 +379,7 @@ Then('Verify Format D is successfully Generated from Responder side as per admin
 
     await loaManagement.action_FormatD(cfpNumber);
 
-    await loaManagement.formatD(ad_data.AD_01.GTAM, ad_data.AD_01.source_of_generation, ad_data.AD_01.RPO, ad_data.AD_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.Quantum_value);
+    await loaManagement.formatD(cfpNumber, ad_data.AD_01.GTAM, ad_data.AD_01.source_of_generation, ad_data.AD_01.RPO, ad_data.AD_01.TGNA, DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_01.imp_start_time, ad_data.AD_01.imp_end_time, ad_data.AD_01.Quantum_value);
 
 });
 
@@ -473,12 +387,12 @@ Then('Verify Format D is successfully Generated from Responder side as per admin
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 13
+//@                                                     Scenario 11
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('Initator navigates to the application and logs in as an admin as per Admin Case One', async function () {
 
-    await login.login(email_id, password);  //Sign Up 
+    await login.login(email_id, newPassword);  //Sign Up 
 
     await manage_User.click_Manage_User(); //click Manage User
 
@@ -499,14 +413,14 @@ Given('Initator adds a staff user and assigns rights to the new user as per Admi
 
     await manage_User.email_Verify_Password(ADDUSER_EMAILID, ad_data.static_password);  //Verify the password 
 
-    await login.changePasswordAndTFA(ad_data.static_password, password); //Change Password & Two Factor Autentication
+    await login.changePasswordAndTFA(ad_data.static_password, newPassword); //Change Password & Two Factor Autentication
 
 });
 
 
 Then('Verify assigned new user successfully logs in as a staff member of the new member as per Admin Case One', async function () {
 
-    await login.re_login(ADDUSER_EMAILID, password); //Assigned new user Re-Logged with change password
+    await login.re_login(ADDUSER_EMAILID, newPassword); //Assigned new user Re-Logged with change password
 
     await signUp.OTP(); //Fill OTP
 

@@ -1,10 +1,10 @@
 {
     "browser":"msedge",
     "testtype":"Retest",
-    "URL":"https://platform.test.newage.market/login",
+    "URL":"https://platform.security-test.newage.market/login",
   
-    "admin":"sanjaykumars@yopmail.com",
-    "admin_password":"16121999@Dob",
+    "admin":"monica@yopmail.com",
+    "admin_password":"B5%U9e3kyV",
 
     "user1":"rolexdilly@yopmail.com",
     "user1_password":"Test@12345",

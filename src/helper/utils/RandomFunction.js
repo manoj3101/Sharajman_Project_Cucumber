@@ -84,7 +84,7 @@ class RandomFunction {
     
         // Add the milliseconds to the second organization name
         const orgName1 = `${randomOrganizationName1}_${dateString}${timeString}`;
-        const orgName2 = `${randomOrganizationName2}_${timeString}`;
+        const orgName2 = `${randomOrganizationName2}_${timeString}${millisecondString}`;
     
         return [orgName1, orgName2];
     }

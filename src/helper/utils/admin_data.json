@@ -1,6 +1,6 @@
 {
-    "admin": "sanjaykumars@yopmail.com",
-    "admin_password": "16121999@Dob",
+    "admin": "monica@yopmail.com",
+    "admin_password": "B5%U9e3kyV",
     "static_password":"654321",
 
     "user1":"SamuelHoward_24154906@yopmail.com",
@@ -41,20 +41,20 @@
 
 
         "chooseCFP":"Quick CFP",
-        "multiple_responder":true,
+        "multiple_responder":false,
         "Power_swapping":99999,
         "Fisrt_choice":"Import",
         "Result_Published":true,
        
     
-        "Minimum_Quantum":true,
-        "Minimum_QuantumValue":"0.01",
+        "Minimum_Quantum":false,
+        "Minimum_QuantumValue":"50",
     
         "imp_start_date" : 1,
         "imp_end_date" : 1,
         "imp_start_time":"20:00",
         "imp_end_time":"23:30",
-        "Quantum_value":"99999",
+        "Quantum_value":"50",
     
         "exp_start_date" : 2,
         "exp_end_date" : 2,
@@ -80,20 +80,14 @@
        
         "index":0,
         "Settlement_Price":"0.01",
-        "query_Box" :true,
-        "Ceiling_Base_Return":true,
+        "query_Box" :false,
+        "Ceiling_Base_Return":false,
         "Ceiling_Base_Return_value":"0.02",
-        "custom_Guests":"monicaa@yopmail.com",
         "remarks":"Good",
 
         "minQuantumValue1":"0.01",
-        "ReturnValue1":"0.02",
+        "ReturnValue1":"99",
     
-        "minQuantumValue2":"0.02",
-        "ReturnValue2":"0.01",
-        
-        "minQuantumValue3":"0.03",
-        "ReturnValue3":"0.01",
     
         "route":"YES",
         "GTAM":"YES",

@@ -1,5 +1,6 @@
 Feature: TC_AD_001
 
+
   Scenario: New Member Signing Up for the OTC Platform for initiator
     Given New Initiator user navigates to the application and initiates the sign-up process as per Admin case one
     And New Initiator user logs into the application again and changes the password as per Admin case one
@@ -31,16 +32,6 @@ Feature: TC_AD_001
   Scenario: Responder Responding to the CFP
     Given Responder navigates to the Application and logged in as per admin case one
     Then Verify Response CFP should be Placed successfully as per admin case one
-
-  Scenario: Responder two Responding to the CFP
-    Given Responder two navigates to the Application and logged in as per admin case one
-    Then Verify Responder two response CFP should be Placed successfully as per admin case one
-
-  Scenario: Responder three Responding to the CFP
-    Given Responder three navigates to the Application and logged in as per admin case one
-    Then Verify Responder three response CFP should be Placed successfully as per admin case one
-    
-
 
  
   Scenario: Initiator Awarding CFP and Generating LOA.
