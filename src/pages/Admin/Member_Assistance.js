@@ -57,7 +57,7 @@ class Member_Assistance {
 
     
         //privilege
-        await pageFixture.page.locator("(//var[contains(text(),'Choose')])[2]").click({timeout:40000});
+        await pageFixture.page.locator("(//var[contains(text(),'Choose')])[1]").click({timeout:40000});
 
 
         //Click the Make Payment button 

@@ -44,6 +44,7 @@ class Manage_User {
             // If element is not present, perform an assertion
             expect(isElementPresent).toBeFalsy();
             await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
+            console.log("Manage User is Unchecked");
             // Alternatively, you can log a message
             await pageFixture.page.waitForTimeout(3000)
         }
@@ -78,7 +79,7 @@ class Manage_User {
 
 
     //Member Rights
-    async add_user_rights(user_name, selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, lOA_Management,) {
+    async add_user_rights(user_name, selectAll, home, registration, manage_User, format_D, lOA_Generation, award, respond, initiate) {
 
         await pageFixture.page.waitForTimeout(3000);
         //Search organization name 
@@ -101,7 +102,6 @@ class Manage_User {
         const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
         const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
         const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_LOA_Management = await pageFixture.page.locator("(//input[@id='write'])[5]");
         const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
         const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
         const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
@@ -110,55 +110,70 @@ class Manage_User {
 
         if (selectAll) {
             await SelectAll.check();
+            expect(SelectAll).toBeChecked();
         }
         else {
-            //Home
             if (home) {
                 await check_Home.check();
+                expect(check_Home).toBeChecked(); //assert
             } else {
                 await check_Home.uncheck();
+                expect(check_Home).not.toBeChecked(); //assert
             }
             //Registration
             if (registration) {
                 await check_Registration.check();
+                expect(check_Registration).toBeChecked(); //assert
             } else {
                 await check_Registration.uncheck();
+                expect(check_Registration).not.toBeChecked(); //assert
             }
             //Manage User
             if (manage_User) {
                 await check_Manage_User.check();
+                expect(check_Manage_User).toBeChecked(); //assert
             } else {
                 await check_Manage_User.uncheck();
+                expect(check_Manage_User).not.toBeChecked(); //assert
             }
             //Format D
             if (format_D) {
                 await check_Format_D.check();
+                expect(check_Format_D).toBeChecked(); //assert
             } else {
                 await check_Format_D.uncheck();
+                expect(check_Format_D).not.toBeChecked(); //assert
             }
             //LOA Generation 
             if (lOA_Generation) {
                 await check_LOA_Generation.check();
+                expect(check_LOA_Generation).toBeChecked(); //assert
             } else {
                 await check_LOA_Generation.uncheck();
+                expect(check_LOA_Generation).not.toBeChecked(); //assert
             }
             //Award
             if (award) {
                 await check_Award.check();
+                expect(check_Award).toBeChecked(); //assert
             } else {
                 await check_Award.uncheck();
+                expect(check_Award).not.toBeChecked(); //assert
             }
             //Respond
             if (respond) {
                 await check_Respond.check();
+                expect(check_Respond).toBeChecked(); //assert
             } else {
                 await check_Respond.uncheck();
+                expect(check_Respond).not.toBeChecked(); //assert
             }
-            //LOA Management 
-            if (lOA_Management) {
-                await check_LOA_Management.check();
+            if (initiate) {
+                await check_Initiate.check();
+                expect(check_Initiate).toBeChecked(); //assert
             } else {
-                await check_LOA_Management.uncheck();
+                await check_Initiate.uncheck();
+                expect(check_Initiate).not.toBeChecked(); //assert
             }
         }
 

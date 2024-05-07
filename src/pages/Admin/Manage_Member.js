@@ -227,14 +227,8 @@ class Manage_Member {
         //Rights
         const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
         //select All
-        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
+
         const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
-        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
-        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
-        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
-        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
-        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
 
 
         //Registration
@@ -280,14 +274,7 @@ class Manage_Member {
         //Rights
         const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
         //select All
-        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
-        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
         const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
-        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
-        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
-        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
-        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
 
         //Manage User
         if (manage_User) {
@@ -332,15 +319,7 @@ class Manage_Member {
         //Rights
         const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
         //select All
-        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
-        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
-        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
         const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
-        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
-        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
-        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
-        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
-
 
         //Format D
         if (format_D) {
@@ -381,14 +360,8 @@ class Manage_Member {
         //Rights
         const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
         //select All
-        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
-        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
-        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
+
         const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
-        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
-        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
-        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
 
 
         //LOA Generation 
@@ -434,14 +407,8 @@ class Manage_Member {
         //Rights
         const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
         //select All
-        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
-        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
-        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
-        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
         const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
-        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
-        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
 
         //Award
         if (award) {
@@ -485,13 +452,6 @@ class Manage_Member {
         //Rights
         const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
         //select All
-        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
-        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
-        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
-        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
-        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
-        const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
         const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
 
 
@@ -535,14 +495,8 @@ class Manage_Member {
         //Rights
         const SelectAll = await pageFixture.page.locator("//input[@id='writechbk']");
         //select All
-        const check_Home = await pageFixture.page.locator("(//input[@id='write'])[1]");
-        const check_Registration = await pageFixture.page.locator("(//input[@id='write'])[2]");
-        const check_Manage_User = await pageFixture.page.locator("(//input[@id='write'])[3]");
-        const check_Format_D = await pageFixture.page.locator("(//input[@id='write'])[6]");
-        const check_LOA_Generation = await pageFixture.page.locator("(//input[@id='write'])[7]");
-        const check_Award = await pageFixture.page.locator("(//input[@id='write'])[8]");
         const check_Initiate = await pageFixture.page.locator("(//input[@id='write'])[9]");
-        const check_Respond = await pageFixture.page.locator("(//input[@id='write'])[10]");
+
 
         if (initiate) {
             await check_Initiate.check();

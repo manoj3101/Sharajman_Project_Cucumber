@@ -1,7 +1,8 @@
 {
-    "browser":"msedge",
+    "browser":"chrome",
     "testtype":"Retest",
-    "URL":"https://platform.test.newage.market/login",
+    "URL1":"https://platform.test.newage.market/login",
+    "URL":"https://platform.security-test.newage.market/login",
   
     "admin":"manoj@yopmail.com",
     "admin_password":"K#(j{83&ym",
@@ -9,14 +10,14 @@
     "user1":"smanoj3101work@gmail.com",
     "user1_password":"Testing@123",
     
-    "user2":"Junk@yopmail.com",
-    "user2_password":"Testing@123",
+    "user12":"Junk@yopmail.com",
+    "user12_password":"Testing@123",
     
-    "user3":"Donglegongle@yopmail.com",
-    "user3_password":"Testing@000",
+    "user13":"Donglegongle@yopmail.com",
+    "user13_password":"Testing@000",
     
-    "user4":"Bravoo@yopmail.com",
-    "user4_password":"Bravoo@54321",
+    "user14":"Bravoo@yopmail.com",
+    "user14_password":"Bravoo@54321",
 
     "user11":"manojkumar.s@tickingminds.com",
     "user11_password":"Testing@123",
@@ -24,22 +25,19 @@
     "user21":"CamilaPhillips@yopmail.com",
     "user21_password":"Phillips@123456",
 
-    "user22":"Xavier@yopmail.com",
-    "user22_password":"Testing@123",
+    "user2":"Xavier@yopmail.com",
+    "user2_password":"Testing@123",
     
-    "user33":"david@yopmail.com",
-    "user33_password":"Testing@1234",
+    "user3":"david@yopmail.com",
+    "user3_password":"Testing@1234",
 
-    "user44":"abd@yopmail.com",
-    "user44_password":"Testing@1234",
+    "user4":"abd@yopmail.com",
+    "user4_password":"Testing@1234",
 
     "user5":"sugumaran.n@tickingminds.com",
     "user5_password":"Otc@123456",
 
-    "Utility_1":"Ticking Minds",
-    "Utility_2":"Tickingminds_1",
-
-    "responder":"Tata_",
+    "responder":"Tickingminds_",
 
    
     "EX_01":{
