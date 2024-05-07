@@ -4,20 +4,20 @@ Format-D
 	
 T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA
 	
-1Application	No.1440638Date	:	06-05-2024
-2Applicant	NameQuantum	Solutions_175857288Registration	Code
+1Application	No.8800570Date	:	07-05-2024
+2Applicant	NameSilver	Lining_090355620Registration	Code
 3
 T-GNA	Request
 DateHours
 MW
 FromToFromTo
-08-05-202408-05-202403:0006:0057.75
+09-05-202409-05-202403:0006:0057.75
 4
 Name	of	Entity
 Injecting	entity	(mandatory	for	Exigency	T-
 GNAS	application)
 Drawee	Entity
-Fusion	Technologies_06175857Quantum	Solutions_175857288
+Innovate	Labs_07090355Silver	Lining_090355620
 5Injecting	RegionSRLDC
 6RouteSR-SR
 7
