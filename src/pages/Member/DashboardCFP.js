@@ -382,7 +382,7 @@ class DashboardCFP {
             await assert.assertToContains('//*[contains(text(),"You don\'t have privilege")]', "You don't have privilege to perform this action");
         }
         else {
-            await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //new button
+            // await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //new button
             await pageFixture.page.waitForTimeout(2000);
             //submitted status
             const cfpstatus = await pageFixture.page.locator(this.cfp).textContent();
