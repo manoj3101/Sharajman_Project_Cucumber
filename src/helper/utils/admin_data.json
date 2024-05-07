@@ -1,16 +1,16 @@
 {
-    "admin": "monica@yopmail.com",
-    "admin_password": "B5%U9e3kyV",
+    "admin":"manoj@yopmail.com",
+    "admin_password":"K#(j{83&ym",
     "static_password":"654321",
 
-    "user1":"SamuelHoward_24154906@yopmail.com",
-    "user1_password":"Howard@123456",
+    "user1":"ambani@yopmail.com",
+    "user1_password":"Ambani@123456",
 
-    "user2":"BellaBaker_24125133@yopmail.com",
-    "user2_password":"Baker@123456",
+    "user2":"elon@yopmail.com",
+    "user2_password":"Elon@123456",
 
-    "orgName1":"Quantum Leap_24154906",
-    "orgName2":"Digital Architects_24125133",
+    "orgName1":"Reliance",
+    "orgName2":"Tesla",
 
 
     "AD_01": {
@@ -128,6 +128,9 @@
         "Manage_User_res": true,
         "LOA_Management_res":true,
 
+
+        "selectall":true,
+
         "department":"testing",
         "designation":"lead",
         "sub_type":"Staff",
@@ -156,27 +159,27 @@
     
         "response_days":"00",
         "response_hours":"00",
-        "response_mins":"06",
+        "response_mins":"10",
     
         "award_days":"00",
         "award_hours":"00",
-        "award_mins":"05",
+        "award_mins":"10",
     
         "loa_issuance_days":"00",
         "loa_issuance_hours":"00",
-        "loa_issuance_mins":"05",
+        "loa_issuance_mins":"08",
     
         "loa_acceptance_days":"00",
         "loa_acceptance_hours":"00",
-        "loa_acceptance_mins":"05",
+        "loa_acceptance_mins":"08",
       
        
-        "index":3,
+        "index":2,
         "Settlement_Price":"",
         "query_Box" :false,
         "Ceiling_Base_Return":false,
         "Ceiling_Base_Return_value":"",
-        "custom_Guests":"No",
+        "custom_Guests":"",
         "remarks":"No",
     
         "minQuantumValue1":"",

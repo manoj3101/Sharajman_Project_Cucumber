@@ -4,20 +4,20 @@ Format-D
 	
 T-GNA	(Bilateral	Transaction)	Application	for	Grant	of	T-GNA
 	
-1Application	No.8800570Date	:	07-05-2024
-2Applicant	NameSilver	Lining_090355620Registration	Code
+1Application	No.4438761Date	:	24-04-2024
+2Applicant	NameDas&CoRegistration	Code
 3
 T-GNA	Request
 DateHours
 MW
 FromToFromTo
-09-05-202409-05-202403:0006:0057.75
+24-04-202624-04-202600:3004:3099999.0
 4
 Name	of	Entity
 Injecting	entity	(mandatory	for	Exigency	T-
 GNAS	application)
 Drawee	Entity
-Innovate	Labs_07090355Silver	Lining_090355620
+LCUDas&Co
 5Injecting	RegionSRLDC
 6RouteSR-SR
 7
@@ -26,14 +26,14 @@ embedded
 TN-SLDCTN-SLDC
 8Whether	the	transaction	under	GTAM	(Yes/No)YES
 9
-Source	of	generation	is	solar/non	solar/hydro	(applicable	in	case	of	Exigency	T-GNA
-application)
+Source	of	generation	is	solar/non	solar/hydro	(applicable	in	case	of	Exigency	T-
+GNA	application)
 SOLAR
 10Whether	the	transaction	is	for	meeting	RPO	obligationNO
 11
-Granting	T-GNA/T-GNARE	exigency	application	in	part	quantum	and	part	period	or
-both	in	case	of	constrains	as	per	available	transmission	capability	**	For	Exigency
-Application15
+Granting	T-GNA/T-GNARE	exigency	application	in	part	quantum	and	part	period
+or	both	in	case	of	constrains	as	per	available	transmission	capability	**	For
+Exigency	Application15
 YES
 	
 Declaration:

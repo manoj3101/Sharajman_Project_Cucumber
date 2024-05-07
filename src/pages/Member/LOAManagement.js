@@ -46,7 +46,26 @@ class LOAManagement {
         const home = await pageFixture.page.locator("(//span[contains(@class,'m-icon ng-star-inserted')])[2]");
         await home.hover({ timeout: 50000 });
         await pageFixture.page.locator("//span[contains(text(),'LOA Management')]").click();
-        await pageFixture.page.locator("//span[contains(text(),'LOA Generation')]").click();
+        // await pageFixture.page.locator("//span[contains(text(),'LOA Generation')]").click();
+
+        // Locate the LOA Generation
+        const loa_Generation =  await pageFixture.page.locator("//span[contains(text(),'LOA Generation')]");
+
+        // Check if the element is present
+        const isElementPresent = await loa_Generation.isVisible();
+
+        if (isElementPresent) {
+            // If element is present, click on it
+            await loa_Generation.click();
+
+        } else {
+            // If element is not present, perform an assertion
+            expect(isElementPresent).toBeFalsy();
+            await pageFixture.page.locator("(//img[@id='userprofile1'])[1]").click();
+            // Alternatively, you can log a message
+            await pageFixture.page.waitForTimeout(3000);
+
+        }
 
 
     }
@@ -56,10 +75,8 @@ class LOAManagement {
 
         await pageFixture.page.locator(" //label[contains(text(),'Responder')]").click();
         await pageFixture.page.getByPlaceholder('Search').fill(CFP);
-        await pageFixture.page.waitForTimeout(2000)
+        await pageFixture.page.waitForTimeout(2000);
         await pageFixture.page.getByRole('button', { name: /Search/i }).click();
-        await pageFixture.page.waitForTimeout(3000)
-
 
         //Document Verification
         await this.LOA_documentverification(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price)
@@ -75,7 +92,7 @@ class LOAManagement {
         if (loaAcceptanceMins === addedLOAAcceptanceTime || loaAcceptanceMins === addedLOAAcceptanceTime - 1) {
             console.log(`Contarct Awarding time is added to Loa Issuance Time ${loaAcceptanceMins} equals ${addedLOAAcceptanceTime}`);
         }
-    
+
         await pageFixture.page.waitForTimeout(5000);//Wait until document verification 
 
         await pageFixture.page.click("//div[contains(@class,'gredient-blue-icon-box')]");

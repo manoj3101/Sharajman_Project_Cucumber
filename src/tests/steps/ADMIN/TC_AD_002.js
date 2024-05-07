@@ -82,6 +82,16 @@ Given('Initiator navigate to the Application and logged in as a discom user as p
 
 });
 
+Given('Verify whether the Registration tab is present and Manage User tab is not in the application as per admin case two', async function () {
+
+    await home.clickRegistration();
+    await home.checkRegistration();
+    await home.clickHome();
+    await manage_User.click_Manage_User();
+    
+
+});
+
 Given('Initiator started creating Call for Proposal CFP as an initiator as per admin case two', async function () {
 
     await home.clickCallForPropsal();
@@ -198,7 +208,8 @@ Given('Verify whether the user is unable to Award the CFP as per admin case two'
 
 Given('Admin user giving award Rights for Initiator as per Admin case two', async function () {
 
-    await manage_Member.award_Check(ad_data.user1, ad_data.AD_02.Award_int1);
+    await manage_Member.click_Manage_Member(); //Manage User - Rights
+    await manage_Member.award_Check(ad_data.orgName1, ad_data.AD_02.Award_int1);
 
 });
 
@@ -216,8 +227,6 @@ Then('Verify whether the user is able to Award and Generate LOA after admin gave
 
     await dashboardCFP.generateAward();
 
-    console.log("Global CFP: " + cfpNumber);
-
     await dashboardCFP.initiatedFeed(cfpNumber);
 
     await dashboardCFP.energycalculation_initiator(DashboardCFP.imp_start_date, DashboardCFP.imp_end_date, ad_data.AD_02.imp_start_time, ad_data.AD_02.imp_end_time, ad_data.AD_02.Minimum_QuantumValue);
@@ -231,12 +240,33 @@ Then('Verify whether the user is able to Award and Generate LOA after admin gave
 });
 
 ///-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 6
+//@                                                     Scenario 7
+//-------------------------------------------------------------------------------------------------------------------------
+Then('Verify whether the LOA Generation and Registration tab is not in the application as per admin case two', async function () {
+
+    await loaManagement.loaGeneration();
+    await home.clickRegistration();
+
+});
+
+///-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 8
+//-------------------------------------------------------------------------------------------------------------------------
+Given('Admin user giving LOA and Registration Rights for Responder and manage user rights for Initiator as per Admin case two', async function () {
+
+    await manage_Member.click_Manage_Member(); //Manage User - Rights
+    await manage_Member.loaGeneration_Check(ad_data.orgName2, ad_data.AD_02.LOA_Generation_res1);
+    await manage_Member.registration_Check(ad_data.orgName2, ad_data.AD_02.Registration_res1);
+    await manage_Member.manageUser_Check(ad_data.orgName1, ad_data.AD_02.Manage_User_int1);
+
+});
+///-------------------------------------------------------------------------------------------------------------------------
+//@                                                     Scenario 9
 //-------------------------------------------------------------------------------------------------------------------------
 
 
 
-Then('Responder Uploading the documents should be successfull as per admin case two', async function () {
+Then('Verify whether the Responder have Uploaded the document successfull as per admin case two', async function () {
 
     await loaManagement.loaGeneration();
 
@@ -250,7 +280,7 @@ Then('Responder Uploading the documents should be successfull as per admin case 
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 7
+//@                                                     Scenario 10
 //-------------------------------------------------------------------------------------------------------------------------
 
 Then('Format D should be successfully Generated from initiator side as per admin case two', async function () {
@@ -267,7 +297,7 @@ Then('Format D should be successfully Generated from initiator side as per admin
 });
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 8
+//@                                                     Scenario 11
 //-------------------------------------------------------------------------------------------------------------------------
 
 Then('Format D should be successfully Generated from Responder side as per admin case two', async function () {
@@ -285,25 +315,25 @@ Then('Format D should be successfully Generated from Responder side as per admin
 
 
 //-------------------------------------------------------------------------------------------------------------------------
-//@                                                     Scenario 15
+//@                                                     Scenario 12
 //-------------------------------------------------------------------------------------------------------------------------
 
 Given('New user navigates to the application and logs in as an admin as per Admin Case two', async function () {
 
-    await login.login(email_id, password);  //Sign Up 
+    await login.login(ad_data.user1, ad_data.user1_password);  //Sign Up 
 
     await manage_User.click_Manage_User(); //click Manage User
 
 });
 
 
-Given('New user adds a staff user and assigns rights to the new user as per Admin Case two', { timeout: 120 * 1000 }, async function () {
+Given('New user adds a staff user and assigns rights to the new user as per Admin Case two', { timeout: 130 * 1000 }, async function () {
 
     await manage_User.add_User(ad_data.AD_02.department, ad_data.AD_02.designation, ad_data.AD_02.sub_type);
 
     console.log(`Add User Name : ${ADDUSER_NAME}`);
 
-    await manage_User.add_user_rights(ADDUSER_NAME, ad_data.AD_02.selectall, ad_data.AD_02.Home, ad_data.AD_02.Manage_User, ad_data.AD_02.FormatD, ad_data.AD_02.LOA_Generation, ad_data.AD_02.Award, ad_data.AD_02.Respond, ad_data.AD_02.LOA_Management)
+    await manage_User.add_user_rights(ADDUSER_NAME, ad_data.AD_02.selectall, ad_data.AD_02.Home_int, ad_data.AD_02.Registration_int, ad_data.AD_02.Manage_User_int, ad_data.AD_02.FormatD_int, ad_data.AD_02.LOA_Generation_int, ad_data.AD_02.Award_int, ad_data.AD_02.Respond_int, ad_data.AD_02.Initiate_int)
 
     await login.logout(); //Logout
 

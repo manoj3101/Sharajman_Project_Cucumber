@@ -382,6 +382,8 @@ class DashboardCFP {
             await assert.assertToContains('//*[contains(text(),"You don\'t have privilege")]', "You don't have privilege to perform this action");
         }
         else {
+            await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //new button
+            await pageFixture.page.waitForTimeout(2000);
             //submitted status
             const cfpstatus = await pageFixture.page.locator(this.cfp).textContent();
             console.log("---------------- ✔ " + cfpstatus + " ✔-----------------");
@@ -456,7 +458,8 @@ class DashboardCFP {
         await pageFixture.page.waitForTimeout(2000);
         //Click place response button...
         await pageFixture.page.locator("//button[contains(text(),'Place Response')]").click({ timeout: 50000 });
-        await pageFixture.page.locator("//button[text()=' Proceed ']").click();
+
+        await pageFixture.page.getByRole('button', { name: /Proceed/i }).click(); //new button
 
         //Checking the Message Response Placed Successfully is correct or not.
         await pageFixture.page.waitForTimeout(2000);
@@ -740,7 +743,7 @@ class DashboardCFP {
 
         await pageFixture.page.waitForTimeout(2000);
 
-        const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Award'])[" + (maxIndex + 1) + "]");
+        const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Accept'])[" + (maxIndex + 1) + "]");
         if (await award.isVisible()) {
             await award.click();
             await pageFixture.page.getByRole('button', { name: /Award/i }).click();
@@ -748,10 +751,9 @@ class DashboardCFP {
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
             //Negative Case
             //asserting the Awarded Successfully.
-            const awarded = await pageFixture.page.locator("//*[contains(text(),'Responder Awarded successfully')]").textContent();
-            expect(awarded).toContain("Responder Awarded successfully");
-            console.log("              ✔ Responder Awarded Successfully ✔          ");
-            await pageFixture.page.locator("//button[text()='Close']").click();
+            const awarded = await pageFixture.page.locator("//*[contains(text(),'Response Accepted Successfully')]").textContent();
+            expect(awarded).toContain("Response Accepted Successfully");
+            console.log("              ✔ Response Accepted Successfully ✔          ");
         }
     }
 
@@ -788,11 +790,12 @@ class DashboardCFP {
         }
 
         await pageFixture.page.waitForTimeout(2000)
-        const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Accept'])[" + (maxIndex + 1) + "]");
+        // const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Accept'])[" + (maxIndex + 1) + "]");
+        const award = await pageFixture.page.locator("(//a[@ngbtooltip='Click to Award'])[" + (maxIndex + 1) + "]");
         if (await award.isVisible()) {
             await award.click();
-            // await pageFixture.page.getByRole('button', { name: /Award/i }).click();
-            await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
+            await pageFixture.page.getByRole('button', { name: /Award/i }).click();
+            // await pageFixture.page.getByRole('button', { name: /Accept/i }).click();
             await pageFixture.page.getByRole('button', { name: /Yes/i }).click({ timeout: 40000 });
 
             //Negative Case
@@ -809,8 +812,7 @@ class DashboardCFP {
 
     //Generate LOA
     async generateLOA(CFP, imp_start_date, imp_end_date, imp_start_time, imp_end_time, quantum, exp_start_date, exp_end_date, exp_start_time, exp_end_time, returnpercent, Settlement_Price, loa_issuance_mins) {
-        //click the Generate LOA icon & proceed with 
-        await pageFixture.page.waitForTimeout(4000);
+        //click the Generate LOA icon & proceed with LOA
         const LOA = await pageFixture.page.locator("//a[contains(text(),'Generate LOA')]");
         if (await LOA.isVisible()) {
             const expire_Time = await pageFixture.page.locator("//span[contains(@class,'badge fw-600 bg-danger text-white ng-star-inserted')]").textContent();
@@ -824,12 +826,12 @@ class DashboardCFP {
         await tabSwitch.switchToTab("loi");
         const a = await pageFixture.page.url();
         if (a.includes('403')) {
-            
+
         }
 
 
         //switch to the tab
-       
+
 
         //Getting the text from the LOA Form After generating the pdf
         const ref_no = (await pageFixture.page.locator("//input[@placeholder='rfq']").textContent()).trim();
@@ -990,7 +992,7 @@ class DashboardCFP {
         await pageFixture.page.waitForTimeout(2000);
         // await expect(await pageFixture.page.locator("//div[@ngbtooltip='Re-Upload']")).toBeHidden();
         const loa_assert = await pageFixture.page.locator("//*[contains(text(),'LOA has been uploaded successfully')]").textContent();
-        await expect(loa_assert).toContain("LOA has been uploaded successfully");
+        expect(loa_assert).toContain("LOA has been uploaded successfully");
         console.log("----------------Successfully Uploaded the document ----------------");
 
     }
